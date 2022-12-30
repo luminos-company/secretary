@@ -10,16 +10,17 @@ You would be able to generate various types of keys, such as RSA, ECDSA, and Ed2
 There are many key management systems out there, but none of them are open source. This is a problem, because you can't trust a closed source system with your keys.
 
 ## Why Go?
-Go is a great language for writing systems like this. It's fast, easy to use, and has a great community (And we love it `:heart:` ).
+Go is a great language for writing systems like this. It's fast, easy to use, and has a great community (And we love it ❤️).
 
 ## How do I use it?
 You can use the docker image or build it yourself.
 
-### Docker
-You can use the docker image by running the following command:
+To run the docker image execute the following command:
 ```bash
-docker run -p 8080:8080 -v /persistent/keys:/keys ghcr.io/luminos-company/secretary:master
+docker run -p 8080:8080 -p 50051:50051 -v /persistent/keys:/keys ghcr.io/luminos-company/secretary:master
 ```
+
+Soon the Traefik configuration.
 
 ## How do I contribute?
 You can contribute by opening a pull request, or by opening an issue.
