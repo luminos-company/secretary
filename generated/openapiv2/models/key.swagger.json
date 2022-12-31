@@ -16,14 +16,14 @@
     "application/json"
   ],
   "paths": {
-    "/keys": {
-      "post": {
-        "operationId": "KeyService_CreateKey",
+    "/v1/keys": {
+      "get": {
+        "operationId": "KeyService_List",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/modelsKey"
+              "$ref": "#/definitions/modelsKeyServiceListResponse"
             }
           },
           "default": {
@@ -35,32 +35,31 @@
         },
         "parameters": [
           {
-            "name": "ShouldRotate",
+            "name": "pagination.limit",
             "in": "query",
             "required": false,
-            "type": "boolean"
+            "type": "integer",
+            "format": "int32"
           },
           {
-            "name": "ExpiresAt.timestamp",
+            "name": "pagination.offset",
             "in": "query",
             "required": false,
-            "type": "string",
-            "format": "date-time"
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "tags": [
           "KeyService"
         ]
-      }
-    },
-    "/keys/list": {
+      },
       "post": {
-        "operationId": "KeyService_GetKeys",
+        "operationId": "KeyService_Create",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/modelsKeyList"
+              "$ref": "#/definitions/modelsKeyServiceCreateResponse"
             }
           },
           "default": {
@@ -70,19 +69,57 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/modelsKeyServiceCreateRequest"
+            }
+          }
+        ],
         "tags": [
           "KeyService"
         ]
       }
     },
-    "/keys/{id}": {
+    "/v1/keys/{id}": {
       "get": {
-        "operationId": "KeyService_GetKey",
+        "operationId": "KeyService_Get",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/modelsKey"
+              "$ref": "#/definitions/modelsKeyServiceGetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      },
+      "delete": {
+        "operationId": "KeyService_Delete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/modelsKeyServiceDeleteResponse"
             }
           },
           "default": {
@@ -105,14 +142,14 @@
         ]
       }
     },
-    "/models.KeyService/Crypt": {
+    "/v1/keys/{id}/crypto": {
       "post": {
-        "operationId": "KeyService_Crypt",
+        "operationId": "KeyService_Crypto",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/modelsCryptResponse"
+              "$ref": "#/definitions/modelsKeyServiceCryptoResponse"
             }
           },
           "default": {
@@ -124,11 +161,22 @@
         },
         "parameters": [
           {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/modelsCryptRequest"
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -137,14 +185,14 @@
         ]
       }
     },
-    "/models.KeyService/Decrypt": {
+    "/v1/keys/{id}/decrypt": {
       "post": {
         "operationId": "KeyService_Decrypt",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/modelsDecryptResponse"
+              "$ref": "#/definitions/modelsKeyServiceDecryptResponse"
             }
           },
           "default": {
@@ -156,11 +204,22 @@
         },
         "parameters": [
           {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/modelsDecryptRequest"
+              "type": "object",
+              "properties": {
+                "ciphertext": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -169,14 +228,14 @@
         ]
       }
     },
-    "/models.KeyService/DeleteKey": {
+    "/v1/keys/{id}/rotate": {
       "post": {
-        "operationId": "KeyService_DeleteKey",
+        "operationId": "KeyService_Rotate",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/modelsKey"
+              "$ref": "#/definitions/modelsKeyServiceRotateResponse"
             }
           },
           "default": {
@@ -188,12 +247,10 @@
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
+            "name": "id",
+            "in": "path",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/typesID"
-            }
+            "type": "string"
           }
         ],
         "tags": [
@@ -201,46 +258,14 @@
         ]
       }
     },
-    "/models.KeyService/RotateKey": {
-      "post": {
-        "operationId": "KeyService_RotateKey",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/modelsKey"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/typesID"
-            }
-          }
-        ],
-        "tags": [
-          "KeyService"
-        ]
-      }
-    },
-    "/models.KeyService/Sign": {
+    "/v1/keys/{id}/sign": {
       "post": {
         "operationId": "KeyService_Sign",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/modelsSignResponse"
+              "$ref": "#/definitions/modelsKeyServiceSignResponse"
             }
           },
           "default": {
@@ -252,11 +277,22 @@
         },
         "parameters": [
           {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/modelsSignRequest"
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -265,14 +301,14 @@
         ]
       }
     },
-    "/models.KeyService/Verify": {
+    "/v1/keys/{id}/verify": {
       "post": {
         "operationId": "KeyService_Verify",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/modelsVerifyResponse"
+              "$ref": "#/definitions/modelsKeyServiceVerifyResponse"
             }
           },
           "default": {
@@ -284,11 +320,25 @@
         },
         "parameters": [
           {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/modelsVerifyRequest"
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "signature": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -299,139 +349,123 @@
     }
   },
   "definitions": {
-    "modelsCryptRequest": {
-      "type": "object",
-      "properties": {
-        "ID": {
-          "$ref": "#/definitions/typesID"
-        },
-        "Message": {
-          "type": "string"
-        }
-      }
-    },
-    "modelsCryptResponse": {
-      "type": "object",
-      "properties": {
-        "Message": {
-          "type": "string"
-        },
-        "Cipher": {
-          "type": "string"
-        }
-      }
-    },
-    "modelsDecryptRequest": {
-      "type": "object",
-      "properties": {
-        "ID": {
-          "$ref": "#/definitions/typesID"
-        },
-        "Cipher": {
-          "type": "string"
-        }
-      }
-    },
-    "modelsDecryptResponse": {
-      "type": "object",
-      "properties": {
-        "Message": {
-          "type": "string"
-        },
-        "Cipher": {
-          "type": "string"
-        }
-      }
-    },
     "modelsKey": {
       "type": "object",
       "properties": {
-        "ID": {
-          "$ref": "#/definitions/typesID"
+        "basic": {
+          "$ref": "#/definitions/typesBasic"
         },
-        "PrivateKey": {
+        "privateKey": {
           "type": "string"
         },
-        "PublicKey": {
+        "publicKey": {
           "type": "string"
         },
-        "ShouldRotate": {
+        "shouldRotate": {
           "type": "boolean"
         },
-        "RotatedFromId": {
+        "rotatedFromId": {
           "type": "string"
         },
-        "RotateCron": {
+        "rotateCron": {
           "type": "string"
         },
-        "CreatedAt": {
-          "$ref": "#/definitions/typesTimestamp"
-        },
-        "UpdatedAt": {
-          "$ref": "#/definitions/typesTimestamp"
-        },
-        "ExpiresAt": {
-          "$ref": "#/definitions/typesTimestamp"
-        },
-        "DeletedAt": {
+        "expiresAt": {
           "$ref": "#/definitions/typesTimestamp"
         }
       }
     },
-    "modelsKeyList": {
+    "modelsKeyServiceCreateRequest": {
       "type": "object",
       "properties": {
-        "Keys": {
+        "privateKey": {
+          "type": "string"
+        },
+        "publicKey": {
+          "type": "string"
+        },
+        "shouldRotate": {
+          "type": "boolean"
+        },
+        "rotateCron": {
+          "type": "string"
+        }
+      }
+    },
+    "modelsKeyServiceCreateResponse": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/modelsKey"
+        }
+      }
+    },
+    "modelsKeyServiceCryptoResponse": {
+      "type": "object",
+      "properties": {
+        "ciphertext": {
+          "type": "string"
+        }
+      }
+    },
+    "modelsKeyServiceDecryptResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "modelsKeyServiceDeleteResponse": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/modelsKey"
+        }
+      }
+    },
+    "modelsKeyServiceGetResponse": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/modelsKey"
+        }
+      }
+    },
+    "modelsKeyServiceListResponse": {
+      "type": "object",
+      "properties": {
+        "keys": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/modelsKey"
           }
+        },
+        "pagination": {
+          "$ref": "#/definitions/typesPagination"
         }
       }
     },
-    "modelsSignRequest": {
+    "modelsKeyServiceRotateResponse": {
       "type": "object",
       "properties": {
-        "ID": {
-          "$ref": "#/definitions/typesID"
-        },
-        "Message": {
-          "type": "string"
+        "key": {
+          "$ref": "#/definitions/modelsKey"
         }
       }
     },
-    "modelsSignResponse": {
+    "modelsKeyServiceSignResponse": {
       "type": "object",
       "properties": {
-        "Message": {
-          "type": "string"
-        },
-        "Signature": {
-          "type": "string"
-        }
-      }
-    },
-    "modelsVerifyRequest": {
-      "type": "object",
-      "properties": {
-        "ID": {
-          "$ref": "#/definitions/typesID"
-        },
-        "Message": {
-          "type": "string"
-        },
-        "Signature": {
+        "signature": {
           "type": "string"
         }
       }
     },
-    "modelsVerifyResponse": {
+    "modelsKeyServiceVerifyResponse": {
       "type": "object",
       "properties": {
-        "Message": {
-          "type": "string"
-        },
-        "Verified": {
+        "valid": {
           "type": "boolean"
         }
       }
@@ -463,11 +497,50 @@
         }
       }
     },
+    "typesBasic": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/typesID"
+        },
+        "updatedAt": {
+          "$ref": "#/definitions/typesTimestamp"
+        },
+        "createdAt": {
+          "$ref": "#/definitions/typesTimestamp"
+        },
+        "deletedAt": {
+          "$ref": "#/definitions/typesDeletedAt"
+        }
+      }
+    },
+    "typesDeletedAt": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
     "typesID": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
+        }
+      }
+    },
+    "typesPagination": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },

@@ -5,17 +5,20 @@ import (
 	"github.com/luminos-company/secretary/generated/models"
 	"github.com/luminos-company/secretary/generated/query"
 	"github.com/luminos-company/secretary/tools/keys"
-	"log"
 )
 
 func main() {
-	re := keys.Rsa{}
-	re.Generate()
-	log.Println(re.ExportJWK())
+	database.Get()
 	query.SetDefault(database.Get())
-	query.Key.Save(&models.Key{
-		PrivateKey:   re.ExportPrivateBase64(),
-		PublicKey:    re.ExportPublicBase64(),
+	t := keys.Rsa{}
+	t.Generate()
+	r := &models.Key{
+		PrivateKey:   t.ExportPrivateBase64(),
+		PublicKey:    t.ExportPublicBase64(),
 		ShouldRotate: false,
-	})
+	}
+	err := query.Key.Save(r)
+	if err != nil {
+		panic(err)
+	}
 }

@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/descriptor.proto";
+import "tagger/tagger.proto";
 package types;
 
 option go_package = "github.com/luminos-company/secretary/generated/types";
@@ -17,4 +18,20 @@ message DeletedAt {
 
 message ID {
   string id = 1;
+}
+
+message Basic {
+  ID id = 1 [(tagger.tags) = "json:\"id\" gorm:\"primary_key\""];
+  Timestamp updated_at = 2 [(tagger.tags) = "json:\"updated_at\" gorm:\"index; type:timestamptz; autoCreateTime\""];
+  Timestamp created_at = 3 [(tagger.tags) = "json:\"created_at\" gorm:\"index; type:timestamptz; autoUpdateTime\""];
+  DeletedAt deleted_at = 4 [(tagger.tags) = "json:\"deleted_at\" gorm:\"index; type:timestamptz\""];
+}
+
+message IDList {
+  repeated ID ids = 1;
+}
+
+message Pagination {
+  int32 limit = 1;
+  int32 offset = 2;
 }

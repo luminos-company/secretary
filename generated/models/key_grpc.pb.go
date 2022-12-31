@@ -8,7 +8,6 @@ package models
 
 import (
 	context "context"
-	types "github.com/luminos-company/secretary/generated/types"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -23,15 +22,15 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type KeyServiceClient interface {
-	CreateKey(ctx context.Context, in *KeyCreator, opts ...grpc.CallOption) (*Key, error)
-	GetKey(ctx context.Context, in *types.ID, opts ...grpc.CallOption) (*Key, error)
-	GetKeys(ctx context.Context, in *IDList, opts ...grpc.CallOption) (*KeyList, error)
-	RotateKey(ctx context.Context, in *types.ID, opts ...grpc.CallOption) (*Key, error)
-	DeleteKey(ctx context.Context, in *types.ID, opts ...grpc.CallOption) (*Key, error)
-	Sign(ctx context.Context, in *SignRequest, opts ...grpc.CallOption) (*SignResponse, error)
-	Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error)
-	Crypt(ctx context.Context, in *CryptRequest, opts ...grpc.CallOption) (*CryptResponse, error)
-	Decrypt(ctx context.Context, in *DecryptRequest, opts ...grpc.CallOption) (*DecryptResponse, error)
+	Create(ctx context.Context, in *KeyServiceCreateRequest, opts ...grpc.CallOption) (*KeyServiceCreateResponse, error)
+	Get(ctx context.Context, in *KeyServiceGetRequest, opts ...grpc.CallOption) (*KeyServiceGetResponse, error)
+	List(ctx context.Context, in *KeyServiceListRequest, opts ...grpc.CallOption) (*KeyServiceListResponse, error)
+	Sign(ctx context.Context, in *KeyServiceSignRequest, opts ...grpc.CallOption) (*KeyServiceSignResponse, error)
+	Verify(ctx context.Context, in *KeyServiceVerifyRequest, opts ...grpc.CallOption) (*KeyServiceVerifyResponse, error)
+	Crypto(ctx context.Context, in *KeyServiceCryptoRequest, opts ...grpc.CallOption) (*KeyServiceCryptoResponse, error)
+	Decrypt(ctx context.Context, in *KeyServiceDecryptRequest, opts ...grpc.CallOption) (*KeyServiceDecryptResponse, error)
+	Rotate(ctx context.Context, in *KeyServiceRotateRequest, opts ...grpc.CallOption) (*KeyServiceRotateResponse, error)
+	Delete(ctx context.Context, in *KeyServiceDeleteRequest, opts ...grpc.CallOption) (*KeyServiceDeleteResponse, error)
 }
 
 type keyServiceClient struct {
@@ -42,53 +41,35 @@ func NewKeyServiceClient(cc grpc.ClientConnInterface) KeyServiceClient {
 	return &keyServiceClient{cc}
 }
 
-func (c *keyServiceClient) CreateKey(ctx context.Context, in *KeyCreator, opts ...grpc.CallOption) (*Key, error) {
-	out := new(Key)
-	err := c.cc.Invoke(ctx, "/models.KeyService/CreateKey", in, out, opts...)
+func (c *keyServiceClient) Create(ctx context.Context, in *KeyServiceCreateRequest, opts ...grpc.CallOption) (*KeyServiceCreateResponse, error) {
+	out := new(KeyServiceCreateResponse)
+	err := c.cc.Invoke(ctx, "/models.KeyService/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *keyServiceClient) GetKey(ctx context.Context, in *types.ID, opts ...grpc.CallOption) (*Key, error) {
-	out := new(Key)
-	err := c.cc.Invoke(ctx, "/models.KeyService/GetKey", in, out, opts...)
+func (c *keyServiceClient) Get(ctx context.Context, in *KeyServiceGetRequest, opts ...grpc.CallOption) (*KeyServiceGetResponse, error) {
+	out := new(KeyServiceGetResponse)
+	err := c.cc.Invoke(ctx, "/models.KeyService/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *keyServiceClient) GetKeys(ctx context.Context, in *IDList, opts ...grpc.CallOption) (*KeyList, error) {
-	out := new(KeyList)
-	err := c.cc.Invoke(ctx, "/models.KeyService/GetKeys", in, out, opts...)
+func (c *keyServiceClient) List(ctx context.Context, in *KeyServiceListRequest, opts ...grpc.CallOption) (*KeyServiceListResponse, error) {
+	out := new(KeyServiceListResponse)
+	err := c.cc.Invoke(ctx, "/models.KeyService/List", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *keyServiceClient) RotateKey(ctx context.Context, in *types.ID, opts ...grpc.CallOption) (*Key, error) {
-	out := new(Key)
-	err := c.cc.Invoke(ctx, "/models.KeyService/RotateKey", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyServiceClient) DeleteKey(ctx context.Context, in *types.ID, opts ...grpc.CallOption) (*Key, error) {
-	out := new(Key)
-	err := c.cc.Invoke(ctx, "/models.KeyService/DeleteKey", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyServiceClient) Sign(ctx context.Context, in *SignRequest, opts ...grpc.CallOption) (*SignResponse, error) {
-	out := new(SignResponse)
+func (c *keyServiceClient) Sign(ctx context.Context, in *KeyServiceSignRequest, opts ...grpc.CallOption) (*KeyServiceSignResponse, error) {
+	out := new(KeyServiceSignResponse)
 	err := c.cc.Invoke(ctx, "/models.KeyService/Sign", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -96,8 +77,8 @@ func (c *keyServiceClient) Sign(ctx context.Context, in *SignRequest, opts ...gr
 	return out, nil
 }
 
-func (c *keyServiceClient) Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error) {
-	out := new(VerifyResponse)
+func (c *keyServiceClient) Verify(ctx context.Context, in *KeyServiceVerifyRequest, opts ...grpc.CallOption) (*KeyServiceVerifyResponse, error) {
+	out := new(KeyServiceVerifyResponse)
 	err := c.cc.Invoke(ctx, "/models.KeyService/Verify", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -105,18 +86,36 @@ func (c *keyServiceClient) Verify(ctx context.Context, in *VerifyRequest, opts .
 	return out, nil
 }
 
-func (c *keyServiceClient) Crypt(ctx context.Context, in *CryptRequest, opts ...grpc.CallOption) (*CryptResponse, error) {
-	out := new(CryptResponse)
-	err := c.cc.Invoke(ctx, "/models.KeyService/Crypt", in, out, opts...)
+func (c *keyServiceClient) Crypto(ctx context.Context, in *KeyServiceCryptoRequest, opts ...grpc.CallOption) (*KeyServiceCryptoResponse, error) {
+	out := new(KeyServiceCryptoResponse)
+	err := c.cc.Invoke(ctx, "/models.KeyService/Crypto", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *keyServiceClient) Decrypt(ctx context.Context, in *DecryptRequest, opts ...grpc.CallOption) (*DecryptResponse, error) {
-	out := new(DecryptResponse)
+func (c *keyServiceClient) Decrypt(ctx context.Context, in *KeyServiceDecryptRequest, opts ...grpc.CallOption) (*KeyServiceDecryptResponse, error) {
+	out := new(KeyServiceDecryptResponse)
 	err := c.cc.Invoke(ctx, "/models.KeyService/Decrypt", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyServiceClient) Rotate(ctx context.Context, in *KeyServiceRotateRequest, opts ...grpc.CallOption) (*KeyServiceRotateResponse, error) {
+	out := new(KeyServiceRotateResponse)
+	err := c.cc.Invoke(ctx, "/models.KeyService/Rotate", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyServiceClient) Delete(ctx context.Context, in *KeyServiceDeleteRequest, opts ...grpc.CallOption) (*KeyServiceDeleteResponse, error) {
+	out := new(KeyServiceDeleteResponse)
+	err := c.cc.Invoke(ctx, "/models.KeyService/Delete", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -127,15 +126,15 @@ func (c *keyServiceClient) Decrypt(ctx context.Context, in *DecryptRequest, opts
 // All implementations must embed UnimplementedKeyServiceServer
 // for forward compatibility
 type KeyServiceServer interface {
-	CreateKey(context.Context, *KeyCreator) (*Key, error)
-	GetKey(context.Context, *types.ID) (*Key, error)
-	GetKeys(context.Context, *IDList) (*KeyList, error)
-	RotateKey(context.Context, *types.ID) (*Key, error)
-	DeleteKey(context.Context, *types.ID) (*Key, error)
-	Sign(context.Context, *SignRequest) (*SignResponse, error)
-	Verify(context.Context, *VerifyRequest) (*VerifyResponse, error)
-	Crypt(context.Context, *CryptRequest) (*CryptResponse, error)
-	Decrypt(context.Context, *DecryptRequest) (*DecryptResponse, error)
+	Create(context.Context, *KeyServiceCreateRequest) (*KeyServiceCreateResponse, error)
+	Get(context.Context, *KeyServiceGetRequest) (*KeyServiceGetResponse, error)
+	List(context.Context, *KeyServiceListRequest) (*KeyServiceListResponse, error)
+	Sign(context.Context, *KeyServiceSignRequest) (*KeyServiceSignResponse, error)
+	Verify(context.Context, *KeyServiceVerifyRequest) (*KeyServiceVerifyResponse, error)
+	Crypto(context.Context, *KeyServiceCryptoRequest) (*KeyServiceCryptoResponse, error)
+	Decrypt(context.Context, *KeyServiceDecryptRequest) (*KeyServiceDecryptResponse, error)
+	Rotate(context.Context, *KeyServiceRotateRequest) (*KeyServiceRotateResponse, error)
+	Delete(context.Context, *KeyServiceDeleteRequest) (*KeyServiceDeleteResponse, error)
 	mustEmbedUnimplementedKeyServiceServer()
 }
 
@@ -143,32 +142,32 @@ type KeyServiceServer interface {
 type UnimplementedKeyServiceServer struct {
 }
 
-func (UnimplementedKeyServiceServer) CreateKey(context.Context, *KeyCreator) (*Key, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateKey not implemented")
+func (UnimplementedKeyServiceServer) Create(context.Context, *KeyServiceCreateRequest) (*KeyServiceCreateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedKeyServiceServer) GetKey(context.Context, *types.ID) (*Key, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetKey not implemented")
+func (UnimplementedKeyServiceServer) Get(context.Context, *KeyServiceGetRequest) (*KeyServiceGetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedKeyServiceServer) GetKeys(context.Context, *IDList) (*KeyList, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetKeys not implemented")
+func (UnimplementedKeyServiceServer) List(context.Context, *KeyServiceListRequest) (*KeyServiceListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
-func (UnimplementedKeyServiceServer) RotateKey(context.Context, *types.ID) (*Key, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RotateKey not implemented")
-}
-func (UnimplementedKeyServiceServer) DeleteKey(context.Context, *types.ID) (*Key, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteKey not implemented")
-}
-func (UnimplementedKeyServiceServer) Sign(context.Context, *SignRequest) (*SignResponse, error) {
+func (UnimplementedKeyServiceServer) Sign(context.Context, *KeyServiceSignRequest) (*KeyServiceSignResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Sign not implemented")
 }
-func (UnimplementedKeyServiceServer) Verify(context.Context, *VerifyRequest) (*VerifyResponse, error) {
+func (UnimplementedKeyServiceServer) Verify(context.Context, *KeyServiceVerifyRequest) (*KeyServiceVerifyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Verify not implemented")
 }
-func (UnimplementedKeyServiceServer) Crypt(context.Context, *CryptRequest) (*CryptResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Crypt not implemented")
+func (UnimplementedKeyServiceServer) Crypto(context.Context, *KeyServiceCryptoRequest) (*KeyServiceCryptoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Crypto not implemented")
 }
-func (UnimplementedKeyServiceServer) Decrypt(context.Context, *DecryptRequest) (*DecryptResponse, error) {
+func (UnimplementedKeyServiceServer) Decrypt(context.Context, *KeyServiceDecryptRequest) (*KeyServiceDecryptResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Decrypt not implemented")
+}
+func (UnimplementedKeyServiceServer) Rotate(context.Context, *KeyServiceRotateRequest) (*KeyServiceRotateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Rotate not implemented")
+}
+func (UnimplementedKeyServiceServer) Delete(context.Context, *KeyServiceDeleteRequest) (*KeyServiceDeleteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 func (UnimplementedKeyServiceServer) mustEmbedUnimplementedKeyServiceServer() {}
 
@@ -183,98 +182,62 @@ func RegisterKeyServiceServer(s grpc.ServiceRegistrar, srv KeyServiceServer) {
 	s.RegisterService(&KeyService_ServiceDesc, srv)
 }
 
-func _KeyService_CreateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(KeyCreator)
+func _KeyService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyServiceCreateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(KeyServiceServer).CreateKey(ctx, in)
+		return srv.(KeyServiceServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/models.KeyService/CreateKey",
+		FullMethod: "/models.KeyService/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyServiceServer).CreateKey(ctx, req.(*KeyCreator))
+		return srv.(KeyServiceServer).Create(ctx, req.(*KeyServiceCreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _KeyService_GetKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(types.ID)
+func _KeyService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyServiceGetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(KeyServiceServer).GetKey(ctx, in)
+		return srv.(KeyServiceServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/models.KeyService/GetKey",
+		FullMethod: "/models.KeyService/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyServiceServer).GetKey(ctx, req.(*types.ID))
+		return srv.(KeyServiceServer).Get(ctx, req.(*KeyServiceGetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _KeyService_GetKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IDList)
+func _KeyService_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyServiceListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(KeyServiceServer).GetKeys(ctx, in)
+		return srv.(KeyServiceServer).List(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/models.KeyService/GetKeys",
+		FullMethod: "/models.KeyService/List",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyServiceServer).GetKeys(ctx, req.(*IDList))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyService_RotateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(types.ID)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyServiceServer).RotateKey(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/models.KeyService/RotateKey",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyServiceServer).RotateKey(ctx, req.(*types.ID))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyService_DeleteKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(types.ID)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyServiceServer).DeleteKey(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/models.KeyService/DeleteKey",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyServiceServer).DeleteKey(ctx, req.(*types.ID))
+		return srv.(KeyServiceServer).List(ctx, req.(*KeyServiceListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _KeyService_Sign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SignRequest)
+	in := new(KeyServiceSignRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -286,13 +249,13 @@ func _KeyService_Sign_Handler(srv interface{}, ctx context.Context, dec func(int
 		FullMethod: "/models.KeyService/Sign",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyServiceServer).Sign(ctx, req.(*SignRequest))
+		return srv.(KeyServiceServer).Sign(ctx, req.(*KeyServiceSignRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _KeyService_Verify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(VerifyRequest)
+	in := new(KeyServiceVerifyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -304,31 +267,31 @@ func _KeyService_Verify_Handler(srv interface{}, ctx context.Context, dec func(i
 		FullMethod: "/models.KeyService/Verify",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyServiceServer).Verify(ctx, req.(*VerifyRequest))
+		return srv.(KeyServiceServer).Verify(ctx, req.(*KeyServiceVerifyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _KeyService_Crypt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CryptRequest)
+func _KeyService_Crypto_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyServiceCryptoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(KeyServiceServer).Crypt(ctx, in)
+		return srv.(KeyServiceServer).Crypto(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/models.KeyService/Crypt",
+		FullMethod: "/models.KeyService/Crypto",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyServiceServer).Crypt(ctx, req.(*CryptRequest))
+		return srv.(KeyServiceServer).Crypto(ctx, req.(*KeyServiceCryptoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _KeyService_Decrypt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DecryptRequest)
+	in := new(KeyServiceDecryptRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -340,7 +303,43 @@ func _KeyService_Decrypt_Handler(srv interface{}, ctx context.Context, dec func(
 		FullMethod: "/models.KeyService/Decrypt",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyServiceServer).Decrypt(ctx, req.(*DecryptRequest))
+		return srv.(KeyServiceServer).Decrypt(ctx, req.(*KeyServiceDecryptRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyService_Rotate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyServiceRotateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyServiceServer).Rotate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/models.KeyService/Rotate",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyServiceServer).Rotate(ctx, req.(*KeyServiceRotateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyServiceDeleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyServiceServer).Delete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/models.KeyService/Delete",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyServiceServer).Delete(ctx, req.(*KeyServiceDeleteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -353,24 +352,16 @@ var KeyService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*KeyServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateKey",
-			Handler:    _KeyService_CreateKey_Handler,
+			MethodName: "Create",
+			Handler:    _KeyService_Create_Handler,
 		},
 		{
-			MethodName: "GetKey",
-			Handler:    _KeyService_GetKey_Handler,
+			MethodName: "Get",
+			Handler:    _KeyService_Get_Handler,
 		},
 		{
-			MethodName: "GetKeys",
-			Handler:    _KeyService_GetKeys_Handler,
-		},
-		{
-			MethodName: "RotateKey",
-			Handler:    _KeyService_RotateKey_Handler,
-		},
-		{
-			MethodName: "DeleteKey",
-			Handler:    _KeyService_DeleteKey_Handler,
+			MethodName: "List",
+			Handler:    _KeyService_List_Handler,
 		},
 		{
 			MethodName: "Sign",
@@ -381,12 +372,20 @@ var KeyService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _KeyService_Verify_Handler,
 		},
 		{
-			MethodName: "Crypt",
-			Handler:    _KeyService_Crypt_Handler,
+			MethodName: "Crypto",
+			Handler:    _KeyService_Crypto_Handler,
 		},
 		{
 			MethodName: "Decrypt",
 			Handler:    _KeyService_Decrypt_Handler,
+		},
+		{
+			MethodName: "Rotate",
+			Handler:    _KeyService_Rotate_Handler,
+		},
+		{
+			MethodName: "Delete",
+			Handler:    _KeyService_Delete_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

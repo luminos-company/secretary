@@ -1,8 +1,9 @@
 syntax = "proto3";
 
-import "tagger/tagger.proto";
 import "types/types.proto";
 import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "tagger/tagger.proto";
 
 package models;
 
@@ -10,86 +11,146 @@ option go_package = "github.com/luminos-company/secretary/generated/models";
 option optimize_for = CODE_SIZE;
 
 message Key {
-    types.ID ID = 1 [(tagger.tags) = "json:\"id\" gorm:\"primary_key;auto_increment\""];
-    string PrivateKey = 2 [(tagger.tags) = "json:\"private_key\" gorm:\"not null\""];
-    string PublicKey = 3 [(tagger.tags) = "json:\"public_key\" gorm:\"unique\""];
-    bool ShouldRotate = 4 [(tagger.tags) = "json:\"should_rotate\" gorm:\"index\""];
-    optional string RotatedFromId = 5 [(tagger.tags) = "json:\"rotated_from_id\" gorm:\"index\""];
-    string RotateCron = 6 [(tagger.tags) = "json:\"rotate_cron\" gorm:\"not null\""];
-    types.Timestamp CreatedAt = 7 [(tagger.tags) = "json:\"created_at\" gorm:\"index;autoCreateTime; type:timestamptz\""];
-    types.Timestamp UpdatedAt = 8 [(tagger.tags) = "json:\"updated_at\" gorm:\"index;autoUpdateTime; type:timestamptz\""];
-    types.Timestamp ExpiresAt = 9 [(tagger.tags) = "json:\"expires_at\" gorm:\"index; type:timestamptz\""];
-    types.Timestamp DeletedAt = 10 [(tagger.tags) = "json:\"deleted_at\" gorm:\"index; type:timestamptz\""];
+    types.Basic basic = 1 [(tagger.tags) = "gorm:\"embedded;embedded_prefix:\""];
+    string private_key = 2 [(tagger.tags) = "json:\"private_key\""];
+    string public_key = 3 [(tagger.tags) = "json:\"public_key\""];
+    bool should_rotate = 4 [(tagger.tags) = "json:\"should_rotate\" gorm:\"default:false; index; not null\""];
+    optional string rotated_from_id = 5 [(tagger.tags) = "json:\"rotated_from_id\" gorm:\"index\""];
+    string rotate_cron = 6 [(tagger.tags) = "json:\"rotate_cron\" gorm:\"default:'0 0 0 1 * *'\""];
+    types.Timestamp expires_at = 9 [(tagger.tags) = "json:\"expires_at\" gorm:\"index; type:timestamptz\""];
 }
 
-message KeyCreator {
-  bool ShouldRotate = 4;
-  types.Timestamp ExpiresAt = 7;
+
+message KeyServiceCreateRequest {
+    string private_key = 1;
+    string public_key = 2;
+    bool should_rotate = 3;
+    string rotate_cron = 4;
+}
+message KeyServiceCreateResponse {
+    Key key = 1;
 }
 
-message SignRequest {
-  types.ID ID = 1;
-  string Message = 2;
+message KeyServiceGetRequest {
+    string id = 1;
+}
+message KeyServiceGetResponse {
+    Key key = 1;
 }
 
-message SignResponse {
-  string Message = 1;
-  string Signature = 2;
+message KeyServiceListRequest {
+    types.Pagination pagination = 1;
 }
 
-message VerifyRequest {
-  types.ID ID = 1;
-  string Message = 2;
-  string Signature = 3;
+message KeyServiceListResponse {
+    repeated Key keys = 1;
+    types.Pagination pagination = 2;
 }
 
-message VerifyResponse {
-  string Message = 1;
-  bool Verified = 2;
+message KeyServiceSignRequest {
+    string id = 1;
+    string message = 2;
 }
 
-message CryptRequest {
-  types.ID ID = 1;
-  string Message = 2;
+message KeyServiceSignResponse {
+    string signature = 1;
 }
 
-message CryptResponse {
-  string Message = 1;
-  string Cipher = 2;
+message KeyServiceVerifyRequest {
+    string id = 1;
+    string message = 2;
+    string signature = 3;
 }
 
-message DecryptRequest {
-  types.ID ID = 1;
-  string Cipher = 2;
+message KeyServiceVerifyResponse {
+    bool valid = 1;
 }
 
-message DecryptResponse {
-  string Message = 1;
-  string Cipher = 2;
+message KeyServiceCryptoRequest {
+    string id = 1;
+    string message = 2;
 }
 
-message KeyList {
-    repeated Key Keys = 1;
+message KeyServiceCryptoResponse {
+    string ciphertext = 1;
 }
 
-message IDList {
-    repeated types.ID IDs = 1;
+message KeyServiceDecryptRequest {
+    string id = 1;
+    string ciphertext = 2;
+}
+
+message KeyServiceDecryptResponse {
+    string message = 1;
+}
+
+message KeyServiceRotateRequest {
+    string id = 1;
+}
+
+message KeyServiceRotateResponse {
+    Key key = 1;
+}
+
+message KeyServiceDeleteRequest {
+    string id = 1;
+}
+
+message KeyServiceDeleteResponse {
+    Key key = 1;
 }
 
 service KeyService {
-    rpc CreateKey(KeyCreator) returns (Key){
-      option (google.api.http).post = "/keys";
+    rpc Create(KeyServiceCreateRequest) returns (KeyServiceCreateResponse) {
+        option (google.api.http) = {
+            post: "/v1/keys"
+            body: "*"
+        };
     }
-    rpc GetKey(types.ID) returns (Key){
-      option (google.api.http).get = "/keys/{id}";
+    rpc Get(KeyServiceGetRequest) returns (KeyServiceGetResponse) {
+        option (google.api.http) = {
+            get: "/v1/keys/{id}"
+        };
     }
-    rpc GetKeys(IDList) returns (KeyList){
-      option (google.api.http).post = "/keys/list";
+    rpc List(KeyServiceListRequest) returns (KeyServiceListResponse) {
+        option (google.api.http) = {
+            get: "/v1/keys"
+        };
     }
-    rpc RotateKey(types.ID) returns (Key);
-    rpc DeleteKey(types.ID) returns (Key);
-    rpc Sign(SignRequest) returns (SignResponse);
-    rpc Verify(VerifyRequest) returns (VerifyResponse);
-    rpc Crypt(CryptRequest) returns (CryptResponse);
-    rpc Decrypt(DecryptRequest) returns (DecryptResponse);
+    rpc Sign(KeyServiceSignRequest) returns (KeyServiceSignResponse) {
+        option (google.api.http) = {
+            post: "/v1/keys/{id}/sign"
+            body: "*"
+        };
+    }
+    rpc Verify(KeyServiceVerifyRequest) returns (KeyServiceVerifyResponse) {
+        option (google.api.http) = {
+            post: "/v1/keys/{id}/verify"
+            body: "*"
+        };
+    }
+    rpc Crypto(KeyServiceCryptoRequest) returns (KeyServiceCryptoResponse) {
+        option (google.api.http) = {
+            post: "/v1/keys/{id}/crypto"
+            body: "*"
+        };
+    }
+    rpc Decrypt(KeyServiceDecryptRequest) returns (KeyServiceDecryptResponse) {
+        option (google.api.http) = {
+            post: "/v1/keys/{id}/decrypt"
+            body: "*"
+        };
+    }
+    rpc Rotate(KeyServiceRotateRequest) returns (KeyServiceRotateResponse) {
+        option (google.api.http) = {
+            post: "/v1/keys/{id}/rotate"
+        };
+    }
+    rpc Delete(KeyServiceDeleteRequest) returns (KeyServiceDeleteResponse) {
+        option (google.api.http) = {
+            delete: "/v1/keys/{id}"
+        };
+    }
 }
+
+

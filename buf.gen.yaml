@@ -3,6 +3,7 @@ plugins:
   - name: go
     out: ./generated
     opt:
+      - module
       - paths=source_relative
   - name: go-grpc
     out: ./generated

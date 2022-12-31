@@ -23,11 +23,12 @@ func Get() *gorm.DB {
 
 func create() {
 	db = Get()
-	err := db.AutoMigrate(&models.Key{})
+	err := db.AutoMigrate(models.Key{})
 	if err != nil {
 		_ = os.RemoveAll(dbFile)
 		panic(err)
 	}
+	generate()
 }
 
 func generate() {
@@ -37,7 +38,7 @@ func generate() {
 		Mode:    gen.WithoutContext | gen.WithDefaultQuery | gen.WithQueryInterface, // generate mode
 	})
 	g.UseDB(Get())
-	g.ApplyBasic(&models.Key{})
+	g.ApplyBasic(models.Key{})
 	g.Execute()
 }
 

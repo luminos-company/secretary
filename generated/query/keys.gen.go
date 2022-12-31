@@ -7,7 +7,6 @@ package query
 import (
 	"context"
 
-	"github.com/luminos-company/secretary/generated/models"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"gorm.io/gorm/schema"
@@ -16,6 +15,8 @@ import (
 	"gorm.io/gen/field"
 
 	"gorm.io/plugin/dbresolver"
+
+	"github.com/luminos-company/secretary/generated/models"
 )
 
 func newKey(db *gorm.DB, opts ...gen.DOOption) key {
@@ -26,16 +27,16 @@ func newKey(db *gorm.DB, opts ...gen.DOOption) key {
 
 	tableName := _key.keyDo.TableName()
 	_key.ALL = field.NewAsterisk(tableName)
-	_key.ID = field.NewField(tableName, "id")
+	_key.Id = field.NewField(tableName, "id")
+	_key.UpdatedAt = field.NewField(tableName, "updated_at")
+	_key.CreatedAt = field.NewField(tableName, "created_at")
+	_key.DeletedAt = field.NewField(tableName, "deleted_at")
 	_key.PrivateKey = field.NewString(tableName, "private_key")
 	_key.PublicKey = field.NewString(tableName, "public_key")
 	_key.ShouldRotate = field.NewBool(tableName, "should_rotate")
 	_key.RotatedFromId = field.NewString(tableName, "rotated_from_id")
 	_key.RotateCron = field.NewString(tableName, "rotate_cron")
-	_key.CreatedAt = field.NewField(tableName, "created_at")
-	_key.UpdatedAt = field.NewField(tableName, "updated_at")
 	_key.ExpiresAt = field.NewField(tableName, "expires_at")
-	_key.DeletedAt = field.NewField(tableName, "deleted_at")
 
 	_key.fillFieldMap()
 
@@ -46,16 +47,16 @@ type key struct {
 	keyDo
 
 	ALL           field.Asterisk
-	ID            field.Field
+	Id            field.Field
+	UpdatedAt     field.Field
+	CreatedAt     field.Field
+	DeletedAt     field.Field
 	PrivateKey    field.String
 	PublicKey     field.String
 	ShouldRotate  field.Bool
 	RotatedFromId field.String
 	RotateCron    field.String
-	CreatedAt     field.Field
-	UpdatedAt     field.Field
 	ExpiresAt     field.Field
-	DeletedAt     field.Field
 
 	fieldMap map[string]field.Expr
 }
@@ -72,16 +73,16 @@ func (k key) As(alias string) *key {
 
 func (k *key) updateTableName(table string) *key {
 	k.ALL = field.NewAsterisk(table)
-	k.ID = field.NewField(table, "id")
+	k.Id = field.NewField(table, "id")
+	k.UpdatedAt = field.NewField(table, "updated_at")
+	k.CreatedAt = field.NewField(table, "created_at")
+	k.DeletedAt = field.NewField(table, "deleted_at")
 	k.PrivateKey = field.NewString(table, "private_key")
 	k.PublicKey = field.NewString(table, "public_key")
 	k.ShouldRotate = field.NewBool(table, "should_rotate")
 	k.RotatedFromId = field.NewString(table, "rotated_from_id")
 	k.RotateCron = field.NewString(table, "rotate_cron")
-	k.CreatedAt = field.NewField(table, "created_at")
-	k.UpdatedAt = field.NewField(table, "updated_at")
 	k.ExpiresAt = field.NewField(table, "expires_at")
-	k.DeletedAt = field.NewField(table, "deleted_at")
 
 	k.fillFieldMap()
 
@@ -99,16 +100,16 @@ func (k *key) GetFieldByName(fieldName string) (field.OrderExpr, bool) {
 
 func (k *key) fillFieldMap() {
 	k.fieldMap = make(map[string]field.Expr, 10)
-	k.fieldMap["id"] = k.ID
+	k.fieldMap["id"] = k.Id
+	k.fieldMap["updated_at"] = k.UpdatedAt
+	k.fieldMap["created_at"] = k.CreatedAt
+	k.fieldMap["deleted_at"] = k.DeletedAt
 	k.fieldMap["private_key"] = k.PrivateKey
 	k.fieldMap["public_key"] = k.PublicKey
 	k.fieldMap["should_rotate"] = k.ShouldRotate
 	k.fieldMap["rotated_from_id"] = k.RotatedFromId
 	k.fieldMap["rotate_cron"] = k.RotateCron
-	k.fieldMap["created_at"] = k.CreatedAt
-	k.fieldMap["updated_at"] = k.UpdatedAt
 	k.fieldMap["expires_at"] = k.ExpiresAt
-	k.fieldMap["deleted_at"] = k.DeletedAt
 }
 
 func (k key) clone(db *gorm.DB) key {

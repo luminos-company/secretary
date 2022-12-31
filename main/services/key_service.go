@@ -3,54 +3,53 @@ package services
 import (
 	"context"
 	"github.com/luminos-company/secretary/generated/models"
-	"github.com/luminos-company/secretary/generated/types"
 )
 
 type KeyService struct {
 	models.KeyServiceServer
 }
 
-func (k KeyService) CreateKey(ctx context.Context, creator *models.KeyCreator) (*models.Key, error) {
+func (k KeyService) Create(ctx context.Context, request *models.KeyServiceCreateRequest) (*models.KeyServiceCreateResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (k KeyService) GetKey(ctx context.Context, id *types.ID) (*models.Key, error) {
+func (k KeyService) Get(ctx context.Context, request *models.KeyServiceGetRequest) (*models.KeyServiceGetResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (k KeyService) GetKeys(ctx context.Context, list *models.IDList) (*models.KeyList, error) {
+func (k KeyService) List(ctx context.Context, request *models.KeyServiceListRequest) (*models.KeyServiceListResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (k KeyService) RotateKey(ctx context.Context, id *types.ID) (*models.Key, error) {
+func (k KeyService) Sign(ctx context.Context, request *models.KeyServiceSignRequest) (*models.KeyServiceSignResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (k KeyService) DeleteKey(ctx context.Context, id *types.ID) (*models.Key, error) {
+func (k KeyService) Verify(ctx context.Context, request *models.KeyServiceVerifyRequest) (*models.KeyServiceVerifyResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (k KeyService) Sign(ctx context.Context, request *models.SignRequest) (*models.SignResponse, error) {
+func (k KeyService) Crypto(ctx context.Context, request *models.KeyServiceCryptoRequest) (*models.KeyServiceCryptoResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (k KeyService) Verify(ctx context.Context, request *models.VerifyRequest) (*models.VerifyResponse, error) {
+func (k KeyService) Decrypt(ctx context.Context, request *models.KeyServiceDecryptRequest) (*models.KeyServiceDecryptResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (k KeyService) Crypt(ctx context.Context, request *models.CryptRequest) (*models.CryptResponse, error) {
+func (k KeyService) Rotate(ctx context.Context, request *models.KeyServiceRotateRequest) (*models.KeyServiceRotateResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (k KeyService) Decrypt(ctx context.Context, request *models.DecryptRequest) (*models.DecryptResponse, error) {
+func (k KeyService) Delete(ctx context.Context, request *models.KeyServiceDeleteRequest) (*models.KeyServiceDeleteResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
