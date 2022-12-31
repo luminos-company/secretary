@@ -1,5 +1,7 @@
-![Secretary](https://raw.githubusercontent.com/luminos-company/secretary/main/.github/assets/temp_logo.png)
 # Secretary
+
+<img src="https://raw.githubusercontent.com/luminos-company/secretary/main/.github/assets/temp_logo.png" width="300">
+
 An open source, key management system. Written in GO.
 
 ## What is Secretary?
