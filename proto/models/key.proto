@@ -100,6 +100,14 @@ message KeyServiceDeleteResponse {
     Key key = 1;
 }
 
+message KeyServiceJWKRequest {
+    string id = 1;
+}
+
+message KeyServiceJWKResponse {
+    string jwk = 1;
+}
+
 service KeyService {
     rpc Create(KeyServiceCreateRequest) returns (KeyServiceCreateResponse) {
         option (google.api.http) = {
@@ -151,6 +159,13 @@ service KeyService {
             delete: "/v1/keys/{id}"
         };
     }
+    rpc JWK(KeyServiceJWKRequest) returns (KeyServiceJWKResponse) {
+        option (google.api.http) = {
+            get: "/v1/keys/{id}/jwk"
+        };
+    }
 }
+
+
 
 

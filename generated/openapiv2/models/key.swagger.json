@@ -228,6 +228,36 @@
         ]
       }
     },
+    "/v1/keys/{id}/jwk": {
+      "get": {
+        "operationId": "KeyService_JWK",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/modelsKeyServiceJWKResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
     "/v1/keys/{id}/rotate": {
       "post": {
         "operationId": "KeyService_Rotate",
@@ -429,6 +459,14 @@
       "properties": {
         "key": {
           "$ref": "#/definitions/modelsKey"
+        }
+      }
+    },
+    "modelsKeyServiceJWKResponse": {
+      "type": "object",
+      "properties": {
+        "jwk": {
+          "type": "string"
         }
       }
     },
