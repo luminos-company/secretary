@@ -1,0 +1,507 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "models/key.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "KeyService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/secretary.KeyService/CreateKey": {
+      "post": {
+        "operationId": "KeyService_CreateKey",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/secretaryKey"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/secretaryKeyCreator"
+            }
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
+    "/secretary.KeyService/Crypt": {
+      "post": {
+        "operationId": "KeyService_Crypt",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/secretaryCryptResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/secretaryCryptRequest"
+            }
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
+    "/secretary.KeyService/Decrypt": {
+      "post": {
+        "operationId": "KeyService_Decrypt",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/secretaryDecryptResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/secretaryDecryptRequest"
+            }
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
+    "/secretary.KeyService/DeleteKey": {
+      "post": {
+        "operationId": "KeyService_DeleteKey",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/secretaryKey"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/typesID"
+            }
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
+    "/secretary.KeyService/GetKey": {
+      "post": {
+        "operationId": "KeyService_GetKey",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/secretaryKey"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/typesID"
+            }
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
+    "/secretary.KeyService/GetKeys": {
+      "post": {
+        "operationId": "KeyService_GetKeys",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/secretaryKeyList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/secretaryIDList"
+            }
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
+    "/secretary.KeyService/RotateKey": {
+      "post": {
+        "operationId": "KeyService_RotateKey",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/secretaryKey"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/typesID"
+            }
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
+    "/secretary.KeyService/Sign": {
+      "post": {
+        "operationId": "KeyService_Sign",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/secretarySignResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/secretarySignRequest"
+            }
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
+    "/secretary.KeyService/Verify": {
+      "post": {
+        "operationId": "KeyService_Verify",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/secretaryVerifyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/secretaryVerifyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "secretaryCryptRequest": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "$ref": "#/definitions/typesID"
+        },
+        "Message": {
+          "type": "string"
+        }
+      }
+    },
+    "secretaryCryptResponse": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Cipher": {
+          "type": "string"
+        }
+      }
+    },
+    "secretaryDecryptRequest": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "$ref": "#/definitions/typesID"
+        },
+        "Cipher": {
+          "type": "string"
+        }
+      }
+    },
+    "secretaryDecryptResponse": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Cipher": {
+          "type": "string"
+        }
+      }
+    },
+    "secretaryIDList": {
+      "type": "object",
+      "properties": {
+        "IDs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typesID"
+          }
+        }
+      }
+    },
+    "secretaryKey": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "$ref": "#/definitions/typesID"
+        },
+        "PrivateKey": {
+          "type": "string"
+        },
+        "PublicKey": {
+          "type": "string"
+        },
+        "ShouldRotate": {
+          "type": "boolean"
+        },
+        "CreatedAt": {
+          "$ref": "#/definitions/typesTimestamp"
+        },
+        "UpdatedAt": {
+          "$ref": "#/definitions/typesTimestamp"
+        },
+        "ExpiresAt": {
+          "$ref": "#/definitions/typesTimestamp"
+        },
+        "DeletedAt": {
+          "$ref": "#/definitions/typesTimestamp"
+        }
+      }
+    },
+    "secretaryKeyCreator": {
+      "type": "object",
+      "properties": {
+        "ShouldRotate": {
+          "type": "boolean"
+        },
+        "ExpiresAt": {
+          "$ref": "#/definitions/typesTimestamp"
+        }
+      }
+    },
+    "secretaryKeyList": {
+      "type": "object",
+      "properties": {
+        "Keys": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/secretaryKey"
+          }
+        }
+      }
+    },
+    "secretarySignRequest": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "$ref": "#/definitions/typesID"
+        },
+        "Message": {
+          "type": "string"
+        }
+      }
+    },
+    "secretarySignResponse": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Signature": {
+          "type": "string"
+        }
+      }
+    },
+    "secretaryVerifyRequest": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "$ref": "#/definitions/typesID"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Signature": {
+          "type": "string"
+        }
+      }
+    },
+    "secretaryVerifyResponse": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Verified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "typesID": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "typesTimestamp": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

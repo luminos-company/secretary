@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/descriptor.proto";
+package types;
+
+option go_package = "github.com/luminos-company/secretary/generated/types";
+option optimize_for = CODE_SIZE;
+
+message Timestamp {
+  google.protobuf.Timestamp timestamp = 1;
+}
+
+message DeletedAt {
+  google.protobuf.Timestamp timestamp = 1;
+}
+
+message ID {
+  string id = 1;
+}

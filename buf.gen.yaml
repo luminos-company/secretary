@@ -1,0 +1,16 @@
+version: v1
+plugins:
+  - name: go
+    out: ./generated
+    opt:
+      - paths=source_relative
+  - name: go-grpc
+    out: ./generated
+    opt:
+      - paths=source_relative
+  - name: openapiv2
+    out: ./generated/openapiv2
+    opt:
+      - logtostderr=true
+      - allow_delete_body=true
+      - generate_unbound_methods=true

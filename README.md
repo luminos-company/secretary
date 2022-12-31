@@ -33,3 +33,4 @@ This project is licensed under the GNU General Public License v3.0. You can read
 - [GORM](https://gorm.io/)
 - [grpc-go](https://github.com/grpc/grpc-go)
 - [Sonic](https://github.com/bytedance/sonic)
+- [UUID](github.com/google/uuid)

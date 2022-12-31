@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+import "tagger/tagger.proto";
+import "types/types.proto";
+
+package secretary;
+
+option go_package = "github.com/luminos-company/secretary/generated/models";
+option optimize_for = CODE_SIZE;
+
+message Key {
+    types.ID ID = 1 [(tagger.tags) = "json:\"id\" gorm:\"primary_key;auto_increment\""];
+    string PrivateKey = 2 [(tagger.tags) = "json:\"private_key\" gorm:\"not null\""];
+    string PublicKey = 3 [(tagger.tags) = "json:\"public_key\" gorm:\"unique\""];
+    bool ShouldRotate = 4 [(tagger.tags) = "json:\"should_rotate\" gorm:\"index\""];
+    types.Timestamp CreatedAt = 5 [(tagger.tags) = "json:\"created_at\" gorm:\"index;autoCreateTime; type:timestamptz\""];
+    types.Timestamp UpdatedAt = 6 [(tagger.tags) = "json:\"updated_at\" gorm:\"index;autoUpdateTime; type:timestamptz\""];
+    types.Timestamp ExpiresAt = 7 [(tagger.tags) = "json:\"expires_at\" gorm:\"index; type:timestamptz\""];
+    types.Timestamp DeletedAt = 8 [(tagger.tags) = "json:\"deleted_at\" gorm:\"index; type:timestamptz\""];
+}
+
+message KeyCreator {
+  bool ShouldRotate = 4;
+  types.Timestamp ExpiresAt = 7;
+}
+
+message SignRequest {
+  types.ID ID = 1;
+  string Message = 2;
+}
+
+message SignResponse {
+  string Message = 1;
+  string Signature = 2;
+}
+
+message VerifyRequest {
+  types.ID ID = 1;
+  string Message = 2;
+  string Signature = 3;
+}
+
+message VerifyResponse {
+  string Message = 1;
+  bool Verified = 2;
+}
+
+message CryptRequest {
+  types.ID ID = 1;
+  string Message = 2;
+}
+
+message CryptResponse {
+  string Message = 1;
+  string Cipher = 2;
+}
+
+message DecryptRequest {
+  types.ID ID = 1;
+  string Cipher = 2;
+}
+
+message DecryptResponse {
+  string Message = 1;
+  string Cipher = 2;
+}
+
+message KeyList {
+    repeated Key Keys = 1;
+}
+
+message IDList {
+    repeated types.ID IDs = 1;
+}
+
+service KeyService {
+    rpc CreateKey(KeyCreator) returns (Key);
+    rpc GetKey(types.ID) returns (Key);
+    rpc GetKeys(IDList) returns (KeyList);
+    rpc RotateKey(types.ID) returns (Key);
+    rpc DeleteKey(types.ID) returns (Key);
+    rpc Sign(SignRequest) returns (SignResponse);
+    rpc Verify(VerifyRequest) returns (VerifyResponse);
+    rpc Crypt(CryptRequest) returns (CryptResponse);
+    rpc Decrypt(DecryptRequest) returns (DecryptResponse);
+}
