@@ -44,7 +44,7 @@ func NewKeyServiceClient(cc grpc.ClientConnInterface) KeyServiceClient {
 
 func (c *keyServiceClient) CreateKey(ctx context.Context, in *KeyCreator, opts ...grpc.CallOption) (*Key, error) {
 	out := new(Key)
-	err := c.cc.Invoke(ctx, "/secretary.KeyService/CreateKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/models.KeyService/CreateKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func (c *keyServiceClient) CreateKey(ctx context.Context, in *KeyCreator, opts .
 
 func (c *keyServiceClient) GetKey(ctx context.Context, in *types.ID, opts ...grpc.CallOption) (*Key, error) {
 	out := new(Key)
-	err := c.cc.Invoke(ctx, "/secretary.KeyService/GetKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/models.KeyService/GetKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func (c *keyServiceClient) GetKey(ctx context.Context, in *types.ID, opts ...grp
 
 func (c *keyServiceClient) GetKeys(ctx context.Context, in *IDList, opts ...grpc.CallOption) (*KeyList, error) {
 	out := new(KeyList)
-	err := c.cc.Invoke(ctx, "/secretary.KeyService/GetKeys", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/models.KeyService/GetKeys", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +71,7 @@ func (c *keyServiceClient) GetKeys(ctx context.Context, in *IDList, opts ...grpc
 
 func (c *keyServiceClient) RotateKey(ctx context.Context, in *types.ID, opts ...grpc.CallOption) (*Key, error) {
 	out := new(Key)
-	err := c.cc.Invoke(ctx, "/secretary.KeyService/RotateKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/models.KeyService/RotateKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func (c *keyServiceClient) RotateKey(ctx context.Context, in *types.ID, opts ...
 
 func (c *keyServiceClient) DeleteKey(ctx context.Context, in *types.ID, opts ...grpc.CallOption) (*Key, error) {
 	out := new(Key)
-	err := c.cc.Invoke(ctx, "/secretary.KeyService/DeleteKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/models.KeyService/DeleteKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +89,7 @@ func (c *keyServiceClient) DeleteKey(ctx context.Context, in *types.ID, opts ...
 
 func (c *keyServiceClient) Sign(ctx context.Context, in *SignRequest, opts ...grpc.CallOption) (*SignResponse, error) {
 	out := new(SignResponse)
-	err := c.cc.Invoke(ctx, "/secretary.KeyService/Sign", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/models.KeyService/Sign", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +98,7 @@ func (c *keyServiceClient) Sign(ctx context.Context, in *SignRequest, opts ...gr
 
 func (c *keyServiceClient) Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error) {
 	out := new(VerifyResponse)
-	err := c.cc.Invoke(ctx, "/secretary.KeyService/Verify", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/models.KeyService/Verify", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -107,7 +107,7 @@ func (c *keyServiceClient) Verify(ctx context.Context, in *VerifyRequest, opts .
 
 func (c *keyServiceClient) Crypt(ctx context.Context, in *CryptRequest, opts ...grpc.CallOption) (*CryptResponse, error) {
 	out := new(CryptResponse)
-	err := c.cc.Invoke(ctx, "/secretary.KeyService/Crypt", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/models.KeyService/Crypt", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -116,7 +116,7 @@ func (c *keyServiceClient) Crypt(ctx context.Context, in *CryptRequest, opts ...
 
 func (c *keyServiceClient) Decrypt(ctx context.Context, in *DecryptRequest, opts ...grpc.CallOption) (*DecryptResponse, error) {
 	out := new(DecryptResponse)
-	err := c.cc.Invoke(ctx, "/secretary.KeyService/Decrypt", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/models.KeyService/Decrypt", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -193,7 +193,7 @@ func _KeyService_CreateKey_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/secretary.KeyService/CreateKey",
+		FullMethod: "/models.KeyService/CreateKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(KeyServiceServer).CreateKey(ctx, req.(*KeyCreator))
@@ -211,7 +211,7 @@ func _KeyService_GetKey_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/secretary.KeyService/GetKey",
+		FullMethod: "/models.KeyService/GetKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(KeyServiceServer).GetKey(ctx, req.(*types.ID))
@@ -229,7 +229,7 @@ func _KeyService_GetKeys_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/secretary.KeyService/GetKeys",
+		FullMethod: "/models.KeyService/GetKeys",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(KeyServiceServer).GetKeys(ctx, req.(*IDList))
@@ -247,7 +247,7 @@ func _KeyService_RotateKey_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/secretary.KeyService/RotateKey",
+		FullMethod: "/models.KeyService/RotateKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(KeyServiceServer).RotateKey(ctx, req.(*types.ID))
@@ -265,7 +265,7 @@ func _KeyService_DeleteKey_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/secretary.KeyService/DeleteKey",
+		FullMethod: "/models.KeyService/DeleteKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(KeyServiceServer).DeleteKey(ctx, req.(*types.ID))
@@ -283,7 +283,7 @@ func _KeyService_Sign_Handler(srv interface{}, ctx context.Context, dec func(int
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/secretary.KeyService/Sign",
+		FullMethod: "/models.KeyService/Sign",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(KeyServiceServer).Sign(ctx, req.(*SignRequest))
@@ -301,7 +301,7 @@ func _KeyService_Verify_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/secretary.KeyService/Verify",
+		FullMethod: "/models.KeyService/Verify",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(KeyServiceServer).Verify(ctx, req.(*VerifyRequest))
@@ -319,7 +319,7 @@ func _KeyService_Crypt_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/secretary.KeyService/Crypt",
+		FullMethod: "/models.KeyService/Crypt",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(KeyServiceServer).Crypt(ctx, req.(*CryptRequest))
@@ -337,7 +337,7 @@ func _KeyService_Decrypt_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/secretary.KeyService/Decrypt",
+		FullMethod: "/models.KeyService/Decrypt",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(KeyServiceServer).Decrypt(ctx, req.(*DecryptRequest))
@@ -349,7 +349,7 @@ func _KeyService_Decrypt_Handler(srv interface{}, ctx context.Context, dec func(
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var KeyService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "secretary.KeyService",
+	ServiceName: "models.KeyService",
 	HandlerType: (*KeyServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

@@ -23,7 +23,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/secretaryKey"
+              "$ref": "#/definitions/modelsKey"
             }
           },
           "default": {
@@ -60,7 +60,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/secretaryKeyList"
+              "$ref": "#/definitions/modelsKeyList"
             }
           },
           "default": {
@@ -82,7 +82,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/secretaryKey"
+              "$ref": "#/definitions/modelsKey"
             }
           },
           "default": {
@@ -105,14 +105,14 @@
         ]
       }
     },
-    "/secretary.KeyService/Crypt": {
+    "/models.KeyService/Crypt": {
       "post": {
         "operationId": "KeyService_Crypt",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/secretaryCryptResponse"
+              "$ref": "#/definitions/modelsCryptResponse"
             }
           },
           "default": {
@@ -128,7 +128,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/secretaryCryptRequest"
+              "$ref": "#/definitions/modelsCryptRequest"
             }
           }
         ],
@@ -137,14 +137,14 @@
         ]
       }
     },
-    "/secretary.KeyService/Decrypt": {
+    "/models.KeyService/Decrypt": {
       "post": {
         "operationId": "KeyService_Decrypt",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/secretaryDecryptResponse"
+              "$ref": "#/definitions/modelsDecryptResponse"
             }
           },
           "default": {
@@ -160,7 +160,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/secretaryDecryptRequest"
+              "$ref": "#/definitions/modelsDecryptRequest"
             }
           }
         ],
@@ -169,14 +169,14 @@
         ]
       }
     },
-    "/secretary.KeyService/DeleteKey": {
+    "/models.KeyService/DeleteKey": {
       "post": {
         "operationId": "KeyService_DeleteKey",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/secretaryKey"
+              "$ref": "#/definitions/modelsKey"
             }
           },
           "default": {
@@ -201,14 +201,14 @@
         ]
       }
     },
-    "/secretary.KeyService/RotateKey": {
+    "/models.KeyService/RotateKey": {
       "post": {
         "operationId": "KeyService_RotateKey",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/secretaryKey"
+              "$ref": "#/definitions/modelsKey"
             }
           },
           "default": {
@@ -233,14 +233,14 @@
         ]
       }
     },
-    "/secretary.KeyService/Sign": {
+    "/models.KeyService/Sign": {
       "post": {
         "operationId": "KeyService_Sign",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/secretarySignResponse"
+              "$ref": "#/definitions/modelsSignResponse"
             }
           },
           "default": {
@@ -256,7 +256,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/secretarySignRequest"
+              "$ref": "#/definitions/modelsSignRequest"
             }
           }
         ],
@@ -265,14 +265,14 @@
         ]
       }
     },
-    "/secretary.KeyService/Verify": {
+    "/models.KeyService/Verify": {
       "post": {
         "operationId": "KeyService_Verify",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/secretaryVerifyResponse"
+              "$ref": "#/definitions/modelsVerifyResponse"
             }
           },
           "default": {
@@ -288,7 +288,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/secretaryVerifyRequest"
+              "$ref": "#/definitions/modelsVerifyRequest"
             }
           }
         ],
@@ -299,34 +299,7 @@
     }
   },
   "definitions": {
-    "protobufAny": {
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": {}
-    },
-    "rpcStatus": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "message": {
-          "type": "string"
-        },
-        "details": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protobufAny"
-          }
-        }
-      }
-    },
-    "secretaryCryptRequest": {
+    "modelsCryptRequest": {
       "type": "object",
       "properties": {
         "ID": {
@@ -337,7 +310,7 @@
         }
       }
     },
-    "secretaryCryptResponse": {
+    "modelsCryptResponse": {
       "type": "object",
       "properties": {
         "Message": {
@@ -348,7 +321,7 @@
         }
       }
     },
-    "secretaryDecryptRequest": {
+    "modelsDecryptRequest": {
       "type": "object",
       "properties": {
         "ID": {
@@ -359,7 +332,7 @@
         }
       }
     },
-    "secretaryDecryptResponse": {
+    "modelsDecryptResponse": {
       "type": "object",
       "properties": {
         "Message": {
@@ -370,7 +343,7 @@
         }
       }
     },
-    "secretaryKey": {
+    "modelsKey": {
       "type": "object",
       "properties": {
         "ID": {
@@ -405,18 +378,18 @@
         }
       }
     },
-    "secretaryKeyList": {
+    "modelsKeyList": {
       "type": "object",
       "properties": {
         "Keys": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/secretaryKey"
+            "$ref": "#/definitions/modelsKey"
           }
         }
       }
     },
-    "secretarySignRequest": {
+    "modelsSignRequest": {
       "type": "object",
       "properties": {
         "ID": {
@@ -427,7 +400,7 @@
         }
       }
     },
-    "secretarySignResponse": {
+    "modelsSignResponse": {
       "type": "object",
       "properties": {
         "Message": {
@@ -438,7 +411,7 @@
         }
       }
     },
-    "secretaryVerifyRequest": {
+    "modelsVerifyRequest": {
       "type": "object",
       "properties": {
         "ID": {
@@ -452,7 +425,7 @@
         }
       }
     },
-    "secretaryVerifyResponse": {
+    "modelsVerifyResponse": {
       "type": "object",
       "properties": {
         "Message": {
@@ -460,6 +433,33 @@
         },
         "Verified": {
           "type": "boolean"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
         }
       }
     },

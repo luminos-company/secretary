@@ -18,5 +18,4 @@ func main() {
 		PublicKey:    re.ExportPublicBase64(),
 		ShouldRotate: false,
 	})
-
 }

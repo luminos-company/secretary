@@ -9,11 +9,8 @@ var dbFile = "v_1.db"
 func init() {
 	if !dbExists() {
 		create()
-		generate()
-		return
-	} else {
-		Get()
 	}
+	Get()
 }
 
 func dbExists() bool {
