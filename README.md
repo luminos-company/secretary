@@ -1,3 +1,4 @@
+![Secretary](https://github.com/[username]/[reponame]/.github/assets/temp_logo.png)
 # Secretary
 An open source, key management system. Written in GO.
 
