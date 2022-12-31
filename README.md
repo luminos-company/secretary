@@ -2,6 +2,9 @@
 
 <img src="https://raw.githubusercontent.com/luminos-company/secretary/main/.github/assets/temp_logo.png" width="300">
 
+[![Luminos Open](https://img.shields.io/badge/Luminos%20Open-WIP-red)](https://github.com/luminos-company/secretary/actions/workflows/codeql.yml)
+[![CodeQL](https://github.com/luminos-company/secretary/actions/workflows/codeql.yml/badge.svg)](https://github.com/luminos-company/secretary/actions/workflows/codeql.yml)
+
 An open source, key management system. Written in GO.
 
 ## What is Secretary?
