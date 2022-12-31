@@ -16,7 +16,7 @@
     "application/json"
   ],
   "paths": {
-    "/secretary.KeyService/CreateKey": {
+    "/keys": {
       "post": {
         "operationId": "KeyService_CreateKey",
         "responses": {
@@ -35,12 +35,69 @@
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
+            "name": "ShouldRotate",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "ExpiresAt.timestamp",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
+    "/keys/list": {
+      "post": {
+        "operationId": "KeyService_GetKeys",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/secretaryKeyCreator"
+              "$ref": "#/definitions/secretaryKeyList"
             }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
+    "/keys/{id}": {
+      "get": {
+        "operationId": "KeyService_GetKey",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/secretaryKey"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
         ],
         "tags": [
@@ -136,70 +193,6 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/typesID"
-            }
-          }
-        ],
-        "tags": [
-          "KeyService"
-        ]
-      }
-    },
-    "/secretary.KeyService/GetKey": {
-      "post": {
-        "operationId": "KeyService_GetKey",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/secretaryKey"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/typesID"
-            }
-          }
-        ],
-        "tags": [
-          "KeyService"
-        ]
-      }
-    },
-    "/secretary.KeyService/GetKeys": {
-      "post": {
-        "operationId": "KeyService_GetKeys",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/secretaryKeyList"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/secretaryIDList"
             }
           }
         ],
@@ -377,17 +370,6 @@
         }
       }
     },
-    "secretaryIDList": {
-      "type": "object",
-      "properties": {
-        "IDs": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/typesID"
-          }
-        }
-      }
-    },
     "secretaryKey": {
       "type": "object",
       "properties": {
@@ -403,6 +385,12 @@
         "ShouldRotate": {
           "type": "boolean"
         },
+        "RotatedFromId": {
+          "type": "string"
+        },
+        "RotateCron": {
+          "type": "string"
+        },
         "CreatedAt": {
           "$ref": "#/definitions/typesTimestamp"
         },
@@ -413,17 +401,6 @@
           "$ref": "#/definitions/typesTimestamp"
         },
         "DeletedAt": {
-          "$ref": "#/definitions/typesTimestamp"
-        }
-      }
-    },
-    "secretaryKeyCreator": {
-      "type": "object",
-      "properties": {
-        "ShouldRotate": {
-          "type": "boolean"
-        },
-        "ExpiresAt": {
           "$ref": "#/definitions/typesTimestamp"
         }
       }

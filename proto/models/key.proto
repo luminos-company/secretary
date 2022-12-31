@@ -2,8 +2,9 @@ syntax = "proto3";
 
 import "tagger/tagger.proto";
 import "types/types.proto";
+import "google/api/annotations.proto";
 
-package secretary;
+package models;
 
 option go_package = "github.com/luminos-company/secretary/generated/models";
 option optimize_for = CODE_SIZE;
@@ -13,10 +14,12 @@ message Key {
     string PrivateKey = 2 [(tagger.tags) = "json:\"private_key\" gorm:\"not null\""];
     string PublicKey = 3 [(tagger.tags) = "json:\"public_key\" gorm:\"unique\""];
     bool ShouldRotate = 4 [(tagger.tags) = "json:\"should_rotate\" gorm:\"index\""];
-    types.Timestamp CreatedAt = 5 [(tagger.tags) = "json:\"created_at\" gorm:\"index;autoCreateTime; type:timestamptz\""];
-    types.Timestamp UpdatedAt = 6 [(tagger.tags) = "json:\"updated_at\" gorm:\"index;autoUpdateTime; type:timestamptz\""];
-    types.Timestamp ExpiresAt = 7 [(tagger.tags) = "json:\"expires_at\" gorm:\"index; type:timestamptz\""];
-    types.Timestamp DeletedAt = 8 [(tagger.tags) = "json:\"deleted_at\" gorm:\"index; type:timestamptz\""];
+    optional string RotatedFromId = 5 [(tagger.tags) = "json:\"rotated_from_id\" gorm:\"index\""];
+    string RotateCron = 6 [(tagger.tags) = "json:\"rotate_cron\" gorm:\"not null\""];
+    types.Timestamp CreatedAt = 7 [(tagger.tags) = "json:\"created_at\" gorm:\"index;autoCreateTime; type:timestamptz\""];
+    types.Timestamp UpdatedAt = 8 [(tagger.tags) = "json:\"updated_at\" gorm:\"index;autoUpdateTime; type:timestamptz\""];
+    types.Timestamp ExpiresAt = 9 [(tagger.tags) = "json:\"expires_at\" gorm:\"index; type:timestamptz\""];
+    types.Timestamp DeletedAt = 10 [(tagger.tags) = "json:\"deleted_at\" gorm:\"index; type:timestamptz\""];
 }
 
 message KeyCreator {
@@ -74,9 +77,15 @@ message IDList {
 }
 
 service KeyService {
-    rpc CreateKey(KeyCreator) returns (Key);
-    rpc GetKey(types.ID) returns (Key);
-    rpc GetKeys(IDList) returns (KeyList);
+    rpc CreateKey(KeyCreator) returns (Key){
+      option (google.api.http).post = "/keys";
+    }
+    rpc GetKey(types.ID) returns (Key){
+      option (google.api.http).get = "/keys/{id}";
+    }
+    rpc GetKeys(IDList) returns (KeyList){
+      option (google.api.http).post = "/keys/list";
+    }
     rpc RotateKey(types.ID) returns (Key);
     rpc DeleteKey(types.ID) returns (Key);
     rpc Sign(SignRequest) returns (SignResponse);
