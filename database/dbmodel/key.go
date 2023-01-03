@@ -13,7 +13,7 @@ type KeyModel struct {
 	PrivateKey   string     `json:"private_key" gorm:"unique_index"`
 	PublicKey    string     `json:"public_key" gorm:"unique_index"`
 	ShouldRotate *bool      `json:"should_rotate" gorm:"default:false"`
-	RotateCron   *string    `json:"rotate_cron" gorm:"default:'0 0 1 * *'"`
+	RotateCron   *string    `json:"rotate_cron"`
 	ExpiresAt    *time.Time `json:"expires_at" gorm:"index"`
 	TimesModel
 }
