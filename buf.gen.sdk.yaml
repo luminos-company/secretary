@@ -1,0 +1,16 @@
+version: v1
+plugins:
+  - name: dart
+    out: ./generated/sdk/dart
+  - name: go
+    out: ./generated/sdk/go
+  - name: java
+    out: ./generated/sdk/java
+  - name: python
+    out: ./generated/sdk/python
+  - name: ruby
+    out: ./generated/sdk/ruby
+  - name: objc
+    out: ./generated/sdk/objc
+  - name: php
+    out: ./generated/sdk/php
