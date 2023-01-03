@@ -375,7 +375,10 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/definitions/typesID"
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
         },
         "privateKey": {
           "type": "string"
@@ -393,16 +396,16 @@
           "type": "string"
         },
         "expiresAt": {
-          "$ref": "#/definitions/typesTimestamp"
+          "type": "string",
+          "format": "date-time"
         },
         "updatedAt": {
-          "$ref": "#/definitions/typesTimestamp"
+          "type": "string",
+          "format": "date-time"
         },
         "createdAt": {
-          "$ref": "#/definitions/typesTimestamp"
-        },
-        "deletedAt": {
-          "$ref": "#/definitions/typesDeletedAt"
+          "type": "string",
+          "format": "date-time"
         }
       }
     },
@@ -527,32 +530,6 @@
           "items": {
             "$ref": "#/definitions/protobufAny"
           }
-        }
-      }
-    },
-    "typesDeletedAt": {
-      "type": "object",
-      "properties": {
-        "timestamp": {
-          "type": "string",
-          "format": "date-time"
-        }
-      }
-    },
-    "typesID": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        }
-      }
-    },
-    "typesTimestamp": {
-      "type": "object",
-      "properties": {
-        "timestamp": {
-          "type": "string",
-          "format": "date-time"
         }
       }
     }

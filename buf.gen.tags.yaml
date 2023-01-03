@@ -1,8 +1,0 @@
-version: v1
-plugins:
-  - name: gotag
-    out: .
-    opt:
-      - module
-      - outdir=./generated
-      - paths=source_relative

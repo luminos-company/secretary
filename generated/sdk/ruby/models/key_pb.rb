@@ -3,26 +3,26 @@
 
 require 'google/protobuf'
 
-require 'types/types_pb'
 require 'google/api/annotations_pb'
-require 'tagger/tagger_pb'
+require 'google/protobuf/timestamp_pb'
+require 'google/protobuf/descriptor_pb'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("models/key.proto", :syntax => :proto3) do
     add_message "models.Key" do
-      optional :id, :message, 1, "types.ID", json_name: "id"
-      optional :private_key, :string, 2, json_name: "privateKey"
-      optional :public_key, :string, 3, json_name: "publicKey"
-      optional :should_rotate, :bool, 4, json_name: "shouldRotate"
-      proto3_optional :rotated_from_id, :string, 5, json_name: "rotatedFromId"
-      proto3_optional :rotate_cron, :string, 6, json_name: "rotateCron"
-      optional :expires_at, :message, 9, "types.Timestamp", json_name: "expiresAt"
-      optional :updated_at, :message, 10, "types.Timestamp", json_name: "updatedAt"
-      optional :created_at, :message, 11, "types.Timestamp", json_name: "createdAt"
-      optional :deleted_at, :message, 12, "types.DeletedAt", json_name: "deletedAt"
+      optional :id, :string, 1, json_name: "id"
+      proto3_optional :external_id, :string, 2, json_name: "externalId"
+      optional :private_key, :string, 3, json_name: "privateKey"
+      optional :public_key, :string, 4, json_name: "publicKey"
+      proto3_optional :should_rotate, :bool, 5, json_name: "shouldRotate"
+      proto3_optional :rotated_from_id, :string, 6, json_name: "rotatedFromId"
+      proto3_optional :rotate_cron, :string, 7, json_name: "rotateCron"
+      optional :expires_at, :message, 8, "google.protobuf.Timestamp", json_name: "expiresAt"
+      optional :updated_at, :message, 9, "google.protobuf.Timestamp", json_name: "updatedAt"
+      optional :created_at, :message, 10, "google.protobuf.Timestamp", json_name: "createdAt"
     end
     add_message "models.KeyServiceCreateRequest" do
-      optional :should_rotate, :bool, 1, json_name: "shouldRotate"
+      proto3_optional :should_rotate, :bool, 1, json_name: "shouldRotate"
       proto3_optional :rotate_cron, :string, 2, json_name: "rotateCron"
     end
     add_message "models.KeyServiceCreateResponse" do

@@ -2,10 +2,12 @@ package services
 
 import (
 	"context"
+	"github.com/luminos-company/secretary/database/dbmodel"
+	"github.com/luminos-company/secretary/database/dbmodel/converter"
 	"github.com/luminos-company/secretary/generated/models"
 	"github.com/luminos-company/secretary/generated/query"
-	"github.com/luminos-company/secretary/generated/types"
 	"github.com/luminos-company/secretary/tools/keys"
+	"github.com/luminos-company/secretary/typ"
 )
 
 type KeyService struct {
@@ -16,47 +18,47 @@ func (k KeyService) Create(ctx context.Context, request *models.KeyServiceCreate
 	rsaKeyGen := keys.Rsa{}
 	rsaKeyGen.Generate()
 	privateKey, publicKey := rsaKeyGen.ExportBase64()
-	key := &models.Key{
+	key := &dbmodel.KeyModel{
 		PrivateKey:   privateKey,
 		PublicKey:    publicKey,
 		ShouldRotate: request.ShouldRotate,
 		RotateCron:   request.RotateCron,
 	}
-	err := query.Key.Save(key)
+	err := query.KeyModel.Save(key)
 	if err != nil {
 		return nil, err
 	}
 	return &models.KeyServiceCreateResponse{
-		Key: key,
+		Key: converter.KeyConverter.ToGrpc(key),
 	}, nil
 }
 
 func (k KeyService) Get(ctx context.Context, request *models.KeyServiceGetRequest) (*models.KeyServiceGetResponse, error) {
-	key, err := query.Key.Where(query.Key.Id.Eq(&types.ID{Id: request.Id})).First()
+	key, err := query.KeyModel.Where(query.KeyModel.ID.Eq(request.Id)).First()
 	if err != nil {
 		return nil, err
 	}
 	return &models.KeyServiceGetResponse{
-		Key: key,
+		Key: converter.KeyConverter.ToGrpc(key),
 	}, nil
 }
 
 func (k KeyService) List(ctx context.Context, request *models.KeyServiceListRequest) (*models.KeyServiceListResponse, error) {
-	bq := query.Key.Select()
+	bq := query.KeyModel.Select()
 	if request != nil && request.FirstId != nil {
-		bq = bq.Where(query.Key.Id.Lt(&types.ID{Id: *request.FirstId}))
+		bq = bq.Where(query.KeyModel.ID.Lt(*request.FirstId))
 	}
-	bq = bq.Order(query.Key.Id.Desc())
+	bq = bq.Order(query.KeyModel.ID.Desc())
 	find, err := bq.Limit(100).Find()
 	if err != nil {
 		return nil, err
 	}
 	var lastId *string
 	if len(find) > 0 {
-		lastId = StringP(find[len(find)-1].Id.Id)
+		lastId = typ.StringP(find[len(find)-1].ID)
 	}
 	return &models.KeyServiceListResponse{
-		Keys:   find,
+		Keys:   converter.KeyConverter.ToGrpcList(find),
 		LastId: lastId,
 	}, nil
 }
@@ -65,7 +67,7 @@ func (k KeyService) Sign(ctx context.Context, request *models.KeyServiceSignRequ
 	if request == nil {
 		return nil, nil
 	}
-	bq, err := query.Key.Select().Where(query.Key.Id.Eq(&types.ID{Id: request.Id})).First()
+	bq, err := query.KeyModel.Select().Where(query.KeyModel.ID.Eq(request.Id)).First()
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +86,7 @@ func (k KeyService) Verify(ctx context.Context, request *models.KeyServiceVerify
 	if request == nil {
 		return nil, nil
 	}
-	bq, err := query.Key.Select().Where(query.Key.Id.Eq(&types.ID{Id: request.Id})).First()
+	bq, err := query.KeyModel.Select().Where(query.KeyModel.ID.Eq(request.Id)).First()
 	if err != nil {
 		return nil, err
 	}
@@ -103,7 +105,7 @@ func (k KeyService) Crypto(ctx context.Context, request *models.KeyServiceCrypto
 	if request == nil {
 		return nil, nil
 	}
-	bq, err := query.Key.Select().Where(query.Key.Id.Eq(&types.ID{Id: request.Id})).First()
+	bq, err := query.KeyModel.Select().Where(query.KeyModel.ID.Eq(request.Id)).First()
 	if err != nil {
 		return nil, err
 	}
@@ -122,7 +124,7 @@ func (k KeyService) Decrypt(ctx context.Context, request *models.KeyServiceDecry
 	if request == nil {
 		return nil, nil
 	}
-	bq, err := query.Key.Select().Where(query.Key.Id.Eq(&types.ID{Id: request.Id})).First()
+	bq, err := query.KeyModel.Select().Where(query.KeyModel.ID.Eq(request.Id)).First()
 	if err != nil {
 		return nil, err
 	}

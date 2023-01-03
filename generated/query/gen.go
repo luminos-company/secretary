@@ -16,34 +16,39 @@ import (
 )
 
 var (
-	Q   = new(Query)
-	Key *key
+	Q               = new(Query)
+	KeyModel        *keyModel
+	KeyRotatedModel *keyRotatedModel
 )
 
 func SetDefault(db *gorm.DB, opts ...gen.DOOption) {
 	*Q = *Use(db, opts...)
-	Key = &Q.Key
+	KeyModel = &Q.KeyModel
+	KeyRotatedModel = &Q.KeyRotatedModel
 }
 
 func Use(db *gorm.DB, opts ...gen.DOOption) *Query {
 	return &Query{
-		db:  db,
-		Key: newKey(db, opts...),
+		db:              db,
+		KeyModel:        newKeyModel(db, opts...),
+		KeyRotatedModel: newKeyRotatedModel(db, opts...),
 	}
 }
 
 type Query struct {
 	db *gorm.DB
 
-	Key key
+	KeyModel        keyModel
+	KeyRotatedModel keyRotatedModel
 }
 
 func (q *Query) Available() bool { return q.db != nil }
 
 func (q *Query) clone(db *gorm.DB) *Query {
 	return &Query{
-		db:  db,
-		Key: q.Key.clone(db),
+		db:              db,
+		KeyModel:        q.KeyModel.clone(db),
+		KeyRotatedModel: q.KeyRotatedModel.clone(db),
 	}
 }
 
@@ -57,18 +62,21 @@ func (q *Query) WriteDB() *Query {
 
 func (q *Query) ReplaceDB(db *gorm.DB) *Query {
 	return &Query{
-		db:  db,
-		Key: q.Key.replaceDB(db),
+		db:              db,
+		KeyModel:        q.KeyModel.replaceDB(db),
+		KeyRotatedModel: q.KeyRotatedModel.replaceDB(db),
 	}
 }
 
 type queryCtx struct {
-	Key IKeyDo
+	KeyModel        IKeyModelDo
+	KeyRotatedModel IKeyRotatedModelDo
 }
 
 func (q *Query) WithContext(ctx context.Context) *queryCtx {
 	return &queryCtx{
-		Key: q.Key.WithContext(ctx),
+		KeyModel:        q.KeyModel.WithContext(ctx),
+		KeyRotatedModel: q.KeyRotatedModel.WithContext(ctx),
 	}
 }
 

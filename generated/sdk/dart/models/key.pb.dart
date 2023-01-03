@@ -10,26 +10,27 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../types/types.pb.dart' as $0;
+import '../google/protobuf/timestamp.pb.dart' as $0;
 
 class Key extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Key', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
-    ..aOM<$0.ID>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id', subBuilder: $0.ID.create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKey')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publicKey')
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldRotate')
-    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotatedFromId')
-    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotateCron')
-    ..aOM<$0.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.DeletedAt>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deletedAt', subBuilder: $0.DeletedAt.create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'externalId')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKey')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publicKey')
+    ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldRotate')
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotatedFromId')
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotateCron')
+    ..aOM<$0.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $0.Timestamp.create)
+    ..aOM<$0.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $0.Timestamp.create)
+    ..aOM<$0.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $0.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
   Key._() : super();
   factory Key({
-    $0.ID? id,
+    $core.String? id,
+    $core.String? externalId,
     $core.String? privateKey,
     $core.String? publicKey,
     $core.bool? shouldRotate,
@@ -38,11 +39,13 @@ class Key extends $pb.GeneratedMessage {
     $0.Timestamp? expiresAt,
     $0.Timestamp? updatedAt,
     $0.Timestamp? createdAt,
-    $0.DeletedAt? deletedAt,
   }) {
     final _result = create();
     if (id != null) {
       _result.id = id;
+    }
+    if (externalId != null) {
+      _result.externalId = externalId;
     }
     if (privateKey != null) {
       _result.privateKey = privateKey;
@@ -68,9 +71,6 @@ class Key extends $pb.GeneratedMessage {
     if (createdAt != null) {
       _result.createdAt = createdAt;
     }
-    if (deletedAt != null) {
-      _result.deletedAt = deletedAt;
-    }
     return _result;
   }
   factory Key.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
@@ -95,104 +95,100 @@ class Key extends $pb.GeneratedMessage {
   static Key? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.ID get id => $_getN(0);
+  $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($0.ID v) { setField(1, v); }
+  set id($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
   void clearId() => clearField(1);
-  @$pb.TagNumber(1)
-  $0.ID ensureId() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.String get privateKey => $_getSZ(1);
+  $core.String get externalId => $_getSZ(1);
   @$pb.TagNumber(2)
-  set privateKey($core.String v) { $_setString(1, v); }
+  set externalId($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasPrivateKey() => $_has(1);
+  $core.bool hasExternalId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPrivateKey() => clearField(2);
+  void clearExternalId() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get publicKey => $_getSZ(2);
+  $core.String get privateKey => $_getSZ(2);
   @$pb.TagNumber(3)
-  set publicKey($core.String v) { $_setString(2, v); }
+  set privateKey($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasPublicKey() => $_has(2);
+  $core.bool hasPrivateKey() => $_has(2);
   @$pb.TagNumber(3)
-  void clearPublicKey() => clearField(3);
+  void clearPrivateKey() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.bool get shouldRotate => $_getBF(3);
+  $core.String get publicKey => $_getSZ(3);
   @$pb.TagNumber(4)
-  set shouldRotate($core.bool v) { $_setBool(3, v); }
+  set publicKey($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasShouldRotate() => $_has(3);
+  $core.bool hasPublicKey() => $_has(3);
   @$pb.TagNumber(4)
-  void clearShouldRotate() => clearField(4);
+  void clearPublicKey() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.String get rotatedFromId => $_getSZ(4);
+  $core.bool get shouldRotate => $_getBF(4);
   @$pb.TagNumber(5)
-  set rotatedFromId($core.String v) { $_setString(4, v); }
+  set shouldRotate($core.bool v) { $_setBool(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasRotatedFromId() => $_has(4);
+  $core.bool hasShouldRotate() => $_has(4);
   @$pb.TagNumber(5)
-  void clearRotatedFromId() => clearField(5);
+  void clearShouldRotate() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.String get rotateCron => $_getSZ(5);
+  $core.String get rotatedFromId => $_getSZ(5);
   @$pb.TagNumber(6)
-  set rotateCron($core.String v) { $_setString(5, v); }
+  set rotatedFromId($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasRotateCron() => $_has(5);
+  $core.bool hasRotatedFromId() => $_has(5);
   @$pb.TagNumber(6)
-  void clearRotateCron() => clearField(6);
+  void clearRotatedFromId() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get rotateCron => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set rotateCron($core.String v) { $_setString(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasRotateCron() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearRotateCron() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $0.Timestamp get expiresAt => $_getN(7);
+  @$pb.TagNumber(8)
+  set expiresAt($0.Timestamp v) { setField(8, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasExpiresAt() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearExpiresAt() => clearField(8);
+  @$pb.TagNumber(8)
+  $0.Timestamp ensureExpiresAt() => $_ensure(7);
 
   @$pb.TagNumber(9)
-  $0.Timestamp get expiresAt => $_getN(6);
+  $0.Timestamp get updatedAt => $_getN(8);
   @$pb.TagNumber(9)
-  set expiresAt($0.Timestamp v) { setField(9, v); }
+  set updatedAt($0.Timestamp v) { setField(9, v); }
   @$pb.TagNumber(9)
-  $core.bool hasExpiresAt() => $_has(6);
+  $core.bool hasUpdatedAt() => $_has(8);
   @$pb.TagNumber(9)
-  void clearExpiresAt() => clearField(9);
+  void clearUpdatedAt() => clearField(9);
   @$pb.TagNumber(9)
-  $0.Timestamp ensureExpiresAt() => $_ensure(6);
+  $0.Timestamp ensureUpdatedAt() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $0.Timestamp get updatedAt => $_getN(7);
+  $0.Timestamp get createdAt => $_getN(9);
   @$pb.TagNumber(10)
-  set updatedAt($0.Timestamp v) { setField(10, v); }
+  set createdAt($0.Timestamp v) { setField(10, v); }
   @$pb.TagNumber(10)
-  $core.bool hasUpdatedAt() => $_has(7);
+  $core.bool hasCreatedAt() => $_has(9);
   @$pb.TagNumber(10)
-  void clearUpdatedAt() => clearField(10);
+  void clearCreatedAt() => clearField(10);
   @$pb.TagNumber(10)
-  $0.Timestamp ensureUpdatedAt() => $_ensure(7);
-
-  @$pb.TagNumber(11)
-  $0.Timestamp get createdAt => $_getN(8);
-  @$pb.TagNumber(11)
-  set createdAt($0.Timestamp v) { setField(11, v); }
-  @$pb.TagNumber(11)
-  $core.bool hasCreatedAt() => $_has(8);
-  @$pb.TagNumber(11)
-  void clearCreatedAt() => clearField(11);
-  @$pb.TagNumber(11)
-  $0.Timestamp ensureCreatedAt() => $_ensure(8);
-
-  @$pb.TagNumber(12)
-  $0.DeletedAt get deletedAt => $_getN(9);
-  @$pb.TagNumber(12)
-  set deletedAt($0.DeletedAt v) { setField(12, v); }
-  @$pb.TagNumber(12)
-  $core.bool hasDeletedAt() => $_has(9);
-  @$pb.TagNumber(12)
-  void clearDeletedAt() => clearField(12);
-  @$pb.TagNumber(12)
-  $0.DeletedAt ensureDeletedAt() => $_ensure(9);
+  $0.Timestamp ensureCreatedAt() => $_ensure(9);
 }
 
 class KeyServiceCreateRequest extends $pb.GeneratedMessage {

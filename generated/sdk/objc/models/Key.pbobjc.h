@@ -27,10 +27,7 @@
 
 CF_EXTERN_C_BEGIN
 
-@class DeletedAt;
-@class ID;
 @class Key;
-@class Timestamp;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -53,22 +50,24 @@ GPB_FINAL @interface KeyRoot : GPBRootObject
 
 typedef GPB_ENUM(Key_FieldNumber) {
   Key_FieldNumber_Id_p = 1,
-  Key_FieldNumber_PrivateKey = 2,
-  Key_FieldNumber_PublicKey = 3,
-  Key_FieldNumber_ShouldRotate = 4,
-  Key_FieldNumber_RotatedFromId = 5,
-  Key_FieldNumber_RotateCron = 6,
-  Key_FieldNumber_ExpiresAt = 9,
-  Key_FieldNumber_UpdatedAt = 10,
-  Key_FieldNumber_CreatedAt = 11,
-  Key_FieldNumber_DeletedAt = 12,
+  Key_FieldNumber_ExternalId = 2,
+  Key_FieldNumber_PrivateKey = 3,
+  Key_FieldNumber_PublicKey = 4,
+  Key_FieldNumber_ShouldRotate = 5,
+  Key_FieldNumber_RotatedFromId = 6,
+  Key_FieldNumber_RotateCron = 7,
+  Key_FieldNumber_ExpiresAt = 8,
+  Key_FieldNumber_UpdatedAt = 9,
+  Key_FieldNumber_CreatedAt = 10,
 };
 
 GPB_FINAL @interface Key : GPBMessage
 
-@property(nonatomic, readwrite, strong, null_resettable) ID *id_p;
-/** Test to see if @c id_p has been set. */
-@property(nonatomic, readwrite) BOOL hasId_p;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *externalId;
+/** Test to see if @c externalId has been set. */
+@property(nonatomic, readwrite) BOOL hasExternalId;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *privateKey;
 
@@ -76,6 +75,7 @@ GPB_FINAL @interface Key : GPBMessage
 
 @property(nonatomic, readwrite) BOOL shouldRotate;
 
+@property(nonatomic, readwrite) BOOL hasShouldRotate;
 @property(nonatomic, readwrite, copy, null_resettable) NSString *rotatedFromId;
 /** Test to see if @c rotatedFromId has been set. */
 @property(nonatomic, readwrite) BOOL hasRotatedFromId;
@@ -84,21 +84,17 @@ GPB_FINAL @interface Key : GPBMessage
 /** Test to see if @c rotateCron has been set. */
 @property(nonatomic, readwrite) BOOL hasRotateCron;
 
-@property(nonatomic, readwrite, strong, null_resettable) Timestamp *expiresAt;
+@property(nonatomic, readwrite, strong, null_resettable) GPBTimestamp *expiresAt;
 /** Test to see if @c expiresAt has been set. */
 @property(nonatomic, readwrite) BOOL hasExpiresAt;
 
-@property(nonatomic, readwrite, strong, null_resettable) Timestamp *updatedAt;
+@property(nonatomic, readwrite, strong, null_resettable) GPBTimestamp *updatedAt;
 /** Test to see if @c updatedAt has been set. */
 @property(nonatomic, readwrite) BOOL hasUpdatedAt;
 
-@property(nonatomic, readwrite, strong, null_resettable) Timestamp *createdAt;
+@property(nonatomic, readwrite, strong, null_resettable) GPBTimestamp *createdAt;
 /** Test to see if @c createdAt has been set. */
 @property(nonatomic, readwrite) BOOL hasCreatedAt;
-
-@property(nonatomic, readwrite, strong, null_resettable) DeletedAt *deletedAt;
-/** Test to see if @c deletedAt has been set. */
-@property(nonatomic, readwrite) BOOL hasDeletedAt;
 
 @end
 
@@ -113,6 +109,7 @@ GPB_FINAL @interface KeyServiceCreateRequest : GPBMessage
 
 @property(nonatomic, readwrite) BOOL shouldRotate;
 
+@property(nonatomic, readwrite) BOOL hasShouldRotate;
 @property(nonatomic, readwrite, copy, null_resettable) NSString *rotateCron;
 /** Test to see if @c rotateCron has been set. */
 @property(nonatomic, readwrite) BOOL hasRotateCron;

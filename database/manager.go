@@ -1,7 +1,7 @@
 package database
 
 import (
-	"github.com/luminos-company/secretary/generated/models"
+	"github.com/luminos-company/secretary/database/dbmodel"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gen"
 	"gorm.io/gorm"
@@ -23,12 +23,11 @@ func Get() *gorm.DB {
 
 func create() {
 	db = Get()
-	err := db.AutoMigrate(models.Key{})
+	err := db.AutoMigrate(dbmodel.KeyModel{}, dbmodel.KeyRotatedModel{})
 	if err != nil {
 		_ = os.RemoveAll(dbFile)
 		panic(err)
 	}
-	Generate()
 }
 
 func Generate() {
@@ -38,7 +37,7 @@ func Generate() {
 		Mode:    gen.WithoutContext | gen.WithDefaultQuery | gen.WithQueryInterface, // generate mode
 	})
 	g.UseDB(Get())
-	g.ApplyBasic(models.Key{})
+	g.ApplyBasic(dbmodel.KeyModel{}, dbmodel.KeyRotatedModel{})
 	g.Execute()
 }
 

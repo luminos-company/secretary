@@ -1,9 +1,5 @@
 # This is a Makefile for generate the grpc code
 
 generate:
-	go get ./...
-	go get github.com/jmattheis/goverter/cmd/goverter
 	buf generate --template buf.gen.yaml
-	buf generate --template=buf.gen.tags.yaml
 	buf generate --template=buf.gen.sdk.yaml
-	go run gen.go

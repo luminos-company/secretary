@@ -14,9 +14,8 @@
 #endif
 
 #import "models/Key.pbobjc.h"
-#import "types/Types.pbobjc.h"
 #import "google/api/Annotations.pbobjc.h"
-#import "tagger/Tagger.pbobjc.h"
+#import "google/protobuf/Descriptor.pbobjc.h"
 // @@protoc_insertion_point(imports)
 
 #pragma clang diagnostic push
@@ -27,10 +26,8 @@
 // Forward declarations of Objective C classes that we can use as
 // static values in struct initializers.
 // We don't use [Foo class] because it is not a static value.
-GPBObjCClassDeclaration(DeletedAt);
-GPBObjCClassDeclaration(ID);
+GPBObjCClassDeclaration(GPBTimestamp);
 GPBObjCClassDeclaration(Key);
-GPBObjCClassDeclaration(Timestamp);
 
 #pragma mark - KeyRoot
 
@@ -45,7 +42,6 @@ GPBObjCClassDeclaration(Timestamp);
     registry = [[GPBExtensionRegistry alloc] init];
     // Merge in the imports (direct or indirect) that defined extensions.
     [registry addExtensions:[GAPIAnnotationsRoot extensionRegistry]];
-    [registry addExtensions:[TaggerRoot extensionRegistry]];
   }
   return registry;
 }
@@ -70,28 +66,28 @@ static GPBFileDescriptor *KeyRoot_FileDescriptor(void) {
 
 @implementation Key
 
-@dynamic hasId_p, id_p;
+@dynamic id_p;
+@dynamic hasExternalId, externalId;
 @dynamic privateKey;
 @dynamic publicKey;
-@dynamic shouldRotate;
+@dynamic hasShouldRotate, shouldRotate;
 @dynamic hasRotatedFromId, rotatedFromId;
 @dynamic hasRotateCron, rotateCron;
 @dynamic hasExpiresAt, expiresAt;
 @dynamic hasUpdatedAt, updatedAt;
 @dynamic hasCreatedAt, createdAt;
-@dynamic hasDeletedAt, deletedAt;
 
 typedef struct Key__storage_ {
   uint32_t _has_storage_[1];
-  ID *id_p;
+  NSString *id_p;
+  NSString *externalId;
   NSString *privateKey;
   NSString *publicKey;
   NSString *rotatedFromId;
   NSString *rotateCron;
-  Timestamp *expiresAt;
-  Timestamp *updatedAt;
-  Timestamp *createdAt;
-  DeletedAt *deletedAt;
+  GPBTimestamp *expiresAt;
+  GPBTimestamp *updatedAt;
+  GPBTimestamp *createdAt;
 } Key__storage_;
 
 // This method is threadsafe because it is initially called
@@ -102,18 +98,27 @@ typedef struct Key__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "id_p",
-        .dataTypeSpecific.clazz = GPBObjCClass(ID),
+        .dataTypeSpecific.clazz = Nil,
         .number = Key_FieldNumber_Id_p,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(Key__storage_, id_p),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "externalId",
+        .dataTypeSpecific.clazz = Nil,
+        .number = Key_FieldNumber_ExternalId,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(Key__storage_, externalId),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeMessage,
+        .dataType = GPBDataTypeString,
       },
       {
         .name = "privateKey",
         .dataTypeSpecific.clazz = Nil,
         .number = Key_FieldNumber_PrivateKey,
-        .hasIndex = 1,
+        .hasIndex = 2,
         .offset = (uint32_t)offsetof(Key__storage_, privateKey),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
@@ -122,7 +127,7 @@ typedef struct Key__storage_ {
         .name = "publicKey",
         .dataTypeSpecific.clazz = Nil,
         .number = Key_FieldNumber_PublicKey,
-        .hasIndex = 2,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(Key__storage_, publicKey),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
@@ -131,16 +136,16 @@ typedef struct Key__storage_ {
         .name = "shouldRotate",
         .dataTypeSpecific.clazz = Nil,
         .number = Key_FieldNumber_ShouldRotate,
-        .hasIndex = 3,
-        .offset = 4,  // Stored in _has_storage_ to save space.
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .hasIndex = 4,
+        .offset = 5,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBool,
       },
       {
         .name = "rotatedFromId",
         .dataTypeSpecific.clazz = Nil,
         .number = Key_FieldNumber_RotatedFromId,
-        .hasIndex = 5,
+        .hasIndex = 6,
         .offset = (uint32_t)offsetof(Key__storage_, rotatedFromId),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
@@ -149,44 +154,35 @@ typedef struct Key__storage_ {
         .name = "rotateCron",
         .dataTypeSpecific.clazz = Nil,
         .number = Key_FieldNumber_RotateCron,
-        .hasIndex = 6,
+        .hasIndex = 7,
         .offset = (uint32_t)offsetof(Key__storage_, rotateCron),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
       },
       {
         .name = "expiresAt",
-        .dataTypeSpecific.clazz = GPBObjCClass(Timestamp),
+        .dataTypeSpecific.clazz = GPBObjCClass(GPBTimestamp),
         .number = Key_FieldNumber_ExpiresAt,
-        .hasIndex = 7,
+        .hasIndex = 8,
         .offset = (uint32_t)offsetof(Key__storage_, expiresAt),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
       },
       {
         .name = "updatedAt",
-        .dataTypeSpecific.clazz = GPBObjCClass(Timestamp),
+        .dataTypeSpecific.clazz = GPBObjCClass(GPBTimestamp),
         .number = Key_FieldNumber_UpdatedAt,
-        .hasIndex = 8,
+        .hasIndex = 9,
         .offset = (uint32_t)offsetof(Key__storage_, updatedAt),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
       },
       {
         .name = "createdAt",
-        .dataTypeSpecific.clazz = GPBObjCClass(Timestamp),
+        .dataTypeSpecific.clazz = GPBObjCClass(GPBTimestamp),
         .number = Key_FieldNumber_CreatedAt,
-        .hasIndex = 9,
-        .offset = (uint32_t)offsetof(Key__storage_, createdAt),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeMessage,
-      },
-      {
-        .name = "deletedAt",
-        .dataTypeSpecific.clazz = GPBObjCClass(DeletedAt),
-        .number = Key_FieldNumber_DeletedAt,
         .hasIndex = 10,
-        .offset = (uint32_t)offsetof(Key__storage_, deletedAt),
+        .offset = (uint32_t)offsetof(Key__storage_, createdAt),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
       },
@@ -213,7 +209,7 @@ typedef struct Key__storage_ {
 
 @implementation KeyServiceCreateRequest
 
-@dynamic shouldRotate;
+@dynamic hasShouldRotate, shouldRotate;
 @dynamic hasRotateCron, rotateCron;
 
 typedef struct KeyServiceCreateRequest__storage_ {
@@ -233,7 +229,7 @@ typedef struct KeyServiceCreateRequest__storage_ {
         .number = KeyServiceCreateRequest_FieldNumber_ShouldRotate,
         .hasIndex = 0,
         .offset = 1,  // Stored in _has_storage_ to save space.
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBool,
       },
       {

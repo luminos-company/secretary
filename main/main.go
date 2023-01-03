@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/improbable-eng/grpc-web/go/grpcweb"
 	"github.com/luminos-company/secretary/database"
+	"github.com/luminos-company/secretary/database/dbmodel"
 	"github.com/luminos-company/secretary/generated/models"
 	"github.com/luminos-company/secretary/generated/query"
 	"github.com/luminos-company/secretary/main/services"
@@ -63,10 +64,10 @@ func basicTest() {
 	query.SetDefault(database.Get())
 	t := keys.Rsa{}
 	t.Generate()
-	r := &models.Key{
+	r := &dbmodel.KeyModel{
 		PrivateKey:   t.ExportPrivateBase64(),
 		PublicKey:    t.ExportPublicBase64(),
 		ShouldRotate: false,
 	}
-	HandleError(query.Key.Save(r))
+	HandleError(query.KeyModel.Save(r))
 }
