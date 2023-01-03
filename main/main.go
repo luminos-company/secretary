@@ -8,6 +8,7 @@ import (
 	"github.com/luminos-company/secretary/generated/query"
 	"github.com/luminos-company/secretary/main/services"
 	"github.com/luminos-company/secretary/tools/keys"
+	"github.com/luminos-company/secretary/typ"
 	"google.golang.org/grpc"
 	"log"
 	"net"
@@ -67,7 +68,7 @@ func basicTest() {
 	r := &dbmodel.KeyModel{
 		PrivateKey:   t.ExportPrivateBase64(),
 		PublicKey:    t.ExportPublicBase64(),
-		ShouldRotate: false,
+		ShouldRotate: typ.PFalse(),
 	}
 	HandleError(query.KeyModel.Save(r))
 }

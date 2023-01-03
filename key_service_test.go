@@ -20,7 +20,7 @@ func PFalse() *bool {
 func TestKeyService_Create(t *testing.T) {
 	ksv := services.KeyService{}
 	res, err := ksv.Create(context.TODO(), &models.KeyServiceCreateRequest{
-		ShouldRotate: PTrue(),
+		ShouldRotate: PFalse(),
 	})
 	if err != nil || res == nil {
 		t.Fatal(err)
