@@ -196,27 +196,17 @@ class Key extends $pb.GeneratedMessage {
 
 class KeyServiceCreateRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceCreateRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKey')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publicKey')
-    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldRotate')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotateCron')
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldRotate')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotateCron')
     ..hasRequiredFields = false
   ;
 
   KeyServiceCreateRequest._() : super();
   factory KeyServiceCreateRequest({
-    $core.String? privateKey,
-    $core.String? publicKey,
     $core.bool? shouldRotate,
     $core.String? rotateCron,
   }) {
     final _result = create();
-    if (privateKey != null) {
-      _result.privateKey = privateKey;
-    }
-    if (publicKey != null) {
-      _result.publicKey = publicKey;
-    }
     if (shouldRotate != null) {
       _result.shouldRotate = shouldRotate;
     }
@@ -247,40 +237,22 @@ class KeyServiceCreateRequest extends $pb.GeneratedMessage {
   static KeyServiceCreateRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get privateKey => $_getSZ(0);
+  $core.bool get shouldRotate => $_getBF(0);
   @$pb.TagNumber(1)
-  set privateKey($core.String v) { $_setString(0, v); }
+  set shouldRotate($core.bool v) { $_setBool(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPrivateKey() => $_has(0);
+  $core.bool hasShouldRotate() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPrivateKey() => clearField(1);
+  void clearShouldRotate() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get publicKey => $_getSZ(1);
+  $core.String get rotateCron => $_getSZ(1);
   @$pb.TagNumber(2)
-  set publicKey($core.String v) { $_setString(1, v); }
+  set rotateCron($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasPublicKey() => $_has(1);
+  $core.bool hasRotateCron() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPublicKey() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.bool get shouldRotate => $_getBF(2);
-  @$pb.TagNumber(3)
-  set shouldRotate($core.bool v) { $_setBool(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasShouldRotate() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearShouldRotate() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.String get rotateCron => $_getSZ(3);
-  @$pb.TagNumber(4)
-  set rotateCron($core.String v) { $_setString(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasRotateCron() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearRotateCron() => clearField(4);
+  void clearRotateCron() => clearField(2);
 }
 
 class KeyServiceCreateResponse extends $pb.GeneratedMessage {

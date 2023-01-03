@@ -14,21 +14,13 @@ use Google\Protobuf\Internal\GPBUtil;
 class KeyServiceCreateRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string private_key = 1 [json_name = "privateKey"];</code>
+     * Generated from protobuf field <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
      */
-    protected $private_key = '';
+    protected $should_rotate = null;
     /**
-     * Generated from protobuf field <code>string public_key = 2 [json_name = "publicKey"];</code>
+     * Generated from protobuf field <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
      */
-    protected $public_key = '';
-    /**
-     * Generated from protobuf field <code>bool should_rotate = 3 [json_name = "shouldRotate"];</code>
-     */
-    protected $should_rotate = false;
-    /**
-     * Generated from protobuf field <code>string rotate_cron = 4 [json_name = "rotateCron"];</code>
-     */
-    protected $rotate_cron = '';
+    protected $rotate_cron = null;
 
     /**
      * Constructor.
@@ -36,8 +28,6 @@ class KeyServiceCreateRequest extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $private_key
-     *     @type string $public_key
      *     @type bool $should_rotate
      *     @type string $rotate_cron
      * }
@@ -48,60 +38,26 @@ class KeyServiceCreateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string private_key = 1 [json_name = "privateKey"];</code>
-     * @return string
-     */
-    public function getPrivateKey()
-    {
-        return $this->private_key;
-    }
-
-    /**
-     * Generated from protobuf field <code>string private_key = 1 [json_name = "privateKey"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setPrivateKey($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->private_key = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string public_key = 2 [json_name = "publicKey"];</code>
-     * @return string
-     */
-    public function getPublicKey()
-    {
-        return $this->public_key;
-    }
-
-    /**
-     * Generated from protobuf field <code>string public_key = 2 [json_name = "publicKey"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setPublicKey($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->public_key = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>bool should_rotate = 3 [json_name = "shouldRotate"];</code>
+     * Generated from protobuf field <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
      * @return bool
      */
     public function getShouldRotate()
     {
-        return $this->should_rotate;
+        return isset($this->should_rotate) ? $this->should_rotate : false;
+    }
+
+    public function hasShouldRotate()
+    {
+        return isset($this->should_rotate);
+    }
+
+    public function clearShouldRotate()
+    {
+        unset($this->should_rotate);
     }
 
     /**
-     * Generated from protobuf field <code>bool should_rotate = 3 [json_name = "shouldRotate"];</code>
+     * Generated from protobuf field <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
      * @param bool $var
      * @return $this
      */
@@ -114,16 +70,26 @@ class KeyServiceCreateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string rotate_cron = 4 [json_name = "rotateCron"];</code>
+     * Generated from protobuf field <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
      * @return string
      */
     public function getRotateCron()
     {
-        return $this->rotate_cron;
+        return isset($this->rotate_cron) ? $this->rotate_cron : '';
+    }
+
+    public function hasRotateCron()
+    {
+        return isset($this->rotate_cron);
+    }
+
+    public function clearRotateCron()
+    {
+        unset($this->rotate_cron);
     }
 
     /**
-     * Generated from protobuf field <code>string rotate_cron = 4 [json_name = "rotateCron"];</code>
+     * Generated from protobuf field <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
      * @param string $var
      * @return $this
      */

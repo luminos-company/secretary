@@ -37,15 +37,17 @@ final $typed_data.Uint8List keyDescriptor = $convert.base64Decode('CgNLZXkSMQoCa
 const KeyServiceCreateRequest$json = const {
   '1': 'KeyServiceCreateRequest',
   '2': const [
-    const {'1': 'private_key', '3': 1, '4': 1, '5': 9, '10': 'privateKey'},
-    const {'1': 'public_key', '3': 2, '4': 1, '5': 9, '10': 'publicKey'},
-    const {'1': 'should_rotate', '3': 3, '4': 1, '5': 8, '10': 'shouldRotate'},
-    const {'1': 'rotate_cron', '3': 4, '4': 1, '5': 9, '10': 'rotateCron'},
+    const {'1': 'should_rotate', '3': 1, '4': 1, '5': 8, '9': 0, '10': 'shouldRotate', '17': true},
+    const {'1': 'rotate_cron', '3': 2, '4': 1, '5': 9, '9': 1, '10': 'rotateCron', '17': true},
+  ],
+  '8': const [
+    const {'1': '_should_rotate'},
+    const {'1': '_rotate_cron'},
   ],
 };
 
 /// Descriptor for `KeyServiceCreateRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyServiceCreateRequestDescriptor = $convert.base64Decode('ChdLZXlTZXJ2aWNlQ3JlYXRlUmVxdWVzdBIfCgtwcml2YXRlX2tleRgBIAEoCVIKcHJpdmF0ZUtleRIdCgpwdWJsaWNfa2V5GAIgASgJUglwdWJsaWNLZXkSIwoNc2hvdWxkX3JvdGF0ZRgDIAEoCFIMc2hvdWxkUm90YXRlEh8KC3JvdGF0ZV9jcm9uGAQgASgJUgpyb3RhdGVDcm9u');
+final $typed_data.Uint8List keyServiceCreateRequestDescriptor = $convert.base64Decode('ChdLZXlTZXJ2aWNlQ3JlYXRlUmVxdWVzdBIoCg1zaG91bGRfcm90YXRlGAEgASgISABSDHNob3VsZFJvdGF0ZYgBARIkCgtyb3RhdGVfY3JvbhgCIAEoCUgBUgpyb3RhdGVDcm9uiAEBQhAKDl9zaG91bGRfcm90YXRlQg4KDF9yb3RhdGVfY3Jvbg==');
 @$core.Deprecated('Use keyServiceCreateResponseDescriptor instead')
 const KeyServiceCreateResponse$json = const {
   '1': 'KeyServiceCreateResponse',

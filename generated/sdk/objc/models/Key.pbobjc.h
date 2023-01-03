@@ -99,21 +99,18 @@ GPB_FINAL @interface Key : GPBMessage
 #pragma mark - KeyServiceCreateRequest
 
 typedef GPB_ENUM(KeyServiceCreateRequest_FieldNumber) {
-  KeyServiceCreateRequest_FieldNumber_PrivateKey = 1,
-  KeyServiceCreateRequest_FieldNumber_PublicKey = 2,
-  KeyServiceCreateRequest_FieldNumber_ShouldRotate = 3,
-  KeyServiceCreateRequest_FieldNumber_RotateCron = 4,
+  KeyServiceCreateRequest_FieldNumber_ShouldRotate = 1,
+  KeyServiceCreateRequest_FieldNumber_RotateCron = 2,
 };
 
 GPB_FINAL @interface KeyServiceCreateRequest : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *privateKey;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSString *publicKey;
-
 @property(nonatomic, readwrite) BOOL shouldRotate;
 
+@property(nonatomic, readwrite) BOOL hasShouldRotate;
 @property(nonatomic, readwrite, copy, null_resettable) NSString *rotateCron;
+/** Test to see if @c rotateCron has been set. */
+@property(nonatomic, readwrite) BOOL hasRotateCron;
 
 @end
 

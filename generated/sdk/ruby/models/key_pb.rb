@@ -23,10 +23,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :deleted_at, :message, 12, "google.protobuf.Timestamp", json_name: "deletedAt"
     end
     add_message "models.KeyServiceCreateRequest" do
-      optional :private_key, :string, 1, json_name: "privateKey"
-      optional :public_key, :string, 2, json_name: "publicKey"
-      optional :should_rotate, :bool, 3, json_name: "shouldRotate"
-      optional :rotate_cron, :string, 4, json_name: "rotateCron"
+      proto3_optional :should_rotate, :bool, 1, json_name: "shouldRotate"
+      proto3_optional :rotate_cron, :string, 2, json_name: "rotateCron"
     end
     add_message "models.KeyServiceCreateResponse" do
       optional :key, :message, 1, "models.Key", json_name: "key"

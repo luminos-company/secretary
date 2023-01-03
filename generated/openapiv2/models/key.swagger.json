@@ -421,12 +421,6 @@
     "modelsKeyServiceCreateRequest": {
       "type": "object",
       "properties": {
-        "privateKey": {
-          "type": "string"
-        },
-        "publicKey": {
-          "type": "string"
-        },
         "shouldRotate": {
           "type": "boolean"
         },

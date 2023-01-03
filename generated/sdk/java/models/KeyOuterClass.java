@@ -1716,42 +1716,28 @@ public final class KeyOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string private_key = 1 [json_name = "privateKey"];</code>
-     * @return The privateKey.
+     * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
+     * @return Whether the shouldRotate field is set.
      */
-    java.lang.String getPrivateKey();
+    boolean hasShouldRotate();
     /**
-     * <code>string private_key = 1 [json_name = "privateKey"];</code>
-     * @return The bytes for privateKey.
-     */
-    com.google.protobuf.ByteString
-        getPrivateKeyBytes();
-
-    /**
-     * <code>string public_key = 2 [json_name = "publicKey"];</code>
-     * @return The publicKey.
-     */
-    java.lang.String getPublicKey();
-    /**
-     * <code>string public_key = 2 [json_name = "publicKey"];</code>
-     * @return The bytes for publicKey.
-     */
-    com.google.protobuf.ByteString
-        getPublicKeyBytes();
-
-    /**
-     * <code>bool should_rotate = 3 [json_name = "shouldRotate"];</code>
+     * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
      * @return The shouldRotate.
      */
     boolean getShouldRotate();
 
     /**
-     * <code>string rotate_cron = 4 [json_name = "rotateCron"];</code>
+     * <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
+     * @return Whether the rotateCron field is set.
+     */
+    boolean hasRotateCron();
+    /**
+     * <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
      * @return The rotateCron.
      */
     java.lang.String getRotateCron();
     /**
-     * <code>string rotate_cron = 4 [json_name = "rotateCron"];</code>
+     * <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
      * @return The bytes for rotateCron.
      */
     com.google.protobuf.ByteString
@@ -1770,8 +1756,6 @@ public final class KeyOuterClass {
       super(builder);
     }
     private KeyServiceCreateRequest() {
-      privateKey_ = "";
-      publicKey_ = "";
       rotateCron_ = "";
     }
 
@@ -1800,88 +1784,19 @@ public final class KeyOuterClass {
               models.KeyOuterClass.KeyServiceCreateRequest.class, models.KeyOuterClass.KeyServiceCreateRequest.Builder.class);
     }
 
-    public static final int PRIVATE_KEY_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object privateKey_ = "";
-    /**
-     * <code>string private_key = 1 [json_name = "privateKey"];</code>
-     * @return The privateKey.
-     */
-    @java.lang.Override
-    public java.lang.String getPrivateKey() {
-      java.lang.Object ref = privateKey_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        privateKey_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string private_key = 1 [json_name = "privateKey"];</code>
-     * @return The bytes for privateKey.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getPrivateKeyBytes() {
-      java.lang.Object ref = privateKey_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        privateKey_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int PUBLIC_KEY_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object publicKey_ = "";
-    /**
-     * <code>string public_key = 2 [json_name = "publicKey"];</code>
-     * @return The publicKey.
-     */
-    @java.lang.Override
-    public java.lang.String getPublicKey() {
-      java.lang.Object ref = publicKey_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        publicKey_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string public_key = 2 [json_name = "publicKey"];</code>
-     * @return The bytes for publicKey.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getPublicKeyBytes() {
-      java.lang.Object ref = publicKey_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        publicKey_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SHOULD_ROTATE_FIELD_NUMBER = 3;
+    private int bitField0_;
+    public static final int SHOULD_ROTATE_FIELD_NUMBER = 1;
     private boolean shouldRotate_ = false;
     /**
-     * <code>bool should_rotate = 3 [json_name = "shouldRotate"];</code>
+     * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
+     * @return Whether the shouldRotate field is set.
+     */
+    @java.lang.Override
+    public boolean hasShouldRotate() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
      * @return The shouldRotate.
      */
     @java.lang.Override
@@ -1889,11 +1804,19 @@ public final class KeyOuterClass {
       return shouldRotate_;
     }
 
-    public static final int ROTATE_CRON_FIELD_NUMBER = 4;
+    public static final int ROTATE_CRON_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
     private volatile java.lang.Object rotateCron_ = "";
     /**
-     * <code>string rotate_cron = 4 [json_name = "rotateCron"];</code>
+     * <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
+     * @return Whether the rotateCron field is set.
+     */
+    @java.lang.Override
+    public boolean hasRotateCron() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
      * @return The rotateCron.
      */
     @java.lang.Override
@@ -1910,7 +1833,7 @@ public final class KeyOuterClass {
       }
     }
     /**
-     * <code>string rotate_cron = 4 [json_name = "rotateCron"];</code>
+     * <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
      * @return The bytes for rotateCron.
      */
     @java.lang.Override
@@ -2052,8 +1975,6 @@ public final class KeyOuterClass {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        privateKey_ = "";
-        publicKey_ = "";
         shouldRotate_ = false;
         rotateCron_ = "";
         return this;
@@ -2089,18 +2010,16 @@ public final class KeyOuterClass {
 
       private void buildPartial0(models.KeyOuterClass.KeyServiceCreateRequest result) {
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.privateKey_ = privateKey_;
+          result.shouldRotate_ = shouldRotate_;
+          to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.publicKey_ = publicKey_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.shouldRotate_ = shouldRotate_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
           result.rotateCron_ = rotateCron_;
+          to_bitField0_ |= 0x00000002;
         }
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2137,153 +2056,17 @@ public final class KeyOuterClass {
       }
       private int bitField0_;
 
-      private java.lang.Object privateKey_ = "";
-      /**
-       * <code>string private_key = 1 [json_name = "privateKey"];</code>
-       * @return The privateKey.
-       */
-      public java.lang.String getPrivateKey() {
-        java.lang.Object ref = privateKey_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          privateKey_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string private_key = 1 [json_name = "privateKey"];</code>
-       * @return The bytes for privateKey.
-       */
-      public com.google.protobuf.ByteString
-          getPrivateKeyBytes() {
-        java.lang.Object ref = privateKey_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          privateKey_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string private_key = 1 [json_name = "privateKey"];</code>
-       * @param value The privateKey to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPrivateKey(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        privateKey_ = value;
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string private_key = 1 [json_name = "privateKey"];</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPrivateKey() {
-        privateKey_ = getDefaultInstance().getPrivateKey();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string private_key = 1 [json_name = "privateKey"];</code>
-       * @param value The bytes for privateKey to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPrivateKeyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        privateKey_ = value;
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object publicKey_ = "";
-      /**
-       * <code>string public_key = 2 [json_name = "publicKey"];</code>
-       * @return The publicKey.
-       */
-      public java.lang.String getPublicKey() {
-        java.lang.Object ref = publicKey_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          publicKey_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string public_key = 2 [json_name = "publicKey"];</code>
-       * @return The bytes for publicKey.
-       */
-      public com.google.protobuf.ByteString
-          getPublicKeyBytes() {
-        java.lang.Object ref = publicKey_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          publicKey_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string public_key = 2 [json_name = "publicKey"];</code>
-       * @param value The publicKey to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPublicKey(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        publicKey_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string public_key = 2 [json_name = "publicKey"];</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPublicKey() {
-        publicKey_ = getDefaultInstance().getPublicKey();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string public_key = 2 [json_name = "publicKey"];</code>
-       * @param value The bytes for publicKey to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPublicKeyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        publicKey_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
-
       private boolean shouldRotate_ ;
       /**
-       * <code>bool should_rotate = 3 [json_name = "shouldRotate"];</code>
+       * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
+       * @return Whether the shouldRotate field is set.
+       */
+      @java.lang.Override
+      public boolean hasShouldRotate() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
        * @return The shouldRotate.
        */
       @java.lang.Override
@@ -2291,23 +2074,23 @@ public final class KeyOuterClass {
         return shouldRotate_;
       }
       /**
-       * <code>bool should_rotate = 3 [json_name = "shouldRotate"];</code>
+       * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
        * @param value The shouldRotate to set.
        * @return This builder for chaining.
        */
       public Builder setShouldRotate(boolean value) {
         
         shouldRotate_ = value;
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>bool should_rotate = 3 [json_name = "shouldRotate"];</code>
+       * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
        * @return This builder for chaining.
        */
       public Builder clearShouldRotate() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000001);
         shouldRotate_ = false;
         onChanged();
         return this;
@@ -2315,7 +2098,14 @@ public final class KeyOuterClass {
 
       private java.lang.Object rotateCron_ = "";
       /**
-       * <code>string rotate_cron = 4 [json_name = "rotateCron"];</code>
+       * <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
+       * @return Whether the rotateCron field is set.
+       */
+      public boolean hasRotateCron() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
        * @return The rotateCron.
        */
       public java.lang.String getRotateCron() {
@@ -2331,7 +2121,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>string rotate_cron = 4 [json_name = "rotateCron"];</code>
+       * <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
        * @return The bytes for rotateCron.
        */
       public com.google.protobuf.ByteString
@@ -2348,7 +2138,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>string rotate_cron = 4 [json_name = "rotateCron"];</code>
+       * <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
        * @param value The rotateCron to set.
        * @return This builder for chaining.
        */
@@ -2356,22 +2146,22 @@ public final class KeyOuterClass {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         rotateCron_ = value;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
-       * <code>string rotate_cron = 4 [json_name = "rotateCron"];</code>
+       * <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
        * @return This builder for chaining.
        */
       public Builder clearRotateCron() {
         rotateCron_ = getDefaultInstance().getRotateCron();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
-       * <code>string rotate_cron = 4 [json_name = "rotateCron"];</code>
+       * <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
        * @param value The bytes for rotateCron to set.
        * @return This builder for chaining.
        */
@@ -2380,7 +2170,7 @@ public final class KeyOuterClass {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         rotateCron_ = value;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -11864,67 +11654,67 @@ public final class KeyOuterClass {
       "eted_at\030\014 \001(\0132\032.google.protobuf.Timestam" +
       "pB5\232\204\236\0030json:\"deleted_at\" gorm:\"index; t" +
       "ype:timestamptz\"R\tdeletedAtB\022\n\020_rotated_" +
-      "from_id\"\237\001\n\027KeyServiceCreateRequest\022\037\n\013p" +
-      "rivate_key\030\001 \001(\tR\nprivateKey\022\035\n\npublic_k" +
-      "ey\030\002 \001(\tR\tpublicKey\022#\n\rshould_rotate\030\003 \001" +
-      "(\010R\014shouldRotate\022\037\n\013rotate_cron\030\004 \001(\tR\nr" +
-      "otateCron\"9\n\030KeyServiceCreateResponse\022\035\n" +
-      "\003key\030\001 \001(\0132\013.models.KeyR\003key\"&\n\024KeyServi" +
-      "ceGetRequest\022\016\n\002id\030\001 \001(\tR\002id\"6\n\025KeyServi" +
-      "ceGetResponse\022\035\n\003key\030\001 \001(\0132\013.models.KeyR" +
-      "\003key\"J\n\025KeyServiceListRequest\0221\n\npaginat" +
-      "ion\030\001 \001(\0132\021.types.PaginationR\npagination" +
-      "\"l\n\026KeyServiceListResponse\022\037\n\004keys\030\001 \003(\013" +
-      "2\013.models.KeyR\004keys\0221\n\npagination\030\002 \001(\0132" +
-      "\021.types.PaginationR\npagination\"A\n\025KeySer" +
-      "viceSignRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007messa" +
-      "ge\030\002 \001(\tR\007message\"6\n\026KeyServiceSignRespo" +
-      "nse\022\034\n\tsignature\030\001 \001(\tR\tsignature\"a\n\027Key" +
-      "ServiceVerifyRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007" +
-      "message\030\002 \001(\tR\007message\022\034\n\tsignature\030\003 \001(" +
-      "\tR\tsignature\"0\n\030KeyServiceVerifyResponse" +
-      "\022\024\n\005valid\030\001 \001(\010R\005valid\"C\n\027KeyServiceCryp" +
-      "toRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001" +
-      "(\tR\007message\":\n\030KeyServiceCryptoResponse\022" +
-      "\036\n\nciphertext\030\001 \001(\tR\nciphertext\"J\n\030KeySe" +
-      "rviceDecryptRequest\022\016\n\002id\030\001 \001(\tR\002id\022\036\n\nc" +
-      "iphertext\030\002 \001(\tR\nciphertext\"5\n\031KeyServic" +
-      "eDecryptResponse\022\030\n\007message\030\001 \001(\tR\007messa" +
-      "ge\")\n\027KeyServiceRotateRequest\022\016\n\002id\030\001 \001(" +
-      "\tR\002id\"9\n\030KeyServiceRotateResponse\022\035\n\003key" +
-      "\030\001 \001(\0132\013.models.KeyR\003key\")\n\027KeyServiceDe" +
-      "leteRequest\022\016\n\002id\030\001 \001(\tR\002id\"9\n\030KeyServic" +
-      "eDeleteResponse\022\035\n\003key\030\001 \001(\0132\013.models.Ke" +
-      "yR\003key\"&\n\024KeyServiceJWKRequest\022\016\n\002id\030\001 \001" +
-      "(\tR\002id\")\n\025KeyServiceJWKResponse\022\020\n\003jwk\030\001" +
-      " \001(\tR\003jwk2\204\010\n\nKeyService\022`\n\006Create\022\037.mod" +
-      "els.KeyServiceCreateRequest\032 .models.Key" +
-      "ServiceCreateResponse\"\023\202\323\344\223\002\r:\001*\"\010/v1/ke" +
-      "ys\022Y\n\003Get\022\034.models.KeyServiceGetRequest\032" +
-      "\035.models.KeyServiceGetResponse\"\025\202\323\344\223\002\017\022\r" +
-      "/v1/keys/{id}\022W\n\004List\022\035.models.KeyServic" +
-      "eListRequest\032\036.models.KeyServiceListResp" +
-      "onse\"\020\202\323\344\223\002\n\022\010/v1/keys\022d\n\004Sign\022\035.models." +
-      "KeyServiceSignRequest\032\036.models.KeyServic" +
-      "eSignResponse\"\035\202\323\344\223\002\027:\001*\"\022/v1/keys/{id}/" +
-      "sign\022l\n\006Verify\022\037.models.KeyServiceVerify" +
-      "Request\032 .models.KeyServiceVerifyRespons" +
-      "e\"\037\202\323\344\223\002\031:\001*\"\024/v1/keys/{id}/verify\022l\n\006Cr" +
-      "ypto\022\037.models.KeyServiceCryptoRequest\032 ." +
-      "models.KeyServiceCryptoResponse\"\037\202\323\344\223\002\031:" +
-      "\001*\"\024/v1/keys/{id}/crypto\022p\n\007Decrypt\022 .mo" +
-      "dels.KeyServiceDecryptRequest\032!.models.K" +
-      "eyServiceDecryptResponse\" \202\323\344\223\002\032:\001*\"\025/v1" +
-      "/keys/{id}/decrypt\022i\n\006Rotate\022\037.models.Ke" +
-      "yServiceRotateRequest\032 .models.KeyServic" +
-      "eRotateResponse\"\034\202\323\344\223\002\026\"\024/v1/keys/{id}/r" +
-      "otate\022b\n\006Delete\022\037.models.KeyServiceDelet" +
-      "eRequest\032 .models.KeyServiceDeleteRespon" +
-      "se\"\025\202\323\344\223\002\017*\r/v1/keys/{id}\022]\n\003JWK\022\034.model" +
-      "s.KeyServiceJWKRequest\032\035.models.KeyServi" +
-      "ceJWKResponse\"\031\202\323\344\223\002\023\022\021/v1/keys/{id}/jwk" +
-      "B9H\002Z5github.com/luminos-company/secreta" +
-      "ry/generated/modelsb\006proto3"
+      "from_id\"\213\001\n\027KeyServiceCreateRequest\022(\n\rs" +
+      "hould_rotate\030\001 \001(\010H\000R\014shouldRotate\210\001\001\022$\n" +
+      "\013rotate_cron\030\002 \001(\tH\001R\nrotateCron\210\001\001B\020\n\016_" +
+      "should_rotateB\016\n\014_rotate_cron\"9\n\030KeyServ" +
+      "iceCreateResponse\022\035\n\003key\030\001 \001(\0132\013.models." +
+      "KeyR\003key\"&\n\024KeyServiceGetRequest\022\016\n\002id\030\001" +
+      " \001(\tR\002id\"6\n\025KeyServiceGetResponse\022\035\n\003key" +
+      "\030\001 \001(\0132\013.models.KeyR\003key\"J\n\025KeyServiceLi" +
+      "stRequest\0221\n\npagination\030\001 \001(\0132\021.types.Pa" +
+      "ginationR\npagination\"l\n\026KeyServiceListRe" +
+      "sponse\022\037\n\004keys\030\001 \003(\0132\013.models.KeyR\004keys\022" +
+      "1\n\npagination\030\002 \001(\0132\021.types.PaginationR\n" +
+      "pagination\"A\n\025KeyServiceSignRequest\022\016\n\002i" +
+      "d\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(\tR\007message\"6\n" +
+      "\026KeyServiceSignResponse\022\034\n\tsignature\030\001 \001" +
+      "(\tR\tsignature\"a\n\027KeyServiceVerifyRequest" +
+      "\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(\tR\007messa" +
+      "ge\022\034\n\tsignature\030\003 \001(\tR\tsignature\"0\n\030KeyS" +
+      "erviceVerifyResponse\022\024\n\005valid\030\001 \001(\010R\005val" +
+      "id\"C\n\027KeyServiceCryptoRequest\022\016\n\002id\030\001 \001(" +
+      "\tR\002id\022\030\n\007message\030\002 \001(\tR\007message\":\n\030KeySe" +
+      "rviceCryptoResponse\022\036\n\nciphertext\030\001 \001(\tR" +
+      "\nciphertext\"J\n\030KeyServiceDecryptRequest\022" +
+      "\016\n\002id\030\001 \001(\tR\002id\022\036\n\nciphertext\030\002 \001(\tR\ncip" +
+      "hertext\"5\n\031KeyServiceDecryptResponse\022\030\n\007" +
+      "message\030\001 \001(\tR\007message\")\n\027KeyServiceRota" +
+      "teRequest\022\016\n\002id\030\001 \001(\tR\002id\"9\n\030KeyServiceR" +
+      "otateResponse\022\035\n\003key\030\001 \001(\0132\013.models.KeyR" +
+      "\003key\")\n\027KeyServiceDeleteRequest\022\016\n\002id\030\001 " +
+      "\001(\tR\002id\"9\n\030KeyServiceDeleteResponse\022\035\n\003k" +
+      "ey\030\001 \001(\0132\013.models.KeyR\003key\"&\n\024KeyService" +
+      "JWKRequest\022\016\n\002id\030\001 \001(\tR\002id\")\n\025KeyService" +
+      "JWKResponse\022\020\n\003jwk\030\001 \001(\tR\003jwk2\204\010\n\nKeySer" +
+      "vice\022`\n\006Create\022\037.models.KeyServiceCreate" +
+      "Request\032 .models.KeyServiceCreateRespons" +
+      "e\"\023\202\323\344\223\002\r:\001*\"\010/v1/keys\022Y\n\003Get\022\034.models.K" +
+      "eyServiceGetRequest\032\035.models.KeyServiceG" +
+      "etResponse\"\025\202\323\344\223\002\017\022\r/v1/keys/{id}\022W\n\004Lis" +
+      "t\022\035.models.KeyServiceListRequest\032\036.model" +
+      "s.KeyServiceListResponse\"\020\202\323\344\223\002\n\022\010/v1/ke" +
+      "ys\022d\n\004Sign\022\035.models.KeyServiceSignReques" +
+      "t\032\036.models.KeyServiceSignResponse\"\035\202\323\344\223\002" +
+      "\027:\001*\"\022/v1/keys/{id}/sign\022l\n\006Verify\022\037.mod" +
+      "els.KeyServiceVerifyRequest\032 .models.Key" +
+      "ServiceVerifyResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/ke" +
+      "ys/{id}/verify\022l\n\006Crypto\022\037.models.KeySer" +
+      "viceCryptoRequest\032 .models.KeyServiceCry" +
+      "ptoResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/keys/{id}/cr" +
+      "ypto\022p\n\007Decrypt\022 .models.KeyServiceDecry" +
+      "ptRequest\032!.models.KeyServiceDecryptResp" +
+      "onse\" \202\323\344\223\002\032:\001*\"\025/v1/keys/{id}/decrypt\022i" +
+      "\n\006Rotate\022\037.models.KeyServiceRotateReques" +
+      "t\032 .models.KeyServiceRotateResponse\"\034\202\323\344" +
+      "\223\002\026\"\024/v1/keys/{id}/rotate\022b\n\006Delete\022\037.mo" +
+      "dels.KeyServiceDeleteRequest\032 .models.Ke" +
+      "yServiceDeleteResponse\"\025\202\323\344\223\002\017*\r/v1/keys" +
+      "/{id}\022]\n\003JWK\022\034.models.KeyServiceJWKReque" +
+      "st\032\035.models.KeyServiceJWKResponse\"\031\202\323\344\223\002" +
+      "\023\022\021/v1/keys/{id}/jwkB9H\002Z5github.com/lum" +
+      "inos-company/secretary/generated/modelsb" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11945,7 +11735,7 @@ public final class KeyOuterClass {
     internal_static_models_KeyServiceCreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_models_KeyServiceCreateRequest_descriptor,
-        new java.lang.String[] { "PrivateKey", "PublicKey", "ShouldRotate", "RotateCron", });
+        new java.lang.String[] { "ShouldRotate", "RotateCron", "ShouldRotate", "RotateCron", });
     internal_static_models_KeyServiceCreateResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_models_KeyServiceCreateResponse_fieldAccessorTable = new

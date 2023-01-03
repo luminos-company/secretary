@@ -17,7 +17,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from tagger import tagger_pb2 as tagger_dot_tagger__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10models/key.proto\x12\x06models\x1a\x11types/types.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x13tagger/tagger.proto\"\xbb\x07\n\x03Key\x12\x31\n\x02id\x18\x01 \x01(\tB!\x9a\x84\x9e\x03\x1cjson:\"id\" gorm:\"primary_key\"R\x02id\x12\x38\n\x0bprivate_key\x18\x02 \x01(\tB\x17\x9a\x84\x9e\x03\x12json:\"private_key\"R\nprivateKey\x12\x35\n\npublic_key\x18\x03 \x01(\tB\x16\x9a\x84\x9e\x03\x11json:\"public_key\"R\tpublicKey\x12\x64\n\rshould_rotate\x18\x04 \x01(\x08\x42?\x9a\x84\x9e\x03:json:\"should_rotate\" gorm:\"default:false; index; not null\"R\x0cshouldRotate\x12U\n\x0frotated_from_id\x18\x05 \x01(\tB(\x9a\x84\x9e\x03#json:\"rotated_from_id\" gorm:\"index\"H\x00R\rrotatedFromId\x88\x01\x01\x12U\n\x0brotate_cron\x18\x06 \x01(\tB4\x9a\x84\x9e\x03/json:\"rotate_cron\" gorm:\"default:\'0 0 0 1 * *\'\"R\nrotateCron\x12p\n\nexpires_at\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB5\x9a\x84\x9e\x03\x30json:\"expires_at\" gorm:\"index; type:timestamptz\"R\texpiresAt\x12\x80\x01\n\nupdated_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampBE\x9a\x84\x9e\x03@json:\"updated_at\" gorm:\"index; type:timestamptz; autoCreateTime\"R\tupdatedAt\x12\x80\x01\n\ncreated_at\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampBE\x9a\x84\x9e\x03@json:\"created_at\" gorm:\"index; type:timestamptz; autoUpdateTime\"R\tcreatedAt\x12p\n\ndeleted_at\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB5\x9a\x84\x9e\x03\x30json:\"deleted_at\" gorm:\"index; type:timestamptz\"R\tdeletedAtB\x12\n\x10_rotated_from_id\"\x9f\x01\n\x17KeyServiceCreateRequest\x12\x1f\n\x0bprivate_key\x18\x01 \x01(\tR\nprivateKey\x12\x1d\n\npublic_key\x18\x02 \x01(\tR\tpublicKey\x12#\n\rshould_rotate\x18\x03 \x01(\x08R\x0cshouldRotate\x12\x1f\n\x0brotate_cron\x18\x04 \x01(\tR\nrotateCron\"9\n\x18KeyServiceCreateResponse\x12\x1d\n\x03key\x18\x01 \x01(\x0b\x32\x0b.models.KeyR\x03key\"&\n\x14KeyServiceGetRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"6\n\x15KeyServiceGetResponse\x12\x1d\n\x03key\x18\x01 \x01(\x0b\x32\x0b.models.KeyR\x03key\"J\n\x15KeyServiceListRequest\x12\x31\n\npagination\x18\x01 \x01(\x0b\x32\x11.types.PaginationR\npagination\"l\n\x16KeyServiceListResponse\x12\x1f\n\x04keys\x18\x01 \x03(\x0b\x32\x0b.models.KeyR\x04keys\x12\x31\n\npagination\x18\x02 \x01(\x0b\x32\x11.types.PaginationR\npagination\"A\n\x15KeyServiceSignRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\"6\n\x16KeyServiceSignResponse\x12\x1c\n\tsignature\x18\x01 \x01(\tR\tsignature\"a\n\x17KeyServiceVerifyRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\x12\x1c\n\tsignature\x18\x03 \x01(\tR\tsignature\"0\n\x18KeyServiceVerifyResponse\x12\x14\n\x05valid\x18\x01 \x01(\x08R\x05valid\"C\n\x17KeyServiceCryptoRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\":\n\x18KeyServiceCryptoResponse\x12\x1e\n\nciphertext\x18\x01 \x01(\tR\nciphertext\"J\n\x18KeyServiceDecryptRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x1e\n\nciphertext\x18\x02 \x01(\tR\nciphertext\"5\n\x19KeyServiceDecryptResponse\x12\x18\n\x07message\x18\x01 \x01(\tR\x07message\")\n\x17KeyServiceRotateRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"9\n\x18KeyServiceRotateResponse\x12\x1d\n\x03key\x18\x01 \x01(\x0b\x32\x0b.models.KeyR\x03key\")\n\x17KeyServiceDeleteRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"9\n\x18KeyServiceDeleteResponse\x12\x1d\n\x03key\x18\x01 \x01(\x0b\x32\x0b.models.KeyR\x03key\"&\n\x14KeyServiceJWKRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\")\n\x15KeyServiceJWKResponse\x12\x10\n\x03jwk\x18\x01 \x01(\tR\x03jwk2\x84\x08\n\nKeyService\x12`\n\x06\x43reate\x12\x1f.models.KeyServiceCreateRequest\x1a .models.KeyServiceCreateResponse\"\x13\x82\xd3\xe4\x93\x02\r:\x01*\"\x08/v1/keys\x12Y\n\x03Get\x12\x1c.models.KeyServiceGetRequest\x1a\x1d.models.KeyServiceGetResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/v1/keys/{id}\x12W\n\x04List\x12\x1d.models.KeyServiceListRequest\x1a\x1e.models.KeyServiceListResponse\"\x10\x82\xd3\xe4\x93\x02\n\x12\x08/v1/keys\x12\x64\n\x04Sign\x12\x1d.models.KeyServiceSignRequest\x1a\x1e.models.KeyServiceSignResponse\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\"\x12/v1/keys/{id}/sign\x12l\n\x06Verify\x12\x1f.models.KeyServiceVerifyRequest\x1a .models.KeyServiceVerifyResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\"\x14/v1/keys/{id}/verify\x12l\n\x06\x43rypto\x12\x1f.models.KeyServiceCryptoRequest\x1a .models.KeyServiceCryptoResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\"\x14/v1/keys/{id}/crypto\x12p\n\x07\x44\x65\x63rypt\x12 .models.KeyServiceDecryptRequest\x1a!.models.KeyServiceDecryptResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\"\x15/v1/keys/{id}/decrypt\x12i\n\x06Rotate\x12\x1f.models.KeyServiceRotateRequest\x1a .models.KeyServiceRotateResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x14/v1/keys/{id}/rotate\x12\x62\n\x06\x44\x65lete\x12\x1f.models.KeyServiceDeleteRequest\x1a .models.KeyServiceDeleteResponse\"\x15\x82\xd3\xe4\x93\x02\x0f*\r/v1/keys/{id}\x12]\n\x03JWK\x12\x1c.models.KeyServiceJWKRequest\x1a\x1d.models.KeyServiceJWKResponse\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/v1/keys/{id}/jwkB9H\x02Z5github.com/luminos-company/secretary/generated/modelsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10models/key.proto\x12\x06models\x1a\x11types/types.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x13tagger/tagger.proto\"\xbb\x07\n\x03Key\x12\x31\n\x02id\x18\x01 \x01(\tB!\x9a\x84\x9e\x03\x1cjson:\"id\" gorm:\"primary_key\"R\x02id\x12\x38\n\x0bprivate_key\x18\x02 \x01(\tB\x17\x9a\x84\x9e\x03\x12json:\"private_key\"R\nprivateKey\x12\x35\n\npublic_key\x18\x03 \x01(\tB\x16\x9a\x84\x9e\x03\x11json:\"public_key\"R\tpublicKey\x12\x64\n\rshould_rotate\x18\x04 \x01(\x08\x42?\x9a\x84\x9e\x03:json:\"should_rotate\" gorm:\"default:false; index; not null\"R\x0cshouldRotate\x12U\n\x0frotated_from_id\x18\x05 \x01(\tB(\x9a\x84\x9e\x03#json:\"rotated_from_id\" gorm:\"index\"H\x00R\rrotatedFromId\x88\x01\x01\x12U\n\x0brotate_cron\x18\x06 \x01(\tB4\x9a\x84\x9e\x03/json:\"rotate_cron\" gorm:\"default:\'0 0 0 1 * *\'\"R\nrotateCron\x12p\n\nexpires_at\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB5\x9a\x84\x9e\x03\x30json:\"expires_at\" gorm:\"index; type:timestamptz\"R\texpiresAt\x12\x80\x01\n\nupdated_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampBE\x9a\x84\x9e\x03@json:\"updated_at\" gorm:\"index; type:timestamptz; autoCreateTime\"R\tupdatedAt\x12\x80\x01\n\ncreated_at\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampBE\x9a\x84\x9e\x03@json:\"created_at\" gorm:\"index; type:timestamptz; autoUpdateTime\"R\tcreatedAt\x12p\n\ndeleted_at\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB5\x9a\x84\x9e\x03\x30json:\"deleted_at\" gorm:\"index; type:timestamptz\"R\tdeletedAtB\x12\n\x10_rotated_from_id\"\x8b\x01\n\x17KeyServiceCreateRequest\x12(\n\rshould_rotate\x18\x01 \x01(\x08H\x00R\x0cshouldRotate\x88\x01\x01\x12$\n\x0brotate_cron\x18\x02 \x01(\tH\x01R\nrotateCron\x88\x01\x01\x42\x10\n\x0e_should_rotateB\x0e\n\x0c_rotate_cron\"9\n\x18KeyServiceCreateResponse\x12\x1d\n\x03key\x18\x01 \x01(\x0b\x32\x0b.models.KeyR\x03key\"&\n\x14KeyServiceGetRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"6\n\x15KeyServiceGetResponse\x12\x1d\n\x03key\x18\x01 \x01(\x0b\x32\x0b.models.KeyR\x03key\"J\n\x15KeyServiceListRequest\x12\x31\n\npagination\x18\x01 \x01(\x0b\x32\x11.types.PaginationR\npagination\"l\n\x16KeyServiceListResponse\x12\x1f\n\x04keys\x18\x01 \x03(\x0b\x32\x0b.models.KeyR\x04keys\x12\x31\n\npagination\x18\x02 \x01(\x0b\x32\x11.types.PaginationR\npagination\"A\n\x15KeyServiceSignRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\"6\n\x16KeyServiceSignResponse\x12\x1c\n\tsignature\x18\x01 \x01(\tR\tsignature\"a\n\x17KeyServiceVerifyRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\x12\x1c\n\tsignature\x18\x03 \x01(\tR\tsignature\"0\n\x18KeyServiceVerifyResponse\x12\x14\n\x05valid\x18\x01 \x01(\x08R\x05valid\"C\n\x17KeyServiceCryptoRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\":\n\x18KeyServiceCryptoResponse\x12\x1e\n\nciphertext\x18\x01 \x01(\tR\nciphertext\"J\n\x18KeyServiceDecryptRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x1e\n\nciphertext\x18\x02 \x01(\tR\nciphertext\"5\n\x19KeyServiceDecryptResponse\x12\x18\n\x07message\x18\x01 \x01(\tR\x07message\")\n\x17KeyServiceRotateRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"9\n\x18KeyServiceRotateResponse\x12\x1d\n\x03key\x18\x01 \x01(\x0b\x32\x0b.models.KeyR\x03key\")\n\x17KeyServiceDeleteRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"9\n\x18KeyServiceDeleteResponse\x12\x1d\n\x03key\x18\x01 \x01(\x0b\x32\x0b.models.KeyR\x03key\"&\n\x14KeyServiceJWKRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\")\n\x15KeyServiceJWKResponse\x12\x10\n\x03jwk\x18\x01 \x01(\tR\x03jwk2\x84\x08\n\nKeyService\x12`\n\x06\x43reate\x12\x1f.models.KeyServiceCreateRequest\x1a .models.KeyServiceCreateResponse\"\x13\x82\xd3\xe4\x93\x02\r:\x01*\"\x08/v1/keys\x12Y\n\x03Get\x12\x1c.models.KeyServiceGetRequest\x1a\x1d.models.KeyServiceGetResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/v1/keys/{id}\x12W\n\x04List\x12\x1d.models.KeyServiceListRequest\x1a\x1e.models.KeyServiceListResponse\"\x10\x82\xd3\xe4\x93\x02\n\x12\x08/v1/keys\x12\x64\n\x04Sign\x12\x1d.models.KeyServiceSignRequest\x1a\x1e.models.KeyServiceSignResponse\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\"\x12/v1/keys/{id}/sign\x12l\n\x06Verify\x12\x1f.models.KeyServiceVerifyRequest\x1a .models.KeyServiceVerifyResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\"\x14/v1/keys/{id}/verify\x12l\n\x06\x43rypto\x12\x1f.models.KeyServiceCryptoRequest\x1a .models.KeyServiceCryptoResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\"\x14/v1/keys/{id}/crypto\x12p\n\x07\x44\x65\x63rypt\x12 .models.KeyServiceDecryptRequest\x1a!.models.KeyServiceDecryptResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\"\x15/v1/keys/{id}/decrypt\x12i\n\x06Rotate\x12\x1f.models.KeyServiceRotateRequest\x1a .models.KeyServiceRotateResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x14/v1/keys/{id}/rotate\x12\x62\n\x06\x44\x65lete\x12\x1f.models.KeyServiceDeleteRequest\x1a .models.KeyServiceDeleteResponse\"\x15\x82\xd3\xe4\x93\x02\x0f*\r/v1/keys/{id}\x12]\n\x03JWK\x12\x1c.models.KeyServiceJWKRequest\x1a\x1d.models.KeyServiceJWKResponse\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/v1/keys/{id}/jwkB9H\x02Z5github.com/luminos-company/secretary/generated/modelsb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'models.key_pb2', globals())
@@ -68,45 +68,45 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _KEY._serialized_start=132
   _KEY._serialized_end=1087
   _KEYSERVICECREATEREQUEST._serialized_start=1090
-  _KEYSERVICECREATEREQUEST._serialized_end=1249
-  _KEYSERVICECREATERESPONSE._serialized_start=1251
-  _KEYSERVICECREATERESPONSE._serialized_end=1308
-  _KEYSERVICEGETREQUEST._serialized_start=1310
-  _KEYSERVICEGETREQUEST._serialized_end=1348
-  _KEYSERVICEGETRESPONSE._serialized_start=1350
-  _KEYSERVICEGETRESPONSE._serialized_end=1404
-  _KEYSERVICELISTREQUEST._serialized_start=1406
-  _KEYSERVICELISTREQUEST._serialized_end=1480
-  _KEYSERVICELISTRESPONSE._serialized_start=1482
-  _KEYSERVICELISTRESPONSE._serialized_end=1590
-  _KEYSERVICESIGNREQUEST._serialized_start=1592
-  _KEYSERVICESIGNREQUEST._serialized_end=1657
-  _KEYSERVICESIGNRESPONSE._serialized_start=1659
-  _KEYSERVICESIGNRESPONSE._serialized_end=1713
-  _KEYSERVICEVERIFYREQUEST._serialized_start=1715
-  _KEYSERVICEVERIFYREQUEST._serialized_end=1812
-  _KEYSERVICEVERIFYRESPONSE._serialized_start=1814
-  _KEYSERVICEVERIFYRESPONSE._serialized_end=1862
-  _KEYSERVICECRYPTOREQUEST._serialized_start=1864
-  _KEYSERVICECRYPTOREQUEST._serialized_end=1931
-  _KEYSERVICECRYPTORESPONSE._serialized_start=1933
-  _KEYSERVICECRYPTORESPONSE._serialized_end=1991
-  _KEYSERVICEDECRYPTREQUEST._serialized_start=1993
-  _KEYSERVICEDECRYPTREQUEST._serialized_end=2067
-  _KEYSERVICEDECRYPTRESPONSE._serialized_start=2069
-  _KEYSERVICEDECRYPTRESPONSE._serialized_end=2122
-  _KEYSERVICEROTATEREQUEST._serialized_start=2124
-  _KEYSERVICEROTATEREQUEST._serialized_end=2165
-  _KEYSERVICEROTATERESPONSE._serialized_start=2167
-  _KEYSERVICEROTATERESPONSE._serialized_end=2224
-  _KEYSERVICEDELETEREQUEST._serialized_start=2226
-  _KEYSERVICEDELETEREQUEST._serialized_end=2267
-  _KEYSERVICEDELETERESPONSE._serialized_start=2269
-  _KEYSERVICEDELETERESPONSE._serialized_end=2326
-  _KEYSERVICEJWKREQUEST._serialized_start=2328
-  _KEYSERVICEJWKREQUEST._serialized_end=2366
-  _KEYSERVICEJWKRESPONSE._serialized_start=2368
-  _KEYSERVICEJWKRESPONSE._serialized_end=2409
-  _KEYSERVICE._serialized_start=2412
-  _KEYSERVICE._serialized_end=3440
+  _KEYSERVICECREATEREQUEST._serialized_end=1229
+  _KEYSERVICECREATERESPONSE._serialized_start=1231
+  _KEYSERVICECREATERESPONSE._serialized_end=1288
+  _KEYSERVICEGETREQUEST._serialized_start=1290
+  _KEYSERVICEGETREQUEST._serialized_end=1328
+  _KEYSERVICEGETRESPONSE._serialized_start=1330
+  _KEYSERVICEGETRESPONSE._serialized_end=1384
+  _KEYSERVICELISTREQUEST._serialized_start=1386
+  _KEYSERVICELISTREQUEST._serialized_end=1460
+  _KEYSERVICELISTRESPONSE._serialized_start=1462
+  _KEYSERVICELISTRESPONSE._serialized_end=1570
+  _KEYSERVICESIGNREQUEST._serialized_start=1572
+  _KEYSERVICESIGNREQUEST._serialized_end=1637
+  _KEYSERVICESIGNRESPONSE._serialized_start=1639
+  _KEYSERVICESIGNRESPONSE._serialized_end=1693
+  _KEYSERVICEVERIFYREQUEST._serialized_start=1695
+  _KEYSERVICEVERIFYREQUEST._serialized_end=1792
+  _KEYSERVICEVERIFYRESPONSE._serialized_start=1794
+  _KEYSERVICEVERIFYRESPONSE._serialized_end=1842
+  _KEYSERVICECRYPTOREQUEST._serialized_start=1844
+  _KEYSERVICECRYPTOREQUEST._serialized_end=1911
+  _KEYSERVICECRYPTORESPONSE._serialized_start=1913
+  _KEYSERVICECRYPTORESPONSE._serialized_end=1971
+  _KEYSERVICEDECRYPTREQUEST._serialized_start=1973
+  _KEYSERVICEDECRYPTREQUEST._serialized_end=2047
+  _KEYSERVICEDECRYPTRESPONSE._serialized_start=2049
+  _KEYSERVICEDECRYPTRESPONSE._serialized_end=2102
+  _KEYSERVICEROTATEREQUEST._serialized_start=2104
+  _KEYSERVICEROTATEREQUEST._serialized_end=2145
+  _KEYSERVICEROTATERESPONSE._serialized_start=2147
+  _KEYSERVICEROTATERESPONSE._serialized_end=2204
+  _KEYSERVICEDELETEREQUEST._serialized_start=2206
+  _KEYSERVICEDELETEREQUEST._serialized_end=2247
+  _KEYSERVICEDELETERESPONSE._serialized_start=2249
+  _KEYSERVICEDELETERESPONSE._serialized_end=2306
+  _KEYSERVICEJWKREQUEST._serialized_start=2308
+  _KEYSERVICEJWKREQUEST._serialized_end=2346
+  _KEYSERVICEJWKRESPONSE._serialized_start=2348
+  _KEYSERVICEJWKRESPONSE._serialized_end=2389
+  _KEYSERVICE._serialized_start=2392
+  _KEYSERVICE._serialized_end=3420
 # @@protoc_insertion_point(module_scope)

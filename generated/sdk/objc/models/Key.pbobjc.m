@@ -212,15 +212,11 @@ typedef struct Key__storage_ {
 
 @implementation KeyServiceCreateRequest
 
-@dynamic privateKey;
-@dynamic publicKey;
-@dynamic shouldRotate;
-@dynamic rotateCron;
+@dynamic hasShouldRotate, shouldRotate;
+@dynamic hasRotateCron, rotateCron;
 
 typedef struct KeyServiceCreateRequest__storage_ {
   uint32_t _has_storage_[1];
-  NSString *privateKey;
-  NSString *publicKey;
   NSString *rotateCron;
 } KeyServiceCreateRequest__storage_;
 
@@ -231,39 +227,21 @@ typedef struct KeyServiceCreateRequest__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "privateKey",
-        .dataTypeSpecific.clazz = Nil,
-        .number = KeyServiceCreateRequest_FieldNumber_PrivateKey,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(KeyServiceCreateRequest__storage_, privateKey),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "publicKey",
-        .dataTypeSpecific.clazz = Nil,
-        .number = KeyServiceCreateRequest_FieldNumber_PublicKey,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(KeyServiceCreateRequest__storage_, publicKey),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
-      },
-      {
         .name = "shouldRotate",
         .dataTypeSpecific.clazz = Nil,
         .number = KeyServiceCreateRequest_FieldNumber_ShouldRotate,
-        .hasIndex = 2,
-        .offset = 3,  // Stored in _has_storage_ to save space.
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .hasIndex = 0,
+        .offset = 1,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBool,
       },
       {
         .name = "rotateCron",
         .dataTypeSpecific.clazz = Nil,
         .number = KeyServiceCreateRequest_FieldNumber_RotateCron,
-        .hasIndex = 4,
+        .hasIndex = 2,
         .offset = (uint32_t)offsetof(KeyServiceCreateRequest__storage_, rotateCron),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
       },
     };

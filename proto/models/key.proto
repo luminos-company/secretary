@@ -25,11 +25,10 @@ message Key {
 
 
 message KeyServiceCreateRequest {
-    string private_key = 1;
-    string public_key = 2;
-    bool should_rotate = 3;
-    string rotate_cron = 4;
+    optional bool should_rotate = 1;
+    optional string rotate_cron = 2;
 }
+
 message KeyServiceCreateResponse {
     Key key = 1;
 }
