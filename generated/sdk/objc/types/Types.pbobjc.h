@@ -100,21 +100,6 @@ GPB_FINAL @interface IDList : GPBMessage
 
 @end
 
-#pragma mark - Pagination
-
-typedef GPB_ENUM(Pagination_FieldNumber) {
-  Pagination_FieldNumber_Limit = 1,
-  Pagination_FieldNumber_Offset = 2,
-};
-
-GPB_FINAL @interface Pagination : GPBMessage
-
-@property(nonatomic, readwrite) int32_t limit;
-
-@property(nonatomic, readwrite) int32_t offset;
-
-@end
-
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END

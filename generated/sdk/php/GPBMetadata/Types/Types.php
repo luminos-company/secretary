@@ -18,7 +18,7 @@ class Types
         \GPBMetadata\Tagger\Tagger::initOnce();
         $pool->internalAddGeneratedFile(
             '
-š
+Þ
 types/types.prototypes google/protobuf/descriptor.prototagger/tagger.proto"E
 	Timestamp8
 	timestamp (2.google.protobuf.TimestampR	timestamp"E
@@ -27,11 +27,7 @@ class Types
 ID
 id (	Rid"%
 IDList
-ids (2	.types.IDRids":
-
-Pagination
-limit (Rlimit
-offset (RoffsetB8HZ4github.com/luminos-company/secretary/generated/typesbproto3'
+ids (2	.types.IDRidsB8HZ4github.com/luminos-company/secretary/generated/typesbproto3'
         , true);
 
         static::$is_initialized = true;

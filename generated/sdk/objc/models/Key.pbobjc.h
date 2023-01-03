@@ -30,7 +30,6 @@ CF_EXTERN_C_BEGIN
 @class DeletedAt;
 @class ID;
 @class Key;
-@class Pagination;
 @class Timestamp;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -163,14 +162,14 @@ GPB_FINAL @interface KeyServiceGetResponse : GPBMessage
 #pragma mark - KeyServiceListRequest
 
 typedef GPB_ENUM(KeyServiceListRequest_FieldNumber) {
-  KeyServiceListRequest_FieldNumber_Pagination = 1,
+  KeyServiceListRequest_FieldNumber_FirstId = 1,
 };
 
 GPB_FINAL @interface KeyServiceListRequest : GPBMessage
 
-@property(nonatomic, readwrite, strong, null_resettable) Pagination *pagination;
-/** Test to see if @c pagination has been set. */
-@property(nonatomic, readwrite) BOOL hasPagination;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *firstId;
+/** Test to see if @c firstId has been set. */
+@property(nonatomic, readwrite) BOOL hasFirstId;
 
 @end
 
@@ -178,7 +177,7 @@ GPB_FINAL @interface KeyServiceListRequest : GPBMessage
 
 typedef GPB_ENUM(KeyServiceListResponse_FieldNumber) {
   KeyServiceListResponse_FieldNumber_KeysArray = 1,
-  KeyServiceListResponse_FieldNumber_Pagination = 2,
+  KeyServiceListResponse_FieldNumber_LastId = 2,
 };
 
 GPB_FINAL @interface KeyServiceListResponse : GPBMessage
@@ -187,9 +186,9 @@ GPB_FINAL @interface KeyServiceListResponse : GPBMessage
 /** The number of items in @c keysArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger keysArray_Count;
 
-@property(nonatomic, readwrite, strong, null_resettable) Pagination *pagination;
-/** Test to see if @c pagination has been set. */
-@property(nonatomic, readwrite) BOOL hasPagination;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *lastId;
+/** Test to see if @c lastId has been set. */
+@property(nonatomic, readwrite) BOOL hasLastId;
 
 @end
 

@@ -82,23 +82,29 @@ final $typed_data.Uint8List keyServiceGetResponseDescriptor = $convert.base64Dec
 const KeyServiceListRequest$json = const {
   '1': 'KeyServiceListRequest',
   '2': const [
-    const {'1': 'pagination', '3': 1, '4': 1, '5': 11, '6': '.types.Pagination', '10': 'pagination'},
+    const {'1': 'first_id', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'firstId', '17': true},
+  ],
+  '8': const [
+    const {'1': '_first_id'},
   ],
 };
 
 /// Descriptor for `KeyServiceListRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyServiceListRequestDescriptor = $convert.base64Decode('ChVLZXlTZXJ2aWNlTGlzdFJlcXVlc3QSMQoKcGFnaW5hdGlvbhgBIAEoCzIRLnR5cGVzLlBhZ2luYXRpb25SCnBhZ2luYXRpb24=');
+final $typed_data.Uint8List keyServiceListRequestDescriptor = $convert.base64Decode('ChVLZXlTZXJ2aWNlTGlzdFJlcXVlc3QSHgoIZmlyc3RfaWQYASABKAlIAFIHZmlyc3RJZIgBAUILCglfZmlyc3RfaWQ=');
 @$core.Deprecated('Use keyServiceListResponseDescriptor instead')
 const KeyServiceListResponse$json = const {
   '1': 'KeyServiceListResponse',
   '2': const [
     const {'1': 'keys', '3': 1, '4': 3, '5': 11, '6': '.models.Key', '10': 'keys'},
-    const {'1': 'pagination', '3': 2, '4': 1, '5': 11, '6': '.types.Pagination', '10': 'pagination'},
+    const {'1': 'last_id', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'lastId', '17': true},
+  ],
+  '8': const [
+    const {'1': '_last_id'},
   ],
 };
 
 /// Descriptor for `KeyServiceListResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyServiceListResponseDescriptor = $convert.base64Decode('ChZLZXlTZXJ2aWNlTGlzdFJlc3BvbnNlEh8KBGtleXMYASADKAsyCy5tb2RlbHMuS2V5UgRrZXlzEjEKCnBhZ2luYXRpb24YAiABKAsyES50eXBlcy5QYWdpbmF0aW9uUgpwYWdpbmF0aW9u');
+final $typed_data.Uint8List keyServiceListResponseDescriptor = $convert.base64Decode('ChZLZXlTZXJ2aWNlTGlzdFJlc3BvbnNlEh8KBGtleXMYASADKAsyCy5tb2RlbHMuS2V5UgRrZXlzEhwKB2xhc3RfaWQYAiABKAlIAFIGbGFzdElkiAEBQgoKCF9sYXN0X2lk');
 @$core.Deprecated('Use keyServiceSignRequestDescriptor instead')
 const KeyServiceSignRequest$json = const {
   '1': 'KeyServiceSignRequest',
@@ -272,7 +278,6 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> KeyService
   '.models.KeyServiceGetRequest': KeyServiceGetRequest$json,
   '.models.KeyServiceGetResponse': KeyServiceGetResponse$json,
   '.models.KeyServiceListRequest': KeyServiceListRequest$json,
-  '.types.Pagination': $0.Pagination$json,
   '.models.KeyServiceListResponse': KeyServiceListResponse$json,
   '.models.KeyServiceSignRequest': KeyServiceSignRequest$json,
   '.models.KeyServiceSignResponse': KeyServiceSignResponse$json,

@@ -35,11 +35,11 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :key, :message, 1, "models.Key", json_name: "key"
     end
     add_message "models.KeyServiceListRequest" do
-      optional :pagination, :message, 1, "types.Pagination", json_name: "pagination"
+      proto3_optional :first_id, :string, 1, json_name: "firstId"
     end
     add_message "models.KeyServiceListResponse" do
       repeated :keys, :message, 1, "models.Key", json_name: "keys"
-      optional :pagination, :message, 2, "types.Pagination", json_name: "pagination"
+      proto3_optional :last_id, :string, 2, json_name: "lastId"
     end
     add_message "models.KeyServiceSignRequest" do
       optional :id, :string, 1, json_name: "id"

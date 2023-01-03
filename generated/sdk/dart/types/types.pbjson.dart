@@ -48,14 +48,3 @@ const IDList$json = const {
 
 /// Descriptor for `IDList`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List iDListDescriptor = $convert.base64Decode('CgZJRExpc3QSGwoDaWRzGAEgAygLMgkudHlwZXMuSURSA2lkcw==');
-@$core.Deprecated('Use paginationDescriptor instead')
-const Pagination$json = const {
-  '1': 'Pagination',
-  '2': const [
-    const {'1': 'limit', '3': 1, '4': 1, '5': 5, '10': 'limit'},
-    const {'1': 'offset', '3': 2, '4': 1, '5': 5, '10': 'offset'},
-  ],
-};
-
-/// Descriptor for `Pagination`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List paginationDescriptor = $convert.base64Decode('CgpQYWdpbmF0aW9uEhQKBWxpbWl0GAEgASgFUgVsaW1pdBIWCgZvZmZzZXQYAiABKAVSBm9mZnNldA==');

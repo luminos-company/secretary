@@ -1,37 +1,43 @@
 package types
 
 import (
-	"database/sql"
 	"database/sql/driver"
 	"encoding/json"
+	"google.golang.org/protobuf/types/known/timestamppb"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"gorm.io/gorm/schema"
 	"reflect"
 	"strings"
+	"time"
 )
 
-func (n *DeletedAt) toNullTime() *sql.NullTime {
-	if n == nil || n.Timestamp == nil {
-		return &sql.NullTime{}
-	}
-	return &sql.NullTime{
-		Time:  n.Timestamp.AsTime(),
-		Valid: n.Timestamp != nil,
-	}
-}
-
-// Scan implements the Scanner interface.
-func (n *DeletedAt) Scan(value interface{}) error {
-	return n.toNullTime().Scan(value)
-}
-
-// Value implements the driver Valuer interface.
 func (n *DeletedAt) Value() (driver.Value, error) {
-	if n == nil {
+	if n == nil || n.Timestamp == nil {
 		return nil, nil
 	}
-	return n.toNullTime().Value()
+	return n.Timestamp.AsTime().Format(ISO8601), nil
+}
+
+func (n *DeletedAt) Scan(value interface{}) error {
+	if value == nil {
+		return nil
+	}
+	var toParse string
+	switch value.(type) {
+	case string:
+		toParse = value.(string)
+		break
+	case time.Time:
+		toParse = value.(time.Time).Format(ISO8601)
+		break
+	}
+	parse, err := time.ParseInLocation(ISO8601, toParse, time.UTC)
+	if err != nil {
+		return err
+	}
+	*n = DeletedAt{Timestamp: timestamppb.New(parse)}
+	return nil
 }
 
 func (n *DeletedAt) GormDBDataType(db *gorm.DB, field *schema.Field) string {
@@ -39,22 +45,23 @@ func (n *DeletedAt) GormDBDataType(db *gorm.DB, field *schema.Field) string {
 }
 
 func (n *DeletedAt) MarshalJSON() ([]byte, error) {
-	if n.toNullTime().Valid {
-		return json.Marshal(n.toNullTime().Time)
+	if n.Timestamp != nil {
+		return json.Marshal(n.Timestamp.AsTime())
 	}
 	return json.Marshal(nil)
 }
 
 func (n *DeletedAt) UnmarshalJSON(b []byte) error {
 	if string(b) == "null" {
-		n.toNullTime().Valid = false
+		n.Timestamp = nil
 		return nil
 	}
-	err := json.Unmarshal(b, &n.toNullTime().Time)
-	if err == nil {
-		n.toNullTime().Valid = true
+	var t time.Time
+	if err := json.Unmarshal(b, &t); err != nil {
+		return err
 	}
-	return err
+	n.Timestamp = timestamppb.New(t)
+	return nil
 }
 
 func (*DeletedAt) QueryClauses(f *schema.Field) []clause.Interface {

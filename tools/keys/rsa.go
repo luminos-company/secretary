@@ -91,19 +91,16 @@ func (r *Rsa) ExportJWK() string {
 	return string(vres)
 }
 
-func (r *Rsa) Encrypt(data []byte) []byte {
-	ciphertext, _ := rsa.EncryptPKCS1v15(rand.Reader, r.PublicKey, data)
-	return ciphertext
+func (r *Rsa) Encrypt(data []byte) ([]byte, error) {
+	return rsa.EncryptPKCS1v15(rand.Reader, r.PublicKey, data)
 }
 
-func (r *Rsa) Decrypt(data []byte) []byte {
-	plaintext, _ := rsa.DecryptPKCS1v15(rand.Reader, r.PrivateKey, data)
-	return plaintext
+func (r *Rsa) Decrypt(data []byte) ([]byte, error) {
+	return rsa.DecryptPKCS1v15(rand.Reader, r.PrivateKey, data)
 }
 
-func (r *Rsa) Sign(data []byte) []byte {
-	signature, _ := rsa.SignPKCS1v15(rand.Reader, r.PrivateKey, 0, data)
-	return signature
+func (r *Rsa) Sign(data []byte) ([]byte, error) {
+	return rsa.SignPKCS1v15(rand.Reader, r.PrivateKey, 0, data)
 }
 
 func (r *Rsa) Verify(data []byte, signature []byte) bool {
@@ -111,18 +108,29 @@ func (r *Rsa) Verify(data []byte, signature []byte) bool {
 	return err == nil
 }
 
-func (r *Rsa) EncryptString(data string) string {
-	return string(r.Encrypt([]byte(data)))
+func (r *Rsa) EncryptString(data string) (string, error) {
+	encrypt, err := r.Encrypt([]byte(data))
+	return base64.StdEncoding.EncodeToString(encrypt), err
 }
 
-func (r *Rsa) DecryptString(data string) string {
-	return string(r.Decrypt([]byte(data)))
+func (r *Rsa) DecryptString(data string) (string, error) {
+	decrypt, err := base64.StdEncoding.DecodeString(data)
+	if err != nil {
+		return "", err
+	}
+	decrypt, err = r.Decrypt(decrypt)
+	return string(decrypt), err
 }
 
-func (r *Rsa) SignString(data string) string {
-	return string(r.Sign([]byte(data)))
+func (r *Rsa) SignString(data string) (string, error) {
+	sign, err := r.Sign([]byte(data))
+	return base64.StdEncoding.EncodeToString(sign), err
 }
 
 func (r *Rsa) VerifyString(data string, signature string) bool {
-	return r.Verify([]byte(data), []byte(signature))
+	sign, err := base64.StdEncoding.DecodeString(signature)
+	if err != nil {
+		return false
+	}
+	return r.Verify([]byte(data), sign)
 }

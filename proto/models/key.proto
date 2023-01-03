@@ -40,12 +40,12 @@ message KeyServiceGetResponse {
 }
 
 message KeyServiceListRequest {
-    types.Pagination pagination = 1;
+   optional string first_id = 1;
 }
 
 message KeyServiceListResponse {
     repeated Key keys = 1;
-    types.Pagination pagination = 2;
+    optional string last_id = 2;
 }
 
 message KeyServiceSignRequest {

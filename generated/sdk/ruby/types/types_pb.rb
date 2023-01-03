@@ -21,10 +21,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "types.IDList" do
       repeated :ids, :message, 1, "types.ID", json_name: "ids"
     end
-    add_message "types.Pagination" do
-      optional :limit, :int32, 1, json_name: "limit"
-      optional :offset, :int32, 2, json_name: "offset"
-    end
   end
 end
 
@@ -33,5 +29,4 @@ module Types
   DeletedAt = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("types.DeletedAt").msgclass
   ID = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("types.ID").msgclass
   IDList = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("types.IDList").msgclass
-  Pagination = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("types.Pagination").msgclass
 end

@@ -14,9 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
 class KeyServiceListRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>.types.Pagination pagination = 1 [json_name = "pagination"];</code>
+     * Generated from protobuf field <code>optional string first_id = 1 [json_name = "firstId"];</code>
      */
-    protected $pagination = null;
+    protected $first_id = null;
 
     /**
      * Constructor.
@@ -24,7 +24,7 @@ class KeyServiceListRequest extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Types\Pagination $pagination
+     *     @type string $first_id
      * }
      */
     public function __construct($data = NULL) {
@@ -33,33 +33,33 @@ class KeyServiceListRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.types.Pagination pagination = 1 [json_name = "pagination"];</code>
-     * @return \Types\Pagination|null
+     * Generated from protobuf field <code>optional string first_id = 1 [json_name = "firstId"];</code>
+     * @return string
      */
-    public function getPagination()
+    public function getFirstId()
     {
-        return $this->pagination;
+        return isset($this->first_id) ? $this->first_id : '';
     }
 
-    public function hasPagination()
+    public function hasFirstId()
     {
-        return isset($this->pagination);
+        return isset($this->first_id);
     }
 
-    public function clearPagination()
+    public function clearFirstId()
     {
-        unset($this->pagination);
+        unset($this->first_id);
     }
 
     /**
-     * Generated from protobuf field <code>.types.Pagination pagination = 1 [json_name = "pagination"];</code>
-     * @param \Types\Pagination $var
+     * Generated from protobuf field <code>optional string first_id = 1 [json_name = "firstId"];</code>
+     * @param string $var
      * @return $this
      */
-    public function setPagination($var)
+    public function setFirstId($var)
     {
-        GPBUtil::checkMessage($var, \Types\Pagination::class);
-        $this->pagination = $var;
+        GPBUtil::checkString($var, True);
+        $this->first_id = $var;
 
         return $this;
     }

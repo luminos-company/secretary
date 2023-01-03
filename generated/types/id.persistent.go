@@ -3,7 +3,7 @@ package types
 import (
 	"database/sql"
 	"database/sql/driver"
-	"github.com/google/uuid"
+	"github.com/segmentio/ksuid"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"gorm.io/gorm/schema"
@@ -11,6 +11,9 @@ import (
 )
 
 func (n *ID) toString() *sql.NullString {
+	if n == nil {
+		return &sql.NullString{}
+	}
 	t := sql.NullString{
 		String: n.GetId(),
 		Valid:  true,
@@ -30,7 +33,7 @@ func (n *ID) Scan(value interface{}) error {
 func (n *ID) Value() (driver.Value, error) {
 	if n == nil || n.Id == "" {
 		return sql.NullString{
-			String: uuid.New().String(),
+			String: ksuid.New().String(),
 			Valid:  true,
 		}, nil
 	}
@@ -63,12 +66,12 @@ func (sd CreateDBClauses) ModifyStatement(stmt *gorm.Statement) {
 	if stmt.Statement.ReflectValue.Type().Kind() == reflect.Slice {
 		for i := 0; i < stmt.Statement.ReflectValue.Len(); i++ {
 			if CheckValue(stmt.Statement.ReflectValue.Index(i).Elem().FieldByName(sd.Name())) {
-				stmt.Statement.SetColumn(sd.Name(), uuid.New().String())
+				stmt.Statement.SetColumn(sd.Name(), ksuid.New().String())
 			}
 		}
 	} else {
 		if CheckValue(stmt.Statement.ReflectValue.FieldByName(sd.Name())) {
-			stmt.Statement.SetColumn(sd.Name(), uuid.New().String())
+			stmt.Statement.SetColumn(sd.Name(), ksuid.New().String())
 		}
 	}
 }

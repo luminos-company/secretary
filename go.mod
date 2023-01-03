@@ -7,6 +7,7 @@ require (
 	github.com/google/uuid v1.3.0
 	github.com/improbable-eng/grpc-web v0.15.0
 	github.com/lestrrat-go/jwx/v2 v2.0.8
+	github.com/segmentio/ksuid v1.0.4
 	github.com/srikrsna/protoc-gen-gotag v0.6.2
 	google.golang.org/genproto v0.0.0-20221227171554-f9683d7f8bef
 	google.golang.org/grpc v1.51.0

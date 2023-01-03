@@ -30,7 +30,6 @@
 GPBObjCClassDeclaration(DeletedAt);
 GPBObjCClassDeclaration(ID);
 GPBObjCClassDeclaration(Key);
-GPBObjCClassDeclaration(Pagination);
 GPBObjCClassDeclaration(Timestamp);
 
 #pragma mark - KeyRoot
@@ -404,11 +403,11 @@ typedef struct KeyServiceGetResponse__storage_ {
 
 @implementation KeyServiceListRequest
 
-@dynamic hasPagination, pagination;
+@dynamic hasFirstId, firstId;
 
 typedef struct KeyServiceListRequest__storage_ {
   uint32_t _has_storage_[1];
-  Pagination *pagination;
+  NSString *firstId;
 } KeyServiceListRequest__storage_;
 
 // This method is threadsafe because it is initially called
@@ -418,13 +417,13 @@ typedef struct KeyServiceListRequest__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "pagination",
-        .dataTypeSpecific.clazz = GPBObjCClass(Pagination),
-        .number = KeyServiceListRequest_FieldNumber_Pagination,
+        .name = "firstId",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceListRequest_FieldNumber_FirstId,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(KeyServiceListRequest__storage_, pagination),
+        .offset = (uint32_t)offsetof(KeyServiceListRequest__storage_, firstId),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeMessage,
+        .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -450,12 +449,12 @@ typedef struct KeyServiceListRequest__storage_ {
 @implementation KeyServiceListResponse
 
 @dynamic keysArray, keysArray_Count;
-@dynamic hasPagination, pagination;
+@dynamic hasLastId, lastId;
 
 typedef struct KeyServiceListResponse__storage_ {
   uint32_t _has_storage_[1];
   NSMutableArray *keysArray;
-  Pagination *pagination;
+  NSString *lastId;
 } KeyServiceListResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -474,13 +473,13 @@ typedef struct KeyServiceListResponse__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "pagination",
-        .dataTypeSpecific.clazz = GPBObjCClass(Pagination),
-        .number = KeyServiceListResponse_FieldNumber_Pagination,
+        .name = "lastId",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceListResponse_FieldNumber_LastId,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(KeyServiceListResponse__storage_, pagination),
+        .offset = (uint32_t)offsetof(KeyServiceListResponse__storage_, lastId),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeMessage,
+        .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =

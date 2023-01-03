@@ -35,18 +35,10 @@
         },
         "parameters": [
           {
-            "name": "pagination.limit",
+            "name": "firstId",
             "in": "query",
             "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "pagination.offset",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
+            "type": "string"
           }
         ],
         "tags": [
@@ -482,8 +474,8 @@
             "$ref": "#/definitions/modelsKey"
           }
         },
-        "pagination": {
-          "$ref": "#/definitions/typesPagination"
+        "lastId": {
+          "type": "string"
         }
       }
     },
@@ -552,19 +544,6 @@
       "properties": {
         "id": {
           "type": "string"
-        }
-      }
-    },
-    "typesPagination": {
-      "type": "object",
-      "properties": {
-        "limit": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "offset": {
-          "type": "integer",
-          "format": "int32"
         }
       }
     },

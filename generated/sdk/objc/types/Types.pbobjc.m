@@ -242,62 +242,6 @@ typedef struct IDList__storage_ {
 
 @end
 
-#pragma mark - Pagination
-
-@implementation Pagination
-
-@dynamic limit;
-@dynamic offset;
-
-typedef struct Pagination__storage_ {
-  uint32_t _has_storage_[1];
-  int32_t limit;
-  int32_t offset;
-} Pagination__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "limit",
-        .dataTypeSpecific.clazz = Nil,
-        .number = Pagination_FieldNumber_Limit,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(Pagination__storage_, limit),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeInt32,
-      },
-      {
-        .name = "offset",
-        .dataTypeSpecific.clazz = Nil,
-        .number = Pagination_FieldNumber_Offset,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(Pagination__storage_, offset),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeInt32,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[Pagination class]
-                                     rootClass:[TypesRoot class]
-                                          file:TypesRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(Pagination__storage_)
-                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
-    #if defined(DEBUG) && DEBUG
-      NSAssert(descriptor == nil, @"Startup recursed!");
-    #endif  // DEBUG
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
 
 #pragma clang diagnostic pop
 

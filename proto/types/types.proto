@@ -23,8 +23,3 @@ message ID {
 message IDList {
   repeated ID ids = 1;
 }
-
-message Pagination {
-  int32 limit = 1;
-  int32 offset = 2;
-}

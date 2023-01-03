@@ -18,9 +18,9 @@ class KeyServiceListResponse extends \Google\Protobuf\Internal\Message
      */
     private $keys;
     /**
-     * Generated from protobuf field <code>.types.Pagination pagination = 2 [json_name = "pagination"];</code>
+     * Generated from protobuf field <code>optional string last_id = 2 [json_name = "lastId"];</code>
      */
-    protected $pagination = null;
+    protected $last_id = null;
 
     /**
      * Constructor.
@@ -29,7 +29,7 @@ class KeyServiceListResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type array<\Models\Key>|\Google\Protobuf\Internal\RepeatedField $keys
-     *     @type \Types\Pagination $pagination
+     *     @type string $last_id
      * }
      */
     public function __construct($data = NULL) {
@@ -60,33 +60,33 @@ class KeyServiceListResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.types.Pagination pagination = 2 [json_name = "pagination"];</code>
-     * @return \Types\Pagination|null
+     * Generated from protobuf field <code>optional string last_id = 2 [json_name = "lastId"];</code>
+     * @return string
      */
-    public function getPagination()
+    public function getLastId()
     {
-        return $this->pagination;
+        return isset($this->last_id) ? $this->last_id : '';
     }
 
-    public function hasPagination()
+    public function hasLastId()
     {
-        return isset($this->pagination);
+        return isset($this->last_id);
     }
 
-    public function clearPagination()
+    public function clearLastId()
     {
-        unset($this->pagination);
+        unset($this->last_id);
     }
 
     /**
-     * Generated from protobuf field <code>.types.Pagination pagination = 2 [json_name = "pagination"];</code>
-     * @param \Types\Pagination $var
+     * Generated from protobuf field <code>optional string last_id = 2 [json_name = "lastId"];</code>
+     * @param string $var
      * @return $this
      */
-    public function setPagination($var)
+    public function setLastId($var)
     {
-        GPBUtil::checkMessage($var, \Types\Pagination::class);
-        $this->pagination = $var;
+        GPBUtil::checkString($var, True);
+        $this->last_id = $var;
 
         return $this;
     }

@@ -403,17 +403,17 @@ class KeyServiceGetResponse extends $pb.GeneratedMessage {
 
 class KeyServiceListRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceListRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
-    ..aOM<$0.Pagination>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pagination', subBuilder: $0.Pagination.create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'firstId')
     ..hasRequiredFields = false
   ;
 
   KeyServiceListRequest._() : super();
   factory KeyServiceListRequest({
-    $0.Pagination? pagination,
+    $core.String? firstId,
   }) {
     final _result = create();
-    if (pagination != null) {
-      _result.pagination = pagination;
+    if (firstId != null) {
+      _result.firstId = firstId;
     }
     return _result;
   }
@@ -439,35 +439,33 @@ class KeyServiceListRequest extends $pb.GeneratedMessage {
   static KeyServiceListRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.Pagination get pagination => $_getN(0);
+  $core.String get firstId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set pagination($0.Pagination v) { setField(1, v); }
+  set firstId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPagination() => $_has(0);
+  $core.bool hasFirstId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPagination() => clearField(1);
-  @$pb.TagNumber(1)
-  $0.Pagination ensurePagination() => $_ensure(0);
+  void clearFirstId() => clearField(1);
 }
 
 class KeyServiceListResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceListResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
     ..pc<Key>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'keys', $pb.PbFieldType.PM, subBuilder: Key.create)
-    ..aOM<$0.Pagination>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pagination', subBuilder: $0.Pagination.create)
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lastId')
     ..hasRequiredFields = false
   ;
 
   KeyServiceListResponse._() : super();
   factory KeyServiceListResponse({
     $core.Iterable<Key>? keys,
-    $0.Pagination? pagination,
+    $core.String? lastId,
   }) {
     final _result = create();
     if (keys != null) {
       _result.keys.addAll(keys);
     }
-    if (pagination != null) {
-      _result.pagination = pagination;
+    if (lastId != null) {
+      _result.lastId = lastId;
     }
     return _result;
   }
@@ -496,15 +494,13 @@ class KeyServiceListResponse extends $pb.GeneratedMessage {
   $core.List<Key> get keys => $_getList(0);
 
   @$pb.TagNumber(2)
-  $0.Pagination get pagination => $_getN(1);
+  $core.String get lastId => $_getSZ(1);
   @$pb.TagNumber(2)
-  set pagination($0.Pagination v) { setField(2, v); }
+  set lastId($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasPagination() => $_has(1);
+  $core.bool hasLastId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPagination() => clearField(2);
-  @$pb.TagNumber(2)
-  $0.Pagination ensurePagination() => $_ensure(1);
+  void clearLastId() => clearField(2);
 }
 
 class KeyServiceSignRequest extends $pb.GeneratedMessage {

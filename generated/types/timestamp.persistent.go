@@ -1,38 +1,41 @@
 package types
 
 import (
-	"database/sql"
 	"database/sql/driver"
 	"google.golang.org/protobuf/types/known/timestamppb"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
+	"time"
 )
 
-func (n *Timestamp) toTime() *sql.NullTime {
-	if n.Timestamp == nil {
-		return &sql.NullTime{}
+const ISO8601 = "2006-01-02T15:04:05-07:00"
+
+func (n *Timestamp) Value() (driver.Value, error) {
+	if n == nil || n.Timestamp == nil {
+		return nil, nil
 	}
-	t := sql.NullTime{
-		Time:  n.Timestamp.AsTime(),
-		Valid: n.Timestamp != nil,
-	}
-	return &t
+	return n.Timestamp.AsTime().Format(ISO8601), nil
 }
 
 func (n *Timestamp) Scan(value interface{}) error {
-	time := n.toTime()
-	err := time.Scan(value)
-	if err == nil {
-		n.Timestamp = timestamppb.New(time.Time)
+	if value == nil {
+		return nil
 	}
-	return err
-}
-
-func (n *Timestamp) Value() (driver.Value, error) {
-	if n == nil {
-		return nil, nil
+	var toParse string
+	switch value.(type) {
+	case string:
+		toParse = value.(string)
+		break
+	case time.Time:
+		toParse = value.(time.Time).Format(ISO8601)
+		break
 	}
-	return n.toTime().Value()
+	parse, err := time.ParseInLocation(ISO8601, toParse, time.UTC)
+	if err != nil {
+		return err
+	}
+	*n = Timestamp{Timestamp: timestamppb.New(parse)}
+	return nil
 }
 
 func (n *Timestamp) GormDBDataType(db *gorm.DB, field *schema.Field) string {

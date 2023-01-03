@@ -16,7 +16,7 @@ from google.protobuf import descriptor_pb2 as google_dot_protobuf_dot_descriptor
 from tagger import tagger_pb2 as tagger_dot_tagger__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11types/types.proto\x12\x05types\x1a\x1fgoogle/protobuf/timestamp.proto\x1a google/protobuf/descriptor.proto\x1a\x13tagger/tagger.proto\"E\n\tTimestamp\x12\x38\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\"E\n\tDeletedAt\x12\x38\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\"\x14\n\x02ID\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"%\n\x06IDList\x12\x1b\n\x03ids\x18\x01 \x03(\x0b\x32\t.types.IDR\x03ids\":\n\nPagination\x12\x14\n\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n\x06offset\x18\x02 \x01(\x05R\x06offsetB8H\x02Z4github.com/luminos-company/secretary/generated/typesb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11types/types.proto\x12\x05types\x1a\x1fgoogle/protobuf/timestamp.proto\x1a google/protobuf/descriptor.proto\x1a\x13tagger/tagger.proto\"E\n\tTimestamp\x12\x38\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\"E\n\tDeletedAt\x12\x38\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\"\x14\n\x02ID\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"%\n\x06IDList\x12\x1b\n\x03ids\x18\x01 \x03(\x0b\x32\t.types.IDR\x03idsB8H\x02Z4github.com/luminos-company/secretary/generated/typesb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'types.types_pb2', globals())
@@ -32,6 +32,4 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _ID._serialized_end=278
   _IDLIST._serialized_start=280
   _IDLIST._serialized_end=317
-  _PAGINATION._serialized_start=319
-  _PAGINATION._serialized_end=377
 # @@protoc_insertion_point(module_scope)
