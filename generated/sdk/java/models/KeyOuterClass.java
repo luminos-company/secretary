@@ -11660,35 +11660,38 @@ public final class KeyOuterClass {
       "(\tR\002id\"9\n\030KeyServiceDeleteResponse\022\035\n\003ke" +
       "y\030\001 \001(\0132\013.models.KeyR\003key\"&\n\024KeyServiceJ" +
       "WKRequest\022\016\n\002id\030\001 \001(\tR\002id\")\n\025KeyServiceJ" +
-      "WKResponse\022\020\n\003jwk\030\001 \001(\tR\003jwk2\204\010\n\nKeyServ" +
+      "WKResponse\022\020\n\003jwk\030\001 \001(\tR\003jwk2\371\010\n\nKeyServ" +
       "ice\022`\n\006Create\022\037.models.KeyServiceCreateR" +
       "equest\032 .models.KeyServiceCreateResponse" +
       "\"\023\202\323\344\223\002\r:\001*\"\010/v1/keys\022Y\n\003Get\022\034.models.Ke" +
       "yServiceGetRequest\032\035.models.KeyServiceGe" +
-      "tResponse\"\025\202\323\344\223\002\017\022\r/v1/keys/{id}\022W\n\004List" +
-      "\022\035.models.KeyServiceListRequest\032\036.models" +
-      ".KeyServiceListResponse\"\020\202\323\344\223\002\n\022\010/v1/key" +
-      "s\022d\n\004Sign\022\035.models.KeyServiceSignRequest" +
-      "\032\036.models.KeyServiceSignResponse\"\035\202\323\344\223\002\027" +
-      ":\001*\"\022/v1/keys/{id}/sign\022l\n\006Verify\022\037.mode" +
-      "ls.KeyServiceVerifyRequest\032 .models.KeyS" +
-      "erviceVerifyResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/key" +
-      "s/{id}/verify\022l\n\006Crypto\022\037.models.KeyServ" +
-      "iceCryptoRequest\032 .models.KeyServiceCryp" +
-      "toResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/keys/{id}/cry" +
-      "pto\022p\n\007Decrypt\022 .models.KeyServiceDecryp" +
-      "tRequest\032!.models.KeyServiceDecryptRespo" +
-      "nse\" \202\323\344\223\002\032:\001*\"\025/v1/keys/{id}/decrypt\022i\n" +
-      "\006Rotate\022\037.models.KeyServiceRotateRequest" +
-      "\032 .models.KeyServiceRotateResponse\"\034\202\323\344\223" +
-      "\002\026\"\024/v1/keys/{id}/rotate\022b\n\006Delete\022\037.mod" +
-      "els.KeyServiceDeleteRequest\032 .models.Key" +
-      "ServiceDeleteResponse\"\025\202\323\344\223\002\017*\r/v1/keys/" +
-      "{id}\022]\n\003JWK\022\034.models.KeyServiceJWKReques" +
-      "t\032\035.models.KeyServiceJWKResponse\"\031\202\323\344\223\002\023" +
-      "\022\021/v1/keys/{id}/jwkB9H\002Z5github.com/lumi" +
-      "nos-company/secretary/generated/modelsb\006" +
-      "proto3"
+      "tResponse\"\025\202\323\344\223\002\017\022\r/v1/keys/{id}\022s\n\013GetO" +
+      "rCreate\022\037.models.KeyServiceCreateRequest" +
+      "\032 .models.KeyServiceCreateResponse\"!\202\323\344\223" +
+      "\002\033:\001*\"\026/v1/keys/get-or-create\022W\n\004List\022\035." +
+      "models.KeyServiceListRequest\032\036.models.Ke" +
+      "yServiceListResponse\"\020\202\323\344\223\002\n\022\010/v1/keys\022d" +
+      "\n\004Sign\022\035.models.KeyServiceSignRequest\032\036." +
+      "models.KeyServiceSignResponse\"\035\202\323\344\223\002\027:\001*" +
+      "\"\022/v1/keys/{id}/sign\022l\n\006Verify\022\037.models." +
+      "KeyServiceVerifyRequest\032 .models.KeyServ" +
+      "iceVerifyResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/keys/{" +
+      "id}/verify\022l\n\006Crypto\022\037.models.KeyService" +
+      "CryptoRequest\032 .models.KeyServiceCryptoR" +
+      "esponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/keys/{id}/crypto" +
+      "\022p\n\007Decrypt\022 .models.KeyServiceDecryptRe" +
+      "quest\032!.models.KeyServiceDecryptResponse" +
+      "\" \202\323\344\223\002\032:\001*\"\025/v1/keys/{id}/decrypt\022i\n\006Ro" +
+      "tate\022\037.models.KeyServiceRotateRequest\032 ." +
+      "models.KeyServiceRotateResponse\"\034\202\323\344\223\002\026\"" +
+      "\024/v1/keys/{id}/rotate\022b\n\006Delete\022\037.models" +
+      ".KeyServiceDeleteRequest\032 .models.KeySer" +
+      "viceDeleteResponse\"\025\202\323\344\223\002\017*\r/v1/keys/{id" +
+      "}\022]\n\003JWK\022\034.models.KeyServiceJWKRequest\032\035" +
+      ".models.KeyServiceJWKResponse\"\031\202\323\344\223\002\023\022\021/" +
+      "v1/keys/{id}/jwkB9H\002Z5github.com/luminos" +
+      "-company/secretary/generated/modelsb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

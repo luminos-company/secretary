@@ -43,6 +43,11 @@ func (k KeyService) Get(ctx context.Context, request *models.KeyServiceGetReques
 	}, nil
 }
 
+func (k KeyService) GetOrCreate(ctx context.Context, request *models.KeyServiceCreateRequest) (*models.KeyServiceCreateResponse, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (k KeyService) List(ctx context.Context, request *models.KeyServiceListRequest) (*models.KeyServiceListResponse, error) {
 	bq := query.KeyModel.Select()
 	if request != nil && request.FirstId != nil {
@@ -145,6 +150,11 @@ func (k KeyService) Rotate(ctx context.Context, request *models.KeyServiceRotate
 }
 
 func (k KeyService) Delete(ctx context.Context, request *models.KeyServiceDeleteRequest) (*models.KeyServiceDeleteResponse, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (k KeyService) JWK(ctx context.Context, request *models.KeyServiceJWKRequest) (*models.KeyServiceJWKResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }

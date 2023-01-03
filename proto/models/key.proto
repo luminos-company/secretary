@@ -121,6 +121,12 @@ service KeyService {
             get: "/v1/keys/{id}"
         };
     }
+    rpc GetOrCreate(KeyServiceCreateRequest) returns (KeyServiceCreateResponse) {
+        option (google.api.http) = {
+            post: "/v1/keys/get-or-create"
+            body: "*"
+        };
+    }
     rpc List(KeyServiceListRequest) returns (KeyServiceListResponse) {
         option (google.api.http) = {
             get: "/v1/keys"

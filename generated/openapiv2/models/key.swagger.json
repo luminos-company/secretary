@@ -76,6 +76,38 @@
         ]
       }
     },
+    "/v1/keys/get-or-create": {
+      "post": {
+        "operationId": "KeyService_GetOrCreate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/modelsKeyServiceCreateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/modelsKeyServiceCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
     "/v1/keys/{id}": {
       "get": {
         "operationId": "KeyService_Get",

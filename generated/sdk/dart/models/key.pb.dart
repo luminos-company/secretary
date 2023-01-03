@@ -1243,6 +1243,10 @@ class KeyServiceApi {
     var emptyResponse = KeyServiceGetResponse();
     return _client.invoke<KeyServiceGetResponse>(ctx, 'KeyService', 'Get', request, emptyResponse);
   }
+  $async.Future<KeyServiceCreateResponse> getOrCreate($pb.ClientContext? ctx, KeyServiceCreateRequest request) {
+    var emptyResponse = KeyServiceCreateResponse();
+    return _client.invoke<KeyServiceCreateResponse>(ctx, 'KeyService', 'GetOrCreate', request, emptyResponse);
+  }
   $async.Future<KeyServiceListResponse> list($pb.ClientContext? ctx, KeyServiceListRequest request) {
     var emptyResponse = KeyServiceListResponse();
     return _client.invoke<KeyServiceListResponse>(ctx, 'KeyService', 'List', request, emptyResponse);

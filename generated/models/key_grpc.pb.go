@@ -24,6 +24,7 @@ const _ = grpc.SupportPackageIsVersion7
 type KeyServiceClient interface {
 	Create(ctx context.Context, in *KeyServiceCreateRequest, opts ...grpc.CallOption) (*KeyServiceCreateResponse, error)
 	Get(ctx context.Context, in *KeyServiceGetRequest, opts ...grpc.CallOption) (*KeyServiceGetResponse, error)
+	GetOrCreate(ctx context.Context, in *KeyServiceCreateRequest, opts ...grpc.CallOption) (*KeyServiceCreateResponse, error)
 	List(ctx context.Context, in *KeyServiceListRequest, opts ...grpc.CallOption) (*KeyServiceListResponse, error)
 	Sign(ctx context.Context, in *KeyServiceSignRequest, opts ...grpc.CallOption) (*KeyServiceSignResponse, error)
 	Verify(ctx context.Context, in *KeyServiceVerifyRequest, opts ...grpc.CallOption) (*KeyServiceVerifyResponse, error)
@@ -54,6 +55,15 @@ func (c *keyServiceClient) Create(ctx context.Context, in *KeyServiceCreateReque
 func (c *keyServiceClient) Get(ctx context.Context, in *KeyServiceGetRequest, opts ...grpc.CallOption) (*KeyServiceGetResponse, error) {
 	out := new(KeyServiceGetResponse)
 	err := c.cc.Invoke(ctx, "/models.KeyService/Get", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyServiceClient) GetOrCreate(ctx context.Context, in *KeyServiceCreateRequest, opts ...grpc.CallOption) (*KeyServiceCreateResponse, error) {
+	out := new(KeyServiceCreateResponse)
+	err := c.cc.Invoke(ctx, "/models.KeyService/GetOrCreate", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -138,6 +148,7 @@ func (c *keyServiceClient) JWK(ctx context.Context, in *KeyServiceJWKRequest, op
 type KeyServiceServer interface {
 	Create(context.Context, *KeyServiceCreateRequest) (*KeyServiceCreateResponse, error)
 	Get(context.Context, *KeyServiceGetRequest) (*KeyServiceGetResponse, error)
+	GetOrCreate(context.Context, *KeyServiceCreateRequest) (*KeyServiceCreateResponse, error)
 	List(context.Context, *KeyServiceListRequest) (*KeyServiceListResponse, error)
 	Sign(context.Context, *KeyServiceSignRequest) (*KeyServiceSignResponse, error)
 	Verify(context.Context, *KeyServiceVerifyRequest) (*KeyServiceVerifyResponse, error)
@@ -158,6 +169,9 @@ func (UnimplementedKeyServiceServer) Create(context.Context, *KeyServiceCreateRe
 }
 func (UnimplementedKeyServiceServer) Get(context.Context, *KeyServiceGetRequest) (*KeyServiceGetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedKeyServiceServer) GetOrCreate(context.Context, *KeyServiceCreateRequest) (*KeyServiceCreateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOrCreate not implemented")
 }
 func (UnimplementedKeyServiceServer) List(context.Context, *KeyServiceListRequest) (*KeyServiceListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
@@ -228,6 +242,24 @@ func _KeyService_Get_Handler(srv interface{}, ctx context.Context, dec func(inte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(KeyServiceServer).Get(ctx, req.(*KeyServiceGetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyService_GetOrCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyServiceCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyServiceServer).GetOrCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/models.KeyService/GetOrCreate",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyServiceServer).GetOrCreate(ctx, req.(*KeyServiceCreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -390,6 +422,10 @@ var KeyService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Get",
 			Handler:    _KeyService_Get_Handler,
+		},
+		{
+			MethodName: "GetOrCreate",
+			Handler:    _KeyService_GetOrCreate_Handler,
 		},
 		{
 			MethodName: "List",
