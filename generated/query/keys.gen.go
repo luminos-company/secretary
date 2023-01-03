@@ -16,14 +16,14 @@ import (
 
 	"gorm.io/plugin/dbresolver"
 
-	"github.com/luminos-company/secretary/generated/models/dbmodel"
+	"github.com/luminos-company/secretary/generated/models"
 )
 
 func newKey(db *gorm.DB, opts ...gen.DOOption) key {
 	_key := key{}
 
 	_key.keyDo.UseDB(db, opts...)
-	_key.keyDo.UseModel(&dbmodel.Key{})
+	_key.keyDo.UseModel(&models.Key{})
 
 	tableName := _key.keyDo.TableName()
 	_key.ALL = field.NewAsterisk(tableName)
@@ -153,17 +153,17 @@ type IKeyDo interface {
 	Count() (count int64, err error)
 	Scopes(funcs ...func(gen.Dao) gen.Dao) IKeyDo
 	Unscoped() IKeyDo
-	Create(values ...*dbmodel.Key) error
-	CreateInBatches(values []*dbmodel.Key, batchSize int) error
-	Save(values ...*dbmodel.Key) error
-	First() (*dbmodel.Key, error)
-	Take() (*dbmodel.Key, error)
-	Last() (*dbmodel.Key, error)
-	Find() ([]*dbmodel.Key, error)
-	FindInBatch(batchSize int, fc func(tx gen.Dao, batch int) error) (results []*dbmodel.Key, err error)
-	FindInBatches(result *[]*dbmodel.Key, batchSize int, fc func(tx gen.Dao, batch int) error) error
+	Create(values ...*models.Key) error
+	CreateInBatches(values []*models.Key, batchSize int) error
+	Save(values ...*models.Key) error
+	First() (*models.Key, error)
+	Take() (*models.Key, error)
+	Last() (*models.Key, error)
+	Find() ([]*models.Key, error)
+	FindInBatch(batchSize int, fc func(tx gen.Dao, batch int) error) (results []*models.Key, err error)
+	FindInBatches(result *[]*models.Key, batchSize int, fc func(tx gen.Dao, batch int) error) error
 	Pluck(column field.Expr, dest interface{}) error
-	Delete(...*dbmodel.Key) (info gen.ResultInfo, err error)
+	Delete(...*models.Key) (info gen.ResultInfo, err error)
 	Update(column field.Expr, value interface{}) (info gen.ResultInfo, err error)
 	UpdateSimple(columns ...field.AssignExpr) (info gen.ResultInfo, err error)
 	Updates(value interface{}) (info gen.ResultInfo, err error)
@@ -175,9 +175,9 @@ type IKeyDo interface {
 	Assign(attrs ...field.AssignExpr) IKeyDo
 	Joins(fields ...field.RelationField) IKeyDo
 	Preload(fields ...field.RelationField) IKeyDo
-	FirstOrInit() (*dbmodel.Key, error)
-	FirstOrCreate() (*dbmodel.Key, error)
-	FindByPage(offset int, limit int) (result []*dbmodel.Key, count int64, err error)
+	FirstOrInit() (*models.Key, error)
+	FirstOrCreate() (*models.Key, error)
+	FindByPage(offset int, limit int) (result []*models.Key, count int64, err error)
 	ScanByPage(result interface{}, offset int, limit int) (count int64, err error)
 	Scan(result interface{}) (err error)
 	Returning(value interface{}, columns ...string) IKeyDo
@@ -281,57 +281,57 @@ func (k keyDo) Unscoped() IKeyDo {
 	return k.withDO(k.DO.Unscoped())
 }
 
-func (k keyDo) Create(values ...*dbmodel.Key) error {
+func (k keyDo) Create(values ...*models.Key) error {
 	if len(values) == 0 {
 		return nil
 	}
 	return k.DO.Create(values)
 }
 
-func (k keyDo) CreateInBatches(values []*dbmodel.Key, batchSize int) error {
+func (k keyDo) CreateInBatches(values []*models.Key, batchSize int) error {
 	return k.DO.CreateInBatches(values, batchSize)
 }
 
 // Save : !!! underlying implementation is different with GORM
 // The method is equivalent to executing the statement: db.Clauses(clause.OnConflict{UpdateAll: true}).Create(values)
-func (k keyDo) Save(values ...*dbmodel.Key) error {
+func (k keyDo) Save(values ...*models.Key) error {
 	if len(values) == 0 {
 		return nil
 	}
 	return k.DO.Save(values)
 }
 
-func (k keyDo) First() (*dbmodel.Key, error) {
+func (k keyDo) First() (*models.Key, error) {
 	if result, err := k.DO.First(); err != nil {
 		return nil, err
 	} else {
-		return result.(*dbmodel.Key), nil
+		return result.(*models.Key), nil
 	}
 }
 
-func (k keyDo) Take() (*dbmodel.Key, error) {
+func (k keyDo) Take() (*models.Key, error) {
 	if result, err := k.DO.Take(); err != nil {
 		return nil, err
 	} else {
-		return result.(*dbmodel.Key), nil
+		return result.(*models.Key), nil
 	}
 }
 
-func (k keyDo) Last() (*dbmodel.Key, error) {
+func (k keyDo) Last() (*models.Key, error) {
 	if result, err := k.DO.Last(); err != nil {
 		return nil, err
 	} else {
-		return result.(*dbmodel.Key), nil
+		return result.(*models.Key), nil
 	}
 }
 
-func (k keyDo) Find() ([]*dbmodel.Key, error) {
+func (k keyDo) Find() ([]*models.Key, error) {
 	result, err := k.DO.Find()
-	return result.([]*dbmodel.Key), err
+	return result.([]*models.Key), err
 }
 
-func (k keyDo) FindInBatch(batchSize int, fc func(tx gen.Dao, batch int) error) (results []*dbmodel.Key, err error) {
-	buf := make([]*dbmodel.Key, 0, batchSize)
+func (k keyDo) FindInBatch(batchSize int, fc func(tx gen.Dao, batch int) error) (results []*models.Key, err error) {
+	buf := make([]*models.Key, 0, batchSize)
 	err = k.DO.FindInBatches(&buf, batchSize, func(tx gen.Dao, batch int) error {
 		defer func() { results = append(results, buf...) }()
 		return fc(tx, batch)
@@ -339,7 +339,7 @@ func (k keyDo) FindInBatch(batchSize int, fc func(tx gen.Dao, batch int) error) 
 	return results, err
 }
 
-func (k keyDo) FindInBatches(result *[]*dbmodel.Key, batchSize int, fc func(tx gen.Dao, batch int) error) error {
+func (k keyDo) FindInBatches(result *[]*models.Key, batchSize int, fc func(tx gen.Dao, batch int) error) error {
 	return k.DO.FindInBatches(result, batchSize, fc)
 }
 
@@ -365,23 +365,23 @@ func (k keyDo) Preload(fields ...field.RelationField) IKeyDo {
 	return &k
 }
 
-func (k keyDo) FirstOrInit() (*dbmodel.Key, error) {
+func (k keyDo) FirstOrInit() (*models.Key, error) {
 	if result, err := k.DO.FirstOrInit(); err != nil {
 		return nil, err
 	} else {
-		return result.(*dbmodel.Key), nil
+		return result.(*models.Key), nil
 	}
 }
 
-func (k keyDo) FirstOrCreate() (*dbmodel.Key, error) {
+func (k keyDo) FirstOrCreate() (*models.Key, error) {
 	if result, err := k.DO.FirstOrCreate(); err != nil {
 		return nil, err
 	} else {
-		return result.(*dbmodel.Key), nil
+		return result.(*models.Key), nil
 	}
 }
 
-func (k keyDo) FindByPage(offset int, limit int) (result []*dbmodel.Key, count int64, err error) {
+func (k keyDo) FindByPage(offset int, limit int) (result []*models.Key, count int64, err error) {
 	result, err = k.Offset(offset).Limit(limit).Find()
 	if err != nil {
 		return
@@ -410,7 +410,7 @@ func (k keyDo) Scan(result interface{}) (err error) {
 	return k.DO.Scan(result)
 }
 
-func (k keyDo) Delete(models ...*dbmodel.Key) (result gen.ResultInfo, err error) {
+func (k keyDo) Delete(models ...*models.Key) (result gen.ResultInfo, err error) {
 	return k.DO.Delete(models)
 }
 

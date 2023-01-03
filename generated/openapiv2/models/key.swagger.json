@@ -383,7 +383,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "$ref": "#/definitions/typesID"
         },
         "privateKey": {
           "type": "string"
@@ -401,20 +401,16 @@
           "type": "string"
         },
         "expiresAt": {
-          "type": "string",
-          "format": "date-time"
+          "$ref": "#/definitions/typesTimestamp"
         },
         "updatedAt": {
-          "type": "string",
-          "format": "date-time"
+          "$ref": "#/definitions/typesTimestamp"
         },
         "createdAt": {
-          "type": "string",
-          "format": "date-time"
+          "$ref": "#/definitions/typesTimestamp"
         },
         "deletedAt": {
-          "type": "string",
-          "format": "date-time"
+          "$ref": "#/definitions/typesDeletedAt"
         }
       }
     },
@@ -542,6 +538,23 @@
         }
       }
     },
+    "typesDeletedAt": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "typesID": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
     "typesPagination": {
       "type": "object",
       "properties": {
@@ -552,6 +565,15 @@
         "offset": {
           "type": "integer",
           "format": "int32"
+        }
+      }
+    },
+    "typesTimestamp": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
         }
       }
     }

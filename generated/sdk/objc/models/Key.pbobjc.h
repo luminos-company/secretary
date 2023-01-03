@@ -27,8 +27,11 @@
 
 CF_EXTERN_C_BEGIN
 
+@class DeletedAt;
+@class ID;
 @class Key;
 @class Pagination;
+@class Timestamp;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -64,7 +67,9 @@ typedef GPB_ENUM(Key_FieldNumber) {
 
 GPB_FINAL @interface Key : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+@property(nonatomic, readwrite, strong, null_resettable) ID *id_p;
+/** Test to see if @c id_p has been set. */
+@property(nonatomic, readwrite) BOOL hasId_p;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *privateKey;
 
@@ -77,20 +82,22 @@ GPB_FINAL @interface Key : GPBMessage
 @property(nonatomic, readwrite) BOOL hasRotatedFromId;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *rotateCron;
+/** Test to see if @c rotateCron has been set. */
+@property(nonatomic, readwrite) BOOL hasRotateCron;
 
-@property(nonatomic, readwrite, strong, null_resettable) GPBTimestamp *expiresAt;
+@property(nonatomic, readwrite, strong, null_resettable) Timestamp *expiresAt;
 /** Test to see if @c expiresAt has been set. */
 @property(nonatomic, readwrite) BOOL hasExpiresAt;
 
-@property(nonatomic, readwrite, strong, null_resettable) GPBTimestamp *updatedAt;
+@property(nonatomic, readwrite, strong, null_resettable) Timestamp *updatedAt;
 /** Test to see if @c updatedAt has been set. */
 @property(nonatomic, readwrite) BOOL hasUpdatedAt;
 
-@property(nonatomic, readwrite, strong, null_resettable) GPBTimestamp *createdAt;
+@property(nonatomic, readwrite, strong, null_resettable) Timestamp *createdAt;
 /** Test to see if @c createdAt has been set. */
 @property(nonatomic, readwrite) BOOL hasCreatedAt;
 
-@property(nonatomic, readwrite, strong, null_resettable) GPBTimestamp *deletedAt;
+@property(nonatomic, readwrite, strong, null_resettable) DeletedAt *deletedAt;
 /** Test to see if @c deletedAt has been set. */
 @property(nonatomic, readwrite) BOOL hasDeletedAt;
 
@@ -107,7 +114,6 @@ GPB_FINAL @interface KeyServiceCreateRequest : GPBMessage
 
 @property(nonatomic, readwrite) BOOL shouldRotate;
 
-@property(nonatomic, readwrite) BOOL hasShouldRotate;
 @property(nonatomic, readwrite, copy, null_resettable) NSString *rotateCron;
 /** Test to see if @c rotateCron has been set. */
 @property(nonatomic, readwrite) BOOL hasRotateCron;

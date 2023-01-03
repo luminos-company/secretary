@@ -19,16 +19,19 @@ public final class KeyOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
+     * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
+     * @return Whether the id field is set.
+     */
+    boolean hasId();
+    /**
+     * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
      * @return The id.
      */
-    java.lang.String getId();
+    types.Types.ID getId();
     /**
-     * <code>string id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
-     * @return The bytes for id.
+     * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
      */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    types.Types.IDOrBuilder getIdOrBuilder();
 
     /**
      * <code>string private_key = 2 [json_name = "privateKey", (.tagger.tags) = "json:&#92;"private_key&#92;""];</code>
@@ -78,76 +81,81 @@ public final class KeyOuterClass {
         getRotatedFromIdBytes();
 
     /**
-     * <code>string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
+     * <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
+     * @return Whether the rotateCron field is set.
+     */
+    boolean hasRotateCron();
+    /**
+     * <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
      * @return The rotateCron.
      */
     java.lang.String getRotateCron();
     /**
-     * <code>string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
+     * <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
      * @return The bytes for rotateCron.
      */
     com.google.protobuf.ByteString
         getRotateCronBytes();
 
     /**
-     * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+     * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
      * @return Whether the expiresAt field is set.
      */
     boolean hasExpiresAt();
     /**
-     * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+     * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
      * @return The expiresAt.
      */
-    com.google.protobuf.Timestamp getExpiresAt();
+    types.Types.Timestamp getExpiresAt();
     /**
-     * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+     * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
      */
-    com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder();
+    types.Types.TimestampOrBuilder getExpiresAtOrBuilder();
 
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+     * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
      * @return Whether the updatedAt field is set.
      */
     boolean hasUpdatedAt();
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+     * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
      * @return The updatedAt.
      */
-    com.google.protobuf.Timestamp getUpdatedAt();
+    types.Types.Timestamp getUpdatedAt();
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+     * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
      */
-    com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
+    types.Types.TimestampOrBuilder getUpdatedAtOrBuilder();
 
     /**
-     * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+     * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
      * @return Whether the createdAt field is set.
      */
     boolean hasCreatedAt();
     /**
-     * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+     * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
      * @return The createdAt.
      */
-    com.google.protobuf.Timestamp getCreatedAt();
+    types.Types.Timestamp getCreatedAt();
     /**
-     * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+     * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
      */
-    com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
+    types.Types.TimestampOrBuilder getCreatedAtOrBuilder();
 
     /**
-     * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+     * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
      * @return Whether the deletedAt field is set.
      */
     boolean hasDeletedAt();
     /**
-     * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+     * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
      * @return The deletedAt.
      */
-    com.google.protobuf.Timestamp getDeletedAt();
+    types.Types.DeletedAt getDeletedAt();
     /**
-     * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+     * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
      */
-    com.google.protobuf.TimestampOrBuilder getDeletedAtOrBuilder();
+    types.Types.DeletedAtOrBuilder getDeletedAtOrBuilder();
   }
   /**
    * Protobuf type {@code models.Key}
@@ -162,7 +170,6 @@ public final class KeyOuterClass {
       super(builder);
     }
     private Key() {
-      id_ = "";
       privateKey_ = "";
       publicKey_ = "";
       rotatedFromId_ = "";
@@ -196,42 +203,29 @@ public final class KeyOuterClass {
 
     private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object id_ = "";
+    private types.Types.ID id_;
     /**
-     * <code>string id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
+     * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
+     * @return Whether the id field is set.
+     */
+    @java.lang.Override
+    public boolean hasId() {
+      return id_ != null;
+    }
+    /**
+     * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
      * @return The id.
      */
     @java.lang.Override
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
+    public types.Types.ID getId() {
+      return id_ == null ? types.Types.ID.getDefaultInstance() : id_;
     }
     /**
-     * <code>string id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
-     * @return The bytes for id.
+     * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public types.Types.IDOrBuilder getIdOrBuilder() {
+      return id_ == null ? types.Types.ID.getDefaultInstance() : id_;
     }
 
     public static final int PRIVATE_KEY_FIELD_NUMBER = 2;
@@ -374,7 +368,15 @@ public final class KeyOuterClass {
     @SuppressWarnings("serial")
     private volatile java.lang.Object rotateCron_ = "";
     /**
-     * <code>string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
+     * <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
+     * @return Whether the rotateCron field is set.
+     */
+    @java.lang.Override
+    public boolean hasRotateCron() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
      * @return The rotateCron.
      */
     @java.lang.Override
@@ -391,7 +393,7 @@ public final class KeyOuterClass {
       }
     }
     /**
-     * <code>string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
+     * <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
      * @return The bytes for rotateCron.
      */
     @java.lang.Override
@@ -410,9 +412,9 @@ public final class KeyOuterClass {
     }
 
     public static final int EXPIRES_AT_FIELD_NUMBER = 9;
-    private com.google.protobuf.Timestamp expiresAt_;
+    private types.Types.Timestamp expiresAt_;
     /**
-     * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+     * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
      * @return Whether the expiresAt field is set.
      */
     @java.lang.Override
@@ -420,25 +422,25 @@ public final class KeyOuterClass {
       return expiresAt_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+     * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
      * @return The expiresAt.
      */
     @java.lang.Override
-    public com.google.protobuf.Timestamp getExpiresAt() {
-      return expiresAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expiresAt_;
+    public types.Types.Timestamp getExpiresAt() {
+      return expiresAt_ == null ? types.Types.Timestamp.getDefaultInstance() : expiresAt_;
     }
     /**
-     * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+     * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
      */
     @java.lang.Override
-    public com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder() {
-      return expiresAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expiresAt_;
+    public types.Types.TimestampOrBuilder getExpiresAtOrBuilder() {
+      return expiresAt_ == null ? types.Types.Timestamp.getDefaultInstance() : expiresAt_;
     }
 
     public static final int UPDATED_AT_FIELD_NUMBER = 10;
-    private com.google.protobuf.Timestamp updatedAt_;
+    private types.Types.Timestamp updatedAt_;
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+     * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
      * @return Whether the updatedAt field is set.
      */
     @java.lang.Override
@@ -446,25 +448,25 @@ public final class KeyOuterClass {
       return updatedAt_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+     * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
      * @return The updatedAt.
      */
     @java.lang.Override
-    public com.google.protobuf.Timestamp getUpdatedAt() {
-      return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+    public types.Types.Timestamp getUpdatedAt() {
+      return updatedAt_ == null ? types.Types.Timestamp.getDefaultInstance() : updatedAt_;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+     * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
      */
     @java.lang.Override
-    public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
-      return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+    public types.Types.TimestampOrBuilder getUpdatedAtOrBuilder() {
+      return updatedAt_ == null ? types.Types.Timestamp.getDefaultInstance() : updatedAt_;
     }
 
     public static final int CREATED_AT_FIELD_NUMBER = 11;
-    private com.google.protobuf.Timestamp createdAt_;
+    private types.Types.Timestamp createdAt_;
     /**
-     * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+     * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
      * @return Whether the createdAt field is set.
      */
     @java.lang.Override
@@ -472,25 +474,25 @@ public final class KeyOuterClass {
       return createdAt_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+     * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
      * @return The createdAt.
      */
     @java.lang.Override
-    public com.google.protobuf.Timestamp getCreatedAt() {
-      return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+    public types.Types.Timestamp getCreatedAt() {
+      return createdAt_ == null ? types.Types.Timestamp.getDefaultInstance() : createdAt_;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+     * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
      */
     @java.lang.Override
-    public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
-      return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+    public types.Types.TimestampOrBuilder getCreatedAtOrBuilder() {
+      return createdAt_ == null ? types.Types.Timestamp.getDefaultInstance() : createdAt_;
     }
 
     public static final int DELETED_AT_FIELD_NUMBER = 12;
-    private com.google.protobuf.Timestamp deletedAt_;
+    private types.Types.DeletedAt deletedAt_;
     /**
-     * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+     * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
      * @return Whether the deletedAt field is set.
      */
     @java.lang.Override
@@ -498,19 +500,19 @@ public final class KeyOuterClass {
       return deletedAt_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+     * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
      * @return The deletedAt.
      */
     @java.lang.Override
-    public com.google.protobuf.Timestamp getDeletedAt() {
-      return deletedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : deletedAt_;
+    public types.Types.DeletedAt getDeletedAt() {
+      return deletedAt_ == null ? types.Types.DeletedAt.getDefaultInstance() : deletedAt_;
     }
     /**
-     * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+     * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
      */
     @java.lang.Override
-    public com.google.protobuf.TimestampOrBuilder getDeletedAtOrBuilder() {
-      return deletedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : deletedAt_;
+    public types.Types.DeletedAtOrBuilder getDeletedAtOrBuilder() {
+      return deletedAt_ == null ? types.Types.DeletedAt.getDefaultInstance() : deletedAt_;
     }
 
     public static models.KeyOuterClass.Key parseFrom(
@@ -637,7 +639,11 @@ public final class KeyOuterClass {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        id_ = "";
+        id_ = null;
+        if (idBuilder_ != null) {
+          idBuilder_.dispose();
+          idBuilder_ = null;
+        }
         privateKey_ = "";
         publicKey_ = "";
         shouldRotate_ = false;
@@ -697,7 +703,9 @@ public final class KeyOuterClass {
       private void buildPartial0(models.KeyOuterClass.Key result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.id_ = id_;
+          result.id_ = idBuilder_ == null
+              ? id_
+              : idBuilder_.build();
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.privateKey_ = privateKey_;
@@ -715,6 +723,7 @@ public final class KeyOuterClass {
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
           result.rotateCron_ = rotateCron_;
+          to_bitField0_ |= 0x00000002;
         }
         if (((from_bitField0_ & 0x00000040) != 0)) {
           result.expiresAt_ = expiresAtBuilder_ == null
@@ -773,76 +782,123 @@ public final class KeyOuterClass {
       }
       private int bitField0_;
 
-      private java.lang.Object id_ = "";
+      private types.Types.ID id_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          types.Types.ID, types.Types.ID.Builder, types.Types.IDOrBuilder> idBuilder_;
       /**
-       * <code>string id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
+       * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
+       * @return Whether the id field is set.
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
+      public types.Types.ID getId() {
+        if (idBuilder_ == null) {
+          return id_ == null ? types.Types.ID.getDefaultInstance() : id_;
         } else {
-          return (java.lang.String) ref;
+          return idBuilder_.getMessage();
         }
       }
       /**
-       * <code>string id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
-       * @return The bytes for id.
+       * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
        */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
+      public Builder setId(types.Types.ID value) {
+        if (idBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          id_ = value;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          idBuilder_.setMessage(value);
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
       }
       /**
-       * <code>string id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
-       * @param value The id to set.
-       * @return This builder for chaining.
+       * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
        */
       public Builder setId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        id_ = value;
+          types.Types.ID.Builder builderForValue) {
+        if (idBuilder_ == null) {
+          id_ = builderForValue.build();
+        } else {
+          idBuilder_.setMessage(builderForValue.build());
+        }
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
-       * @return This builder for chaining.
+       * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
+       */
+      public Builder mergeId(types.Types.ID value) {
+        if (idBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0) &&
+            id_ != null &&
+            id_ != types.Types.ID.getDefaultInstance()) {
+            getIdBuilder().mergeFrom(value);
+          } else {
+            id_ = value;
+          }
+        } else {
+          idBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
        */
       public Builder clearId() {
-        id_ = getDefaultInstance().getId();
         bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = null;
+        if (idBuilder_ != null) {
+          idBuilder_.dispose();
+          idBuilder_ = null;
+        }
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
+       * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
        */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        id_ = value;
+      public types.Types.ID.Builder getIdBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
-        return this;
+        return getIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
+       */
+      public types.Types.IDOrBuilder getIdOrBuilder() {
+        if (idBuilder_ != null) {
+          return idBuilder_.getMessageOrBuilder();
+        } else {
+          return id_ == null ?
+              types.Types.ID.getDefaultInstance() : id_;
+        }
+      }
+      /**
+       * <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:&#92;"id&#92;" gorm:&#92;"primary_key&#92;""];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          types.Types.ID, types.Types.ID.Builder, types.Types.IDOrBuilder> 
+          getIdFieldBuilder() {
+        if (idBuilder_ == null) {
+          idBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              types.Types.ID, types.Types.ID.Builder, types.Types.IDOrBuilder>(
+                  getId(),
+                  getParentForChildren(),
+                  isClean());
+          id_ = null;
+        }
+        return idBuilder_;
       }
 
       private java.lang.Object privateKey_ = "";
@@ -1102,7 +1158,14 @@ public final class KeyOuterClass {
 
       private java.lang.Object rotateCron_ = "";
       /**
-       * <code>string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
+       * <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
+       * @return Whether the rotateCron field is set.
+       */
+      public boolean hasRotateCron() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
        * @return The rotateCron.
        */
       public java.lang.String getRotateCron() {
@@ -1118,7 +1181,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
+       * <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
        * @return The bytes for rotateCron.
        */
       public com.google.protobuf.ByteString
@@ -1135,7 +1198,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
+       * <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
        * @param value The rotateCron to set.
        * @return This builder for chaining.
        */
@@ -1148,7 +1211,7 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
+       * <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
        * @return This builder for chaining.
        */
       public Builder clearRotateCron() {
@@ -1158,7 +1221,7 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
+       * <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:&#92;"rotate_cron&#92;" gorm:&#92;"default:&#92;'0 0 0 1 * *&#92;'&#92;""];</code>
        * @param value The bytes for rotateCron to set.
        * @return This builder for chaining.
        */
@@ -1172,31 +1235,31 @@ public final class KeyOuterClass {
         return this;
       }
 
-      private com.google.protobuf.Timestamp expiresAt_;
+      private types.Types.Timestamp expiresAt_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> expiresAtBuilder_;
+          types.Types.Timestamp, types.Types.Timestamp.Builder, types.Types.TimestampOrBuilder> expiresAtBuilder_;
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        * @return Whether the expiresAt field is set.
        */
       public boolean hasExpiresAt() {
         return ((bitField0_ & 0x00000040) != 0);
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        * @return The expiresAt.
        */
-      public com.google.protobuf.Timestamp getExpiresAt() {
+      public types.Types.Timestamp getExpiresAt() {
         if (expiresAtBuilder_ == null) {
-          return expiresAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expiresAt_;
+          return expiresAt_ == null ? types.Types.Timestamp.getDefaultInstance() : expiresAt_;
         } else {
           return expiresAtBuilder_.getMessage();
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
-      public Builder setExpiresAt(com.google.protobuf.Timestamp value) {
+      public Builder setExpiresAt(types.Types.Timestamp value) {
         if (expiresAtBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1210,10 +1273,10 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
       public Builder setExpiresAt(
-          com.google.protobuf.Timestamp.Builder builderForValue) {
+          types.Types.Timestamp.Builder builderForValue) {
         if (expiresAtBuilder_ == null) {
           expiresAt_ = builderForValue.build();
         } else {
@@ -1224,13 +1287,13 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
-      public Builder mergeExpiresAt(com.google.protobuf.Timestamp value) {
+      public Builder mergeExpiresAt(types.Types.Timestamp value) {
         if (expiresAtBuilder_ == null) {
           if (((bitField0_ & 0x00000040) != 0) &&
             expiresAt_ != null &&
-            expiresAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            expiresAt_ != types.Types.Timestamp.getDefaultInstance()) {
             getExpiresAtBuilder().mergeFrom(value);
           } else {
             expiresAt_ = value;
@@ -1243,7 +1306,7 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
       public Builder clearExpiresAt() {
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -1256,33 +1319,33 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
-      public com.google.protobuf.Timestamp.Builder getExpiresAtBuilder() {
+      public types.Types.Timestamp.Builder getExpiresAtBuilder() {
         bitField0_ |= 0x00000040;
         onChanged();
         return getExpiresAtFieldBuilder().getBuilder();
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
-      public com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder() {
+      public types.Types.TimestampOrBuilder getExpiresAtOrBuilder() {
         if (expiresAtBuilder_ != null) {
           return expiresAtBuilder_.getMessageOrBuilder();
         } else {
           return expiresAt_ == null ?
-              com.google.protobuf.Timestamp.getDefaultInstance() : expiresAt_;
+              types.Types.Timestamp.getDefaultInstance() : expiresAt_;
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:&#92;"expires_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          types.Types.Timestamp, types.Types.Timestamp.Builder, types.Types.TimestampOrBuilder> 
           getExpiresAtFieldBuilder() {
         if (expiresAtBuilder_ == null) {
           expiresAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+              types.Types.Timestamp, types.Types.Timestamp.Builder, types.Types.TimestampOrBuilder>(
                   getExpiresAt(),
                   getParentForChildren(),
                   isClean());
@@ -1291,31 +1354,31 @@ public final class KeyOuterClass {
         return expiresAtBuilder_;
       }
 
-      private com.google.protobuf.Timestamp updatedAt_;
+      private types.Types.Timestamp updatedAt_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updatedAtBuilder_;
+          types.Types.Timestamp, types.Types.Timestamp.Builder, types.Types.TimestampOrBuilder> updatedAtBuilder_;
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+       * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
        * @return Whether the updatedAt field is set.
        */
       public boolean hasUpdatedAt() {
         return ((bitField0_ & 0x00000080) != 0);
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+       * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
        * @return The updatedAt.
        */
-      public com.google.protobuf.Timestamp getUpdatedAt() {
+      public types.Types.Timestamp getUpdatedAt() {
         if (updatedAtBuilder_ == null) {
-          return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+          return updatedAt_ == null ? types.Types.Timestamp.getDefaultInstance() : updatedAt_;
         } else {
           return updatedAtBuilder_.getMessage();
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+       * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
        */
-      public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
+      public Builder setUpdatedAt(types.Types.Timestamp value) {
         if (updatedAtBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1329,10 +1392,10 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+       * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
        */
       public Builder setUpdatedAt(
-          com.google.protobuf.Timestamp.Builder builderForValue) {
+          types.Types.Timestamp.Builder builderForValue) {
         if (updatedAtBuilder_ == null) {
           updatedAt_ = builderForValue.build();
         } else {
@@ -1343,13 +1406,13 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+       * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
        */
-      public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
+      public Builder mergeUpdatedAt(types.Types.Timestamp value) {
         if (updatedAtBuilder_ == null) {
           if (((bitField0_ & 0x00000080) != 0) &&
             updatedAt_ != null &&
-            updatedAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            updatedAt_ != types.Types.Timestamp.getDefaultInstance()) {
             getUpdatedAtBuilder().mergeFrom(value);
           } else {
             updatedAt_ = value;
@@ -1362,7 +1425,7 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+       * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
        */
       public Builder clearUpdatedAt() {
         bitField0_ = (bitField0_ & ~0x00000080);
@@ -1375,33 +1438,33 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+       * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
        */
-      public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
+      public types.Types.Timestamp.Builder getUpdatedAtBuilder() {
         bitField0_ |= 0x00000080;
         onChanged();
         return getUpdatedAtFieldBuilder().getBuilder();
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+       * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
        */
-      public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
+      public types.Types.TimestampOrBuilder getUpdatedAtOrBuilder() {
         if (updatedAtBuilder_ != null) {
           return updatedAtBuilder_.getMessageOrBuilder();
         } else {
           return updatedAt_ == null ?
-              com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+              types.Types.Timestamp.getDefaultInstance() : updatedAt_;
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
+       * <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:&#92;"updated_at&#92;" gorm:&#92;"index; type:timestamptz; autoCreateTime&#92;""];</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          types.Types.Timestamp, types.Types.Timestamp.Builder, types.Types.TimestampOrBuilder> 
           getUpdatedAtFieldBuilder() {
         if (updatedAtBuilder_ == null) {
           updatedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+              types.Types.Timestamp, types.Types.Timestamp.Builder, types.Types.TimestampOrBuilder>(
                   getUpdatedAt(),
                   getParentForChildren(),
                   isClean());
@@ -1410,31 +1473,31 @@ public final class KeyOuterClass {
         return updatedAtBuilder_;
       }
 
-      private com.google.protobuf.Timestamp createdAt_;
+      private types.Types.Timestamp createdAt_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
+          types.Types.Timestamp, types.Types.Timestamp.Builder, types.Types.TimestampOrBuilder> createdAtBuilder_;
       /**
-       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+       * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
        * @return Whether the createdAt field is set.
        */
       public boolean hasCreatedAt() {
         return ((bitField0_ & 0x00000100) != 0);
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+       * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
        * @return The createdAt.
        */
-      public com.google.protobuf.Timestamp getCreatedAt() {
+      public types.Types.Timestamp getCreatedAt() {
         if (createdAtBuilder_ == null) {
-          return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+          return createdAt_ == null ? types.Types.Timestamp.getDefaultInstance() : createdAt_;
         } else {
           return createdAtBuilder_.getMessage();
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+       * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
        */
-      public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
+      public Builder setCreatedAt(types.Types.Timestamp value) {
         if (createdAtBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1448,10 +1511,10 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+       * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
        */
       public Builder setCreatedAt(
-          com.google.protobuf.Timestamp.Builder builderForValue) {
+          types.Types.Timestamp.Builder builderForValue) {
         if (createdAtBuilder_ == null) {
           createdAt_ = builderForValue.build();
         } else {
@@ -1462,13 +1525,13 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+       * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
        */
-      public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
+      public Builder mergeCreatedAt(types.Types.Timestamp value) {
         if (createdAtBuilder_ == null) {
           if (((bitField0_ & 0x00000100) != 0) &&
             createdAt_ != null &&
-            createdAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            createdAt_ != types.Types.Timestamp.getDefaultInstance()) {
             getCreatedAtBuilder().mergeFrom(value);
           } else {
             createdAt_ = value;
@@ -1481,7 +1544,7 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+       * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
        */
       public Builder clearCreatedAt() {
         bitField0_ = (bitField0_ & ~0x00000100);
@@ -1494,33 +1557,33 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+       * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
        */
-      public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
+      public types.Types.Timestamp.Builder getCreatedAtBuilder() {
         bitField0_ |= 0x00000100;
         onChanged();
         return getCreatedAtFieldBuilder().getBuilder();
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+       * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
        */
-      public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
+      public types.Types.TimestampOrBuilder getCreatedAtOrBuilder() {
         if (createdAtBuilder_ != null) {
           return createdAtBuilder_.getMessageOrBuilder();
         } else {
           return createdAt_ == null ?
-              com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+              types.Types.Timestamp.getDefaultInstance() : createdAt_;
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
+       * <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:&#92;"created_at&#92;" gorm:&#92;"index; type:timestamptz; autoUpdateTime&#92;""];</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          types.Types.Timestamp, types.Types.Timestamp.Builder, types.Types.TimestampOrBuilder> 
           getCreatedAtFieldBuilder() {
         if (createdAtBuilder_ == null) {
           createdAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+              types.Types.Timestamp, types.Types.Timestamp.Builder, types.Types.TimestampOrBuilder>(
                   getCreatedAt(),
                   getParentForChildren(),
                   isClean());
@@ -1529,31 +1592,31 @@ public final class KeyOuterClass {
         return createdAtBuilder_;
       }
 
-      private com.google.protobuf.Timestamp deletedAt_;
+      private types.Types.DeletedAt deletedAt_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> deletedAtBuilder_;
+          types.Types.DeletedAt, types.Types.DeletedAt.Builder, types.Types.DeletedAtOrBuilder> deletedAtBuilder_;
       /**
-       * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        * @return Whether the deletedAt field is set.
        */
       public boolean hasDeletedAt() {
         return ((bitField0_ & 0x00000200) != 0);
       }
       /**
-       * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        * @return The deletedAt.
        */
-      public com.google.protobuf.Timestamp getDeletedAt() {
+      public types.Types.DeletedAt getDeletedAt() {
         if (deletedAtBuilder_ == null) {
-          return deletedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : deletedAt_;
+          return deletedAt_ == null ? types.Types.DeletedAt.getDefaultInstance() : deletedAt_;
         } else {
           return deletedAtBuilder_.getMessage();
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
-      public Builder setDeletedAt(com.google.protobuf.Timestamp value) {
+      public Builder setDeletedAt(types.Types.DeletedAt value) {
         if (deletedAtBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1567,10 +1630,10 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
       public Builder setDeletedAt(
-          com.google.protobuf.Timestamp.Builder builderForValue) {
+          types.Types.DeletedAt.Builder builderForValue) {
         if (deletedAtBuilder_ == null) {
           deletedAt_ = builderForValue.build();
         } else {
@@ -1581,13 +1644,13 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
-      public Builder mergeDeletedAt(com.google.protobuf.Timestamp value) {
+      public Builder mergeDeletedAt(types.Types.DeletedAt value) {
         if (deletedAtBuilder_ == null) {
           if (((bitField0_ & 0x00000200) != 0) &&
             deletedAt_ != null &&
-            deletedAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            deletedAt_ != types.Types.DeletedAt.getDefaultInstance()) {
             getDeletedAtBuilder().mergeFrom(value);
           } else {
             deletedAt_ = value;
@@ -1600,7 +1663,7 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
       public Builder clearDeletedAt() {
         bitField0_ = (bitField0_ & ~0x00000200);
@@ -1613,33 +1676,33 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
-      public com.google.protobuf.Timestamp.Builder getDeletedAtBuilder() {
+      public types.Types.DeletedAt.Builder getDeletedAtBuilder() {
         bitField0_ |= 0x00000200;
         onChanged();
         return getDeletedAtFieldBuilder().getBuilder();
       }
       /**
-       * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
-      public com.google.protobuf.TimestampOrBuilder getDeletedAtOrBuilder() {
+      public types.Types.DeletedAtOrBuilder getDeletedAtOrBuilder() {
         if (deletedAtBuilder_ != null) {
           return deletedAtBuilder_.getMessageOrBuilder();
         } else {
           return deletedAt_ == null ?
-              com.google.protobuf.Timestamp.getDefaultInstance() : deletedAt_;
+              types.Types.DeletedAt.getDefaultInstance() : deletedAt_;
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
+       * <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:&#92;"deleted_at&#92;" gorm:&#92;"index; type:timestamptz&#92;""];</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          types.Types.DeletedAt, types.Types.DeletedAt.Builder, types.Types.DeletedAtOrBuilder> 
           getDeletedAtFieldBuilder() {
         if (deletedAtBuilder_ == null) {
           deletedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+              types.Types.DeletedAt, types.Types.DeletedAt.Builder, types.Types.DeletedAtOrBuilder>(
                   getDeletedAt(),
                   getParentForChildren(),
                   isClean());
@@ -1716,12 +1779,7 @@ public final class KeyOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
-     * @return Whether the shouldRotate field is set.
-     */
-    boolean hasShouldRotate();
-    /**
-     * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
+     * <code>bool should_rotate = 1 [json_name = "shouldRotate"];</code>
      * @return The shouldRotate.
      */
     boolean getShouldRotate();
@@ -1788,15 +1846,7 @@ public final class KeyOuterClass {
     public static final int SHOULD_ROTATE_FIELD_NUMBER = 1;
     private boolean shouldRotate_ = false;
     /**
-     * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
-     * @return Whether the shouldRotate field is set.
-     */
-    @java.lang.Override
-    public boolean hasShouldRotate() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
+     * <code>bool should_rotate = 1 [json_name = "shouldRotate"];</code>
      * @return The shouldRotate.
      */
     @java.lang.Override
@@ -1813,7 +1863,7 @@ public final class KeyOuterClass {
      */
     @java.lang.Override
     public boolean hasRotateCron() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
@@ -2010,14 +2060,13 @@ public final class KeyOuterClass {
 
       private void buildPartial0(models.KeyOuterClass.KeyServiceCreateRequest result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.shouldRotate_ = shouldRotate_;
-          to_bitField0_ |= 0x00000001;
         }
+        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.rotateCron_ = rotateCron_;
-          to_bitField0_ |= 0x00000002;
+          to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -2058,15 +2107,7 @@ public final class KeyOuterClass {
 
       private boolean shouldRotate_ ;
       /**
-       * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
-       * @return Whether the shouldRotate field is set.
-       */
-      @java.lang.Override
-      public boolean hasShouldRotate() {
-        return ((bitField0_ & 0x00000001) != 0);
-      }
-      /**
-       * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
+       * <code>bool should_rotate = 1 [json_name = "shouldRotate"];</code>
        * @return The shouldRotate.
        */
       @java.lang.Override
@@ -2074,7 +2115,7 @@ public final class KeyOuterClass {
         return shouldRotate_;
       }
       /**
-       * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
+       * <code>bool should_rotate = 1 [json_name = "shouldRotate"];</code>
        * @param value The shouldRotate to set.
        * @return This builder for chaining.
        */
@@ -2086,7 +2127,7 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
+       * <code>bool should_rotate = 1 [json_name = "shouldRotate"];</code>
        * @return This builder for chaining.
        */
       public Builder clearShouldRotate() {
@@ -11628,100 +11669,97 @@ public final class KeyOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\020models/key.proto\022\006models\032\021types/types." +
-      "proto\032\034google/api/annotations.proto\032\037goo" +
-      "gle/protobuf/timestamp.proto\032\023tagger/tag" +
-      "ger.proto\"\273\007\n\003Key\0221\n\002id\030\001 \001(\tB!\232\204\236\003\034json" +
-      ":\"id\" gorm:\"primary_key\"R\002id\0228\n\013private_" +
-      "key\030\002 \001(\tB\027\232\204\236\003\022json:\"private_key\"R\npriv" +
-      "ateKey\0225\n\npublic_key\030\003 \001(\tB\026\232\204\236\003\021json:\"p" +
-      "ublic_key\"R\tpublicKey\022d\n\rshould_rotate\030\004" +
-      " \001(\010B?\232\204\236\003:json:\"should_rotate\" gorm:\"de" +
-      "fault:false; index; not null\"R\014shouldRot" +
-      "ate\022U\n\017rotated_from_id\030\005 \001(\tB(\232\204\236\003#json:" +
-      "\"rotated_from_id\" gorm:\"index\"H\000R\rrotate" +
-      "dFromId\210\001\001\022U\n\013rotate_cron\030\006 \001(\tB4\232\204\236\003/js" +
-      "on:\"rotate_cron\" gorm:\"default:\'0 0 0 1 " +
-      "* *\'\"R\nrotateCron\022p\n\nexpires_at\030\t \001(\0132\032." +
-      "google.protobuf.TimestampB5\232\204\236\0030json:\"ex" +
-      "pires_at\" gorm:\"index; type:timestamptz\"" +
-      "R\texpiresAt\022\200\001\n\nupdated_at\030\n \001(\0132\032.googl" +
-      "e.protobuf.TimestampBE\232\204\236\003@json:\"updated" +
-      "_at\" gorm:\"index; type:timestamptz; auto" +
-      "CreateTime\"R\tupdatedAt\022\200\001\n\ncreated_at\030\013 " +
-      "\001(\0132\032.google.protobuf.TimestampBE\232\204\236\003@js" +
-      "on:\"created_at\" gorm:\"index; type:timest" +
-      "amptz; autoUpdateTime\"R\tcreatedAt\022p\n\ndel" +
-      "eted_at\030\014 \001(\0132\032.google.protobuf.Timestam" +
-      "pB5\232\204\236\0030json:\"deleted_at\" gorm:\"index; t" +
-      "ype:timestamptz\"R\tdeletedAtB\022\n\020_rotated_" +
-      "from_id\"\213\001\n\027KeyServiceCreateRequest\022(\n\rs" +
-      "hould_rotate\030\001 \001(\010H\000R\014shouldRotate\210\001\001\022$\n" +
-      "\013rotate_cron\030\002 \001(\tH\001R\nrotateCron\210\001\001B\020\n\016_" +
-      "should_rotateB\016\n\014_rotate_cron\"9\n\030KeyServ" +
-      "iceCreateResponse\022\035\n\003key\030\001 \001(\0132\013.models." +
-      "KeyR\003key\"&\n\024KeyServiceGetRequest\022\016\n\002id\030\001" +
-      " \001(\tR\002id\"6\n\025KeyServiceGetResponse\022\035\n\003key" +
-      "\030\001 \001(\0132\013.models.KeyR\003key\"J\n\025KeyServiceLi" +
-      "stRequest\0221\n\npagination\030\001 \001(\0132\021.types.Pa" +
-      "ginationR\npagination\"l\n\026KeyServiceListRe" +
-      "sponse\022\037\n\004keys\030\001 \003(\0132\013.models.KeyR\004keys\022" +
-      "1\n\npagination\030\002 \001(\0132\021.types.PaginationR\n" +
-      "pagination\"A\n\025KeyServiceSignRequest\022\016\n\002i" +
-      "d\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(\tR\007message\"6\n" +
-      "\026KeyServiceSignResponse\022\034\n\tsignature\030\001 \001" +
-      "(\tR\tsignature\"a\n\027KeyServiceVerifyRequest" +
-      "\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(\tR\007messa" +
-      "ge\022\034\n\tsignature\030\003 \001(\tR\tsignature\"0\n\030KeyS" +
-      "erviceVerifyResponse\022\024\n\005valid\030\001 \001(\010R\005val" +
-      "id\"C\n\027KeyServiceCryptoRequest\022\016\n\002id\030\001 \001(" +
-      "\tR\002id\022\030\n\007message\030\002 \001(\tR\007message\":\n\030KeySe" +
-      "rviceCryptoResponse\022\036\n\nciphertext\030\001 \001(\tR" +
-      "\nciphertext\"J\n\030KeyServiceDecryptRequest\022" +
-      "\016\n\002id\030\001 \001(\tR\002id\022\036\n\nciphertext\030\002 \001(\tR\ncip" +
-      "hertext\"5\n\031KeyServiceDecryptResponse\022\030\n\007" +
-      "message\030\001 \001(\tR\007message\")\n\027KeyServiceRota" +
-      "teRequest\022\016\n\002id\030\001 \001(\tR\002id\"9\n\030KeyServiceR" +
-      "otateResponse\022\035\n\003key\030\001 \001(\0132\013.models.KeyR" +
-      "\003key\")\n\027KeyServiceDeleteRequest\022\016\n\002id\030\001 " +
-      "\001(\tR\002id\"9\n\030KeyServiceDeleteResponse\022\035\n\003k" +
-      "ey\030\001 \001(\0132\013.models.KeyR\003key\"&\n\024KeyService" +
-      "JWKRequest\022\016\n\002id\030\001 \001(\tR\002id\")\n\025KeyService" +
-      "JWKResponse\022\020\n\003jwk\030\001 \001(\tR\003jwk2\204\010\n\nKeySer" +
-      "vice\022`\n\006Create\022\037.models.KeyServiceCreate" +
-      "Request\032 .models.KeyServiceCreateRespons" +
-      "e\"\023\202\323\344\223\002\r:\001*\"\010/v1/keys\022Y\n\003Get\022\034.models.K" +
-      "eyServiceGetRequest\032\035.models.KeyServiceG" +
-      "etResponse\"\025\202\323\344\223\002\017\022\r/v1/keys/{id}\022W\n\004Lis" +
-      "t\022\035.models.KeyServiceListRequest\032\036.model" +
-      "s.KeyServiceListResponse\"\020\202\323\344\223\002\n\022\010/v1/ke" +
-      "ys\022d\n\004Sign\022\035.models.KeyServiceSignReques" +
-      "t\032\036.models.KeyServiceSignResponse\"\035\202\323\344\223\002" +
-      "\027:\001*\"\022/v1/keys/{id}/sign\022l\n\006Verify\022\037.mod" +
-      "els.KeyServiceVerifyRequest\032 .models.Key" +
-      "ServiceVerifyResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/ke" +
-      "ys/{id}/verify\022l\n\006Crypto\022\037.models.KeySer" +
-      "viceCryptoRequest\032 .models.KeyServiceCry" +
-      "ptoResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/keys/{id}/cr" +
-      "ypto\022p\n\007Decrypt\022 .models.KeyServiceDecry" +
-      "ptRequest\032!.models.KeyServiceDecryptResp" +
-      "onse\" \202\323\344\223\002\032:\001*\"\025/v1/keys/{id}/decrypt\022i" +
-      "\n\006Rotate\022\037.models.KeyServiceRotateReques" +
-      "t\032 .models.KeyServiceRotateResponse\"\034\202\323\344" +
-      "\223\002\026\"\024/v1/keys/{id}/rotate\022b\n\006Delete\022\037.mo" +
-      "dels.KeyServiceDeleteRequest\032 .models.Ke" +
-      "yServiceDeleteResponse\"\025\202\323\344\223\002\017*\r/v1/keys" +
-      "/{id}\022]\n\003JWK\022\034.models.KeyServiceJWKReque" +
-      "st\032\035.models.KeyServiceJWKResponse\"\031\202\323\344\223\002" +
-      "\023\022\021/v1/keys/{id}/jwkB9H\002Z5github.com/lum" +
-      "inos-company/secretary/generated/modelsb" +
-      "\006proto3"
+      "proto\032\034google/api/annotations.proto\032\023tag" +
+      "ger/tagger.proto\"\261\007\n\003Key\022<\n\002id\030\001 \001(\0132\t.t" +
+      "ypes.IDB!\232\204\236\003\034json:\"id\" gorm:\"primary_ke" +
+      "y\"R\002id\0228\n\013private_key\030\002 \001(\tB\027\232\204\236\003\022json:\"" +
+      "private_key\"R\nprivateKey\0225\n\npublic_key\030\003" +
+      " \001(\tB\026\232\204\236\003\021json:\"public_key\"R\tpublicKey\022" +
+      "d\n\rshould_rotate\030\004 \001(\010B?\232\204\236\003:json:\"shoul" +
+      "d_rotate\" gorm:\"default:false; index; no" +
+      "t null\"R\014shouldRotate\022U\n\017rotated_from_id" +
+      "\030\005 \001(\tB(\232\204\236\003#json:\"rotated_from_id\" gorm" +
+      ":\"index\"H\000R\rrotatedFromId\210\001\001\022Z\n\013rotate_c" +
+      "ron\030\006 \001(\tB4\232\204\236\003/json:\"rotate_cron\" gorm:" +
+      "\"default:\'0 0 0 1 * *\'\"H\001R\nrotateCron\210\001\001" +
+      "\022f\n\nexpires_at\030\t \001(\0132\020.types.TimestampB5" +
+      "\232\204\236\0030json:\"expires_at\" gorm:\"index; type" +
+      ":timestamptz\"R\texpiresAt\022v\n\nupdated_at\030\n" +
+      " \001(\0132\020.types.TimestampBE\232\204\236\003@json:\"updat" +
+      "ed_at\" gorm:\"index; type:timestamptz; au" +
+      "toCreateTime\"R\tupdatedAt\022v\n\ncreated_at\030\013" +
+      " \001(\0132\020.types.TimestampBE\232\204\236\003@json:\"creat" +
+      "ed_at\" gorm:\"index; type:timestamptz; au" +
+      "toUpdateTime\"R\tcreatedAt\022f\n\ndeleted_at\030\014" +
+      " \001(\0132\020.types.DeletedAtB5\232\204\236\0030json:\"delet" +
+      "ed_at\" gorm:\"index; type:timestamptz\"R\td" +
+      "eletedAtB\022\n\020_rotated_from_idB\016\n\014_rotate_" +
+      "cron\"t\n\027KeyServiceCreateRequest\022#\n\rshoul" +
+      "d_rotate\030\001 \001(\010R\014shouldRotate\022$\n\013rotate_c" +
+      "ron\030\002 \001(\tH\000R\nrotateCron\210\001\001B\016\n\014_rotate_cr" +
+      "on\"9\n\030KeyServiceCreateResponse\022\035\n\003key\030\001 " +
+      "\001(\0132\013.models.KeyR\003key\"&\n\024KeyServiceGetRe" +
+      "quest\022\016\n\002id\030\001 \001(\tR\002id\"6\n\025KeyServiceGetRe" +
+      "sponse\022\035\n\003key\030\001 \001(\0132\013.models.KeyR\003key\"J\n" +
+      "\025KeyServiceListRequest\0221\n\npagination\030\001 \001" +
+      "(\0132\021.types.PaginationR\npagination\"l\n\026Key" +
+      "ServiceListResponse\022\037\n\004keys\030\001 \003(\0132\013.mode" +
+      "ls.KeyR\004keys\0221\n\npagination\030\002 \001(\0132\021.types" +
+      ".PaginationR\npagination\"A\n\025KeyServiceSig" +
+      "nRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(" +
+      "\tR\007message\"6\n\026KeyServiceSignResponse\022\034\n\t" +
+      "signature\030\001 \001(\tR\tsignature\"a\n\027KeyService" +
+      "VerifyRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007message" +
+      "\030\002 \001(\tR\007message\022\034\n\tsignature\030\003 \001(\tR\tsign" +
+      "ature\"0\n\030KeyServiceVerifyResponse\022\024\n\005val" +
+      "id\030\001 \001(\010R\005valid\"C\n\027KeyServiceCryptoReque" +
+      "st\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(\tR\007mes" +
+      "sage\":\n\030KeyServiceCryptoResponse\022\036\n\nciph" +
+      "ertext\030\001 \001(\tR\nciphertext\"J\n\030KeyServiceDe" +
+      "cryptRequest\022\016\n\002id\030\001 \001(\tR\002id\022\036\n\ncipherte" +
+      "xt\030\002 \001(\tR\nciphertext\"5\n\031KeyServiceDecryp" +
+      "tResponse\022\030\n\007message\030\001 \001(\tR\007message\")\n\027K" +
+      "eyServiceRotateRequest\022\016\n\002id\030\001 \001(\tR\002id\"9" +
+      "\n\030KeyServiceRotateResponse\022\035\n\003key\030\001 \001(\0132" +
+      "\013.models.KeyR\003key\")\n\027KeyServiceDeleteReq" +
+      "uest\022\016\n\002id\030\001 \001(\tR\002id\"9\n\030KeyServiceDelete" +
+      "Response\022\035\n\003key\030\001 \001(\0132\013.models.KeyR\003key\"" +
+      "&\n\024KeyServiceJWKRequest\022\016\n\002id\030\001 \001(\tR\002id\"" +
+      ")\n\025KeyServiceJWKResponse\022\020\n\003jwk\030\001 \001(\tR\003j" +
+      "wk2\204\010\n\nKeyService\022`\n\006Create\022\037.models.Key" +
+      "ServiceCreateRequest\032 .models.KeyService" +
+      "CreateResponse\"\023\202\323\344\223\002\r:\001*\"\010/v1/keys\022Y\n\003G" +
+      "et\022\034.models.KeyServiceGetRequest\032\035.model" +
+      "s.KeyServiceGetResponse\"\025\202\323\344\223\002\017\022\r/v1/key" +
+      "s/{id}\022W\n\004List\022\035.models.KeyServiceListRe" +
+      "quest\032\036.models.KeyServiceListResponse\"\020\202" +
+      "\323\344\223\002\n\022\010/v1/keys\022d\n\004Sign\022\035.models.KeyServ" +
+      "iceSignRequest\032\036.models.KeyServiceSignRe" +
+      "sponse\"\035\202\323\344\223\002\027:\001*\"\022/v1/keys/{id}/sign\022l\n" +
+      "\006Verify\022\037.models.KeyServiceVerifyRequest" +
+      "\032 .models.KeyServiceVerifyResponse\"\037\202\323\344\223" +
+      "\002\031:\001*\"\024/v1/keys/{id}/verify\022l\n\006Crypto\022\037." +
+      "models.KeyServiceCryptoRequest\032 .models." +
+      "KeyServiceCryptoResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1" +
+      "/keys/{id}/crypto\022p\n\007Decrypt\022 .models.Ke" +
+      "yServiceDecryptRequest\032!.models.KeyServi" +
+      "ceDecryptResponse\" \202\323\344\223\002\032:\001*\"\025/v1/keys/{" +
+      "id}/decrypt\022i\n\006Rotate\022\037.models.KeyServic" +
+      "eRotateRequest\032 .models.KeyServiceRotate" +
+      "Response\"\034\202\323\344\223\002\026\"\024/v1/keys/{id}/rotate\022b" +
+      "\n\006Delete\022\037.models.KeyServiceDeleteReques" +
+      "t\032 .models.KeyServiceDeleteResponse\"\025\202\323\344" +
+      "\223\002\017*\r/v1/keys/{id}\022]\n\003JWK\022\034.models.KeySe" +
+      "rviceJWKRequest\032\035.models.KeyServiceJWKRe" +
+      "sponse\"\031\202\323\344\223\002\023\022\021/v1/keys/{id}/jwkB9H\002Z5g" +
+      "ithub.com/luminos-company/secretary/gene" +
+      "rated/modelsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           types.Types.getDescriptor(),
           com.google.api.AnnotationsProto.getDescriptor(),
-          com.google.protobuf.TimestampProto.getDescriptor(),
           tagger.Tagger.getDescriptor(),
         });
     internal_static_models_Key_descriptor =
@@ -11729,13 +11767,13 @@ public final class KeyOuterClass {
     internal_static_models_Key_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_models_Key_descriptor,
-        new java.lang.String[] { "Id", "PrivateKey", "PublicKey", "ShouldRotate", "RotatedFromId", "RotateCron", "ExpiresAt", "UpdatedAt", "CreatedAt", "DeletedAt", "RotatedFromId", });
+        new java.lang.String[] { "Id", "PrivateKey", "PublicKey", "ShouldRotate", "RotatedFromId", "RotateCron", "ExpiresAt", "UpdatedAt", "CreatedAt", "DeletedAt", "RotatedFromId", "RotateCron", });
     internal_static_models_KeyServiceCreateRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_models_KeyServiceCreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_models_KeyServiceCreateRequest_descriptor,
-        new java.lang.String[] { "ShouldRotate", "RotateCron", "ShouldRotate", "RotateCron", });
+        new java.lang.String[] { "ShouldRotate", "RotateCron", "RotateCron", });
     internal_static_models_KeyServiceCreateResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_models_KeyServiceCreateResponse_fieldAccessorTable = new
@@ -11858,7 +11896,6 @@ public final class KeyOuterClass {
         .internalUpdateFileDescriptor(descriptor, registry);
     types.Types.getDescriptor();
     com.google.api.AnnotationsProto.getDescriptor();
-    com.google.protobuf.TimestampProto.getDescriptor();
     tagger.Tagger.getDescriptor();
   }
 

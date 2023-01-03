@@ -5,25 +5,24 @@ require 'google/protobuf'
 
 require 'types/types_pb'
 require 'google/api/annotations_pb'
-require 'google/protobuf/timestamp_pb'
 require 'tagger/tagger_pb'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("models/key.proto", :syntax => :proto3) do
     add_message "models.Key" do
-      optional :id, :string, 1, json_name: "id"
+      optional :id, :message, 1, "types.ID", json_name: "id"
       optional :private_key, :string, 2, json_name: "privateKey"
       optional :public_key, :string, 3, json_name: "publicKey"
       optional :should_rotate, :bool, 4, json_name: "shouldRotate"
       proto3_optional :rotated_from_id, :string, 5, json_name: "rotatedFromId"
-      optional :rotate_cron, :string, 6, json_name: "rotateCron"
-      optional :expires_at, :message, 9, "google.protobuf.Timestamp", json_name: "expiresAt"
-      optional :updated_at, :message, 10, "google.protobuf.Timestamp", json_name: "updatedAt"
-      optional :created_at, :message, 11, "google.protobuf.Timestamp", json_name: "createdAt"
-      optional :deleted_at, :message, 12, "google.protobuf.Timestamp", json_name: "deletedAt"
+      proto3_optional :rotate_cron, :string, 6, json_name: "rotateCron"
+      optional :expires_at, :message, 9, "types.Timestamp", json_name: "expiresAt"
+      optional :updated_at, :message, 10, "types.Timestamp", json_name: "updatedAt"
+      optional :created_at, :message, 11, "types.Timestamp", json_name: "createdAt"
+      optional :deleted_at, :message, 12, "types.DeletedAt", json_name: "deletedAt"
     end
     add_message "models.KeyServiceCreateRequest" do
-      proto3_optional :should_rotate, :bool, 1, json_name: "shouldRotate"
+      optional :should_rotate, :bool, 1, json_name: "shouldRotate"
       proto3_optional :rotate_cron, :string, 2, json_name: "rotateCron"
     end
     add_message "models.KeyServiceCreateResponse" do

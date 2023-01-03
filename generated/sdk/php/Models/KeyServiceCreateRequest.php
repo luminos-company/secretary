@@ -14,9 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
 class KeyServiceCreateRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
+     * Generated from protobuf field <code>bool should_rotate = 1 [json_name = "shouldRotate"];</code>
      */
-    protected $should_rotate = null;
+    protected $should_rotate = false;
     /**
      * Generated from protobuf field <code>optional string rotate_cron = 2 [json_name = "rotateCron"];</code>
      */
@@ -38,26 +38,16 @@ class KeyServiceCreateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
+     * Generated from protobuf field <code>bool should_rotate = 1 [json_name = "shouldRotate"];</code>
      * @return bool
      */
     public function getShouldRotate()
     {
-        return isset($this->should_rotate) ? $this->should_rotate : false;
-    }
-
-    public function hasShouldRotate()
-    {
-        return isset($this->should_rotate);
-    }
-
-    public function clearShouldRotate()
-    {
-        unset($this->should_rotate);
+        return $this->should_rotate;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool should_rotate = 1 [json_name = "shouldRotate"];</code>
+     * Generated from protobuf field <code>bool should_rotate = 1 [json_name = "shouldRotate"];</code>
      * @param bool $var
      * @return $this
      */

@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/improbable-eng/grpc-web/go/grpcweb"
 	"github.com/luminos-company/secretary/database"
-	"github.com/luminos-company/secretary/generated"
 	"github.com/luminos-company/secretary/generated/models"
 	"github.com/luminos-company/secretary/generated/query"
 	"github.com/luminos-company/secretary/main/services"
@@ -13,8 +12,6 @@ import (
 	"net"
 	"net/http"
 )
-
-var converter = generated.KeyConverterImpl{}
 
 func HandleError(err error) {
 	if err != nil {
@@ -71,5 +68,5 @@ func basicTest() {
 		PublicKey:    t.ExportPublicBase64(),
 		ShouldRotate: false,
 	}
-	HandleError(query.Key.Save(converter.ToGorm(r)))
+	HandleError(query.Key.Save(r))
 }

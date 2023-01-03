@@ -8,46 +8,46 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
-import '../google/protobuf/timestamp.pbjson.dart' as $0;
-import '../types/types.pbjson.dart' as $1;
+import '../types/types.pbjson.dart' as $0;
+import '../google/protobuf/timestamp.pbjson.dart' as $1;
 
 @$core.Deprecated('Use keyDescriptor instead')
 const Key$json = const {
   '1': 'Key',
   '2': const [
-    const {'1': 'id', '3': 1, '4': 1, '5': 9, '8': const {}, '10': 'id'},
+    const {'1': 'id', '3': 1, '4': 1, '5': 11, '6': '.types.ID', '8': const {}, '10': 'id'},
     const {'1': 'private_key', '3': 2, '4': 1, '5': 9, '8': const {}, '10': 'privateKey'},
     const {'1': 'public_key', '3': 3, '4': 1, '5': 9, '8': const {}, '10': 'publicKey'},
     const {'1': 'should_rotate', '3': 4, '4': 1, '5': 8, '8': const {}, '10': 'shouldRotate'},
     const {'1': 'rotated_from_id', '3': 5, '4': 1, '5': 9, '8': const {}, '9': 0, '10': 'rotatedFromId', '17': true},
-    const {'1': 'rotate_cron', '3': 6, '4': 1, '5': 9, '8': const {}, '10': 'rotateCron'},
-    const {'1': 'expires_at', '3': 9, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '8': const {}, '10': 'expiresAt'},
-    const {'1': 'updated_at', '3': 10, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '8': const {}, '10': 'updatedAt'},
-    const {'1': 'created_at', '3': 11, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '8': const {}, '10': 'createdAt'},
-    const {'1': 'deleted_at', '3': 12, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '8': const {}, '10': 'deletedAt'},
+    const {'1': 'rotate_cron', '3': 6, '4': 1, '5': 9, '8': const {}, '9': 1, '10': 'rotateCron', '17': true},
+    const {'1': 'expires_at', '3': 9, '4': 1, '5': 11, '6': '.types.Timestamp', '8': const {}, '10': 'expiresAt'},
+    const {'1': 'updated_at', '3': 10, '4': 1, '5': 11, '6': '.types.Timestamp', '8': const {}, '10': 'updatedAt'},
+    const {'1': 'created_at', '3': 11, '4': 1, '5': 11, '6': '.types.Timestamp', '8': const {}, '10': 'createdAt'},
+    const {'1': 'deleted_at', '3': 12, '4': 1, '5': 11, '6': '.types.DeletedAt', '8': const {}, '10': 'deletedAt'},
   ],
   '8': const [
     const {'1': '_rotated_from_id'},
+    const {'1': '_rotate_cron'},
   ],
 };
 
 /// Descriptor for `Key`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyDescriptor = $convert.base64Decode('CgNLZXkSMQoCaWQYASABKAlCIZqEngMcanNvbjoiaWQiIGdvcm06InByaW1hcnlfa2V5IlICaWQSOAoLcHJpdmF0ZV9rZXkYAiABKAlCF5qEngMSanNvbjoicHJpdmF0ZV9rZXkiUgpwcml2YXRlS2V5EjUKCnB1YmxpY19rZXkYAyABKAlCFpqEngMRanNvbjoicHVibGljX2tleSJSCXB1YmxpY0tleRJkCg1zaG91bGRfcm90YXRlGAQgASgIQj+ahJ4DOmpzb246InNob3VsZF9yb3RhdGUiIGdvcm06ImRlZmF1bHQ6ZmFsc2U7IGluZGV4OyBub3QgbnVsbCJSDHNob3VsZFJvdGF0ZRJVCg9yb3RhdGVkX2Zyb21faWQYBSABKAlCKJqEngMjanNvbjoicm90YXRlZF9mcm9tX2lkIiBnb3JtOiJpbmRleCJIAFINcm90YXRlZEZyb21JZIgBARJVCgtyb3RhdGVfY3JvbhgGIAEoCUI0moSeAy9qc29uOiJyb3RhdGVfY3JvbiIgZ29ybToiZGVmYXVsdDonMCAwIDAgMSAqIConIlIKcm90YXRlQ3JvbhJwCgpleHBpcmVzX2F0GAkgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEI1moSeAzBqc29uOiJleHBpcmVzX2F0IiBnb3JtOiJpbmRleDsgdHlwZTp0aW1lc3RhbXB0eiJSCWV4cGlyZXNBdBKAAQoKdXBkYXRlZF9hdBgKIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBCRZqEngNAanNvbjoidXBkYXRlZF9hdCIgZ29ybToiaW5kZXg7IHR5cGU6dGltZXN0YW1wdHo7IGF1dG9DcmVhdGVUaW1lIlIJdXBkYXRlZEF0EoABCgpjcmVhdGVkX2F0GAsgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEJFmoSeA0Bqc29uOiJjcmVhdGVkX2F0IiBnb3JtOiJpbmRleDsgdHlwZTp0aW1lc3RhbXB0ejsgYXV0b1VwZGF0ZVRpbWUiUgljcmVhdGVkQXQScAoKZGVsZXRlZF9hdBgMIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBCNZqEngMwanNvbjoiZGVsZXRlZF9hdCIgZ29ybToiaW5kZXg7IHR5cGU6dGltZXN0YW1wdHoiUglkZWxldGVkQXRCEgoQX3JvdGF0ZWRfZnJvbV9pZA==');
+final $typed_data.Uint8List keyDescriptor = $convert.base64Decode('CgNLZXkSPAoCaWQYASABKAsyCS50eXBlcy5JREIhmoSeAxxqc29uOiJpZCIgZ29ybToicHJpbWFyeV9rZXkiUgJpZBI4Cgtwcml2YXRlX2tleRgCIAEoCUIXmoSeAxJqc29uOiJwcml2YXRlX2tleSJSCnByaXZhdGVLZXkSNQoKcHVibGljX2tleRgDIAEoCUIWmoSeAxFqc29uOiJwdWJsaWNfa2V5IlIJcHVibGljS2V5EmQKDXNob3VsZF9yb3RhdGUYBCABKAhCP5qEngM6anNvbjoic2hvdWxkX3JvdGF0ZSIgZ29ybToiZGVmYXVsdDpmYWxzZTsgaW5kZXg7IG5vdCBudWxsIlIMc2hvdWxkUm90YXRlElUKD3JvdGF0ZWRfZnJvbV9pZBgFIAEoCUIomoSeAyNqc29uOiJyb3RhdGVkX2Zyb21faWQiIGdvcm06ImluZGV4IkgAUg1yb3RhdGVkRnJvbUlkiAEBEloKC3JvdGF0ZV9jcm9uGAYgASgJQjSahJ4DL2pzb246InJvdGF0ZV9jcm9uIiBnb3JtOiJkZWZhdWx0OicwIDAgMCAxICogKiciSAFSCnJvdGF0ZUNyb26IAQESZgoKZXhwaXJlc19hdBgJIAEoCzIQLnR5cGVzLlRpbWVzdGFtcEI1moSeAzBqc29uOiJleHBpcmVzX2F0IiBnb3JtOiJpbmRleDsgdHlwZTp0aW1lc3RhbXB0eiJSCWV4cGlyZXNBdBJ2Cgp1cGRhdGVkX2F0GAogASgLMhAudHlwZXMuVGltZXN0YW1wQkWahJ4DQGpzb246InVwZGF0ZWRfYXQiIGdvcm06ImluZGV4OyB0eXBlOnRpbWVzdGFtcHR6OyBhdXRvQ3JlYXRlVGltZSJSCXVwZGF0ZWRBdBJ2CgpjcmVhdGVkX2F0GAsgASgLMhAudHlwZXMuVGltZXN0YW1wQkWahJ4DQGpzb246ImNyZWF0ZWRfYXQiIGdvcm06ImluZGV4OyB0eXBlOnRpbWVzdGFtcHR6OyBhdXRvVXBkYXRlVGltZSJSCWNyZWF0ZWRBdBJmCgpkZWxldGVkX2F0GAwgASgLMhAudHlwZXMuRGVsZXRlZEF0QjWahJ4DMGpzb246ImRlbGV0ZWRfYXQiIGdvcm06ImluZGV4OyB0eXBlOnRpbWVzdGFtcHR6IlIJZGVsZXRlZEF0QhIKEF9yb3RhdGVkX2Zyb21faWRCDgoMX3JvdGF0ZV9jcm9u');
 @$core.Deprecated('Use keyServiceCreateRequestDescriptor instead')
 const KeyServiceCreateRequest$json = const {
   '1': 'KeyServiceCreateRequest',
   '2': const [
-    const {'1': 'should_rotate', '3': 1, '4': 1, '5': 8, '9': 0, '10': 'shouldRotate', '17': true},
-    const {'1': 'rotate_cron', '3': 2, '4': 1, '5': 9, '9': 1, '10': 'rotateCron', '17': true},
+    const {'1': 'should_rotate', '3': 1, '4': 1, '5': 8, '10': 'shouldRotate'},
+    const {'1': 'rotate_cron', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'rotateCron', '17': true},
   ],
   '8': const [
-    const {'1': '_should_rotate'},
     const {'1': '_rotate_cron'},
   ],
 };
 
 /// Descriptor for `KeyServiceCreateRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyServiceCreateRequestDescriptor = $convert.base64Decode('ChdLZXlTZXJ2aWNlQ3JlYXRlUmVxdWVzdBIoCg1zaG91bGRfcm90YXRlGAEgASgISABSDHNob3VsZFJvdGF0ZYgBARIkCgtyb3RhdGVfY3JvbhgCIAEoCUgBUgpyb3RhdGVDcm9uiAEBQhAKDl9zaG91bGRfcm90YXRlQg4KDF9yb3RhdGVfY3Jvbg==');
+final $typed_data.Uint8List keyServiceCreateRequestDescriptor = $convert.base64Decode('ChdLZXlTZXJ2aWNlQ3JlYXRlUmVxdWVzdBIjCg1zaG91bGRfcm90YXRlGAEgASgIUgxzaG91bGRSb3RhdGUSJAoLcm90YXRlX2Nyb24YAiABKAlIAFIKcm90YXRlQ3JvbogBAUIOCgxfcm90YXRlX2Nyb24=');
 @$core.Deprecated('Use keyServiceCreateResponseDescriptor instead')
 const KeyServiceCreateResponse$json = const {
   '1': 'KeyServiceCreateResponse',
@@ -265,11 +265,14 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> KeyService
   '.models.KeyServiceCreateRequest': KeyServiceCreateRequest$json,
   '.models.KeyServiceCreateResponse': KeyServiceCreateResponse$json,
   '.models.Key': Key$json,
-  '.google.protobuf.Timestamp': $0.Timestamp$json,
+  '.types.ID': $0.ID$json,
+  '.types.Timestamp': $0.Timestamp$json,
+  '.google.protobuf.Timestamp': $1.Timestamp$json,
+  '.types.DeletedAt': $0.DeletedAt$json,
   '.models.KeyServiceGetRequest': KeyServiceGetRequest$json,
   '.models.KeyServiceGetResponse': KeyServiceGetResponse$json,
   '.models.KeyServiceListRequest': KeyServiceListRequest$json,
-  '.types.Pagination': $1.Pagination$json,
+  '.types.Pagination': $0.Pagination$json,
   '.models.KeyServiceListResponse': KeyServiceListResponse$json,
   '.models.KeyServiceSignRequest': KeyServiceSignRequest$json,
   '.models.KeyServiceSignResponse': KeyServiceSignResponse$json,

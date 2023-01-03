@@ -14,9 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
 class Key extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string id = 1 [json_name = "id", (.tagger.tags) = "json:\"id\" gorm:\"primary_key\""];</code>
+     * Generated from protobuf field <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:\"id\" gorm:\"primary_key\""];</code>
      */
-    protected $id = '';
+    protected $id = null;
     /**
      * Generated from protobuf field <code>string private_key = 2 [json_name = "privateKey", (.tagger.tags) = "json:\"private_key\""];</code>
      */
@@ -34,23 +34,23 @@ class Key extends \Google\Protobuf\Internal\Message
      */
     protected $rotated_from_id = null;
     /**
-     * Generated from protobuf field <code>string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:\"rotate_cron\" gorm:\"default:\'0 0 0 1 * *\'\""];</code>
+     * Generated from protobuf field <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:\"rotate_cron\" gorm:\"default:\'0 0 0 1 * *\'\""];</code>
      */
-    protected $rotate_cron = '';
+    protected $rotate_cron = null;
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:\"expires_at\" gorm:\"index; type:timestamptz\""];</code>
+     * Generated from protobuf field <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:\"expires_at\" gorm:\"index; type:timestamptz\""];</code>
      */
     protected $expires_at = null;
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:\"updated_at\" gorm:\"index; type:timestamptz; autoCreateTime\""];</code>
+     * Generated from protobuf field <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:\"updated_at\" gorm:\"index; type:timestamptz; autoCreateTime\""];</code>
      */
     protected $updated_at = null;
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:\"created_at\" gorm:\"index; type:timestamptz; autoUpdateTime\""];</code>
+     * Generated from protobuf field <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:\"created_at\" gorm:\"index; type:timestamptz; autoUpdateTime\""];</code>
      */
     protected $created_at = null;
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:\"deleted_at\" gorm:\"index; type:timestamptz\""];</code>
+     * Generated from protobuf field <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:\"deleted_at\" gorm:\"index; type:timestamptz\""];</code>
      */
     protected $deleted_at = null;
 
@@ -60,16 +60,16 @@ class Key extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $id
+     *     @type \Types\ID $id
      *     @type string $private_key
      *     @type string $public_key
      *     @type bool $should_rotate
      *     @type string $rotated_from_id
      *     @type string $rotate_cron
-     *     @type \Google\Protobuf\Timestamp $expires_at
-     *     @type \Google\Protobuf\Timestamp $updated_at
-     *     @type \Google\Protobuf\Timestamp $created_at
-     *     @type \Google\Protobuf\Timestamp $deleted_at
+     *     @type \Types\Timestamp $expires_at
+     *     @type \Types\Timestamp $updated_at
+     *     @type \Types\Timestamp $created_at
+     *     @type \Types\DeletedAt $deleted_at
      * }
      */
     public function __construct($data = NULL) {
@@ -78,22 +78,32 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string id = 1 [json_name = "id", (.tagger.tags) = "json:\"id\" gorm:\"primary_key\""];</code>
-     * @return string
+     * Generated from protobuf field <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:\"id\" gorm:\"primary_key\""];</code>
+     * @return \Types\ID|null
      */
     public function getId()
     {
         return $this->id;
     }
 
+    public function hasId()
+    {
+        return isset($this->id);
+    }
+
+    public function clearId()
+    {
+        unset($this->id);
+    }
+
     /**
-     * Generated from protobuf field <code>string id = 1 [json_name = "id", (.tagger.tags) = "json:\"id\" gorm:\"primary_key\""];</code>
-     * @param string $var
+     * Generated from protobuf field <code>.types.ID id = 1 [json_name = "id", (.tagger.tags) = "json:\"id\" gorm:\"primary_key\""];</code>
+     * @param \Types\ID $var
      * @return $this
      */
     public function setId($var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkMessage($var, \Types\ID::class);
         $this->id = $var;
 
         return $this;
@@ -198,16 +208,26 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:\"rotate_cron\" gorm:\"default:\'0 0 0 1 * *\'\""];</code>
+     * Generated from protobuf field <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:\"rotate_cron\" gorm:\"default:\'0 0 0 1 * *\'\""];</code>
      * @return string
      */
     public function getRotateCron()
     {
-        return $this->rotate_cron;
+        return isset($this->rotate_cron) ? $this->rotate_cron : '';
+    }
+
+    public function hasRotateCron()
+    {
+        return isset($this->rotate_cron);
+    }
+
+    public function clearRotateCron()
+    {
+        unset($this->rotate_cron);
     }
 
     /**
-     * Generated from protobuf field <code>string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:\"rotate_cron\" gorm:\"default:\'0 0 0 1 * *\'\""];</code>
+     * Generated from protobuf field <code>optional string rotate_cron = 6 [json_name = "rotateCron", (.tagger.tags) = "json:\"rotate_cron\" gorm:\"default:\'0 0 0 1 * *\'\""];</code>
      * @param string $var
      * @return $this
      */
@@ -220,8 +240,8 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:\"expires_at\" gorm:\"index; type:timestamptz\""];</code>
-     * @return \Google\Protobuf\Timestamp|null
+     * Generated from protobuf field <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:\"expires_at\" gorm:\"index; type:timestamptz\""];</code>
+     * @return \Types\Timestamp|null
      */
     public function getExpiresAt()
     {
@@ -239,21 +259,21 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:\"expires_at\" gorm:\"index; type:timestamptz\""];</code>
-     * @param \Google\Protobuf\Timestamp $var
+     * Generated from protobuf field <code>.types.Timestamp expires_at = 9 [json_name = "expiresAt", (.tagger.tags) = "json:\"expires_at\" gorm:\"index; type:timestamptz\""];</code>
+     * @param \Types\Timestamp $var
      * @return $this
      */
     public function setExpiresAt($var)
     {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        GPBUtil::checkMessage($var, \Types\Timestamp::class);
         $this->expires_at = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:\"updated_at\" gorm:\"index; type:timestamptz; autoCreateTime\""];</code>
-     * @return \Google\Protobuf\Timestamp|null
+     * Generated from protobuf field <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:\"updated_at\" gorm:\"index; type:timestamptz; autoCreateTime\""];</code>
+     * @return \Types\Timestamp|null
      */
     public function getUpdatedAt()
     {
@@ -271,21 +291,21 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:\"updated_at\" gorm:\"index; type:timestamptz; autoCreateTime\""];</code>
-     * @param \Google\Protobuf\Timestamp $var
+     * Generated from protobuf field <code>.types.Timestamp updated_at = 10 [json_name = "updatedAt", (.tagger.tags) = "json:\"updated_at\" gorm:\"index; type:timestamptz; autoCreateTime\""];</code>
+     * @param \Types\Timestamp $var
      * @return $this
      */
     public function setUpdatedAt($var)
     {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        GPBUtil::checkMessage($var, \Types\Timestamp::class);
         $this->updated_at = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:\"created_at\" gorm:\"index; type:timestamptz; autoUpdateTime\""];</code>
-     * @return \Google\Protobuf\Timestamp|null
+     * Generated from protobuf field <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:\"created_at\" gorm:\"index; type:timestamptz; autoUpdateTime\""];</code>
+     * @return \Types\Timestamp|null
      */
     public function getCreatedAt()
     {
@@ -303,21 +323,21 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:\"created_at\" gorm:\"index; type:timestamptz; autoUpdateTime\""];</code>
-     * @param \Google\Protobuf\Timestamp $var
+     * Generated from protobuf field <code>.types.Timestamp created_at = 11 [json_name = "createdAt", (.tagger.tags) = "json:\"created_at\" gorm:\"index; type:timestamptz; autoUpdateTime\""];</code>
+     * @param \Types\Timestamp $var
      * @return $this
      */
     public function setCreatedAt($var)
     {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        GPBUtil::checkMessage($var, \Types\Timestamp::class);
         $this->created_at = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:\"deleted_at\" gorm:\"index; type:timestamptz\""];</code>
-     * @return \Google\Protobuf\Timestamp|null
+     * Generated from protobuf field <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:\"deleted_at\" gorm:\"index; type:timestamptz\""];</code>
+     * @return \Types\DeletedAt|null
      */
     public function getDeletedAt()
     {
@@ -335,13 +355,13 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:\"deleted_at\" gorm:\"index; type:timestamptz\""];</code>
-     * @param \Google\Protobuf\Timestamp $var
+     * Generated from protobuf field <code>.types.DeletedAt deleted_at = 12 [json_name = "deletedAt", (.tagger.tags) = "json:\"deleted_at\" gorm:\"index; type:timestamptz\""];</code>
+     * @param \Types\DeletedAt $var
      * @return $this
      */
     public function setDeletedAt($var)
     {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        GPBUtil::checkMessage($var, \Types\DeletedAt::class);
         $this->deleted_at = $var;
 
         return $this;

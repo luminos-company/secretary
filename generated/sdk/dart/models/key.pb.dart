@@ -10,12 +10,11 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../google/protobuf/timestamp.pb.dart' as $0;
-import '../types/types.pb.dart' as $1;
+import '../types/types.pb.dart' as $0;
 
 class Key extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Key', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOM<$0.ID>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id', subBuilder: $0.ID.create)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKey')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publicKey')
     ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldRotate')
@@ -24,13 +23,13 @@ class Key extends $pb.GeneratedMessage {
     ..aOM<$0.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $0.Timestamp.create)
     ..aOM<$0.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $0.Timestamp.create)
     ..aOM<$0.Timestamp>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deletedAt', subBuilder: $0.Timestamp.create)
+    ..aOM<$0.DeletedAt>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deletedAt', subBuilder: $0.DeletedAt.create)
     ..hasRequiredFields = false
   ;
 
   Key._() : super();
   factory Key({
-    $core.String? id,
+    $0.ID? id,
     $core.String? privateKey,
     $core.String? publicKey,
     $core.bool? shouldRotate,
@@ -39,7 +38,7 @@ class Key extends $pb.GeneratedMessage {
     $0.Timestamp? expiresAt,
     $0.Timestamp? updatedAt,
     $0.Timestamp? createdAt,
-    $0.Timestamp? deletedAt,
+    $0.DeletedAt? deletedAt,
   }) {
     final _result = create();
     if (id != null) {
@@ -96,13 +95,15 @@ class Key extends $pb.GeneratedMessage {
   static Key? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $0.ID get id => $_getN(0);
   @$pb.TagNumber(1)
-  set id($core.String v) { $_setString(0, v); }
+  set id($0.ID v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
   void clearId() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.ID ensureId() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get privateKey => $_getSZ(1);
@@ -183,15 +184,15 @@ class Key extends $pb.GeneratedMessage {
   $0.Timestamp ensureCreatedAt() => $_ensure(8);
 
   @$pb.TagNumber(12)
-  $0.Timestamp get deletedAt => $_getN(9);
+  $0.DeletedAt get deletedAt => $_getN(9);
   @$pb.TagNumber(12)
-  set deletedAt($0.Timestamp v) { setField(12, v); }
+  set deletedAt($0.DeletedAt v) { setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasDeletedAt() => $_has(9);
   @$pb.TagNumber(12)
   void clearDeletedAt() => clearField(12);
   @$pb.TagNumber(12)
-  $0.Timestamp ensureDeletedAt() => $_ensure(9);
+  $0.DeletedAt ensureDeletedAt() => $_ensure(9);
 }
 
 class KeyServiceCreateRequest extends $pb.GeneratedMessage {
@@ -402,13 +403,13 @@ class KeyServiceGetResponse extends $pb.GeneratedMessage {
 
 class KeyServiceListRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceListRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
-    ..aOM<$1.Pagination>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pagination', subBuilder: $1.Pagination.create)
+    ..aOM<$0.Pagination>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pagination', subBuilder: $0.Pagination.create)
     ..hasRequiredFields = false
   ;
 
   KeyServiceListRequest._() : super();
   factory KeyServiceListRequest({
-    $1.Pagination? pagination,
+    $0.Pagination? pagination,
   }) {
     final _result = create();
     if (pagination != null) {
@@ -438,28 +439,28 @@ class KeyServiceListRequest extends $pb.GeneratedMessage {
   static KeyServiceListRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $1.Pagination get pagination => $_getN(0);
+  $0.Pagination get pagination => $_getN(0);
   @$pb.TagNumber(1)
-  set pagination($1.Pagination v) { setField(1, v); }
+  set pagination($0.Pagination v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasPagination() => $_has(0);
   @$pb.TagNumber(1)
   void clearPagination() => clearField(1);
   @$pb.TagNumber(1)
-  $1.Pagination ensurePagination() => $_ensure(0);
+  $0.Pagination ensurePagination() => $_ensure(0);
 }
 
 class KeyServiceListResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceListResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
     ..pc<Key>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'keys', $pb.PbFieldType.PM, subBuilder: Key.create)
-    ..aOM<$1.Pagination>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pagination', subBuilder: $1.Pagination.create)
+    ..aOM<$0.Pagination>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pagination', subBuilder: $0.Pagination.create)
     ..hasRequiredFields = false
   ;
 
   KeyServiceListResponse._() : super();
   factory KeyServiceListResponse({
     $core.Iterable<Key>? keys,
-    $1.Pagination? pagination,
+    $0.Pagination? pagination,
   }) {
     final _result = create();
     if (keys != null) {
@@ -495,15 +496,15 @@ class KeyServiceListResponse extends $pb.GeneratedMessage {
   $core.List<Key> get keys => $_getList(0);
 
   @$pb.TagNumber(2)
-  $1.Pagination get pagination => $_getN(1);
+  $0.Pagination get pagination => $_getN(1);
   @$pb.TagNumber(2)
-  set pagination($1.Pagination v) { setField(2, v); }
+  set pagination($0.Pagination v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasPagination() => $_has(1);
   @$pb.TagNumber(2)
   void clearPagination() => clearField(2);
   @$pb.TagNumber(2)
-  $1.Pagination ensurePagination() => $_ensure(1);
+  $0.Pagination ensurePagination() => $_ensure(1);
 }
 
 class KeyServiceSignRequest extends $pb.GeneratedMessage {

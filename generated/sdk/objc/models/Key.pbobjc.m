@@ -27,9 +27,11 @@
 // Forward declarations of Objective C classes that we can use as
 // static values in struct initializers.
 // We don't use [Foo class] because it is not a static value.
-GPBObjCClassDeclaration(GPBTimestamp);
+GPBObjCClassDeclaration(DeletedAt);
+GPBObjCClassDeclaration(ID);
 GPBObjCClassDeclaration(Key);
 GPBObjCClassDeclaration(Pagination);
+GPBObjCClassDeclaration(Timestamp);
 
 #pragma mark - KeyRoot
 
@@ -69,12 +71,12 @@ static GPBFileDescriptor *KeyRoot_FileDescriptor(void) {
 
 @implementation Key
 
-@dynamic id_p;
+@dynamic hasId_p, id_p;
 @dynamic privateKey;
 @dynamic publicKey;
 @dynamic shouldRotate;
 @dynamic hasRotatedFromId, rotatedFromId;
-@dynamic rotateCron;
+@dynamic hasRotateCron, rotateCron;
 @dynamic hasExpiresAt, expiresAt;
 @dynamic hasUpdatedAt, updatedAt;
 @dynamic hasCreatedAt, createdAt;
@@ -82,15 +84,15 @@ static GPBFileDescriptor *KeyRoot_FileDescriptor(void) {
 
 typedef struct Key__storage_ {
   uint32_t _has_storage_[1];
-  NSString *id_p;
+  ID *id_p;
   NSString *privateKey;
   NSString *publicKey;
   NSString *rotatedFromId;
   NSString *rotateCron;
-  GPBTimestamp *expiresAt;
-  GPBTimestamp *updatedAt;
-  GPBTimestamp *createdAt;
-  GPBTimestamp *deletedAt;
+  Timestamp *expiresAt;
+  Timestamp *updatedAt;
+  Timestamp *createdAt;
+  DeletedAt *deletedAt;
 } Key__storage_;
 
 // This method is threadsafe because it is initially called
@@ -101,12 +103,12 @@ typedef struct Key__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "id_p",
-        .dataTypeSpecific.clazz = Nil,
+        .dataTypeSpecific.clazz = GPBObjCClass(ID),
         .number = Key_FieldNumber_Id_p,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(Key__storage_, id_p),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
       },
       {
         .name = "privateKey",
@@ -150,12 +152,12 @@ typedef struct Key__storage_ {
         .number = Key_FieldNumber_RotateCron,
         .hasIndex = 6,
         .offset = (uint32_t)offsetof(Key__storage_, rotateCron),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
       },
       {
         .name = "expiresAt",
-        .dataTypeSpecific.clazz = GPBObjCClass(GPBTimestamp),
+        .dataTypeSpecific.clazz = GPBObjCClass(Timestamp),
         .number = Key_FieldNumber_ExpiresAt,
         .hasIndex = 7,
         .offset = (uint32_t)offsetof(Key__storage_, expiresAt),
@@ -164,7 +166,7 @@ typedef struct Key__storage_ {
       },
       {
         .name = "updatedAt",
-        .dataTypeSpecific.clazz = GPBObjCClass(GPBTimestamp),
+        .dataTypeSpecific.clazz = GPBObjCClass(Timestamp),
         .number = Key_FieldNumber_UpdatedAt,
         .hasIndex = 8,
         .offset = (uint32_t)offsetof(Key__storage_, updatedAt),
@@ -173,7 +175,7 @@ typedef struct Key__storage_ {
       },
       {
         .name = "createdAt",
-        .dataTypeSpecific.clazz = GPBObjCClass(GPBTimestamp),
+        .dataTypeSpecific.clazz = GPBObjCClass(Timestamp),
         .number = Key_FieldNumber_CreatedAt,
         .hasIndex = 9,
         .offset = (uint32_t)offsetof(Key__storage_, createdAt),
@@ -182,7 +184,7 @@ typedef struct Key__storage_ {
       },
       {
         .name = "deletedAt",
-        .dataTypeSpecific.clazz = GPBObjCClass(GPBTimestamp),
+        .dataTypeSpecific.clazz = GPBObjCClass(DeletedAt),
         .number = Key_FieldNumber_DeletedAt,
         .hasIndex = 10,
         .offset = (uint32_t)offsetof(Key__storage_, deletedAt),
@@ -212,7 +214,7 @@ typedef struct Key__storage_ {
 
 @implementation KeyServiceCreateRequest
 
-@dynamic hasShouldRotate, shouldRotate;
+@dynamic shouldRotate;
 @dynamic hasRotateCron, rotateCron;
 
 typedef struct KeyServiceCreateRequest__storage_ {
@@ -232,7 +234,7 @@ typedef struct KeyServiceCreateRequest__storage_ {
         .number = KeyServiceCreateRequest_FieldNumber_ShouldRotate,
         .hasIndex = 0,
         .offset = 1,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
       {
