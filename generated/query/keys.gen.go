@@ -16,27 +16,27 @@ import (
 
 	"gorm.io/plugin/dbresolver"
 
-	"github.com/luminos-company/secretary/generated/models"
+	"github.com/luminos-company/secretary/generated/models/dbmodel"
 )
 
 func newKey(db *gorm.DB, opts ...gen.DOOption) key {
 	_key := key{}
 
 	_key.keyDo.UseDB(db, opts...)
-	_key.keyDo.UseModel(&models.Key{})
+	_key.keyDo.UseModel(&dbmodel.Key{})
 
 	tableName := _key.keyDo.TableName()
 	_key.ALL = field.NewAsterisk(tableName)
 	_key.Id = field.NewField(tableName, "id")
-	_key.UpdatedAt = field.NewField(tableName, "updated_at")
-	_key.CreatedAt = field.NewField(tableName, "created_at")
-	_key.DeletedAt = field.NewField(tableName, "deleted_at")
 	_key.PrivateKey = field.NewString(tableName, "private_key")
 	_key.PublicKey = field.NewString(tableName, "public_key")
 	_key.ShouldRotate = field.NewBool(tableName, "should_rotate")
 	_key.RotatedFromId = field.NewString(tableName, "rotated_from_id")
 	_key.RotateCron = field.NewString(tableName, "rotate_cron")
 	_key.ExpiresAt = field.NewField(tableName, "expires_at")
+	_key.UpdatedAt = field.NewField(tableName, "updated_at")
+	_key.CreatedAt = field.NewField(tableName, "created_at")
+	_key.DeletedAt = field.NewField(tableName, "deleted_at")
 
 	_key.fillFieldMap()
 
@@ -48,15 +48,15 @@ type key struct {
 
 	ALL           field.Asterisk
 	Id            field.Field
-	UpdatedAt     field.Field
-	CreatedAt     field.Field
-	DeletedAt     field.Field
 	PrivateKey    field.String
 	PublicKey     field.String
 	ShouldRotate  field.Bool
 	RotatedFromId field.String
 	RotateCron    field.String
 	ExpiresAt     field.Field
+	UpdatedAt     field.Field
+	CreatedAt     field.Field
+	DeletedAt     field.Field
 
 	fieldMap map[string]field.Expr
 }
@@ -74,15 +74,15 @@ func (k key) As(alias string) *key {
 func (k *key) updateTableName(table string) *key {
 	k.ALL = field.NewAsterisk(table)
 	k.Id = field.NewField(table, "id")
-	k.UpdatedAt = field.NewField(table, "updated_at")
-	k.CreatedAt = field.NewField(table, "created_at")
-	k.DeletedAt = field.NewField(table, "deleted_at")
 	k.PrivateKey = field.NewString(table, "private_key")
 	k.PublicKey = field.NewString(table, "public_key")
 	k.ShouldRotate = field.NewBool(table, "should_rotate")
 	k.RotatedFromId = field.NewString(table, "rotated_from_id")
 	k.RotateCron = field.NewString(table, "rotate_cron")
 	k.ExpiresAt = field.NewField(table, "expires_at")
+	k.UpdatedAt = field.NewField(table, "updated_at")
+	k.CreatedAt = field.NewField(table, "created_at")
+	k.DeletedAt = field.NewField(table, "deleted_at")
 
 	k.fillFieldMap()
 
@@ -101,15 +101,15 @@ func (k *key) GetFieldByName(fieldName string) (field.OrderExpr, bool) {
 func (k *key) fillFieldMap() {
 	k.fieldMap = make(map[string]field.Expr, 10)
 	k.fieldMap["id"] = k.Id
-	k.fieldMap["updated_at"] = k.UpdatedAt
-	k.fieldMap["created_at"] = k.CreatedAt
-	k.fieldMap["deleted_at"] = k.DeletedAt
 	k.fieldMap["private_key"] = k.PrivateKey
 	k.fieldMap["public_key"] = k.PublicKey
 	k.fieldMap["should_rotate"] = k.ShouldRotate
 	k.fieldMap["rotated_from_id"] = k.RotatedFromId
 	k.fieldMap["rotate_cron"] = k.RotateCron
 	k.fieldMap["expires_at"] = k.ExpiresAt
+	k.fieldMap["updated_at"] = k.UpdatedAt
+	k.fieldMap["created_at"] = k.CreatedAt
+	k.fieldMap["deleted_at"] = k.DeletedAt
 }
 
 func (k key) clone(db *gorm.DB) key {
@@ -153,17 +153,17 @@ type IKeyDo interface {
 	Count() (count int64, err error)
 	Scopes(funcs ...func(gen.Dao) gen.Dao) IKeyDo
 	Unscoped() IKeyDo
-	Create(values ...*models.Key) error
-	CreateInBatches(values []*models.Key, batchSize int) error
-	Save(values ...*models.Key) error
-	First() (*models.Key, error)
-	Take() (*models.Key, error)
-	Last() (*models.Key, error)
-	Find() ([]*models.Key, error)
-	FindInBatch(batchSize int, fc func(tx gen.Dao, batch int) error) (results []*models.Key, err error)
-	FindInBatches(result *[]*models.Key, batchSize int, fc func(tx gen.Dao, batch int) error) error
+	Create(values ...*dbmodel.Key) error
+	CreateInBatches(values []*dbmodel.Key, batchSize int) error
+	Save(values ...*dbmodel.Key) error
+	First() (*dbmodel.Key, error)
+	Take() (*dbmodel.Key, error)
+	Last() (*dbmodel.Key, error)
+	Find() ([]*dbmodel.Key, error)
+	FindInBatch(batchSize int, fc func(tx gen.Dao, batch int) error) (results []*dbmodel.Key, err error)
+	FindInBatches(result *[]*dbmodel.Key, batchSize int, fc func(tx gen.Dao, batch int) error) error
 	Pluck(column field.Expr, dest interface{}) error
-	Delete(...*models.Key) (info gen.ResultInfo, err error)
+	Delete(...*dbmodel.Key) (info gen.ResultInfo, err error)
 	Update(column field.Expr, value interface{}) (info gen.ResultInfo, err error)
 	UpdateSimple(columns ...field.AssignExpr) (info gen.ResultInfo, err error)
 	Updates(value interface{}) (info gen.ResultInfo, err error)
@@ -175,9 +175,9 @@ type IKeyDo interface {
 	Assign(attrs ...field.AssignExpr) IKeyDo
 	Joins(fields ...field.RelationField) IKeyDo
 	Preload(fields ...field.RelationField) IKeyDo
-	FirstOrInit() (*models.Key, error)
-	FirstOrCreate() (*models.Key, error)
-	FindByPage(offset int, limit int) (result []*models.Key, count int64, err error)
+	FirstOrInit() (*dbmodel.Key, error)
+	FirstOrCreate() (*dbmodel.Key, error)
+	FindByPage(offset int, limit int) (result []*dbmodel.Key, count int64, err error)
 	ScanByPage(result interface{}, offset int, limit int) (count int64, err error)
 	Scan(result interface{}) (err error)
 	Returning(value interface{}, columns ...string) IKeyDo
@@ -281,57 +281,57 @@ func (k keyDo) Unscoped() IKeyDo {
 	return k.withDO(k.DO.Unscoped())
 }
 
-func (k keyDo) Create(values ...*models.Key) error {
+func (k keyDo) Create(values ...*dbmodel.Key) error {
 	if len(values) == 0 {
 		return nil
 	}
 	return k.DO.Create(values)
 }
 
-func (k keyDo) CreateInBatches(values []*models.Key, batchSize int) error {
+func (k keyDo) CreateInBatches(values []*dbmodel.Key, batchSize int) error {
 	return k.DO.CreateInBatches(values, batchSize)
 }
 
 // Save : !!! underlying implementation is different with GORM
 // The method is equivalent to executing the statement: db.Clauses(clause.OnConflict{UpdateAll: true}).Create(values)
-func (k keyDo) Save(values ...*models.Key) error {
+func (k keyDo) Save(values ...*dbmodel.Key) error {
 	if len(values) == 0 {
 		return nil
 	}
 	return k.DO.Save(values)
 }
 
-func (k keyDo) First() (*models.Key, error) {
+func (k keyDo) First() (*dbmodel.Key, error) {
 	if result, err := k.DO.First(); err != nil {
 		return nil, err
 	} else {
-		return result.(*models.Key), nil
+		return result.(*dbmodel.Key), nil
 	}
 }
 
-func (k keyDo) Take() (*models.Key, error) {
+func (k keyDo) Take() (*dbmodel.Key, error) {
 	if result, err := k.DO.Take(); err != nil {
 		return nil, err
 	} else {
-		return result.(*models.Key), nil
+		return result.(*dbmodel.Key), nil
 	}
 }
 
-func (k keyDo) Last() (*models.Key, error) {
+func (k keyDo) Last() (*dbmodel.Key, error) {
 	if result, err := k.DO.Last(); err != nil {
 		return nil, err
 	} else {
-		return result.(*models.Key), nil
+		return result.(*dbmodel.Key), nil
 	}
 }
 
-func (k keyDo) Find() ([]*models.Key, error) {
+func (k keyDo) Find() ([]*dbmodel.Key, error) {
 	result, err := k.DO.Find()
-	return result.([]*models.Key), err
+	return result.([]*dbmodel.Key), err
 }
 
-func (k keyDo) FindInBatch(batchSize int, fc func(tx gen.Dao, batch int) error) (results []*models.Key, err error) {
-	buf := make([]*models.Key, 0, batchSize)
+func (k keyDo) FindInBatch(batchSize int, fc func(tx gen.Dao, batch int) error) (results []*dbmodel.Key, err error) {
+	buf := make([]*dbmodel.Key, 0, batchSize)
 	err = k.DO.FindInBatches(&buf, batchSize, func(tx gen.Dao, batch int) error {
 		defer func() { results = append(results, buf...) }()
 		return fc(tx, batch)
@@ -339,7 +339,7 @@ func (k keyDo) FindInBatch(batchSize int, fc func(tx gen.Dao, batch int) error) 
 	return results, err
 }
 
-func (k keyDo) FindInBatches(result *[]*models.Key, batchSize int, fc func(tx gen.Dao, batch int) error) error {
+func (k keyDo) FindInBatches(result *[]*dbmodel.Key, batchSize int, fc func(tx gen.Dao, batch int) error) error {
 	return k.DO.FindInBatches(result, batchSize, fc)
 }
 
@@ -365,23 +365,23 @@ func (k keyDo) Preload(fields ...field.RelationField) IKeyDo {
 	return &k
 }
 
-func (k keyDo) FirstOrInit() (*models.Key, error) {
+func (k keyDo) FirstOrInit() (*dbmodel.Key, error) {
 	if result, err := k.DO.FirstOrInit(); err != nil {
 		return nil, err
 	} else {
-		return result.(*models.Key), nil
+		return result.(*dbmodel.Key), nil
 	}
 }
 
-func (k keyDo) FirstOrCreate() (*models.Key, error) {
+func (k keyDo) FirstOrCreate() (*dbmodel.Key, error) {
 	if result, err := k.DO.FirstOrCreate(); err != nil {
 		return nil, err
 	} else {
-		return result.(*models.Key), nil
+		return result.(*dbmodel.Key), nil
 	}
 }
 
-func (k keyDo) FindByPage(offset int, limit int) (result []*models.Key, count int64, err error) {
+func (k keyDo) FindByPage(offset int, limit int) (result []*dbmodel.Key, count int64, err error) {
 	result, err = k.Offset(offset).Limit(limit).Find()
 	if err != nil {
 		return
@@ -410,7 +410,7 @@ func (k keyDo) Scan(result interface{}) (err error) {
 	return k.DO.Scan(result)
 }
 
-func (k keyDo) Delete(models ...*models.Key) (result gen.ResultInfo, err error) {
+func (k keyDo) Delete(models ...*dbmodel.Key) (result gen.ResultInfo, err error) {
 	return k.DO.Delete(models)
 }
 

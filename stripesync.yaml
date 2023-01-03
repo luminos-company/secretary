@@ -1,0 +1,54 @@
+version: "3.7"
+
+
+docker plugin install rexray/ebs EBS_ACCESSKEY=access_key EBS_SECRETKEY=secret_key
+
+networks:
+  lvxnight_network:
+    external: true
+
+services:
+  stripe-sync:
+    pid: "api"
+    image: ghcr.io/sipioteo/stripesync:master
+    networks:
+      - lvxnight_network
+      - default
+    restart: unless-stopped
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.docker.network=traefik"
+        - "traefik.http.routers.luminos-sync.rule=Host(`sync.lvxnight.com`)"
+        - "traefik.http.routers.luminos-sync.entrypoints=web-secure"
+        - "traefik.http.routers.luminos-sync.tls.certresolver=certificato"
+        - "traefik.http.services.luminos-sync-svc.loadbalancer.server.port=3000"
+
+  pgsync:
+    image: postgres:15-alpine
+    networks:
+      - default
+    restart: unless-stopped
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - "node.hostname==runner"
+    ports:
+      - 17439:5432
+    volumes:
+      - stripe_sync:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+
+
+volumes:
+  stripe_sync:
+    external: true
+  stripe_sync_rabbit:
+    external: true
+
+

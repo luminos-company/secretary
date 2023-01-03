@@ -382,8 +382,8 @@
     "modelsKey": {
       "type": "object",
       "properties": {
-        "basic": {
-          "$ref": "#/definitions/typesBasic"
+        "id": {
+          "type": "string"
         },
         "privateKey": {
           "type": "string"
@@ -401,7 +401,20 @@
           "type": "string"
         },
         "expiresAt": {
-          "$ref": "#/definitions/typesTimestamp"
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deletedAt": {
+          "type": "string",
+          "format": "date-time"
         }
       }
     },
@@ -535,40 +548,6 @@
         }
       }
     },
-    "typesBasic": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "$ref": "#/definitions/typesID"
-        },
-        "updatedAt": {
-          "$ref": "#/definitions/typesTimestamp"
-        },
-        "createdAt": {
-          "$ref": "#/definitions/typesTimestamp"
-        },
-        "deletedAt": {
-          "$ref": "#/definitions/typesDeletedAt"
-        }
-      }
-    },
-    "typesDeletedAt": {
-      "type": "object",
-      "properties": {
-        "timestamp": {
-          "type": "string",
-          "format": "date-time"
-        }
-      }
-    },
-    "typesID": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        }
-      }
-    },
     "typesPagination": {
       "type": "object",
       "properties": {
@@ -579,15 +558,6 @@
         "offset": {
           "type": "integer",
           "format": "int32"
-        }
-      }
-    },
-    "typesTimestamp": {
-      "type": "object",
-      "properties": {
-        "timestamp": {
-          "type": "string",
-          "format": "date-time"
         }
       }
     }

@@ -11,13 +11,16 @@ option go_package = "github.com/luminos-company/secretary/generated/models";
 option optimize_for = CODE_SIZE;
 
 message Key {
-    types.Basic basic = 1 [(tagger.tags) = "gorm:\"embedded;embedded_prefix:\""];
+    string id = 1 [(tagger.tags) = "json:\"id\" gorm:\"primary_key\""];
     string private_key = 2 [(tagger.tags) = "json:\"private_key\""];
     string public_key = 3 [(tagger.tags) = "json:\"public_key\""];
     bool should_rotate = 4 [(tagger.tags) = "json:\"should_rotate\" gorm:\"default:false; index; not null\""];
     optional string rotated_from_id = 5 [(tagger.tags) = "json:\"rotated_from_id\" gorm:\"index\""];
     string rotate_cron = 6 [(tagger.tags) = "json:\"rotate_cron\" gorm:\"default:'0 0 0 1 * *'\""];
-    types.Timestamp expires_at = 9 [(tagger.tags) = "json:\"expires_at\" gorm:\"index; type:timestamptz\""];
+    google.protobuf.Timestamp expires_at = 9 [(tagger.tags) = "json:\"expires_at\" gorm:\"index; type:timestamptz\""];
+    google.protobuf.Timestamp updated_at = 10 [(tagger.tags) = "json:\"updated_at\" gorm:\"index; type:timestamptz; autoCreateTime\""];
+    google.protobuf.Timestamp created_at = 11 [(tagger.tags) = "json:\"created_at\" gorm:\"index; type:timestamptz; autoUpdateTime\""];
+    google.protobuf.Timestamp deleted_at = 12 [(tagger.tags) = "json:\"deleted_at\" gorm:\"index; type:timestamptz\""];
 }
 
 

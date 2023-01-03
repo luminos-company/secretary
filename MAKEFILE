@@ -3,3 +3,4 @@
 generate:
 	buf generate --template buf.gen.yaml
 	buf generate --template=buf.gen.tags.yaml
+	go run github.com/jmattheis/goverter/cmd/goverter ./conversion

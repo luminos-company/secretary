@@ -38,3 +38,7 @@ func (n *Timestamp) Value() (driver.Value, error) {
 func (n *Timestamp) GormDBDataType(db *gorm.DB, field *schema.Field) string {
 	return "timestamptz"
 }
+
+func (n *Timestamp) GormDataType() string {
+	return "timestamptz"
+}
