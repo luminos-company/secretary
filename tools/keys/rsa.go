@@ -92,7 +92,7 @@ func (r *Rsa) ExportJWK() string {
 }
 
 func (r *Rsa) Encrypt(data []byte) ([]byte, error) {
-	chunkSize := 245
+	chunkSize := 256
 	var chunks [][]byte
 	for i := 0; i < len(data); i += chunkSize {
 		end := i + chunkSize
@@ -139,7 +139,7 @@ func (r *Rsa) Decrypt(data []byte) ([]byte, error) {
 }
 
 func (r *Rsa) Sign(data []byte) ([]byte, error) {
-	chunkSize := 245
+	chunkSize := 256
 	var chunks [][]byte
 	for i := 0; i < len(data); i += chunkSize {
 		end := i + chunkSize
