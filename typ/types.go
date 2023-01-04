@@ -1,6 +1,16 @@
 package typ
 
-import "time"
+import (
+	"os"
+	"time"
+)
+
+func GetEnv(key, fallback string) string {
+	if value, ok := os.LookupEnv(key); ok {
+		return value
+	}
+	return fallback
+}
 
 func PTrue() *bool {
 	b := true

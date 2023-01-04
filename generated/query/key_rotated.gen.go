@@ -28,7 +28,7 @@ func newKeyRotatedModel(db *gorm.DB, opts ...gen.DOOption) keyRotatedModel {
 	tableName := _keyRotatedModel.keyRotatedModelDo.TableName()
 	_keyRotatedModel.ALL = field.NewAsterisk(tableName)
 	_keyRotatedModel.ID = field.NewString(tableName, "id")
-	_keyRotatedModel.ExternalId = field.NewString(tableName, "external_id")
+	_keyRotatedModel.KeyId = field.NewString(tableName, "key_id")
 	_keyRotatedModel.PrivateKey = field.NewString(tableName, "private_key")
 	_keyRotatedModel.PublicKey = field.NewString(tableName, "public_key")
 	_keyRotatedModel.ExpiresAt = field.NewTime(tableName, "expires_at")
@@ -46,7 +46,7 @@ type keyRotatedModel struct {
 
 	ALL        field.Asterisk
 	ID         field.String
-	ExternalId field.String
+	KeyId      field.String
 	PrivateKey field.String
 	PublicKey  field.String
 	ExpiresAt  field.Time
@@ -70,7 +70,7 @@ func (k keyRotatedModel) As(alias string) *keyRotatedModel {
 func (k *keyRotatedModel) updateTableName(table string) *keyRotatedModel {
 	k.ALL = field.NewAsterisk(table)
 	k.ID = field.NewString(table, "id")
-	k.ExternalId = field.NewString(table, "external_id")
+	k.KeyId = field.NewString(table, "key_id")
 	k.PrivateKey = field.NewString(table, "private_key")
 	k.PublicKey = field.NewString(table, "public_key")
 	k.ExpiresAt = field.NewTime(table, "expires_at")
@@ -95,7 +95,7 @@ func (k *keyRotatedModel) GetFieldByName(fieldName string) (field.OrderExpr, boo
 func (k *keyRotatedModel) fillFieldMap() {
 	k.fieldMap = make(map[string]field.Expr, 8)
 	k.fieldMap["id"] = k.ID
-	k.fieldMap["external_id"] = k.ExternalId
+	k.fieldMap["key_id"] = k.KeyId
 	k.fieldMap["private_key"] = k.PrivateKey
 	k.fieldMap["public_key"] = k.PublicKey
 	k.fieldMap["expires_at"] = k.ExpiresAt

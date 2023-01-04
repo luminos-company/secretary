@@ -2,7 +2,7 @@ package database
 
 import (
 	"github.com/luminos-company/secretary/database/dbmodel"
-	"gorm.io/driver/sqlite"
+	"gorm.io/driver/postgres"
 	"gorm.io/gen"
 	"gorm.io/gorm"
 	"os"
@@ -42,6 +42,14 @@ func Generate() {
 }
 
 func safeGet() *gorm.DB {
-	db, _ := gorm.Open(sqlite.Open(dbFile), &gorm.Config{})
-	return db
+	pgUser := os.Getenv("PG_USER")
+	pgPassword := os.Getenv("PG_PASSWORD")
+	pgHost := os.Getenv("PG_HOST")
+	pgPort := os.Getenv("PG_PORT")
+	pgDatabase := os.Getenv("PG_DATABASE")
+	pgSSLMode := os.Getenv("PG_SSL_MODE")
+	pgTimeZone := os.Getenv("PG_TIME_ZONE")
+	pgURL := "host=" + pgHost + " port=" + pgPort + " user=" + pgUser + " dbname=" + pgDatabase + " password=" + pgPassword + " sslmode=" + pgSSLMode + " TimeZone=" + pgTimeZone
+	dbt, _ := gorm.Open(postgres.Open(pgURL), &gorm.Config{})
+	return dbt
 }
