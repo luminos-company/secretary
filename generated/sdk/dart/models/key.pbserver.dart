@@ -22,7 +22,7 @@ abstract class KeyServiceBase extends $pb.GeneratedService {
   $async.Future<$1.KeyServiceListResponse> list($pb.ServerContext ctx, $1.KeyServiceListRequest request);
   $async.Future<$1.KeyServiceSignResponse> sign($pb.ServerContext ctx, $1.KeyServiceSignRequest request);
   $async.Future<$1.KeyServiceVerifyResponse> verify($pb.ServerContext ctx, $1.KeyServiceVerifyRequest request);
-  $async.Future<$1.KeyServiceCryptoResponse> crypto($pb.ServerContext ctx, $1.KeyServiceCryptoRequest request);
+  $async.Future<$1.KeyServiceCryptResponse> crypt($pb.ServerContext ctx, $1.KeyServiceCryptRequest request);
   $async.Future<$1.KeyServiceDecryptResponse> decrypt($pb.ServerContext ctx, $1.KeyServiceDecryptRequest request);
   $async.Future<$1.KeyServiceRotateResponse> rotate($pb.ServerContext ctx, $1.KeyServiceRotateRequest request);
   $async.Future<$1.KeyServiceDeleteResponse> delete($pb.ServerContext ctx, $1.KeyServiceDeleteRequest request);
@@ -36,7 +36,7 @@ abstract class KeyServiceBase extends $pb.GeneratedService {
       case 'List': return $1.KeyServiceListRequest();
       case 'Sign': return $1.KeyServiceSignRequest();
       case 'Verify': return $1.KeyServiceVerifyRequest();
-      case 'Crypto': return $1.KeyServiceCryptoRequest();
+      case 'Crypt': return $1.KeyServiceCryptRequest();
       case 'Decrypt': return $1.KeyServiceDecryptRequest();
       case 'Rotate': return $1.KeyServiceRotateRequest();
       case 'Delete': return $1.KeyServiceDeleteRequest();
@@ -53,7 +53,7 @@ abstract class KeyServiceBase extends $pb.GeneratedService {
       case 'List': return this.list(ctx, request as $1.KeyServiceListRequest);
       case 'Sign': return this.sign(ctx, request as $1.KeyServiceSignRequest);
       case 'Verify': return this.verify(ctx, request as $1.KeyServiceVerifyRequest);
-      case 'Crypto': return this.crypto(ctx, request as $1.KeyServiceCryptoRequest);
+      case 'Crypt': return this.crypt(ctx, request as $1.KeyServiceCryptRequest);
       case 'Decrypt': return this.decrypt(ctx, request as $1.KeyServiceDecryptRequest);
       case 'Rotate': return this.rotate(ctx, request as $1.KeyServiceRotateRequest);
       case 'Delete': return this.delete(ctx, request as $1.KeyServiceDeleteRequest);

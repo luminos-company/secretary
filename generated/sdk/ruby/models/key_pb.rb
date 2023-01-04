@@ -65,11 +65,11 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "models.KeyServiceVerifyResponse" do
       optional :valid, :bool, 1, json_name: "valid"
     end
-    add_message "models.KeyServiceCryptoRequest" do
+    add_message "models.KeyServiceCryptRequest" do
       optional :id, :string, 1, json_name: "id"
       optional :message, :string, 2, json_name: "message"
     end
-    add_message "models.KeyServiceCryptoResponse" do
+    add_message "models.KeyServiceCryptResponse" do
       optional :ciphertext, :string, 1, json_name: "ciphertext"
     end
     add_message "models.KeyServiceDecryptRequest" do
@@ -113,8 +113,8 @@ module Models
   KeyServiceSignResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceSignResponse").msgclass
   KeyServiceVerifyRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceVerifyRequest").msgclass
   KeyServiceVerifyResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceVerifyResponse").msgclass
-  KeyServiceCryptoRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceCryptoRequest").msgclass
-  KeyServiceCryptoResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceCryptoResponse").msgclass
+  KeyServiceCryptRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceCryptRequest").msgclass
+  KeyServiceCryptResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceCryptResponse").msgclass
   KeyServiceDecryptRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceDecryptRequest").msgclass
   KeyServiceDecryptResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceDecryptResponse").msgclass
   KeyServiceRotateRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceRotateRequest").msgclass

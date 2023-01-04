@@ -830,18 +830,18 @@ typedef struct KeyServiceVerifyResponse__storage_ {
 
 @end
 
-#pragma mark - KeyServiceCryptoRequest
+#pragma mark - KeyServiceCryptRequest
 
-@implementation KeyServiceCryptoRequest
+@implementation KeyServiceCryptRequest
 
 @dynamic id_p;
 @dynamic message;
 
-typedef struct KeyServiceCryptoRequest__storage_ {
+typedef struct KeyServiceCryptRequest__storage_ {
   uint32_t _has_storage_[1];
   NSString *id_p;
   NSString *message;
-} KeyServiceCryptoRequest__storage_;
+} KeyServiceCryptRequest__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -852,29 +852,29 @@ typedef struct KeyServiceCryptoRequest__storage_ {
       {
         .name = "id_p",
         .dataTypeSpecific.clazz = Nil,
-        .number = KeyServiceCryptoRequest_FieldNumber_Id_p,
+        .number = KeyServiceCryptRequest_FieldNumber_Id_p,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(KeyServiceCryptoRequest__storage_, id_p),
+        .offset = (uint32_t)offsetof(KeyServiceCryptRequest__storage_, id_p),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "message",
         .dataTypeSpecific.clazz = Nil,
-        .number = KeyServiceCryptoRequest_FieldNumber_Message,
+        .number = KeyServiceCryptRequest_FieldNumber_Message,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(KeyServiceCryptoRequest__storage_, message),
+        .offset = (uint32_t)offsetof(KeyServiceCryptRequest__storage_, message),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[KeyServiceCryptoRequest class]
+        [GPBDescriptor allocDescriptorForClass:[KeyServiceCryptRequest class]
                                      rootClass:[KeyRoot class]
                                           file:KeyRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(KeyServiceCryptoRequest__storage_)
+                                   storageSize:sizeof(KeyServiceCryptRequest__storage_)
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
@@ -886,16 +886,16 @@ typedef struct KeyServiceCryptoRequest__storage_ {
 
 @end
 
-#pragma mark - KeyServiceCryptoResponse
+#pragma mark - KeyServiceCryptResponse
 
-@implementation KeyServiceCryptoResponse
+@implementation KeyServiceCryptResponse
 
 @dynamic ciphertext;
 
-typedef struct KeyServiceCryptoResponse__storage_ {
+typedef struct KeyServiceCryptResponse__storage_ {
   uint32_t _has_storage_[1];
   NSString *ciphertext;
-} KeyServiceCryptoResponse__storage_;
+} KeyServiceCryptResponse__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -906,20 +906,20 @@ typedef struct KeyServiceCryptoResponse__storage_ {
       {
         .name = "ciphertext",
         .dataTypeSpecific.clazz = Nil,
-        .number = KeyServiceCryptoResponse_FieldNumber_Ciphertext,
+        .number = KeyServiceCryptResponse_FieldNumber_Ciphertext,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(KeyServiceCryptoResponse__storage_, ciphertext),
+        .offset = (uint32_t)offsetof(KeyServiceCryptResponse__storage_, ciphertext),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[KeyServiceCryptoResponse class]
+        [GPBDescriptor allocDescriptorForClass:[KeyServiceCryptResponse class]
                                      rootClass:[KeyRoot class]
                                           file:KeyRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(KeyServiceCryptoResponse__storage_)
+                                   storageSize:sizeof(KeyServiceCryptResponse__storage_)
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");

@@ -867,15 +867,15 @@ class KeyServiceVerifyResponse extends $pb.GeneratedMessage {
   void clearValid() => clearField(1);
 }
 
-class KeyServiceCryptoRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceCryptoRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
+class KeyServiceCryptRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceCryptRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'message')
     ..hasRequiredFields = false
   ;
 
-  KeyServiceCryptoRequest._() : super();
-  factory KeyServiceCryptoRequest({
+  KeyServiceCryptRequest._() : super();
+  factory KeyServiceCryptRequest({
     $core.String? id,
     $core.String? message,
   }) {
@@ -888,26 +888,26 @@ class KeyServiceCryptoRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory KeyServiceCryptoRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory KeyServiceCryptoRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory KeyServiceCryptRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KeyServiceCryptRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  KeyServiceCryptoRequest clone() => KeyServiceCryptoRequest()..mergeFromMessage(this);
+  KeyServiceCryptRequest clone() => KeyServiceCryptRequest()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  KeyServiceCryptoRequest copyWith(void Function(KeyServiceCryptoRequest) updates) => super.copyWith((message) => updates(message as KeyServiceCryptoRequest)) as KeyServiceCryptoRequest; // ignore: deprecated_member_use
+  KeyServiceCryptRequest copyWith(void Function(KeyServiceCryptRequest) updates) => super.copyWith((message) => updates(message as KeyServiceCryptRequest)) as KeyServiceCryptRequest; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static KeyServiceCryptoRequest create() => KeyServiceCryptoRequest._();
-  KeyServiceCryptoRequest createEmptyInstance() => create();
-  static $pb.PbList<KeyServiceCryptoRequest> createRepeated() => $pb.PbList<KeyServiceCryptoRequest>();
+  static KeyServiceCryptRequest create() => KeyServiceCryptRequest._();
+  KeyServiceCryptRequest createEmptyInstance() => create();
+  static $pb.PbList<KeyServiceCryptRequest> createRepeated() => $pb.PbList<KeyServiceCryptRequest>();
   @$core.pragma('dart2js:noInline')
-  static KeyServiceCryptoRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyServiceCryptoRequest>(create);
-  static KeyServiceCryptoRequest? _defaultInstance;
+  static KeyServiceCryptRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyServiceCryptRequest>(create);
+  static KeyServiceCryptRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get id => $_getSZ(0);
@@ -928,14 +928,14 @@ class KeyServiceCryptoRequest extends $pb.GeneratedMessage {
   void clearMessage() => clearField(2);
 }
 
-class KeyServiceCryptoResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceCryptoResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
+class KeyServiceCryptResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceCryptResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ciphertext')
     ..hasRequiredFields = false
   ;
 
-  KeyServiceCryptoResponse._() : super();
-  factory KeyServiceCryptoResponse({
+  KeyServiceCryptResponse._() : super();
+  factory KeyServiceCryptResponse({
     $core.String? ciphertext,
   }) {
     final _result = create();
@@ -944,26 +944,26 @@ class KeyServiceCryptoResponse extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory KeyServiceCryptoResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory KeyServiceCryptoResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory KeyServiceCryptResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KeyServiceCryptResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  KeyServiceCryptoResponse clone() => KeyServiceCryptoResponse()..mergeFromMessage(this);
+  KeyServiceCryptResponse clone() => KeyServiceCryptResponse()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  KeyServiceCryptoResponse copyWith(void Function(KeyServiceCryptoResponse) updates) => super.copyWith((message) => updates(message as KeyServiceCryptoResponse)) as KeyServiceCryptoResponse; // ignore: deprecated_member_use
+  KeyServiceCryptResponse copyWith(void Function(KeyServiceCryptResponse) updates) => super.copyWith((message) => updates(message as KeyServiceCryptResponse)) as KeyServiceCryptResponse; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static KeyServiceCryptoResponse create() => KeyServiceCryptoResponse._();
-  KeyServiceCryptoResponse createEmptyInstance() => create();
-  static $pb.PbList<KeyServiceCryptoResponse> createRepeated() => $pb.PbList<KeyServiceCryptoResponse>();
+  static KeyServiceCryptResponse create() => KeyServiceCryptResponse._();
+  KeyServiceCryptResponse createEmptyInstance() => create();
+  static $pb.PbList<KeyServiceCryptResponse> createRepeated() => $pb.PbList<KeyServiceCryptResponse>();
   @$core.pragma('dart2js:noInline')
-  static KeyServiceCryptoResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyServiceCryptoResponse>(create);
-  static KeyServiceCryptoResponse? _defaultInstance;
+  static KeyServiceCryptResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyServiceCryptResponse>(create);
+  static KeyServiceCryptResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get ciphertext => $_getSZ(0);
@@ -1377,9 +1377,9 @@ class KeyServiceApi {
     var emptyResponse = KeyServiceVerifyResponse();
     return _client.invoke<KeyServiceVerifyResponse>(ctx, 'KeyService', 'Verify', request, emptyResponse);
   }
-  $async.Future<KeyServiceCryptoResponse> crypto($pb.ClientContext? ctx, KeyServiceCryptoRequest request) {
-    var emptyResponse = KeyServiceCryptoResponse();
-    return _client.invoke<KeyServiceCryptoResponse>(ctx, 'KeyService', 'Crypto', request, emptyResponse);
+  $async.Future<KeyServiceCryptResponse> crypt($pb.ClientContext? ctx, KeyServiceCryptRequest request) {
+    var emptyResponse = KeyServiceCryptResponse();
+    return _client.invoke<KeyServiceCryptResponse>(ctx, 'KeyService', 'Crypt', request, emptyResponse);
   }
   $async.Future<KeyServiceDecryptResponse> decrypt($pb.ClientContext? ctx, KeyServiceDecryptRequest request) {
     var emptyResponse = KeyServiceDecryptResponse();

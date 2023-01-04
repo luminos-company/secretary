@@ -286,14 +286,14 @@ GPB_FINAL @interface KeyServiceVerifyResponse : GPBMessage
 
 @end
 
-#pragma mark - KeyServiceCryptoRequest
+#pragma mark - KeyServiceCryptRequest
 
-typedef GPB_ENUM(KeyServiceCryptoRequest_FieldNumber) {
-  KeyServiceCryptoRequest_FieldNumber_Id_p = 1,
-  KeyServiceCryptoRequest_FieldNumber_Message = 2,
+typedef GPB_ENUM(KeyServiceCryptRequest_FieldNumber) {
+  KeyServiceCryptRequest_FieldNumber_Id_p = 1,
+  KeyServiceCryptRequest_FieldNumber_Message = 2,
 };
 
-GPB_FINAL @interface KeyServiceCryptoRequest : GPBMessage
+GPB_FINAL @interface KeyServiceCryptRequest : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
 
@@ -301,13 +301,13 @@ GPB_FINAL @interface KeyServiceCryptoRequest : GPBMessage
 
 @end
 
-#pragma mark - KeyServiceCryptoResponse
+#pragma mark - KeyServiceCryptResponse
 
-typedef GPB_ENUM(KeyServiceCryptoResponse_FieldNumber) {
-  KeyServiceCryptoResponse_FieldNumber_Ciphertext = 1,
+typedef GPB_ENUM(KeyServiceCryptResponse_FieldNumber) {
+  KeyServiceCryptResponse_FieldNumber_Ciphertext = 1,
 };
 
-GPB_FINAL @interface KeyServiceCryptoResponse : GPBMessage
+GPB_FINAL @interface KeyServiceCryptResponse : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *ciphertext;
 

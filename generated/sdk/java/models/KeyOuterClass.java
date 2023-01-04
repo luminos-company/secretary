@@ -8153,8 +8153,8 @@ public final class KeyOuterClass {
 
   }
 
-  public interface KeyServiceCryptoRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:models.KeyServiceCryptoRequest)
+  public interface KeyServiceCryptRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:models.KeyServiceCryptRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -8182,18 +8182,18 @@ public final class KeyOuterClass {
         getMessageBytes();
   }
   /**
-   * Protobuf type {@code models.KeyServiceCryptoRequest}
+   * Protobuf type {@code models.KeyServiceCryptRequest}
    */
-  public static final class KeyServiceCryptoRequest extends
+  public static final class KeyServiceCryptRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:models.KeyServiceCryptoRequest)
-      KeyServiceCryptoRequestOrBuilder {
+      // @@protoc_insertion_point(message_implements:models.KeyServiceCryptRequest)
+      KeyServiceCryptRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use KeyServiceCryptoRequest.newBuilder() to construct.
-    private KeyServiceCryptoRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use KeyServiceCryptRequest.newBuilder() to construct.
+    private KeyServiceCryptRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private KeyServiceCryptoRequest() {
+    private KeyServiceCryptRequest() {
       id_ = "";
       message_ = "";
     }
@@ -8202,7 +8202,7 @@ public final class KeyOuterClass {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new KeyServiceCryptoRequest();
+      return new KeyServiceCryptRequest();
     }
 
     @java.lang.Override
@@ -8212,15 +8212,15 @@ public final class KeyOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return models.KeyOuterClass.internal_static_models_KeyServiceCryptoRequest_descriptor;
+      return models.KeyOuterClass.internal_static_models_KeyServiceCryptRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return models.KeyOuterClass.internal_static_models_KeyServiceCryptoRequest_fieldAccessorTable
+      return models.KeyOuterClass.internal_static_models_KeyServiceCryptRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              models.KeyOuterClass.KeyServiceCryptoRequest.class, models.KeyOuterClass.KeyServiceCryptoRequest.Builder.class);
+              models.KeyOuterClass.KeyServiceCryptRequest.class, models.KeyOuterClass.KeyServiceCryptRequest.Builder.class);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -8301,69 +8301,69 @@ public final class KeyOuterClass {
       }
     }
 
-    public static models.KeyOuterClass.KeyServiceCryptoRequest parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoRequest parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoRequest parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoRequest parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoRequest parseFrom(byte[] data)
+    public static models.KeyOuterClass.KeyServiceCryptRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoRequest parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoRequest parseFrom(java.io.InputStream input)
+    public static models.KeyOuterClass.KeyServiceCryptRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoRequest parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoRequest parseDelimitedFrom(java.io.InputStream input)
+    public static models.KeyOuterClass.KeyServiceCryptRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoRequest parseDelimitedFrom(
+    public static models.KeyOuterClass.KeyServiceCryptRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoRequest parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoRequest parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8376,7 +8376,7 @@ public final class KeyOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(models.KeyOuterClass.KeyServiceCryptoRequest prototype) {
+    public static Builder newBuilder(models.KeyOuterClass.KeyServiceCryptRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -8392,26 +8392,26 @@ public final class KeyOuterClass {
       return builder;
     }
     /**
-     * Protobuf type {@code models.KeyServiceCryptoRequest}
+     * Protobuf type {@code models.KeyServiceCryptRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:models.KeyServiceCryptoRequest)
-        models.KeyOuterClass.KeyServiceCryptoRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:models.KeyServiceCryptRequest)
+        models.KeyOuterClass.KeyServiceCryptRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return models.KeyOuterClass.internal_static_models_KeyServiceCryptoRequest_descriptor;
+        return models.KeyOuterClass.internal_static_models_KeyServiceCryptRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return models.KeyOuterClass.internal_static_models_KeyServiceCryptoRequest_fieldAccessorTable
+        return models.KeyOuterClass.internal_static_models_KeyServiceCryptRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                models.KeyOuterClass.KeyServiceCryptoRequest.class, models.KeyOuterClass.KeyServiceCryptoRequest.Builder.class);
+                models.KeyOuterClass.KeyServiceCryptRequest.class, models.KeyOuterClass.KeyServiceCryptRequest.Builder.class);
       }
 
-      // Construct using models.KeyOuterClass.KeyServiceCryptoRequest.newBuilder()
+      // Construct using models.KeyOuterClass.KeyServiceCryptRequest.newBuilder()
       private Builder() {
 
       }
@@ -8433,17 +8433,17 @@ public final class KeyOuterClass {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return models.KeyOuterClass.internal_static_models_KeyServiceCryptoRequest_descriptor;
+        return models.KeyOuterClass.internal_static_models_KeyServiceCryptRequest_descriptor;
       }
 
       @java.lang.Override
-      public models.KeyOuterClass.KeyServiceCryptoRequest getDefaultInstanceForType() {
-        return models.KeyOuterClass.KeyServiceCryptoRequest.getDefaultInstance();
+      public models.KeyOuterClass.KeyServiceCryptRequest getDefaultInstanceForType() {
+        return models.KeyOuterClass.KeyServiceCryptRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public models.KeyOuterClass.KeyServiceCryptoRequest build() {
-        models.KeyOuterClass.KeyServiceCryptoRequest result = buildPartial();
+      public models.KeyOuterClass.KeyServiceCryptRequest build() {
+        models.KeyOuterClass.KeyServiceCryptRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -8451,14 +8451,14 @@ public final class KeyOuterClass {
       }
 
       @java.lang.Override
-      public models.KeyOuterClass.KeyServiceCryptoRequest buildPartial() {
-        models.KeyOuterClass.KeyServiceCryptoRequest result = new models.KeyOuterClass.KeyServiceCryptoRequest(this);
+      public models.KeyOuterClass.KeyServiceCryptRequest buildPartial() {
+        models.KeyOuterClass.KeyServiceCryptRequest result = new models.KeyOuterClass.KeyServiceCryptRequest(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(models.KeyOuterClass.KeyServiceCryptoRequest result) {
+      private void buildPartial0(models.KeyOuterClass.KeyServiceCryptRequest result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.id_ = id_;
@@ -8658,23 +8658,23 @@ public final class KeyOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:models.KeyServiceCryptoRequest)
+      // @@protoc_insertion_point(builder_scope:models.KeyServiceCryptRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:models.KeyServiceCryptoRequest)
-    private static final models.KeyOuterClass.KeyServiceCryptoRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:models.KeyServiceCryptRequest)
+    private static final models.KeyOuterClass.KeyServiceCryptRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new models.KeyOuterClass.KeyServiceCryptoRequest();
+      DEFAULT_INSTANCE = new models.KeyOuterClass.KeyServiceCryptRequest();
     }
 
-    public static models.KeyOuterClass.KeyServiceCryptoRequest getDefaultInstance() {
+    public static models.KeyOuterClass.KeyServiceCryptRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<KeyServiceCryptoRequest>
-        PARSER = new com.google.protobuf.AbstractParser<KeyServiceCryptoRequest>() {
+    private static final com.google.protobuf.Parser<KeyServiceCryptRequest>
+        PARSER = new com.google.protobuf.AbstractParser<KeyServiceCryptRequest>() {
       @java.lang.Override
-      public KeyServiceCryptoRequest parsePartialFrom(
+      public KeyServiceCryptRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -8693,24 +8693,24 @@ public final class KeyOuterClass {
       }
     };
 
-    public static com.google.protobuf.Parser<KeyServiceCryptoRequest> parser() {
+    public static com.google.protobuf.Parser<KeyServiceCryptRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<KeyServiceCryptoRequest> getParserForType() {
+    public com.google.protobuf.Parser<KeyServiceCryptRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public models.KeyOuterClass.KeyServiceCryptoRequest getDefaultInstanceForType() {
+    public models.KeyOuterClass.KeyServiceCryptRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface KeyServiceCryptoResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:models.KeyServiceCryptoResponse)
+  public interface KeyServiceCryptResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:models.KeyServiceCryptResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -8726,18 +8726,18 @@ public final class KeyOuterClass {
         getCiphertextBytes();
   }
   /**
-   * Protobuf type {@code models.KeyServiceCryptoResponse}
+   * Protobuf type {@code models.KeyServiceCryptResponse}
    */
-  public static final class KeyServiceCryptoResponse extends
+  public static final class KeyServiceCryptResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:models.KeyServiceCryptoResponse)
-      KeyServiceCryptoResponseOrBuilder {
+      // @@protoc_insertion_point(message_implements:models.KeyServiceCryptResponse)
+      KeyServiceCryptResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use KeyServiceCryptoResponse.newBuilder() to construct.
-    private KeyServiceCryptoResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use KeyServiceCryptResponse.newBuilder() to construct.
+    private KeyServiceCryptResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private KeyServiceCryptoResponse() {
+    private KeyServiceCryptResponse() {
       ciphertext_ = "";
     }
 
@@ -8745,7 +8745,7 @@ public final class KeyOuterClass {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new KeyServiceCryptoResponse();
+      return new KeyServiceCryptResponse();
     }
 
     @java.lang.Override
@@ -8755,15 +8755,15 @@ public final class KeyOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return models.KeyOuterClass.internal_static_models_KeyServiceCryptoResponse_descriptor;
+      return models.KeyOuterClass.internal_static_models_KeyServiceCryptResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return models.KeyOuterClass.internal_static_models_KeyServiceCryptoResponse_fieldAccessorTable
+      return models.KeyOuterClass.internal_static_models_KeyServiceCryptResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              models.KeyOuterClass.KeyServiceCryptoResponse.class, models.KeyOuterClass.KeyServiceCryptoResponse.Builder.class);
+              models.KeyOuterClass.KeyServiceCryptResponse.class, models.KeyOuterClass.KeyServiceCryptResponse.Builder.class);
     }
 
     public static final int CIPHERTEXT_FIELD_NUMBER = 1;
@@ -8805,69 +8805,69 @@ public final class KeyOuterClass {
       }
     }
 
-    public static models.KeyOuterClass.KeyServiceCryptoResponse parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoResponse parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoResponse parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoResponse parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoResponse parseFrom(byte[] data)
+    public static models.KeyOuterClass.KeyServiceCryptResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoResponse parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoResponse parseFrom(java.io.InputStream input)
+    public static models.KeyOuterClass.KeyServiceCryptResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoResponse parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoResponse parseDelimitedFrom(java.io.InputStream input)
+    public static models.KeyOuterClass.KeyServiceCryptResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoResponse parseDelimitedFrom(
+    public static models.KeyOuterClass.KeyServiceCryptResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoResponse parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static models.KeyOuterClass.KeyServiceCryptoResponse parseFrom(
+    public static models.KeyOuterClass.KeyServiceCryptResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8880,7 +8880,7 @@ public final class KeyOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(models.KeyOuterClass.KeyServiceCryptoResponse prototype) {
+    public static Builder newBuilder(models.KeyOuterClass.KeyServiceCryptResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -8896,26 +8896,26 @@ public final class KeyOuterClass {
       return builder;
     }
     /**
-     * Protobuf type {@code models.KeyServiceCryptoResponse}
+     * Protobuf type {@code models.KeyServiceCryptResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:models.KeyServiceCryptoResponse)
-        models.KeyOuterClass.KeyServiceCryptoResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:models.KeyServiceCryptResponse)
+        models.KeyOuterClass.KeyServiceCryptResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return models.KeyOuterClass.internal_static_models_KeyServiceCryptoResponse_descriptor;
+        return models.KeyOuterClass.internal_static_models_KeyServiceCryptResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return models.KeyOuterClass.internal_static_models_KeyServiceCryptoResponse_fieldAccessorTable
+        return models.KeyOuterClass.internal_static_models_KeyServiceCryptResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                models.KeyOuterClass.KeyServiceCryptoResponse.class, models.KeyOuterClass.KeyServiceCryptoResponse.Builder.class);
+                models.KeyOuterClass.KeyServiceCryptResponse.class, models.KeyOuterClass.KeyServiceCryptResponse.Builder.class);
       }
 
-      // Construct using models.KeyOuterClass.KeyServiceCryptoResponse.newBuilder()
+      // Construct using models.KeyOuterClass.KeyServiceCryptResponse.newBuilder()
       private Builder() {
 
       }
@@ -8936,17 +8936,17 @@ public final class KeyOuterClass {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return models.KeyOuterClass.internal_static_models_KeyServiceCryptoResponse_descriptor;
+        return models.KeyOuterClass.internal_static_models_KeyServiceCryptResponse_descriptor;
       }
 
       @java.lang.Override
-      public models.KeyOuterClass.KeyServiceCryptoResponse getDefaultInstanceForType() {
-        return models.KeyOuterClass.KeyServiceCryptoResponse.getDefaultInstance();
+      public models.KeyOuterClass.KeyServiceCryptResponse getDefaultInstanceForType() {
+        return models.KeyOuterClass.KeyServiceCryptResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public models.KeyOuterClass.KeyServiceCryptoResponse build() {
-        models.KeyOuterClass.KeyServiceCryptoResponse result = buildPartial();
+      public models.KeyOuterClass.KeyServiceCryptResponse build() {
+        models.KeyOuterClass.KeyServiceCryptResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -8954,14 +8954,14 @@ public final class KeyOuterClass {
       }
 
       @java.lang.Override
-      public models.KeyOuterClass.KeyServiceCryptoResponse buildPartial() {
-        models.KeyOuterClass.KeyServiceCryptoResponse result = new models.KeyOuterClass.KeyServiceCryptoResponse(this);
+      public models.KeyOuterClass.KeyServiceCryptResponse buildPartial() {
+        models.KeyOuterClass.KeyServiceCryptResponse result = new models.KeyOuterClass.KeyServiceCryptResponse(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(models.KeyOuterClass.KeyServiceCryptoResponse result) {
+      private void buildPartial0(models.KeyOuterClass.KeyServiceCryptResponse result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.ciphertext_ = ciphertext_;
@@ -9086,23 +9086,23 @@ public final class KeyOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:models.KeyServiceCryptoResponse)
+      // @@protoc_insertion_point(builder_scope:models.KeyServiceCryptResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:models.KeyServiceCryptoResponse)
-    private static final models.KeyOuterClass.KeyServiceCryptoResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:models.KeyServiceCryptResponse)
+    private static final models.KeyOuterClass.KeyServiceCryptResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new models.KeyOuterClass.KeyServiceCryptoResponse();
+      DEFAULT_INSTANCE = new models.KeyOuterClass.KeyServiceCryptResponse();
     }
 
-    public static models.KeyOuterClass.KeyServiceCryptoResponse getDefaultInstance() {
+    public static models.KeyOuterClass.KeyServiceCryptResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<KeyServiceCryptoResponse>
-        PARSER = new com.google.protobuf.AbstractParser<KeyServiceCryptoResponse>() {
+    private static final com.google.protobuf.Parser<KeyServiceCryptResponse>
+        PARSER = new com.google.protobuf.AbstractParser<KeyServiceCryptResponse>() {
       @java.lang.Override
-      public KeyServiceCryptoResponse parsePartialFrom(
+      public KeyServiceCryptResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -9121,17 +9121,17 @@ public final class KeyOuterClass {
       }
     };
 
-    public static com.google.protobuf.Parser<KeyServiceCryptoResponse> parser() {
+    public static com.google.protobuf.Parser<KeyServiceCryptResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<KeyServiceCryptoResponse> getParserForType() {
+    public com.google.protobuf.Parser<KeyServiceCryptResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public models.KeyOuterClass.KeyServiceCryptoResponse getDefaultInstanceForType() {
+    public models.KeyOuterClass.KeyServiceCryptResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12662,15 +12662,15 @@ public final class KeyOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_models_KeyServiceVerifyResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_models_KeyServiceCryptoRequest_descriptor;
+    internal_static_models_KeyServiceCryptRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_models_KeyServiceCryptoRequest_fieldAccessorTable;
+      internal_static_models_KeyServiceCryptRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_models_KeyServiceCryptoResponse_descriptor;
+    internal_static_models_KeyServiceCryptResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_models_KeyServiceCryptoResponse_fieldAccessorTable;
+      internal_static_models_KeyServiceCryptResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_models_KeyServiceDecryptRequest_descriptor;
   private static final 
@@ -12760,50 +12760,50 @@ public final class KeyOuterClass {
       "eVerifyRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007messag" +
       "e\030\002 \001(\tR\007message\022\034\n\tsignature\030\003 \001(\tR\tsig" +
       "nature\"0\n\030KeyServiceVerifyResponse\022\024\n\005va" +
-      "lid\030\001 \001(\010R\005valid\"C\n\027KeyServiceCryptoRequ" +
-      "est\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(\tR\007me" +
-      "ssage\":\n\030KeyServiceCryptoResponse\022\036\n\ncip" +
-      "hertext\030\001 \001(\tR\nciphertext\"J\n\030KeyServiceD" +
-      "ecryptRequest\022\016\n\002id\030\001 \001(\tR\002id\022\036\n\nciphert" +
-      "ext\030\002 \001(\tR\nciphertext\"5\n\031KeyServiceDecry" +
-      "ptResponse\022\030\n\007message\030\001 \001(\tR\007message\")\n\027" +
-      "KeyServiceRotateRequest\022\016\n\002id\030\001 \001(\tR\002id\"" +
-      "9\n\030KeyServiceRotateResponse\022\035\n\003key\030\001 \001(\013" +
-      "2\013.models.KeyR\003key\")\n\027KeyServiceDeleteRe" +
-      "quest\022\016\n\002id\030\001 \001(\tR\002id\"\032\n\030KeyServiceDelet" +
-      "eResponse\"&\n\024KeyServiceJWKRequest\022\016\n\002id\030" +
-      "\001 \001(\tR\002id\")\n\025KeyServiceJWKResponse\022\020\n\003jw" +
-      "k\030\001 \001(\tR\003jwk2\203\t\n\nKeyService\022`\n\006Create\022\037." +
-      "models.KeyServiceCreateRequest\032 .models." +
-      "KeyServiceCreateResponse\"\023\202\323\344\223\002\r:\001*\"\010/v1" +
-      "/keys\022Y\n\003Get\022\034.models.KeyServiceGetReque" +
-      "st\032\035.models.KeyServiceGetResponse\"\025\202\323\344\223\002" +
-      "\017\022\r/v1/keys/{id}\022}\n\013GetOrCreate\022$.models" +
-      ".KeyServiceGetOrCreateRequest\032%.models.K" +
-      "eyServiceGetOrCreateResponse\"!\202\323\344\223\002\033:\001*\"" +
-      "\026/v1/keys/get-or-create\022W\n\004List\022\035.models" +
-      ".KeyServiceListRequest\032\036.models.KeyServi" +
-      "ceListResponse\"\020\202\323\344\223\002\n\022\010/v1/keys\022d\n\004Sign" +
-      "\022\035.models.KeyServiceSignRequest\032\036.models" +
-      ".KeyServiceSignResponse\"\035\202\323\344\223\002\027:\001*\"\022/v1/" +
-      "keys/{id}/sign\022l\n\006Verify\022\037.models.KeySer" +
-      "viceVerifyRequest\032 .models.KeyServiceVer" +
-      "ifyResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/keys/{id}/ve" +
-      "rify\022l\n\006Crypto\022\037.models.KeyServiceCrypto" +
-      "Request\032 .models.KeyServiceCryptoRespons" +
-      "e\"\037\202\323\344\223\002\031:\001*\"\024/v1/keys/{id}/crypto\022p\n\007De" +
-      "crypt\022 .models.KeyServiceDecryptRequest\032" +
-      "!.models.KeyServiceDecryptResponse\" \202\323\344\223" +
-      "\002\032:\001*\"\025/v1/keys/{id}/decrypt\022i\n\006Rotate\022\037" +
-      ".models.KeyServiceRotateRequest\032 .models" +
-      ".KeyServiceRotateResponse\"\034\202\323\344\223\002\026\"\024/v1/k" +
-      "eys/{id}/rotate\022b\n\006Delete\022\037.models.KeySe" +
-      "rviceDeleteRequest\032 .models.KeyServiceDe" +
-      "leteResponse\"\025\202\323\344\223\002\017*\r/v1/keys/{id}\022]\n\003J" +
-      "WK\022\034.models.KeyServiceJWKRequest\032\035.model" +
-      "s.KeyServiceJWKResponse\"\031\202\323\344\223\002\023\022\021/v1/key" +
-      "s/{id}/jwkB9H\002Z5github.com/luminos-compa" +
-      "ny/secretary/generated/modelsb\006proto3"
+      "lid\030\001 \001(\010R\005valid\"B\n\026KeyServiceCryptReque" +
+      "st\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(\tR\007mes" +
+      "sage\"9\n\027KeyServiceCryptResponse\022\036\n\nciphe" +
+      "rtext\030\001 \001(\tR\nciphertext\"J\n\030KeyServiceDec" +
+      "ryptRequest\022\016\n\002id\030\001 \001(\tR\002id\022\036\n\nciphertex" +
+      "t\030\002 \001(\tR\nciphertext\"5\n\031KeyServiceDecrypt" +
+      "Response\022\030\n\007message\030\001 \001(\tR\007message\")\n\027Ke" +
+      "yServiceRotateRequest\022\016\n\002id\030\001 \001(\tR\002id\"9\n" +
+      "\030KeyServiceRotateResponse\022\035\n\003key\030\001 \001(\0132\013" +
+      ".models.KeyR\003key\")\n\027KeyServiceDeleteRequ" +
+      "est\022\016\n\002id\030\001 \001(\tR\002id\"\032\n\030KeyServiceDeleteR" +
+      "esponse\"&\n\024KeyServiceJWKRequest\022\016\n\002id\030\001 " +
+      "\001(\tR\002id\")\n\025KeyServiceJWKResponse\022\020\n\003jwk\030" +
+      "\001 \001(\tR\003jwk2\200\t\n\nKeyService\022`\n\006Create\022\037.mo" +
+      "dels.KeyServiceCreateRequest\032 .models.Ke" +
+      "yServiceCreateResponse\"\023\202\323\344\223\002\r:\001*\"\010/v1/k" +
+      "eys\022Y\n\003Get\022\034.models.KeyServiceGetRequest" +
+      "\032\035.models.KeyServiceGetResponse\"\025\202\323\344\223\002\017\022" +
+      "\r/v1/keys/{id}\022}\n\013GetOrCreate\022$.models.K" +
+      "eyServiceGetOrCreateRequest\032%.models.Key" +
+      "ServiceGetOrCreateResponse\"!\202\323\344\223\002\033:\001*\"\026/" +
+      "v1/keys/get-or-create\022W\n\004List\022\035.models.K" +
+      "eyServiceListRequest\032\036.models.KeyService" +
+      "ListResponse\"\020\202\323\344\223\002\n\022\010/v1/keys\022d\n\004Sign\022\035" +
+      ".models.KeyServiceSignRequest\032\036.models.K" +
+      "eyServiceSignResponse\"\035\202\323\344\223\002\027:\001*\"\022/v1/ke" +
+      "ys/{id}/sign\022l\n\006Verify\022\037.models.KeyServi" +
+      "ceVerifyRequest\032 .models.KeyServiceVerif" +
+      "yResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/keys/{id}/veri" +
+      "fy\022i\n\005Crypt\022\036.models.KeyServiceCryptRequ" +
+      "est\032\037.models.KeyServiceCryptResponse\"\037\202\323" +
+      "\344\223\002\031:\001*\"\024/v1/keys/{id}/crypto\022p\n\007Decrypt" +
+      "\022 .models.KeyServiceDecryptRequest\032!.mod" +
+      "els.KeyServiceDecryptResponse\" \202\323\344\223\002\032:\001*" +
+      "\"\025/v1/keys/{id}/decrypt\022i\n\006Rotate\022\037.mode" +
+      "ls.KeyServiceRotateRequest\032 .models.KeyS" +
+      "erviceRotateResponse\"\034\202\323\344\223\002\026\"\024/v1/keys/{" +
+      "id}/rotate\022b\n\006Delete\022\037.models.KeyService" +
+      "DeleteRequest\032 .models.KeyServiceDeleteR" +
+      "esponse\"\025\202\323\344\223\002\017*\r/v1/keys/{id}\022]\n\003JWK\022\034." +
+      "models.KeyServiceJWKRequest\032\035.models.Key" +
+      "ServiceJWKResponse\"\031\202\323\344\223\002\023\022\021/v1/keys/{id" +
+      "}/jwkB9H\002Z5github.com/luminos-company/se" +
+      "cretary/generated/modelsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12890,17 +12890,17 @@ public final class KeyOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_models_KeyServiceVerifyResponse_descriptor,
         new java.lang.String[] { "Valid", });
-    internal_static_models_KeyServiceCryptoRequest_descriptor =
+    internal_static_models_KeyServiceCryptRequest_descriptor =
       getDescriptor().getMessageTypes().get(13);
-    internal_static_models_KeyServiceCryptoRequest_fieldAccessorTable = new
+    internal_static_models_KeyServiceCryptRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_models_KeyServiceCryptoRequest_descriptor,
+        internal_static_models_KeyServiceCryptRequest_descriptor,
         new java.lang.String[] { "Id", "Message", });
-    internal_static_models_KeyServiceCryptoResponse_descriptor =
+    internal_static_models_KeyServiceCryptResponse_descriptor =
       getDescriptor().getMessageTypes().get(14);
-    internal_static_models_KeyServiceCryptoResponse_fieldAccessorTable = new
+    internal_static_models_KeyServiceCryptResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_models_KeyServiceCryptoResponse_descriptor,
+        internal_static_models_KeyServiceCryptResponse_descriptor,
         new java.lang.String[] { "Ciphertext", });
     internal_static_models_KeyServiceDecryptRequest_descriptor =
       getDescriptor().getMessageTypes().get(15);

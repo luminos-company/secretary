@@ -96,7 +96,7 @@ func (k KeyService) List(_ context.Context, request *models.KeyServiceListReques
 	}, nil
 }
 
-func (k KeyService) Crypto(_ context.Context, request *models.KeyServiceCryptoRequest) (*models.KeyServiceCryptoResponse, error) {
+func (k KeyService) Crypt(_ context.Context, request *models.KeyServiceCryptRequest) (*models.KeyServiceCryptResponse, error) {
 	if request == nil {
 		return nil, nil
 	}
@@ -110,7 +110,7 @@ func (k KeyService) Crypto(_ context.Context, request *models.KeyServiceCryptoRe
 	if err != nil {
 		return nil, err
 	}
-	return &models.KeyServiceCryptoResponse{
+	return &models.KeyServiceCryptResponse{
 		Ciphertext: encrypted,
 	}, nil
 }
