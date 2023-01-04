@@ -68,44 +68,6 @@ func (k KeyService) List(ctx context.Context, request *models.KeyServiceListRequ
 	}, nil
 }
 
-func (k KeyService) Sign(ctx context.Context, request *models.KeyServiceSignRequest) (*models.KeyServiceSignResponse, error) {
-	if request == nil {
-		return nil, nil
-	}
-	bq, err := query.KeyModel.Select().Where(query.KeyModel.ID.Eq(request.Id)).First()
-	if err != nil {
-		return nil, err
-	}
-	rsaKeyGen := keys.Rsa{}
-	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
-	signature, err := rsaKeyGen.SignString(request.Message)
-	if err != nil {
-		return nil, err
-	}
-	return &models.KeyServiceSignResponse{
-		Signature: signature,
-	}, nil
-}
-
-func (k KeyService) Verify(ctx context.Context, request *models.KeyServiceVerifyRequest) (*models.KeyServiceVerifyResponse, error) {
-	if request == nil {
-		return nil, nil
-	}
-	bq, err := query.KeyModel.Select().Where(query.KeyModel.ID.Eq(request.Id)).First()
-	if err != nil {
-		return nil, err
-	}
-	rsaKeyGen := keys.Rsa{}
-	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
-	verified := rsaKeyGen.VerifyString(request.Message, request.Signature)
-	if err != nil {
-		return nil, err
-	}
-	return &models.KeyServiceVerifyResponse{
-		Valid: verified,
-	}, nil
-}
-
 func (k KeyService) Crypto(ctx context.Context, request *models.KeyServiceCryptoRequest) (*models.KeyServiceCryptoResponse, error) {
 	if request == nil {
 		return nil, nil
@@ -137,10 +99,71 @@ func (k KeyService) Decrypt(ctx context.Context, request *models.KeyServiceDecry
 	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
 	decrypted, err := rsaKeyGen.DecryptString(request.Ciphertext)
 	if err != nil {
-		return nil, err
+		bqList, err := query.KeyRotatedModel.Select().Where(query.KeyRotatedModel.KeyId.Eq(request.Id)).Find()
+		if err != nil {
+			return nil, err
+		}
+		for _, bq := range bqList {
+			rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
+			decrypted, err = rsaKeyGen.DecryptString(request.Ciphertext)
+			if err == nil {
+				break
+			}
+		}
+		if err != nil {
+			return nil, err
+		}
 	}
 	return &models.KeyServiceDecryptResponse{
 		Message: decrypted,
+	}, nil
+}
+
+func (k KeyService) Sign(ctx context.Context, request *models.KeyServiceSignRequest) (*models.KeyServiceSignResponse, error) {
+	if request == nil {
+		return nil, nil
+	}
+	bq, err := query.KeyModel.Select().Where(query.KeyModel.ID.Eq(request.Id)).First()
+	if err != nil {
+		return nil, err
+	}
+	rsaKeyGen := keys.Rsa{}
+	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
+	signature, err := rsaKeyGen.SignString(request.Message)
+	if err != nil {
+		return nil, err
+	}
+	return &models.KeyServiceSignResponse{
+		Signature: signature,
+	}, nil
+}
+
+func (k KeyService) Verify(ctx context.Context, request *models.KeyServiceVerifyRequest) (*models.KeyServiceVerifyResponse, error) {
+	if request == nil {
+		return nil, nil
+	}
+	bq, err := query.KeyModel.Select().Where(query.KeyModel.ID.Eq(request.Id)).First()
+	if err != nil {
+		return nil, err
+	}
+	rsaKeyGen := keys.Rsa{}
+	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
+	verified := rsaKeyGen.VerifyString(request.Message, request.Signature)
+	if !verified {
+		bqList, err := query.KeyRotatedModel.Select().Where(query.KeyRotatedModel.KeyId.Eq(request.Id)).Find()
+		if err != nil {
+			return nil, err
+		}
+		for _, bq := range bqList {
+			rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
+			verified = rsaKeyGen.VerifyString(request.Message, request.Signature)
+			if verified {
+				break
+			}
+		}
+	}
+	return &models.KeyServiceVerifyResponse{
+		Valid: verified,
 	}, nil
 }
 

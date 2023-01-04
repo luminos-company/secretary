@@ -4,15 +4,19 @@ WORKDIR $GOPATH/github.com/luminos-company/secretary
 
 COPY . .
 
-ARG CGO_ENABLED=0
-ARG GOOS=linux
-ARG GOARCH=amd64
+
+RUN apk add --no-cache gcc g++ git openssh-client
 
 RUN go get ./...
-RUN go build -a -installsuffix cgo -o /main ./main
+
+RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GOPROXY=https://goproxy.cn,direct \
+    go build -ldflags="-w -s" -o /main ./main
 
 FROM alpine:latest AS deploy
+
 WORKDIR /
+
+RUN apk add --no-cache gcc g++ git openssh-client
 
 COPY --from=builder /main .
 
