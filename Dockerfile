@@ -9,7 +9,7 @@ COPY . .
 
 RUN go get ./...
 
-RUN  CGO_ENABLED=1 GOOS=linux CC="zig cc" CXX="zig cc" go build -o /main ./main
+RUN  CGO_ENABLED=1 GOARCH=amd64 GOOS=linux CC="zig cc" CXX="zig cc" go build -o /main ./main
 
 
 FROM alpine:latest AS deploy
@@ -17,7 +17,6 @@ FROM alpine:latest AS deploy
 WORKDIR /
 
 RUN apk add --no-cache gcc g++ git openssh-client
-RUN apk add --no-cache git go zig file --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/
 
 COPY --from=builder /main .
 
