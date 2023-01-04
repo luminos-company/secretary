@@ -166,7 +166,7 @@
         ]
       }
     },
-    "/v1/keys/{id}/crypto": {
+    "/v1/keys/{id}/crypt": {
       "post": {
         "operationId": "KeyService_Crypt",
         "responses": {

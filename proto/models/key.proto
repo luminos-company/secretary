@@ -155,7 +155,7 @@ service KeyService {
     }
     rpc Crypt(KeyServiceCryptRequest) returns (KeyServiceCryptResponse) {
         option (google.api.http) = {
-            post: "/v1/keys/{id}/crypto"
+            post: "/v1/keys/{id}/crypt"
             body: "*"
         };
     }

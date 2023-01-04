@@ -12773,7 +12773,7 @@ public final class KeyOuterClass {
       "est\022\016\n\002id\030\001 \001(\tR\002id\"\032\n\030KeyServiceDeleteR" +
       "esponse\"&\n\024KeyServiceJWKRequest\022\016\n\002id\030\001 " +
       "\001(\tR\002id\")\n\025KeyServiceJWKResponse\022\020\n\003jwk\030" +
-      "\001 \001(\tR\003jwk2\200\t\n\nKeyService\022`\n\006Create\022\037.mo" +
+      "\001 \001(\tR\003jwk2\377\010\n\nKeyService\022`\n\006Create\022\037.mo" +
       "dels.KeyServiceCreateRequest\032 .models.Ke" +
       "yServiceCreateResponse\"\023\202\323\344\223\002\r:\001*\"\010/v1/k" +
       "eys\022Y\n\003Get\022\034.models.KeyServiceGetRequest" +
@@ -12789,21 +12789,21 @@ public final class KeyOuterClass {
       "ys/{id}/sign\022l\n\006Verify\022\037.models.KeyServi" +
       "ceVerifyRequest\032 .models.KeyServiceVerif" +
       "yResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/keys/{id}/veri" +
-      "fy\022i\n\005Crypt\022\036.models.KeyServiceCryptRequ" +
-      "est\032\037.models.KeyServiceCryptResponse\"\037\202\323" +
-      "\344\223\002\031:\001*\"\024/v1/keys/{id}/crypto\022p\n\007Decrypt" +
-      "\022 .models.KeyServiceDecryptRequest\032!.mod" +
-      "els.KeyServiceDecryptResponse\" \202\323\344\223\002\032:\001*" +
-      "\"\025/v1/keys/{id}/decrypt\022i\n\006Rotate\022\037.mode" +
-      "ls.KeyServiceRotateRequest\032 .models.KeyS" +
-      "erviceRotateResponse\"\034\202\323\344\223\002\026\"\024/v1/keys/{" +
-      "id}/rotate\022b\n\006Delete\022\037.models.KeyService" +
-      "DeleteRequest\032 .models.KeyServiceDeleteR" +
-      "esponse\"\025\202\323\344\223\002\017*\r/v1/keys/{id}\022]\n\003JWK\022\034." +
-      "models.KeyServiceJWKRequest\032\035.models.Key" +
-      "ServiceJWKResponse\"\031\202\323\344\223\002\023\022\021/v1/keys/{id" +
-      "}/jwkB9H\002Z5github.com/luminos-company/se" +
-      "cretary/generated/modelsb\006proto3"
+      "fy\022h\n\005Crypt\022\036.models.KeyServiceCryptRequ" +
+      "est\032\037.models.KeyServiceCryptResponse\"\036\202\323" +
+      "\344\223\002\030:\001*\"\023/v1/keys/{id}/crypt\022p\n\007Decrypt\022" +
+      " .models.KeyServiceDecryptRequest\032!.mode" +
+      "ls.KeyServiceDecryptResponse\" \202\323\344\223\002\032:\001*\"" +
+      "\025/v1/keys/{id}/decrypt\022i\n\006Rotate\022\037.model" +
+      "s.KeyServiceRotateRequest\032 .models.KeySe" +
+      "rviceRotateResponse\"\034\202\323\344\223\002\026\"\024/v1/keys/{i" +
+      "d}/rotate\022b\n\006Delete\022\037.models.KeyServiceD" +
+      "eleteRequest\032 .models.KeyServiceDeleteRe" +
+      "sponse\"\025\202\323\344\223\002\017*\r/v1/keys/{id}\022]\n\003JWK\022\034.m" +
+      "odels.KeyServiceJWKRequest\032\035.models.KeyS" +
+      "erviceJWKResponse\"\031\202\323\344\223\002\023\022\021/v1/keys/{id}" +
+      "/jwkB9H\002Z5github.com/luminos-company/sec" +
+      "retary/generated/modelsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
