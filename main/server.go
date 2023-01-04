@@ -5,6 +5,7 @@ import (
 	"github.com/luminos-company/secretary/generated/models"
 	"github.com/luminos-company/secretary/main/services"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 	"log"
 	"net"
 	"net/http"
@@ -15,6 +16,7 @@ func runServer() {
 		grpc.MaxConcurrentStreams(10),
 	}
 	grpcServer := grpc.NewServer(opts...)
+	reflection.Register(grpcServer)
 	models.RegisterKeyServiceServer(grpcServer, &services.KeyService{})
 
 	wrappedGrpc := grpcweb.WrapServer(grpcServer, grpcweb.WithOriginFunc(func(origin string) bool {

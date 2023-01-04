@@ -6,6 +6,7 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gen"
 	"gorm.io/gorm"
+	"log"
 	"os"
 	"sync"
 )
@@ -51,6 +52,7 @@ func safeGet() *gorm.DB {
 	pgSSLMode := typ.GetEnv("PG_SSL_MODE", "disable")
 	pgTimeZone := typ.GetEnv("PG_TIME_ZONE", "UTC")
 	pgURL := "host=" + pgHost + " port=" + pgPort + " user=" + pgUser + " dbname=" + pgDatabase + " password=" + pgPassword + " sslmode=" + pgSSLMode + " TimeZone=" + pgTimeZone
+	log.Println(pgURL)
 	dbt, _ := gorm.Open(postgres.Open(pgURL), &gorm.Config{})
 	return dbt
 }

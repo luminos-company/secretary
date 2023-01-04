@@ -17,7 +17,7 @@ type KeyService struct {
 func (k KeyService) Create(ctx context.Context, request *models.KeyServiceCreateRequest) (*models.KeyServiceCreateResponse, error) {
 	rsaKeyGen := keys.Rsa{}
 	rsaKeyGen.Generate()
-	privateKey, publicKey := rsaKeyGen.ExportBase64()
+	publicKey, privateKey := rsaKeyGen.ExportBase64()
 	key := &dbmodel.KeyModel{
 		PrivateKey:   privateKey,
 		PublicKey:    publicKey,
@@ -77,7 +77,7 @@ func (k KeyService) Sign(ctx context.Context, request *models.KeyServiceSignRequ
 		return nil, err
 	}
 	rsaKeyGen := keys.Rsa{}
-	rsaKeyGen.ImportBase64(bq.PrivateKey, bq.PublicKey)
+	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
 	signature, err := rsaKeyGen.SignString(request.Message)
 	if err != nil {
 		return nil, err
@@ -96,7 +96,7 @@ func (k KeyService) Verify(ctx context.Context, request *models.KeyServiceVerify
 		return nil, err
 	}
 	rsaKeyGen := keys.Rsa{}
-	rsaKeyGen.ImportBase64(bq.PrivateKey, bq.PublicKey)
+	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
 	verified := rsaKeyGen.VerifyString(request.Message, request.Signature)
 	if err != nil {
 		return nil, err
@@ -115,7 +115,7 @@ func (k KeyService) Crypto(ctx context.Context, request *models.KeyServiceCrypto
 		return nil, err
 	}
 	rsaKeyGen := keys.Rsa{}
-	rsaKeyGen.ImportBase64(bq.PrivateKey, bq.PublicKey)
+	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
 	encrypted, err := rsaKeyGen.EncryptString(request.Message)
 	if err != nil {
 		return nil, err
@@ -134,7 +134,7 @@ func (k KeyService) Decrypt(ctx context.Context, request *models.KeyServiceDecry
 		return nil, err
 	}
 	rsaKeyGen := keys.Rsa{}
-	rsaKeyGen.ImportBase64(bq.PrivateKey, bq.PublicKey)
+	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
 	decrypted, err := rsaKeyGen.DecryptString(request.Ciphertext)
 	if err != nil {
 		return nil, err
