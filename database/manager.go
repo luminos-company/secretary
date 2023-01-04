@@ -2,6 +2,7 @@ package database
 
 import (
 	"github.com/luminos-company/secretary/database/dbmodel"
+	"github.com/luminos-company/secretary/typ"
 	"gorm.io/driver/postgres"
 	"gorm.io/gen"
 	"gorm.io/gorm"
@@ -42,13 +43,13 @@ func Generate() {
 }
 
 func safeGet() *gorm.DB {
-	pgUser := os.Getenv("PG_USER")
-	pgPassword := os.Getenv("PG_PASSWORD")
-	pgHost := os.Getenv("PG_HOST")
-	pgPort := os.Getenv("PG_PORT")
-	pgDatabase := os.Getenv("PG_DATABASE")
-	pgSSLMode := os.Getenv("PG_SSL_MODE")
-	pgTimeZone := os.Getenv("PG_TIME_ZONE")
+	pgUser := typ.GetEnv("PG_USER", "postgres")
+	pgPassword := typ.GetEnv("PG_PASSWORD", "postgres")
+	pgHost := typ.GetEnv("PG_HOST", "localhost")
+	pgPort := typ.GetEnv("PG_PORT", "5432")
+	pgDatabase := typ.GetEnv("PG_DATABASE", "postgres")
+	pgSSLMode := typ.GetEnv("PG_SSL_MODE", "disable")
+	pgTimeZone := typ.GetEnv("PG_TIME_ZONE", "UTC")
 	pgURL := "host=" + pgHost + " port=" + pgPort + " user=" + pgUser + " dbname=" + pgDatabase + " password=" + pgPassword + " sslmode=" + pgSSLMode + " TimeZone=" + pgTimeZone
 	dbt, _ := gorm.Open(postgres.Open(pgURL), &gorm.Config{})
 	return dbt
