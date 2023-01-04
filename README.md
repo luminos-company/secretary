@@ -13,7 +13,7 @@ An open source, key management system. Written in GO.
 ## What is Secretary?
 Secretary is a key management system that allows you to store and manage your keys.
 
-You would be able to generate various types of keys, such as RSA(ALMOST READY), ECDSA(WIP), and Ed25519(WIP), rotating them or keeping them persistent.
+You would be able to generate various types of keys, such as RSA(READY), ECDSA(WIP), and Ed25519(WIP), rotating them or keeping them persistent.
 
 ## Why Secretary?
 There are many key management systems out there, but none of them are open source. This is a problem, because you can't trust a closed source system with your keys.
