@@ -6,15 +6,13 @@ import (
 	"github.com/luminos-company/secretary/tools/keys"
 )
 
-type KeyModel dbmodel.KeyModel
+var KeyEnhancer = &KeyEnhancerImpl{}
 
-func EnhanceKey(key *dbmodel.KeyModel) *KeyModel {
-	tk := KeyModel(*key)
-	return &tk
+type KeyEnhancerImpl struct {
 }
 
-func (k *KeyModel) Rotate() {
-	tk := dbmodel.KeyModel(*k)
+func (*KeyEnhancerImpl) Rotate(k *dbmodel.KeyModel) {
+	tk := *k
 	rsa := keys.Rsa{}
 	rsa.Generate()
 	if tk.ShouldRotate != nil && *tk.ShouldRotate == false {
@@ -34,10 +32,9 @@ func (k *KeyModel) Rotate() {
 	}
 	k.PublicKey, k.PrivateKey = rsa.ExportBase64()
 	k.ExpiresAt = tk.NextExpirationDate()
-	tk = dbmodel.KeyModel(*k)
+	tk = *k
 	err = query.KeyModel.Save(&tk)
 	if err != nil {
 		return
 	}
-
 }

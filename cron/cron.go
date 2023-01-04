@@ -12,7 +12,7 @@ import (
 var s = gocron.NewScheduler(time.UTC)
 
 func RunCroner() {
-	_, err := s.Cron(typ.GetEnv("SECRETARY_ROTATION_CHECK", "*/1 * * * *")).Do(rotator)
+	_, err := s.Cron(typ.GetEnv("SECRETARY_ROTATION_CHECK", "*/5 * * * *")).Do(rotator)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -25,7 +25,7 @@ func rotator() {
 		return
 	}
 	for _, key := range find {
-		queries.EnhanceKey(key).Rotate()
+		queries.KeyEnhancer.Rotate(key)
 	}
 	_, _ = query.KeyRotatedModel.Where(query.KeyRotatedModel.ExpiresAt.Lt(time.Now())).Unscoped().Delete()
 }

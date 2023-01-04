@@ -203,7 +203,7 @@ func (k KeyService) Rotate(_ context.Context, request *models.KeyServiceRotateRe
 	if err != nil {
 		return nil, err
 	}
-	queries.EnhanceKey(bq).Rotate()
+	queries.KeyEnhancer.Rotate(bq)
 	return &models.KeyServiceRotateResponse{
 		Key: converter.KeyConverter.ToGrpc(bq),
 	}, nil

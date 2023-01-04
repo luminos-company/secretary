@@ -41,16 +41,16 @@ By default the private keys are never sent to the client, but you can change thi
 
 You can set those environment variables to change the default database (BE AWARE THAT THIS IS NOT SECURE):
 
-| Variable | Required | Default | Description |
-| -------- |----------| -------- | -------- |
-| PG_ENABLE | No      | false | Enables the postgres database |
-| PG_HOST | Yes      |  | The host of the postgres database |
-| PG_PORT | Yes      |  | The port of the postgres database |
-| PG_USER | Yes      |  | The user of the postgres database |
-| PG_PASSWORD | Yes      |  | The password of the postgres database |
-| PG_DATABASE | Yes      |  | The database of the postgres database |
-| PG_SSL_MODE | No      | disable | The ssl mode of the postgres database |
-| PG_TIME_ZONE | No      | UTC | The time zone of the postgres database |
+| Variable | Required | Default   | Description |
+| -------- |----------|-----------| -------- |
+| PG_ENABLE | No      | false     | Enables the postgres database |
+| PG_HOST | No      | localhost | The host of the postgres database |
+| PG_PORT | No      | 5432      | The port of the postgres database |
+| PG_USER | No      | postgres          | The user of the postgres database |
+| PG_PASSWORD | No      | postgres          | The password of the postgres database |
+| PG_DATABASE | No      | postgres          | The database of the postgres database |
+| PG_SSL_MODE | No      | disable   | The ssl mode of the postgres database |
+| PG_TIME_ZONE | No      | UTC       | The time zone of the postgres database |
 
 
 ## How do I contribute?

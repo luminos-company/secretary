@@ -29,7 +29,7 @@ func (k *KeyModel) BeforeCreate(db *gorm.DB) error {
 	}
 	if k.ShouldRotate != nil && *k.ShouldRotate == true {
 		if k.RotateCron == nil {
-			k.RotateCron = typ.StringP("*/1 * * * *") // default to every day
+			k.RotateCron = typ.StringP("0 0 1 * *") // default to every month
 		}
 		k.ExpiresAt = k.NextExpirationDate()
 	}
@@ -39,7 +39,7 @@ func (k *KeyModel) BeforeCreate(db *gorm.DB) error {
 func (k *KeyModel) NextExpirationDate() *time.Time {
 	if k.ShouldRotate != nil && *k.ShouldRotate == true && k.RotateCron != nil && *k.RotateCron != "" {
 		if k.RotateCron == nil {
-			k.RotateCron = typ.StringP("0 0 1 * *") // default to every day
+			k.RotateCron = typ.StringP("0 0 1 * *") // default to every month
 		}
 		parse, err := cron.NewParser(cron.Minute | cron.Hour | cron.Dom | cron.Month | cron.Dow).Parse(*k.RotateCron)
 		if err != nil {
