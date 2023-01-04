@@ -1,15 +1,19 @@
 FROM golang:1.19-alpine AS builder
 
-
-RUN apk add --no-cache git go zig file --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/
+RUN apk add build-base
 
 WORKDIR $GOPATH/github.com/luminos-company/secretary
 
 COPY . .
 
 RUN go get ./...
+RUN go install ./...
 
-RUN  CGO_ENABLED=1 GOARCH=amd64 GOOS=linux CC="zig cc" CXX="zig cc" go build -o /main ./main
+ARG CGO_ENABLED=1
+ARG GOOS=linux
+ARG GOARCH=amd64
+
+RUN go build -o /main ./main
 
 
 FROM alpine:latest AS deploy
