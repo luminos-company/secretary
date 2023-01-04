@@ -24,7 +24,7 @@ const _ = grpc.SupportPackageIsVersion7
 type KeyServiceClient interface {
 	Create(ctx context.Context, in *KeyServiceCreateRequest, opts ...grpc.CallOption) (*KeyServiceCreateResponse, error)
 	Get(ctx context.Context, in *KeyServiceGetRequest, opts ...grpc.CallOption) (*KeyServiceGetResponse, error)
-	GetOrCreate(ctx context.Context, in *KeyServiceCreateRequest, opts ...grpc.CallOption) (*KeyServiceCreateResponse, error)
+	GetOrCreate(ctx context.Context, in *KeyServiceGetOrCreateRequest, opts ...grpc.CallOption) (*KeyServiceGetOrCreateResponse, error)
 	List(ctx context.Context, in *KeyServiceListRequest, opts ...grpc.CallOption) (*KeyServiceListResponse, error)
 	Sign(ctx context.Context, in *KeyServiceSignRequest, opts ...grpc.CallOption) (*KeyServiceSignResponse, error)
 	Verify(ctx context.Context, in *KeyServiceVerifyRequest, opts ...grpc.CallOption) (*KeyServiceVerifyResponse, error)
@@ -61,8 +61,8 @@ func (c *keyServiceClient) Get(ctx context.Context, in *KeyServiceGetRequest, op
 	return out, nil
 }
 
-func (c *keyServiceClient) GetOrCreate(ctx context.Context, in *KeyServiceCreateRequest, opts ...grpc.CallOption) (*KeyServiceCreateResponse, error) {
-	out := new(KeyServiceCreateResponse)
+func (c *keyServiceClient) GetOrCreate(ctx context.Context, in *KeyServiceGetOrCreateRequest, opts ...grpc.CallOption) (*KeyServiceGetOrCreateResponse, error) {
+	out := new(KeyServiceGetOrCreateResponse)
 	err := c.cc.Invoke(ctx, "/models.KeyService/GetOrCreate", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -148,7 +148,7 @@ func (c *keyServiceClient) JWK(ctx context.Context, in *KeyServiceJWKRequest, op
 type KeyServiceServer interface {
 	Create(context.Context, *KeyServiceCreateRequest) (*KeyServiceCreateResponse, error)
 	Get(context.Context, *KeyServiceGetRequest) (*KeyServiceGetResponse, error)
-	GetOrCreate(context.Context, *KeyServiceCreateRequest) (*KeyServiceCreateResponse, error)
+	GetOrCreate(context.Context, *KeyServiceGetOrCreateRequest) (*KeyServiceGetOrCreateResponse, error)
 	List(context.Context, *KeyServiceListRequest) (*KeyServiceListResponse, error)
 	Sign(context.Context, *KeyServiceSignRequest) (*KeyServiceSignResponse, error)
 	Verify(context.Context, *KeyServiceVerifyRequest) (*KeyServiceVerifyResponse, error)
@@ -170,7 +170,7 @@ func (UnimplementedKeyServiceServer) Create(context.Context, *KeyServiceCreateRe
 func (UnimplementedKeyServiceServer) Get(context.Context, *KeyServiceGetRequest) (*KeyServiceGetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedKeyServiceServer) GetOrCreate(context.Context, *KeyServiceCreateRequest) (*KeyServiceCreateResponse, error) {
+func (UnimplementedKeyServiceServer) GetOrCreate(context.Context, *KeyServiceGetOrCreateRequest) (*KeyServiceGetOrCreateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOrCreate not implemented")
 }
 func (UnimplementedKeyServiceServer) List(context.Context, *KeyServiceListRequest) (*KeyServiceListResponse, error) {
@@ -247,7 +247,7 @@ func _KeyService_Get_Handler(srv interface{}, ctx context.Context, dec func(inte
 }
 
 func _KeyService_GetOrCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(KeyServiceCreateRequest)
+	in := new(KeyServiceGetOrCreateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -259,7 +259,7 @@ func _KeyService_GetOrCreate_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: "/models.KeyService/GetOrCreate",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyServiceServer).GetOrCreate(ctx, req.(*KeyServiceCreateRequest))
+		return srv.(KeyServiceServer).GetOrCreate(ctx, req.(*KeyServiceGetOrCreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

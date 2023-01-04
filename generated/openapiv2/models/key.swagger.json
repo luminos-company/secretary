@@ -83,7 +83,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/modelsKeyServiceCreateResponse"
+              "$ref": "#/definitions/modelsKeyServiceGetOrCreateResponse"
             }
           },
           "default": {
@@ -99,7 +99,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/modelsKeyServiceCreateRequest"
+              "$ref": "#/definitions/modelsKeyServiceGetOrCreateRequest"
             }
           }
         ],
@@ -444,6 +444,9 @@
     "modelsKeyServiceCreateRequest": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "shouldRotate": {
           "type": "boolean"
         },
@@ -477,6 +480,23 @@
       }
     },
     "modelsKeyServiceDeleteResponse": {
+      "type": "object"
+    },
+    "modelsKeyServiceGetOrCreateRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "shouldRotate": {
+          "type": "boolean"
+        },
+        "rotateCron": {
+          "type": "string"
+        }
+      }
+    },
+    "modelsKeyServiceGetOrCreateResponse": {
       "type": "object",
       "properties": {
         "key": {

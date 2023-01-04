@@ -12,16 +12,6 @@ func GetEnv(key, fallback string) string {
 	return fallback
 }
 
-func PTrue() *bool {
-	b := true
-	return &b
-}
-
-func PFalse() *bool {
-	b := false
-	return &b
-}
-
 func StringP(s string) *string {
 	return &s
 }

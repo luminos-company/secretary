@@ -193,17 +193,22 @@ class Key extends $pb.GeneratedMessage {
 
 class KeyServiceCreateRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceCreateRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldRotate')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotateCron')
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldRotate')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotateCron')
     ..hasRequiredFields = false
   ;
 
   KeyServiceCreateRequest._() : super();
   factory KeyServiceCreateRequest({
+    $core.String? id,
     $core.bool? shouldRotate,
     $core.String? rotateCron,
   }) {
     final _result = create();
+    if (id != null) {
+      _result.id = id;
+    }
     if (shouldRotate != null) {
       _result.shouldRotate = shouldRotate;
     }
@@ -234,22 +239,31 @@ class KeyServiceCreateRequest extends $pb.GeneratedMessage {
   static KeyServiceCreateRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get shouldRotate => $_getBF(0);
+  $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set shouldRotate($core.bool v) { $_setBool(0, v); }
+  set id($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasShouldRotate() => $_has(0);
+  $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearShouldRotate() => clearField(1);
+  void clearId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get rotateCron => $_getSZ(1);
+  $core.bool get shouldRotate => $_getBF(1);
   @$pb.TagNumber(2)
-  set rotateCron($core.String v) { $_setString(1, v); }
+  set shouldRotate($core.bool v) { $_setBool(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasRotateCron() => $_has(1);
+  $core.bool hasShouldRotate() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRotateCron() => clearField(2);
+  void clearShouldRotate() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get rotateCron => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set rotateCron($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasRotateCron() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRotateCron() => clearField(3);
 }
 
 class KeyServiceCreateResponse extends $pb.GeneratedMessage {
@@ -384,6 +398,130 @@ class KeyServiceGetResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static KeyServiceGetResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyServiceGetResponse>(create);
   static KeyServiceGetResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  Key get key => $_getN(0);
+  @$pb.TagNumber(1)
+  set key(Key v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasKey() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearKey() => clearField(1);
+  @$pb.TagNumber(1)
+  Key ensureKey() => $_ensure(0);
+}
+
+class KeyServiceGetOrCreateRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceGetOrCreateRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldRotate')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotateCron')
+    ..hasRequiredFields = false
+  ;
+
+  KeyServiceGetOrCreateRequest._() : super();
+  factory KeyServiceGetOrCreateRequest({
+    $core.String? id,
+    $core.bool? shouldRotate,
+    $core.String? rotateCron,
+  }) {
+    final _result = create();
+    if (id != null) {
+      _result.id = id;
+    }
+    if (shouldRotate != null) {
+      _result.shouldRotate = shouldRotate;
+    }
+    if (rotateCron != null) {
+      _result.rotateCron = rotateCron;
+    }
+    return _result;
+  }
+  factory KeyServiceGetOrCreateRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KeyServiceGetOrCreateRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  KeyServiceGetOrCreateRequest clone() => KeyServiceGetOrCreateRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  KeyServiceGetOrCreateRequest copyWith(void Function(KeyServiceGetOrCreateRequest) updates) => super.copyWith((message) => updates(message as KeyServiceGetOrCreateRequest)) as KeyServiceGetOrCreateRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static KeyServiceGetOrCreateRequest create() => KeyServiceGetOrCreateRequest._();
+  KeyServiceGetOrCreateRequest createEmptyInstance() => create();
+  static $pb.PbList<KeyServiceGetOrCreateRequest> createRepeated() => $pb.PbList<KeyServiceGetOrCreateRequest>();
+  @$core.pragma('dart2js:noInline')
+  static KeyServiceGetOrCreateRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyServiceGetOrCreateRequest>(create);
+  static KeyServiceGetOrCreateRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get shouldRotate => $_getBF(1);
+  @$pb.TagNumber(2)
+  set shouldRotate($core.bool v) { $_setBool(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasShouldRotate() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearShouldRotate() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get rotateCron => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set rotateCron($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasRotateCron() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRotateCron() => clearField(3);
+}
+
+class KeyServiceGetOrCreateResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceGetOrCreateResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
+    ..aOM<Key>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key', subBuilder: Key.create)
+    ..hasRequiredFields = false
+  ;
+
+  KeyServiceGetOrCreateResponse._() : super();
+  factory KeyServiceGetOrCreateResponse({
+    Key? key,
+  }) {
+    final _result = create();
+    if (key != null) {
+      _result.key = key;
+    }
+    return _result;
+  }
+  factory KeyServiceGetOrCreateResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KeyServiceGetOrCreateResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  KeyServiceGetOrCreateResponse clone() => KeyServiceGetOrCreateResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  KeyServiceGetOrCreateResponse copyWith(void Function(KeyServiceGetOrCreateResponse) updates) => super.copyWith((message) => updates(message as KeyServiceGetOrCreateResponse)) as KeyServiceGetOrCreateResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static KeyServiceGetOrCreateResponse create() => KeyServiceGetOrCreateResponse._();
+  KeyServiceGetOrCreateResponse createEmptyInstance() => create();
+  static $pb.PbList<KeyServiceGetOrCreateResponse> createRepeated() => $pb.PbList<KeyServiceGetOrCreateResponse>();
+  @$core.pragma('dart2js:noInline')
+  static KeyServiceGetOrCreateResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyServiceGetOrCreateResponse>(create);
+  static KeyServiceGetOrCreateResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
   Key get key => $_getN(0);
@@ -1090,20 +1228,11 @@ class KeyServiceDeleteRequest extends $pb.GeneratedMessage {
 
 class KeyServiceDeleteResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceDeleteResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
-    ..aOM<Key>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key', subBuilder: Key.create)
     ..hasRequiredFields = false
   ;
 
   KeyServiceDeleteResponse._() : super();
-  factory KeyServiceDeleteResponse({
-    Key? key,
-  }) {
-    final _result = create();
-    if (key != null) {
-      _result.key = key;
-    }
-    return _result;
-  }
+  factory KeyServiceDeleteResponse() => create();
   factory KeyServiceDeleteResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory KeyServiceDeleteResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -1124,17 +1253,6 @@ class KeyServiceDeleteResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static KeyServiceDeleteResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyServiceDeleteResponse>(create);
   static KeyServiceDeleteResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  Key get key => $_getN(0);
-  @$pb.TagNumber(1)
-  set key(Key v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasKey() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearKey() => clearField(1);
-  @$pb.TagNumber(1)
-  Key ensureKey() => $_ensure(0);
 }
 
 class KeyServiceJWKRequest extends $pb.GeneratedMessage {
@@ -1243,9 +1361,9 @@ class KeyServiceApi {
     var emptyResponse = KeyServiceGetResponse();
     return _client.invoke<KeyServiceGetResponse>(ctx, 'KeyService', 'Get', request, emptyResponse);
   }
-  $async.Future<KeyServiceCreateResponse> getOrCreate($pb.ClientContext? ctx, KeyServiceCreateRequest request) {
-    var emptyResponse = KeyServiceCreateResponse();
-    return _client.invoke<KeyServiceCreateResponse>(ctx, 'KeyService', 'GetOrCreate', request, emptyResponse);
+  $async.Future<KeyServiceGetOrCreateResponse> getOrCreate($pb.ClientContext? ctx, KeyServiceGetOrCreateRequest request) {
+    var emptyResponse = KeyServiceGetOrCreateResponse();
+    return _client.invoke<KeyServiceGetOrCreateResponse>(ctx, 'KeyService', 'GetOrCreate', request, emptyResponse);
   }
   $async.Future<KeyServiceListResponse> list($pb.ClientContext? ctx, KeyServiceListRequest request) {
     var emptyResponse = KeyServiceListResponse();

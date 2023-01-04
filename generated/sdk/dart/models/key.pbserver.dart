@@ -18,7 +18,7 @@ export 'key.pb.dart';
 abstract class KeyServiceBase extends $pb.GeneratedService {
   $async.Future<$1.KeyServiceCreateResponse> create($pb.ServerContext ctx, $1.KeyServiceCreateRequest request);
   $async.Future<$1.KeyServiceGetResponse> get($pb.ServerContext ctx, $1.KeyServiceGetRequest request);
-  $async.Future<$1.KeyServiceCreateResponse> getOrCreate($pb.ServerContext ctx, $1.KeyServiceCreateRequest request);
+  $async.Future<$1.KeyServiceGetOrCreateResponse> getOrCreate($pb.ServerContext ctx, $1.KeyServiceGetOrCreateRequest request);
   $async.Future<$1.KeyServiceListResponse> list($pb.ServerContext ctx, $1.KeyServiceListRequest request);
   $async.Future<$1.KeyServiceSignResponse> sign($pb.ServerContext ctx, $1.KeyServiceSignRequest request);
   $async.Future<$1.KeyServiceVerifyResponse> verify($pb.ServerContext ctx, $1.KeyServiceVerifyRequest request);
@@ -32,7 +32,7 @@ abstract class KeyServiceBase extends $pb.GeneratedService {
     switch (method) {
       case 'Create': return $1.KeyServiceCreateRequest();
       case 'Get': return $1.KeyServiceGetRequest();
-      case 'GetOrCreate': return $1.KeyServiceCreateRequest();
+      case 'GetOrCreate': return $1.KeyServiceGetOrCreateRequest();
       case 'List': return $1.KeyServiceListRequest();
       case 'Sign': return $1.KeyServiceSignRequest();
       case 'Verify': return $1.KeyServiceVerifyRequest();
@@ -49,7 +49,7 @@ abstract class KeyServiceBase extends $pb.GeneratedService {
     switch (method) {
       case 'Create': return this.create(ctx, request as $1.KeyServiceCreateRequest);
       case 'Get': return this.get(ctx, request as $1.KeyServiceGetRequest);
-      case 'GetOrCreate': return this.getOrCreate(ctx, request as $1.KeyServiceCreateRequest);
+      case 'GetOrCreate': return this.getOrCreate(ctx, request as $1.KeyServiceGetOrCreateRequest);
       case 'List': return this.list(ctx, request as $1.KeyServiceListRequest);
       case 'Sign': return this.sign(ctx, request as $1.KeyServiceSignRequest);
       case 'Verify': return this.verify(ctx, request as $1.KeyServiceVerifyRequest);

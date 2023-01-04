@@ -24,8 +24,9 @@ message Key {
 
 
 message KeyServiceCreateRequest {
-    optional bool should_rotate = 1;
-    optional string rotate_cron = 2;
+    optional string id = 1;
+    optional bool should_rotate = 2;
+    optional string rotate_cron = 3;
 }
 
 message KeyServiceCreateResponse {
@@ -36,6 +37,16 @@ message KeyServiceGetRequest {
     string id = 1;
 }
 message KeyServiceGetResponse {
+    Key key = 1;
+}
+
+message KeyServiceGetOrCreateRequest {
+    string id = 1;
+    optional bool should_rotate = 2;
+    optional string rotate_cron = 3;
+}
+
+message KeyServiceGetOrCreateResponse {
     Key key = 1;
 }
 
@@ -97,9 +108,7 @@ message KeyServiceDeleteRequest {
     string id = 1;
 }
 
-message KeyServiceDeleteResponse {
-    Key key = 1;
-}
+message KeyServiceDeleteResponse {}
 
 message KeyServiceJWKRequest {
     string id = 1;
@@ -121,7 +130,7 @@ service KeyService {
             get: "/v1/keys/{id}"
         };
     }
-    rpc GetOrCreate(KeyServiceCreateRequest) returns (KeyServiceCreateResponse) {
+    rpc GetOrCreate(KeyServiceGetOrCreateRequest) returns (KeyServiceGetOrCreateResponse) {
         option (google.api.http) = {
             post: "/v1/keys/get-or-create"
             body: "*"

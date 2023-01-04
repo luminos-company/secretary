@@ -6,6 +6,7 @@ package query
 
 import (
 	"context"
+	"strings"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
@@ -175,6 +176,25 @@ type IKeyRotatedModelDo interface {
 	Returning(value interface{}, columns ...string) IKeyRotatedModelDo
 	UnderlyingDB() *gorm.DB
 	schema.Tabler
+
+	GetByID(id string) (result *dbmodel.KeyRotatedModel, err error)
+}
+
+// SELECT * FROM @@table WHERE id=@id or external_id=@id order by id=@id limit 1
+func (k keyRotatedModelDo) GetByID(id string) (result *dbmodel.KeyRotatedModel, err error) {
+	var params []interface{}
+
+	var generateSQL strings.Builder
+	params = append(params, id)
+	params = append(params, id)
+	params = append(params, id)
+	generateSQL.WriteString("SELECT * FROM key_rotated WHERE id=? or external_id=? order by id=? limit 1 ")
+
+	var executeSQL *gorm.DB
+
+	executeSQL = k.UnderlyingDB().Raw(generateSQL.String(), params...).Take(&result)
+	err = executeSQL.Error
+	return
 }
 
 func (k keyRotatedModelDo) Debug() IKeyRotatedModelDo {

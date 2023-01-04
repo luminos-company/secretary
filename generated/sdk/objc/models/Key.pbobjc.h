@@ -101,11 +101,16 @@ GPB_FINAL @interface Key : GPBMessage
 #pragma mark - KeyServiceCreateRequest
 
 typedef GPB_ENUM(KeyServiceCreateRequest_FieldNumber) {
-  KeyServiceCreateRequest_FieldNumber_ShouldRotate = 1,
-  KeyServiceCreateRequest_FieldNumber_RotateCron = 2,
+  KeyServiceCreateRequest_FieldNumber_Id_p = 1,
+  KeyServiceCreateRequest_FieldNumber_ShouldRotate = 2,
+  KeyServiceCreateRequest_FieldNumber_RotateCron = 3,
 };
 
 GPB_FINAL @interface KeyServiceCreateRequest : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+/** Test to see if @c id_p has been set. */
+@property(nonatomic, readwrite) BOOL hasId_p;
 
 @property(nonatomic, readwrite) BOOL shouldRotate;
 
@@ -149,6 +154,41 @@ typedef GPB_ENUM(KeyServiceGetResponse_FieldNumber) {
 };
 
 GPB_FINAL @interface KeyServiceGetResponse : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) Key *key;
+/** Test to see if @c key has been set. */
+@property(nonatomic, readwrite) BOOL hasKey;
+
+@end
+
+#pragma mark - KeyServiceGetOrCreateRequest
+
+typedef GPB_ENUM(KeyServiceGetOrCreateRequest_FieldNumber) {
+  KeyServiceGetOrCreateRequest_FieldNumber_Id_p = 1,
+  KeyServiceGetOrCreateRequest_FieldNumber_ShouldRotate = 2,
+  KeyServiceGetOrCreateRequest_FieldNumber_RotateCron = 3,
+};
+
+GPB_FINAL @interface KeyServiceGetOrCreateRequest : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+
+@property(nonatomic, readwrite) BOOL shouldRotate;
+
+@property(nonatomic, readwrite) BOOL hasShouldRotate;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *rotateCron;
+/** Test to see if @c rotateCron has been set. */
+@property(nonatomic, readwrite) BOOL hasRotateCron;
+
+@end
+
+#pragma mark - KeyServiceGetOrCreateResponse
+
+typedef GPB_ENUM(KeyServiceGetOrCreateResponse_FieldNumber) {
+  KeyServiceGetOrCreateResponse_FieldNumber_Key = 1,
+};
+
+GPB_FINAL @interface KeyServiceGetOrCreateResponse : GPBMessage
 
 @property(nonatomic, readwrite, strong, null_resettable) Key *key;
 /** Test to see if @c key has been set. */
@@ -340,15 +380,7 @@ GPB_FINAL @interface KeyServiceDeleteRequest : GPBMessage
 
 #pragma mark - KeyServiceDeleteResponse
 
-typedef GPB_ENUM(KeyServiceDeleteResponse_FieldNumber) {
-  KeyServiceDeleteResponse_FieldNumber_Key = 1,
-};
-
 GPB_FINAL @interface KeyServiceDeleteResponse : GPBMessage
-
-@property(nonatomic, readwrite, strong, null_resettable) Key *key;
-/** Test to see if @c key has been set. */
-@property(nonatomic, readwrite) BOOL hasKey;
 
 @end
 

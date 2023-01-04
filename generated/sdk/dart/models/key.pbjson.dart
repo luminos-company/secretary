@@ -39,17 +39,19 @@ final $typed_data.Uint8List keyDescriptor = $convert.base64Decode('CgNLZXkSDgoCa
 const KeyServiceCreateRequest$json = const {
   '1': 'KeyServiceCreateRequest',
   '2': const [
-    const {'1': 'should_rotate', '3': 1, '4': 1, '5': 8, '9': 0, '10': 'shouldRotate', '17': true},
-    const {'1': 'rotate_cron', '3': 2, '4': 1, '5': 9, '9': 1, '10': 'rotateCron', '17': true},
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'id', '17': true},
+    const {'1': 'should_rotate', '3': 2, '4': 1, '5': 8, '9': 1, '10': 'shouldRotate', '17': true},
+    const {'1': 'rotate_cron', '3': 3, '4': 1, '5': 9, '9': 2, '10': 'rotateCron', '17': true},
   ],
   '8': const [
+    const {'1': '_id'},
     const {'1': '_should_rotate'},
     const {'1': '_rotate_cron'},
   ],
 };
 
 /// Descriptor for `KeyServiceCreateRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyServiceCreateRequestDescriptor = $convert.base64Decode('ChdLZXlTZXJ2aWNlQ3JlYXRlUmVxdWVzdBIoCg1zaG91bGRfcm90YXRlGAEgASgISABSDHNob3VsZFJvdGF0ZYgBARIkCgtyb3RhdGVfY3JvbhgCIAEoCUgBUgpyb3RhdGVDcm9uiAEBQhAKDl9zaG91bGRfcm90YXRlQg4KDF9yb3RhdGVfY3Jvbg==');
+final $typed_data.Uint8List keyServiceCreateRequestDescriptor = $convert.base64Decode('ChdLZXlTZXJ2aWNlQ3JlYXRlUmVxdWVzdBITCgJpZBgBIAEoCUgAUgJpZIgBARIoCg1zaG91bGRfcm90YXRlGAIgASgISAFSDHNob3VsZFJvdGF0ZYgBARIkCgtyb3RhdGVfY3JvbhgDIAEoCUgCUgpyb3RhdGVDcm9uiAEBQgUKA19pZEIQCg5fc2hvdWxkX3JvdGF0ZUIOCgxfcm90YXRlX2Nyb24=');
 @$core.Deprecated('Use keyServiceCreateResponseDescriptor instead')
 const KeyServiceCreateResponse$json = const {
   '1': 'KeyServiceCreateResponse',
@@ -80,6 +82,32 @@ const KeyServiceGetResponse$json = const {
 
 /// Descriptor for `KeyServiceGetResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List keyServiceGetResponseDescriptor = $convert.base64Decode('ChVLZXlTZXJ2aWNlR2V0UmVzcG9uc2USHQoDa2V5GAEgASgLMgsubW9kZWxzLktleVIDa2V5');
+@$core.Deprecated('Use keyServiceGetOrCreateRequestDescriptor instead')
+const KeyServiceGetOrCreateRequest$json = const {
+  '1': 'KeyServiceGetOrCreateRequest',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'should_rotate', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'shouldRotate', '17': true},
+    const {'1': 'rotate_cron', '3': 3, '4': 1, '5': 9, '9': 1, '10': 'rotateCron', '17': true},
+  ],
+  '8': const [
+    const {'1': '_should_rotate'},
+    const {'1': '_rotate_cron'},
+  ],
+};
+
+/// Descriptor for `KeyServiceGetOrCreateRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List keyServiceGetOrCreateRequestDescriptor = $convert.base64Decode('ChxLZXlTZXJ2aWNlR2V0T3JDcmVhdGVSZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZBIoCg1zaG91bGRfcm90YXRlGAIgASgISABSDHNob3VsZFJvdGF0ZYgBARIkCgtyb3RhdGVfY3JvbhgDIAEoCUgBUgpyb3RhdGVDcm9uiAEBQhAKDl9zaG91bGRfcm90YXRlQg4KDF9yb3RhdGVfY3Jvbg==');
+@$core.Deprecated('Use keyServiceGetOrCreateResponseDescriptor instead')
+const KeyServiceGetOrCreateResponse$json = const {
+  '1': 'KeyServiceGetOrCreateResponse',
+  '2': const [
+    const {'1': 'key', '3': 1, '4': 1, '5': 11, '6': '.models.Key', '10': 'key'},
+  ],
+};
+
+/// Descriptor for `KeyServiceGetOrCreateResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List keyServiceGetOrCreateResponseDescriptor = $convert.base64Decode('Ch1LZXlTZXJ2aWNlR2V0T3JDcmVhdGVSZXNwb25zZRIdCgNrZXkYASABKAsyCy5tb2RlbHMuS2V5UgNrZXk=');
 @$core.Deprecated('Use keyServiceListRequestDescriptor instead')
 const KeyServiceListRequest$json = const {
   '1': 'KeyServiceListRequest',
@@ -225,13 +253,10 @@ final $typed_data.Uint8List keyServiceDeleteRequestDescriptor = $convert.base64D
 @$core.Deprecated('Use keyServiceDeleteResponseDescriptor instead')
 const KeyServiceDeleteResponse$json = const {
   '1': 'KeyServiceDeleteResponse',
-  '2': const [
-    const {'1': 'key', '3': 1, '4': 1, '5': 11, '6': '.models.Key', '10': 'key'},
-  ],
 };
 
 /// Descriptor for `KeyServiceDeleteResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyServiceDeleteResponseDescriptor = $convert.base64Decode('ChhLZXlTZXJ2aWNlRGVsZXRlUmVzcG9uc2USHQoDa2V5GAEgASgLMgsubW9kZWxzLktleVIDa2V5');
+final $typed_data.Uint8List keyServiceDeleteResponseDescriptor = $convert.base64Decode('ChhLZXlTZXJ2aWNlRGVsZXRlUmVzcG9uc2U=');
 @$core.Deprecated('Use keyServiceJWKRequestDescriptor instead')
 const KeyServiceJWKRequest$json = const {
   '1': 'KeyServiceJWKRequest',
@@ -257,7 +282,7 @@ const $core.Map<$core.String, $core.dynamic> KeyServiceBase$json = const {
   '2': const [
     const {'1': 'Create', '2': '.models.KeyServiceCreateRequest', '3': '.models.KeyServiceCreateResponse', '4': const {}},
     const {'1': 'Get', '2': '.models.KeyServiceGetRequest', '3': '.models.KeyServiceGetResponse', '4': const {}},
-    const {'1': 'GetOrCreate', '2': '.models.KeyServiceCreateRequest', '3': '.models.KeyServiceCreateResponse', '4': const {}},
+    const {'1': 'GetOrCreate', '2': '.models.KeyServiceGetOrCreateRequest', '3': '.models.KeyServiceGetOrCreateResponse', '4': const {}},
     const {'1': 'List', '2': '.models.KeyServiceListRequest', '3': '.models.KeyServiceListResponse', '4': const {}},
     const {'1': 'Sign', '2': '.models.KeyServiceSignRequest', '3': '.models.KeyServiceSignResponse', '4': const {}},
     const {'1': 'Verify', '2': '.models.KeyServiceVerifyRequest', '3': '.models.KeyServiceVerifyResponse', '4': const {}},
@@ -277,6 +302,8 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> KeyService
   '.google.protobuf.Timestamp': $0.Timestamp$json,
   '.models.KeyServiceGetRequest': KeyServiceGetRequest$json,
   '.models.KeyServiceGetResponse': KeyServiceGetResponse$json,
+  '.models.KeyServiceGetOrCreateRequest': KeyServiceGetOrCreateRequest$json,
+  '.models.KeyServiceGetOrCreateResponse': KeyServiceGetOrCreateResponse$json,
   '.models.KeyServiceListRequest': KeyServiceListRequest$json,
   '.models.KeyServiceListResponse': KeyServiceListResponse$json,
   '.models.KeyServiceSignRequest': KeyServiceSignRequest$json,
@@ -296,4 +323,4 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> KeyService
 };
 
 /// Descriptor for `KeyService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
-final $typed_data.Uint8List keyServiceDescriptor = $convert.base64Decode('CgpLZXlTZXJ2aWNlEmAKBkNyZWF0ZRIfLm1vZGVscy5LZXlTZXJ2aWNlQ3JlYXRlUmVxdWVzdBogLm1vZGVscy5LZXlTZXJ2aWNlQ3JlYXRlUmVzcG9uc2UiE4LT5JMCDToBKiIIL3YxL2tleXMSWQoDR2V0EhwubW9kZWxzLktleVNlcnZpY2VHZXRSZXF1ZXN0Gh0ubW9kZWxzLktleVNlcnZpY2VHZXRSZXNwb25zZSIVgtPkkwIPEg0vdjEva2V5cy97aWR9EnMKC0dldE9yQ3JlYXRlEh8ubW9kZWxzLktleVNlcnZpY2VDcmVhdGVSZXF1ZXN0GiAubW9kZWxzLktleVNlcnZpY2VDcmVhdGVSZXNwb25zZSIhgtPkkwIbOgEqIhYvdjEva2V5cy9nZXQtb3ItY3JlYXRlElcKBExpc3QSHS5tb2RlbHMuS2V5U2VydmljZUxpc3RSZXF1ZXN0Gh4ubW9kZWxzLktleVNlcnZpY2VMaXN0UmVzcG9uc2UiEILT5JMCChIIL3YxL2tleXMSZAoEU2lnbhIdLm1vZGVscy5LZXlTZXJ2aWNlU2lnblJlcXVlc3QaHi5tb2RlbHMuS2V5U2VydmljZVNpZ25SZXNwb25zZSIdgtPkkwIXOgEqIhIvdjEva2V5cy97aWR9L3NpZ24SbAoGVmVyaWZ5Eh8ubW9kZWxzLktleVNlcnZpY2VWZXJpZnlSZXF1ZXN0GiAubW9kZWxzLktleVNlcnZpY2VWZXJpZnlSZXNwb25zZSIfgtPkkwIZOgEqIhQvdjEva2V5cy97aWR9L3ZlcmlmeRJsCgZDcnlwdG8SHy5tb2RlbHMuS2V5U2VydmljZUNyeXB0b1JlcXVlc3QaIC5tb2RlbHMuS2V5U2VydmljZUNyeXB0b1Jlc3BvbnNlIh+C0+STAhk6ASoiFC92MS9rZXlzL3tpZH0vY3J5cHRvEnAKB0RlY3J5cHQSIC5tb2RlbHMuS2V5U2VydmljZURlY3J5cHRSZXF1ZXN0GiEubW9kZWxzLktleVNlcnZpY2VEZWNyeXB0UmVzcG9uc2UiIILT5JMCGjoBKiIVL3YxL2tleXMve2lkfS9kZWNyeXB0EmkKBlJvdGF0ZRIfLm1vZGVscy5LZXlTZXJ2aWNlUm90YXRlUmVxdWVzdBogLm1vZGVscy5LZXlTZXJ2aWNlUm90YXRlUmVzcG9uc2UiHILT5JMCFiIUL3YxL2tleXMve2lkfS9yb3RhdGUSYgoGRGVsZXRlEh8ubW9kZWxzLktleVNlcnZpY2VEZWxldGVSZXF1ZXN0GiAubW9kZWxzLktleVNlcnZpY2VEZWxldGVSZXNwb25zZSIVgtPkkwIPKg0vdjEva2V5cy97aWR9El0KA0pXSxIcLm1vZGVscy5LZXlTZXJ2aWNlSldLUmVxdWVzdBodLm1vZGVscy5LZXlTZXJ2aWNlSldLUmVzcG9uc2UiGYLT5JMCExIRL3YxL2tleXMve2lkfS9qd2s=');
+final $typed_data.Uint8List keyServiceDescriptor = $convert.base64Decode('CgpLZXlTZXJ2aWNlEmAKBkNyZWF0ZRIfLm1vZGVscy5LZXlTZXJ2aWNlQ3JlYXRlUmVxdWVzdBogLm1vZGVscy5LZXlTZXJ2aWNlQ3JlYXRlUmVzcG9uc2UiE4LT5JMCDToBKiIIL3YxL2tleXMSWQoDR2V0EhwubW9kZWxzLktleVNlcnZpY2VHZXRSZXF1ZXN0Gh0ubW9kZWxzLktleVNlcnZpY2VHZXRSZXNwb25zZSIVgtPkkwIPEg0vdjEva2V5cy97aWR9En0KC0dldE9yQ3JlYXRlEiQubW9kZWxzLktleVNlcnZpY2VHZXRPckNyZWF0ZVJlcXVlc3QaJS5tb2RlbHMuS2V5U2VydmljZUdldE9yQ3JlYXRlUmVzcG9uc2UiIYLT5JMCGzoBKiIWL3YxL2tleXMvZ2V0LW9yLWNyZWF0ZRJXCgRMaXN0Eh0ubW9kZWxzLktleVNlcnZpY2VMaXN0UmVxdWVzdBoeLm1vZGVscy5LZXlTZXJ2aWNlTGlzdFJlc3BvbnNlIhCC0+STAgoSCC92MS9rZXlzEmQKBFNpZ24SHS5tb2RlbHMuS2V5U2VydmljZVNpZ25SZXF1ZXN0Gh4ubW9kZWxzLktleVNlcnZpY2VTaWduUmVzcG9uc2UiHYLT5JMCFzoBKiISL3YxL2tleXMve2lkfS9zaWduEmwKBlZlcmlmeRIfLm1vZGVscy5LZXlTZXJ2aWNlVmVyaWZ5UmVxdWVzdBogLm1vZGVscy5LZXlTZXJ2aWNlVmVyaWZ5UmVzcG9uc2UiH4LT5JMCGToBKiIUL3YxL2tleXMve2lkfS92ZXJpZnkSbAoGQ3J5cHRvEh8ubW9kZWxzLktleVNlcnZpY2VDcnlwdG9SZXF1ZXN0GiAubW9kZWxzLktleVNlcnZpY2VDcnlwdG9SZXNwb25zZSIfgtPkkwIZOgEqIhQvdjEva2V5cy97aWR9L2NyeXB0bxJwCgdEZWNyeXB0EiAubW9kZWxzLktleVNlcnZpY2VEZWNyeXB0UmVxdWVzdBohLm1vZGVscy5LZXlTZXJ2aWNlRGVjcnlwdFJlc3BvbnNlIiCC0+STAho6ASoiFS92MS9rZXlzL3tpZH0vZGVjcnlwdBJpCgZSb3RhdGUSHy5tb2RlbHMuS2V5U2VydmljZVJvdGF0ZVJlcXVlc3QaIC5tb2RlbHMuS2V5U2VydmljZVJvdGF0ZVJlc3BvbnNlIhyC0+STAhYiFC92MS9rZXlzL3tpZH0vcm90YXRlEmIKBkRlbGV0ZRIfLm1vZGVscy5LZXlTZXJ2aWNlRGVsZXRlUmVxdWVzdBogLm1vZGVscy5LZXlTZXJ2aWNlRGVsZXRlUmVzcG9uc2UiFYLT5JMCDyoNL3YxL2tleXMve2lkfRJdCgNKV0sSHC5tb2RlbHMuS2V5U2VydmljZUpXS1JlcXVlc3QaHS5tb2RlbHMuS2V5U2VydmljZUpXS1Jlc3BvbnNlIhmC0+STAhMSES92MS9rZXlzL3tpZH0vandr');

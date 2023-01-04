@@ -22,8 +22,9 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :created_at, :message, 10, "google.protobuf.Timestamp", json_name: "createdAt"
     end
     add_message "models.KeyServiceCreateRequest" do
-      proto3_optional :should_rotate, :bool, 1, json_name: "shouldRotate"
-      proto3_optional :rotate_cron, :string, 2, json_name: "rotateCron"
+      proto3_optional :id, :string, 1, json_name: "id"
+      proto3_optional :should_rotate, :bool, 2, json_name: "shouldRotate"
+      proto3_optional :rotate_cron, :string, 3, json_name: "rotateCron"
     end
     add_message "models.KeyServiceCreateResponse" do
       optional :key, :message, 1, "models.Key", json_name: "key"
@@ -32,6 +33,14 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :id, :string, 1, json_name: "id"
     end
     add_message "models.KeyServiceGetResponse" do
+      optional :key, :message, 1, "models.Key", json_name: "key"
+    end
+    add_message "models.KeyServiceGetOrCreateRequest" do
+      optional :id, :string, 1, json_name: "id"
+      proto3_optional :should_rotate, :bool, 2, json_name: "shouldRotate"
+      proto3_optional :rotate_cron, :string, 3, json_name: "rotateCron"
+    end
+    add_message "models.KeyServiceGetOrCreateResponse" do
       optional :key, :message, 1, "models.Key", json_name: "key"
     end
     add_message "models.KeyServiceListRequest" do
@@ -80,7 +89,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :id, :string, 1, json_name: "id"
     end
     add_message "models.KeyServiceDeleteResponse" do
-      optional :key, :message, 1, "models.Key", json_name: "key"
     end
     add_message "models.KeyServiceJWKRequest" do
       optional :id, :string, 1, json_name: "id"
@@ -97,6 +105,8 @@ module Models
   KeyServiceCreateResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceCreateResponse").msgclass
   KeyServiceGetRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceGetRequest").msgclass
   KeyServiceGetResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceGetResponse").msgclass
+  KeyServiceGetOrCreateRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceGetOrCreateRequest").msgclass
+  KeyServiceGetOrCreateResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceGetOrCreateResponse").msgclass
   KeyServiceListRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceListRequest").msgclass
   KeyServiceListResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceListResponse").msgclass
   KeyServiceSignRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceSignRequest").msgclass

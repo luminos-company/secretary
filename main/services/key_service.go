@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/luminos-company/secretary/database/dbmodel"
 	"github.com/luminos-company/secretary/database/dbmodel/converter"
+	"github.com/luminos-company/secretary/database/dbmodel/queries"
 	"github.com/luminos-company/secretary/generated/models"
 	"github.com/luminos-company/secretary/generated/query"
 	"github.com/luminos-company/secretary/tools/keys"
@@ -14,7 +15,7 @@ type KeyService struct {
 	models.KeyServiceServer
 }
 
-func (k KeyService) Create(ctx context.Context, request *models.KeyServiceCreateRequest) (*models.KeyServiceCreateResponse, error) {
+func (k KeyService) Create(_ context.Context, request *models.KeyServiceCreateRequest) (*models.KeyServiceCreateResponse, error) {
 	rsaKeyGen := keys.Rsa{}
 	rsaKeyGen.Generate()
 	publicKey, privateKey := rsaKeyGen.ExportBase64()
@@ -23,6 +24,9 @@ func (k KeyService) Create(ctx context.Context, request *models.KeyServiceCreate
 		PublicKey:    publicKey,
 		ShouldRotate: request.ShouldRotate,
 		RotateCron:   request.RotateCron,
+	}
+	if request.Id != nil {
+		key.ExternalId = request.Id
 	}
 	err := query.KeyModel.Save(key)
 	if err != nil {
@@ -33,8 +37,8 @@ func (k KeyService) Create(ctx context.Context, request *models.KeyServiceCreate
 	}, nil
 }
 
-func (k KeyService) Get(ctx context.Context, request *models.KeyServiceGetRequest) (*models.KeyServiceGetResponse, error) {
-	key, err := query.KeyModel.Where(query.KeyModel.ID.Eq(request.Id)).First()
+func (k KeyService) Get(_ context.Context, request *models.KeyServiceGetRequest) (*models.KeyServiceGetResponse, error) {
+	key, err := query.KeyModel.GetByID(request.Id)
 	if err != nil {
 		return nil, err
 	}
@@ -43,12 +47,36 @@ func (k KeyService) Get(ctx context.Context, request *models.KeyServiceGetReques
 	}, nil
 }
 
-func (k KeyService) GetOrCreate(ctx context.Context, request *models.KeyServiceCreateRequest) (*models.KeyServiceCreateResponse, error) {
-	//TODO implement me
-	panic("implement me")
+func (k KeyService) GetOrCreate(_ context.Context, request *models.KeyServiceGetOrCreateRequest) (*models.KeyServiceGetOrCreateResponse, error) {
+	if request == nil {
+		return nil, nil
+	}
+	bq, err := query.KeyModel.GetByID(request.Id)
+	if err != nil {
+		rsaKeyGen := keys.Rsa{}
+		rsaKeyGen.Generate()
+		publicKey, privateKey := rsaKeyGen.ExportBase64()
+		key := &dbmodel.KeyModel{
+			PrivateKey:   privateKey,
+			PublicKey:    publicKey,
+			ShouldRotate: request.ShouldRotate,
+			RotateCron:   request.RotateCron,
+			ExternalId:   &request.Id,
+		}
+		err = query.KeyModel.Save(key)
+		if err != nil {
+			return nil, err
+		}
+		return &models.KeyServiceGetOrCreateResponse{
+			Key: converter.KeyConverter.ToGrpc(key),
+		}, nil
+	}
+	return &models.KeyServiceGetOrCreateResponse{
+		Key: converter.KeyConverter.ToGrpc(bq),
+	}, nil
 }
 
-func (k KeyService) List(ctx context.Context, request *models.KeyServiceListRequest) (*models.KeyServiceListResponse, error) {
+func (k KeyService) List(_ context.Context, request *models.KeyServiceListRequest) (*models.KeyServiceListResponse, error) {
 	bq := query.KeyModel.Select()
 	if request != nil && request.FirstId != nil {
 		bq = bq.Where(query.KeyModel.ID.Lt(*request.FirstId))
@@ -68,11 +96,11 @@ func (k KeyService) List(ctx context.Context, request *models.KeyServiceListRequ
 	}, nil
 }
 
-func (k KeyService) Crypto(ctx context.Context, request *models.KeyServiceCryptoRequest) (*models.KeyServiceCryptoResponse, error) {
+func (k KeyService) Crypto(_ context.Context, request *models.KeyServiceCryptoRequest) (*models.KeyServiceCryptoResponse, error) {
 	if request == nil {
 		return nil, nil
 	}
-	bq, err := query.KeyModel.Select().Where(query.KeyModel.ID.Eq(request.Id)).First()
+	bq, err := query.KeyModel.GetByID(request.Id)
 	if err != nil {
 		return nil, err
 	}
@@ -87,11 +115,11 @@ func (k KeyService) Crypto(ctx context.Context, request *models.KeyServiceCrypto
 	}, nil
 }
 
-func (k KeyService) Decrypt(ctx context.Context, request *models.KeyServiceDecryptRequest) (*models.KeyServiceDecryptResponse, error) {
+func (k KeyService) Decrypt(_ context.Context, request *models.KeyServiceDecryptRequest) (*models.KeyServiceDecryptResponse, error) {
 	if request == nil {
 		return nil, nil
 	}
-	bq, err := query.KeyModel.Select().Where(query.KeyModel.ID.Eq(request.Id)).First()
+	bq, err := query.KeyModel.GetByID(request.Id)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +127,7 @@ func (k KeyService) Decrypt(ctx context.Context, request *models.KeyServiceDecry
 	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
 	decrypted, err := rsaKeyGen.DecryptString(request.Ciphertext)
 	if err != nil {
-		bqList, err := query.KeyRotatedModel.Select().Where(query.KeyRotatedModel.KeyId.Eq(request.Id)).Find()
+		bqList, err := query.KeyRotatedModel.Select().Where(query.KeyRotatedModel.KeyId.Eq(bq.ID)).Find()
 		if err != nil {
 			return nil, err
 		}
@@ -119,11 +147,11 @@ func (k KeyService) Decrypt(ctx context.Context, request *models.KeyServiceDecry
 	}, nil
 }
 
-func (k KeyService) Sign(ctx context.Context, request *models.KeyServiceSignRequest) (*models.KeyServiceSignResponse, error) {
+func (k KeyService) Sign(_ context.Context, request *models.KeyServiceSignRequest) (*models.KeyServiceSignResponse, error) {
 	if request == nil {
 		return nil, nil
 	}
-	bq, err := query.KeyModel.Select().Where(query.KeyModel.ID.Eq(request.Id)).First()
+	bq, err := query.KeyModel.GetByID(request.Id)
 	if err != nil {
 		return nil, err
 	}
@@ -138,11 +166,11 @@ func (k KeyService) Sign(ctx context.Context, request *models.KeyServiceSignRequ
 	}, nil
 }
 
-func (k KeyService) Verify(ctx context.Context, request *models.KeyServiceVerifyRequest) (*models.KeyServiceVerifyResponse, error) {
+func (k KeyService) Verify(_ context.Context, request *models.KeyServiceVerifyRequest) (*models.KeyServiceVerifyResponse, error) {
 	if request == nil {
 		return nil, nil
 	}
-	bq, err := query.KeyModel.Select().Where(query.KeyModel.ID.Eq(request.Id)).First()
+	bq, err := query.KeyModel.GetByID(request.Id)
 	if err != nil {
 		return nil, err
 	}
@@ -150,7 +178,7 @@ func (k KeyService) Verify(ctx context.Context, request *models.KeyServiceVerify
 	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
 	verified := rsaKeyGen.VerifyString(request.Message, request.Signature)
 	if !verified {
-		bqList, err := query.KeyRotatedModel.Select().Where(query.KeyRotatedModel.KeyId.Eq(request.Id)).Find()
+		bqList, err := query.KeyRotatedModel.Select().Where(query.KeyRotatedModel.KeyId.Eq(bq.ID)).Find()
 		if err != nil {
 			return nil, err
 		}
@@ -167,17 +195,50 @@ func (k KeyService) Verify(ctx context.Context, request *models.KeyServiceVerify
 	}, nil
 }
 
-func (k KeyService) Rotate(ctx context.Context, request *models.KeyServiceRotateRequest) (*models.KeyServiceRotateResponse, error) {
-	//TODO implement me
-	panic("implement me")
+func (k KeyService) Rotate(_ context.Context, request *models.KeyServiceRotateRequest) (*models.KeyServiceRotateResponse, error) {
+	if request == nil {
+		return nil, nil
+	}
+	bq, err := query.KeyModel.GetByID(request.Id)
+	if err != nil {
+		return nil, err
+	}
+	queries.EnhanceKey(bq).Rotate()
+	return &models.KeyServiceRotateResponse{
+		Key: converter.KeyConverter.ToGrpc(bq),
+	}, nil
 }
 
-func (k KeyService) Delete(ctx context.Context, request *models.KeyServiceDeleteRequest) (*models.KeyServiceDeleteResponse, error) {
-	//TODO implement me
-	panic("implement me")
+func (k KeyService) Delete(_ context.Context, request *models.KeyServiceDeleteRequest) (*models.KeyServiceDeleteResponse, error) {
+	if request == nil {
+		return nil, nil
+	}
+	bq, err := query.KeyModel.GetByID(request.Id)
+	if err != nil {
+		return nil, err
+	}
+	_, err = query.KeyModel.Where(query.KeyModel.ID.Eq(bq.ID)).Unscoped().Delete()
+	if err != nil {
+		return nil, err
+	}
+	return &models.KeyServiceDeleteResponse{}, nil
 }
 
-func (k KeyService) JWK(ctx context.Context, request *models.KeyServiceJWKRequest) (*models.KeyServiceJWKResponse, error) {
-	//TODO implement me
-	panic("implement me")
+func (k KeyService) JWK(_ context.Context, request *models.KeyServiceJWKRequest) (*models.KeyServiceJWKResponse, error) {
+	if request == nil {
+		return nil, nil
+	}
+	bq, err := query.KeyModel.GetByID(request.Id)
+	if err != nil {
+		return nil, err
+	}
+	rsaKeyGen := keys.Rsa{}
+	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
+	jwk, err := rsaKeyGen.ExportJWK()
+	if err != nil {
+		return nil, err
+	}
+	return &models.KeyServiceJWKResponse{
+		Jwk: jwk,
+	}, nil
 }

@@ -29,7 +29,29 @@ To run the docker image execute the following command:
 docker run -p 8080:8080 -p 50051:50051 -v /persistent/keys:/keys ghcr.io/luminos-company/secretary:main
 ```
 
-Soon the Traefik configuration.
+---
+
+By default the private keys are never sent to the client, but you can change this by setting the `SECRETARY_INSECURE` environment variable to `true`.
+
+| Name | Description | Default |
+| --- | --- | --- |
+| SECRETARY_INSECURE | If set to true, the private keys will be sent to the client. | false |
+
+---
+
+You can set those environment variables to change the default database (BE AWARE THAT THIS IS NOT SECURE):
+
+| Variable | Required | Default | Description |
+| -------- |----------| -------- | -------- |
+| PG_ENABLE | No      | false | Enables the postgres database |
+| PG_HOST | Yes      |  | The host of the postgres database |
+| PG_PORT | Yes      |  | The port of the postgres database |
+| PG_USER | Yes      |  | The user of the postgres database |
+| PG_PASSWORD | Yes      |  | The password of the postgres database |
+| PG_DATABASE | Yes      |  | The database of the postgres database |
+| PG_SSL_MODE | No      | disable | The ssl mode of the postgres database |
+| PG_TIME_ZONE | No      | UTC | The time zone of the postgres database |
+
 
 ## How do I contribute?
 You can contribute by opening a pull request, or by opening an issue.

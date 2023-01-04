@@ -209,11 +209,13 @@ typedef struct Key__storage_ {
 
 @implementation KeyServiceCreateRequest
 
+@dynamic hasId_p, id_p;
 @dynamic hasShouldRotate, shouldRotate;
 @dynamic hasRotateCron, rotateCron;
 
 typedef struct KeyServiceCreateRequest__storage_ {
   uint32_t _has_storage_[1];
+  NSString *id_p;
   NSString *rotateCron;
 } KeyServiceCreateRequest__storage_;
 
@@ -224,11 +226,20 @@ typedef struct KeyServiceCreateRequest__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
+        .name = "id_p",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceCreateRequest_FieldNumber_Id_p,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(KeyServiceCreateRequest__storage_, id_p),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeString,
+      },
+      {
         .name = "shouldRotate",
         .dataTypeSpecific.clazz = Nil,
         .number = KeyServiceCreateRequest_FieldNumber_ShouldRotate,
-        .hasIndex = 0,
-        .offset = 1,  // Stored in _has_storage_ to save space.
+        .hasIndex = 1,
+        .offset = 2,  // Stored in _has_storage_ to save space.
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBool,
       },
@@ -236,7 +247,7 @@ typedef struct KeyServiceCreateRequest__storage_ {
         .name = "rotateCron",
         .dataTypeSpecific.clazz = Nil,
         .number = KeyServiceCreateRequest_FieldNumber_RotateCron,
-        .hasIndex = 2,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(KeyServiceCreateRequest__storage_, rotateCron),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
@@ -384,6 +395,117 @@ typedef struct KeyServiceGetResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(KeyServiceGetResponse__storage_)
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - KeyServiceGetOrCreateRequest
+
+@implementation KeyServiceGetOrCreateRequest
+
+@dynamic id_p;
+@dynamic hasShouldRotate, shouldRotate;
+@dynamic hasRotateCron, rotateCron;
+
+typedef struct KeyServiceGetOrCreateRequest__storage_ {
+  uint32_t _has_storage_[1];
+  NSString *id_p;
+  NSString *rotateCron;
+} KeyServiceGetOrCreateRequest__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "id_p",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceGetOrCreateRequest_FieldNumber_Id_p,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(KeyServiceGetOrCreateRequest__storage_, id_p),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "shouldRotate",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceGetOrCreateRequest_FieldNumber_ShouldRotate,
+        .hasIndex = 1,
+        .offset = 2,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
+      },
+      {
+        .name = "rotateCron",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceGetOrCreateRequest_FieldNumber_RotateCron,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(KeyServiceGetOrCreateRequest__storage_, rotateCron),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeString,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[KeyServiceGetOrCreateRequest class]
+                                     rootClass:[KeyRoot class]
+                                          file:KeyRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(KeyServiceGetOrCreateRequest__storage_)
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - KeyServiceGetOrCreateResponse
+
+@implementation KeyServiceGetOrCreateResponse
+
+@dynamic hasKey, key;
+
+typedef struct KeyServiceGetOrCreateResponse__storage_ {
+  uint32_t _has_storage_[1];
+  Key *key;
+} KeyServiceGetOrCreateResponse__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "key",
+        .dataTypeSpecific.clazz = GPBObjCClass(Key),
+        .number = KeyServiceGetOrCreateResponse_FieldNumber_Key,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(KeyServiceGetOrCreateResponse__storage_, key),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[KeyServiceGetOrCreateResponse class]
+                                     rootClass:[KeyRoot class]
+                                          file:KeyRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(KeyServiceGetOrCreateResponse__storage_)
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
@@ -1049,11 +1171,9 @@ typedef struct KeyServiceDeleteRequest__storage_ {
 
 @implementation KeyServiceDeleteResponse
 
-@dynamic hasKey, key;
 
 typedef struct KeyServiceDeleteResponse__storage_ {
   uint32_t _has_storage_[1];
-  Key *key;
 } KeyServiceDeleteResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -1061,23 +1181,12 @@ typedef struct KeyServiceDeleteResponse__storage_ {
 + (GPBDescriptor *)descriptor {
   static GPBDescriptor *descriptor = nil;
   if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "key",
-        .dataTypeSpecific.clazz = GPBObjCClass(Key),
-        .number = KeyServiceDeleteResponse_FieldNumber_Key,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(KeyServiceDeleteResponse__storage_, key),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeMessage,
-      },
-    };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[KeyServiceDeleteResponse class]
                                      rootClass:[KeyRoot class]
                                           file:KeyRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                        fields:NULL
+                                    fieldCount:0
                                    storageSize:sizeof(KeyServiceDeleteResponse__storage_)
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG

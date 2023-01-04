@@ -16,8 +16,8 @@ func (*KeyConverterImpl) ToGrpc(k *dbmodel.KeyModel) *models.Key {
 	out := &models.Key{
 		Id:           k.ID,
 		ExternalId:   k.ExternalId,
-		PrivateKey:   k.PrivateKey,
 		PublicKey:    k.PublicKey,
+		PrivateKey:   "---- REDACTED FOR SECURITY ----",
 		ShouldRotate: k.ShouldRotate,
 		RotateCron:   k.RotateCron,
 		CreatedAt:    timestamppb.New(k.CreatedAt),
@@ -25,6 +25,9 @@ func (*KeyConverterImpl) ToGrpc(k *dbmodel.KeyModel) *models.Key {
 	}
 	if k.ExpiresAt != nil {
 		out.ExpiresAt = timestamppb.New(*k.ExpiresAt)
+	}
+	if typ.GetEnv("SECRETARY_INSECURE", "false") == "true" {
+		out.PrivateKey = k.PrivateKey
 	}
 	return out
 }

@@ -9,9 +9,9 @@ import (
 
 type KeyModel struct {
 	PrimaryModel
-	ExternalId   *string    `json:"external_id" gorm:"unique_index"`
-	PrivateKey   string     `json:"private_key" gorm:"unique_index"`
-	PublicKey    string     `json:"public_key" gorm:"unique_index"`
+	ExternalId   *string    `json:"external_id" gorm:"uniqueIndex"`
+	PrivateKey   string     `json:"private_key"`
+	PublicKey    string     `json:"public_key"`
 	ShouldRotate *bool      `json:"should_rotate" gorm:"default:false"`
 	RotateCron   *string    `json:"rotate_cron"`
 	ExpiresAt    *time.Time `json:"expires_at" gorm:"index"`

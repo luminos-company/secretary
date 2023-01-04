@@ -9,14 +9,14 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>models.KeyServiceCreateRequest</code>
+ * Generated from protobuf message <code>models.KeyServiceGetOrCreateRequest</code>
  */
-class KeyServiceCreateRequest extends \Google\Protobuf\Internal\Message
+class KeyServiceGetOrCreateRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string id = 1 [json_name = "id"];</code>
+     * Generated from protobuf field <code>string id = 1 [json_name = "id"];</code>
      */
-    protected $id = null;
+    protected $id = '';
     /**
      * Generated from protobuf field <code>optional bool should_rotate = 2 [json_name = "shouldRotate"];</code>
      */
@@ -43,26 +43,16 @@ class KeyServiceCreateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string id = 1 [json_name = "id"];</code>
+     * Generated from protobuf field <code>string id = 1 [json_name = "id"];</code>
      * @return string
      */
     public function getId()
     {
-        return isset($this->id) ? $this->id : '';
-    }
-
-    public function hasId()
-    {
-        return isset($this->id);
-    }
-
-    public function clearId()
-    {
-        unset($this->id);
+        return $this->id;
     }
 
     /**
-     * Generated from protobuf field <code>optional string id = 1 [json_name = "id"];</code>
+     * Generated from protobuf field <code>string id = 1 [json_name = "id"];</code>
      * @param string $var
      * @return $this
      */

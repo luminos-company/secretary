@@ -13,10 +13,6 @@ use Google\Protobuf\Internal\GPBUtil;
  */
 class KeyServiceDeleteResponse extends \Google\Protobuf\Internal\Message
 {
-    /**
-     * Generated from protobuf field <code>.models.Key key = 1 [json_name = "key"];</code>
-     */
-    protected $key = null;
 
     /**
      * Constructor.
@@ -24,44 +20,11 @@ class KeyServiceDeleteResponse extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Models\Key $key
      * }
      */
     public function __construct($data = NULL) {
         \GPBMetadata\Models\Key::initOnce();
         parent::__construct($data);
-    }
-
-    /**
-     * Generated from protobuf field <code>.models.Key key = 1 [json_name = "key"];</code>
-     * @return \Models\Key|null
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    public function hasKey()
-    {
-        return isset($this->key);
-    }
-
-    public function clearKey()
-    {
-        unset($this->key);
-    }
-
-    /**
-     * Generated from protobuf field <code>.models.Key key = 1 [json_name = "key"];</code>
-     * @param \Models\Key $var
-     * @return $this
-     */
-    public function setKey($var)
-    {
-        GPBUtil::checkMessage($var, \Models\Key::class);
-        $this->key = $var;
-
-        return $this;
     }
 
 }

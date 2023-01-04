@@ -2,6 +2,7 @@ package database
 
 import (
 	"github.com/luminos-company/secretary/database/dbmodel"
+	"github.com/luminos-company/secretary/database/interfaces"
 	"github.com/luminos-company/secretary/typ"
 	"gorm.io/driver/postgres"
 	"gorm.io/driver/sqlite"
@@ -39,7 +40,7 @@ func Generate() {
 		Mode:    gen.WithoutContext | gen.WithDefaultQuery | gen.WithQueryInterface, // generate mode
 	})
 	g.UseDB(Get())
-	g.ApplyBasic(dbmodel.KeyModel{}, dbmodel.KeyRotatedModel{})
+	g.ApplyInterface(func(interfaces.IdQuerier) {}, dbmodel.KeyModel{}, dbmodel.KeyRotatedModel{})
 	g.Execute()
 }
 
