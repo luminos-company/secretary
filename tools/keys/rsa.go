@@ -1,6 +1,7 @@
 package keys
 
 import (
+	"crypto"
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/x509"
@@ -92,7 +93,7 @@ func (r *Rsa) ExportJWK() string {
 }
 
 func (r *Rsa) Encrypt(data []byte) ([]byte, error) {
-	chunkSize := 256
+	chunkSize := r.PrivateKey.Size() - (2 * crypto.SHA256.Size()) - 2
 	var chunks [][]byte
 	for i := 0; i < len(data); i += chunkSize {
 		end := i + chunkSize
@@ -116,7 +117,7 @@ func (r *Rsa) Encrypt(data []byte) ([]byte, error) {
 }
 
 func (r *Rsa) Decrypt(data []byte) ([]byte, error) {
-	chunkSize := 256
+	chunkSize := r.PrivateKey.Size()
 	var chunks [][]byte
 	for i := 0; i < len(data); i += chunkSize {
 		end := i + chunkSize
@@ -139,7 +140,7 @@ func (r *Rsa) Decrypt(data []byte) ([]byte, error) {
 }
 
 func (r *Rsa) Sign(data []byte) ([]byte, error) {
-	chunkSize := 256
+	chunkSize := r.PrivateKey.Size() - (2 * crypto.SHA256.Size()) - 2
 	var chunks [][]byte
 	for i := 0; i < len(data); i += chunkSize {
 		end := i + chunkSize
@@ -151,7 +152,7 @@ func (r *Rsa) Sign(data []byte) ([]byte, error) {
 
 	var signature []byte
 	for _, chunk := range chunks {
-		sign, err := rsa.SignPKCS1v15(rand.Reader, r.PrivateKey, 0, chunk)
+		sign, err := rsa.SignPKCS1v15(rand.Reader, r.PrivateKey, crypto.SHA256, chunk)
 		if err != nil {
 			return nil, err
 		}
@@ -162,7 +163,7 @@ func (r *Rsa) Sign(data []byte) ([]byte, error) {
 }
 
 func (r *Rsa) Verify(data []byte, signature []byte) bool {
-	chunkSize := 256
+	chunkSize := r.PrivateKey.Size()
 	var chunks [][]byte
 	for i := 0; i < len(data); i += chunkSize {
 		end := i + chunkSize
@@ -173,7 +174,7 @@ func (r *Rsa) Verify(data []byte, signature []byte) bool {
 	}
 
 	for _, chunk := range chunks {
-		err := rsa.VerifyPKCS1v15(r.PublicKey, 0, chunk, signature)
+		err := rsa.VerifyPKCS1v15(r.PublicKey, crypto.SHA256, chunk, signature)
 		if err != nil {
 			return false
 		}
