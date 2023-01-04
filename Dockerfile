@@ -20,8 +20,6 @@ FROM alpine:latest AS deploy
 
 WORKDIR /
 
-RUN apk add --no-cache gcc g++ git openssh-client
-
 COPY --from=builder /main .
 
 EXPOSE 50051
