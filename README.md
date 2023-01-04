@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/luminos-company/secretary/main/.github/assets/temp_logo.png" width="300">
 
-[![Luminos Open](https://img.shields.io/badge/Luminos%20Open-WIP-red)](https://github.com/luminos-company/secretary/actions/workflows/codeql.yml)
+[![Luminos Open](https://img.shields.io/badge/Luminos%20Open-TIP-red)](https://github.com/luminos-company/secretary/actions/workflows/codeql.yml)
 [![CodeQL](https://github.com/luminos-company/secretary/actions/workflows/codeql.yml/badge.svg)](https://github.com/luminos-company/secretary/actions/workflows/codeql.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/luminos-company/secretary)](https://goreportcard.com/report/github.com/luminos-company/secretary)
 [![Go Reference](https://pkg.go.dev/badge/github.com/luminos-company/secretary.svg)](https://pkg.go.dev/github.com/luminos-company/secretary)
@@ -13,7 +13,7 @@ An open source, key management system. Written in GO.
 ## What is Secretary?
 Secretary is a key management system that allows you to store and manage your keys.
 
-You would be able to generate various types of keys, such as RSA, ECDSA, and Ed25519, rotating them or keeping them persistent.
+You would be able to generate various types of keys, such as RSA(ALMOST READY), ECDSA(WIP), and Ed25519(WIP), rotating them or keeping them persistent.
 
 ## Why Secretary?
 There are many key management systems out there, but none of them are open source. This is a problem, because you can't trust a closed source system with your keys.
@@ -26,7 +26,7 @@ You can use the docker image or build it yourself.
 
 To run the docker image execute the following command:
 ```bash
-docker run -p 8080:8080 -p 50051:50051 -v /persistent/keys:/keys ghcr.io/luminos-company/secretary:master
+docker run -p 8080:8080 -p 50051:50051 -v /persistent/keys:/keys ghcr.io/luminos-company/secretary:main
 ```
 
 Soon the Traefik configuration.
