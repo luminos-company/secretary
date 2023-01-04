@@ -92,20 +92,94 @@ func (r *Rsa) ExportJWK() string {
 }
 
 func (r *Rsa) Encrypt(data []byte) ([]byte, error) {
-	return rsa.EncryptPKCS1v15(rand.Reader, r.PublicKey, data)
+	chunkSize := 245
+	var chunks [][]byte
+	for i := 0; i < len(data); i += chunkSize {
+		end := i + chunkSize
+		if end > len(data) {
+			end = len(data)
+		}
+		chunks = append(chunks, data[i:end])
+
+	}
+
+	var encrypted []byte
+	for _, chunk := range chunks {
+		encrypt, err := rsa.EncryptPKCS1v15(rand.Reader, r.PublicKey, chunk)
+		if err != nil {
+			return nil, err
+		}
+		encrypted = append(encrypted, encrypt...)
+
+	}
+	return encrypted, nil
 }
 
 func (r *Rsa) Decrypt(data []byte) ([]byte, error) {
-	return rsa.DecryptPKCS1v15(rand.Reader, r.PrivateKey, data)
+	chunkSize := 256
+	var chunks [][]byte
+	for i := 0; i < len(data); i += chunkSize {
+		end := i + chunkSize
+		if end > len(data) {
+			end = len(data)
+		}
+		chunks = append(chunks, data[i:end])
+	}
+
+	var decrypted []byte
+	for _, chunk := range chunks {
+		decrypt, err := rsa.DecryptPKCS1v15(rand.Reader, r.PrivateKey, chunk)
+		if err != nil {
+			return nil, err
+		}
+		decrypted = append(decrypted, decrypt...)
+	}
+
+	return decrypted, nil
 }
 
 func (r *Rsa) Sign(data []byte) ([]byte, error) {
-	return rsa.SignPKCS1v15(rand.Reader, r.PrivateKey, 0, data)
+	chunkSize := 245
+	var chunks [][]byte
+	for i := 0; i < len(data); i += chunkSize {
+		end := i + chunkSize
+		if end > len(data) {
+			end = len(data)
+		}
+		chunks = append(chunks, data[i:end])
+	}
+
+	var signature []byte
+	for _, chunk := range chunks {
+		sign, err := rsa.SignPKCS1v15(rand.Reader, r.PrivateKey, 0, chunk)
+		if err != nil {
+			return nil, err
+		}
+		signature = append(signature, sign...)
+	}
+
+	return signature, nil
 }
 
 func (r *Rsa) Verify(data []byte, signature []byte) bool {
-	err := rsa.VerifyPKCS1v15(r.PublicKey, 0, data, signature)
-	return err == nil
+	chunkSize := 256
+	var chunks [][]byte
+	for i := 0; i < len(data); i += chunkSize {
+		end := i + chunkSize
+		if end > len(data) {
+			end = len(data)
+		}
+		chunks = append(chunks, data[i:end])
+	}
+
+	for _, chunk := range chunks {
+		err := rsa.VerifyPKCS1v15(r.PublicKey, 0, chunk, signature)
+		if err != nil {
+			return false
+		}
+	}
+
+	return true
 }
 
 func (r *Rsa) EncryptString(data string) (string, error) {
