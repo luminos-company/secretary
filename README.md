@@ -6,7 +6,7 @@
 [![CodeQL](https://github.com/luminos-company/secretary/actions/workflows/codeql.yml/badge.svg)](https://github.com/luminos-company/secretary/actions/workflows/codeql.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/luminos-company/secretary)](https://goreportcard.com/report/github.com/luminos-company/secretary)
 [![Go Reference](https://pkg.go.dev/badge/github.com/luminos-company/secretary.svg)](https://pkg.go.dev/github.com/luminos-company/secretary)
-
+[![Swagger doc](https://img.shields.io/badge/SWAGGER-DOCUMENTATION-green)](https://luminos-company.github.io/secretary/)
 
 An open source, key management system. Written in GO.
 
@@ -52,13 +52,17 @@ You can set those environment variables to change the default database (BE AWARE
 | PG_SSL_MODE | No      | disable   | The ssl mode of the postgres database |
 | PG_TIME_ZONE | No      | UTC       | The time zone of the postgres database |
 
+## Documentation
+[![Swagger docs](https://img.shields.io/badge/SWAGGER-DOCUMENTATION-green)](https://luminos-company.github.io/secretary/)
+
+There is not an official documentation, just import the sdk specific language and use it following the grpc client standard implementation.
+
+We are deploying a github page with a swagger who will let you knwo all the available methods.
+
 
 ## How do I contribute?
 You can contribute by opening a pull request, or by opening an issue.
 Or if you don't have the time, you can support us by donating.
-
-[![Open Collective](https://opencollective.com/secretary/tiers/backers.svg)](https://opencollective.com/secretary/)
-[![Open Collective](https://opencollective.com/secretary/tiers/sponsors.svg)](https://opencollective.com/secretary/)  
 
 ## License
 This project is licensed under the GNU General Public License v3.0. You can read more about it [here](LICENSE).
