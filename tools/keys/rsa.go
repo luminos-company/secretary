@@ -89,13 +89,19 @@ func (r *Rsa) ExportBase64() (string, string) {
 	return r.ExportPublicBase64(), r.ExportPrivateBase64()
 }
 
-func (r *Rsa) ExportJWK() (string, error) {
-	re, _, err := jwk.DecodePEM([]byte(r.ExportPublicKey()))
+func (r *Rsa) ExportJWK() (res map[string]interface{}, er error) {
+	key, err := jwk.FromRaw(r.PublicKey)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
-	vres, err := sonic.Marshal(re)
-	return string(vres), err
+	jwk.AssignKeyID(key)
+
+	buf, err := sonic.Marshal(key)
+	if err != nil {
+		return nil, err
+	}
+	err = sonic.Unmarshal(buf, &res)
+	return res, err
 }
 
 func (r *Rsa) Encrypt(data []byte) ([]byte, error) {

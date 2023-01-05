@@ -241,3 +241,20 @@ func TestKeyService_Decrypt3(t *testing.T) {
 	}
 	t.Log(res3.Message)
 }
+
+func TestKeyService_JWK(t *testing.T) {
+	ksv := services.KeyService{}
+	res1, err := ksv.Create(context.TODO(), &models.KeyServiceCreateRequest{
+		ShouldRotate: PTrue(),
+	})
+	if err != nil || res1 == nil {
+		t.Fatal(err)
+	}
+	res2, err := ksv.JWK(context.TODO(), &models.KeyServiceJWKRequest{
+		Id: res1.Key.GetId(),
+	})
+	if err != nil || res2 == nil {
+		t.Fatal(err)
+	}
+	t.Log(res2.Jwk)
+}

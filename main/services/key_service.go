@@ -2,6 +2,7 @@ package services
 
 import (
 	"context"
+	"github.com/bytedance/sonic"
 	"github.com/luminos-company/secretary/database"
 	"github.com/luminos-company/secretary/database/dbmodel"
 	"github.com/luminos-company/secretary/database/dbmodel/converter"
@@ -244,12 +245,35 @@ func (k KeyService) JWK(_ context.Context, request *models.KeyServiceJWKRequest)
 	}
 	rsaKeyGen := keys.Rsa{}
 	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
+	jswk := []map[string]interface{}{}
 	jwk, err := rsaKeyGen.ExportJWK()
+	if err != nil {
+		return nil, err
+	}
+	jswk = append(jswk, jwk)
+
+	subBq, err := query.KeyRotatedModel.Select().Where(query.KeyRotatedModel.KeyId.Eq(bq.ID)).Find()
+	if err != nil {
+		return nil, err
+	}
+
+	for _, subBq := range subBq {
+		rsaKeyGen.ImportBase64(subBq.PublicKey, subBq.PrivateKey)
+		subJwk, err := rsaKeyGen.ExportJWK()
+		if err != nil {
+			return nil, err
+		}
+		jswk = append(jswk, subJwk)
+	}
+
+	marshal, err := sonic.Marshal(map[string]interface{}{
+		"keys": jswk,
+	})
 	if err != nil {
 		return nil, err
 	}
 
 	return &models.KeyServiceJWKResponse{
-		Jwk: jwk,
+		Jwk: string(marshal),
 	}, nil
 }
