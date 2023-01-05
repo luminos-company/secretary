@@ -28,7 +28,7 @@ func create() {
 	db = Get()
 	err := db.AutoMigrate(dbmodel.KeyModel{}, dbmodel.KeyRotatedModel{})
 	if err != nil {
-		_ = os.RemoveAll(dbFile)
+		_ = os.RemoveAll(dbFolder + "/" + dbFile)
 		panic(err)
 	}
 }
@@ -57,7 +57,7 @@ func safeGet() *gorm.DB {
 		pgURL := "host=" + pgHost + " port=" + pgPort + " user=" + pgUser + " dbname=" + pgDatabase + " password=" + pgPassword + " sslmode=" + pgSSLMode + " TimeZone=" + pgTimeZone
 		dbt, _ = gorm.Open(postgres.Open(pgURL), &gorm.Config{})
 	} else {
-		dbt, _ = gorm.Open(sqlite.Open(dbFile), &gorm.Config{})
+		dbt, _ = gorm.Open(sqlite.Open(dbFolder+"/"+dbFile), &gorm.Config{})
 	}
 	return dbt
 }
