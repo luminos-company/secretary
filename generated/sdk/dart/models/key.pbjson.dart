@@ -153,11 +153,12 @@ const KeyServiceSignResponse$json = const {
   '1': 'KeyServiceSignResponse',
   '2': const [
     const {'1': 'signature', '3': 1, '4': 1, '5': 9, '10': 'signature'},
+    const {'1': 'kid', '3': 2, '4': 1, '5': 9, '10': 'kid'},
   ],
 };
 
 /// Descriptor for `KeyServiceSignResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyServiceSignResponseDescriptor = $convert.base64Decode('ChZLZXlTZXJ2aWNlU2lnblJlc3BvbnNlEhwKCXNpZ25hdHVyZRgBIAEoCVIJc2lnbmF0dXJl');
+final $typed_data.Uint8List keyServiceSignResponseDescriptor = $convert.base64Decode('ChZLZXlTZXJ2aWNlU2lnblJlc3BvbnNlEhwKCXNpZ25hdHVyZRgBIAEoCVIJc2lnbmF0dXJlEhAKA2tpZBgCIAEoCVIDa2lk');
 @$core.Deprecated('Use keyServiceVerifyRequestDescriptor instead')
 const KeyServiceVerifyRequest$json = const {
   '1': 'KeyServiceVerifyRequest',

@@ -22,23 +22,16 @@ func init() {
 }
 
 func (k KeyService) Create(_ context.Context, request *models.KeyServiceCreateRequest) (*models.KeyServiceCreateResponse, error) {
-	rsaKeyGen := keys.Rsa{}
-	if request.Bits != nil {
-		rsaKeyGen.Generate(int(*request.Bits))
-	} else {
-		rsaKeyGen.Generate(2048)
-	}
-	publicKey, privateKey := rsaKeyGen.ExportBase64()
 	key := &dbmodel.KeyModel{
-		PrivateKey:   privateKey,
-		PublicKey:    publicKey,
 		ShouldRotate: request.ShouldRotate,
 		RotateCron:   request.RotateCron,
+		ExternalId:   request.Id,
 	}
-	if request.Id != nil {
-		key.ExternalId = request.Id
+	err := key.GenerateKeys(request.Bits)
+	if err != nil {
+		return nil, err
 	}
-	err := query.KeyModel.Save(key)
+	err = query.KeyModel.Save(key)
 	if err != nil {
 		return nil, err
 	}
@@ -63,19 +56,14 @@ func (k KeyService) GetOrCreate(_ context.Context, request *models.KeyServiceGet
 	}
 	bq, err := query.KeyModel.GetByID(request.Id)
 	if err != nil {
-		rsaKeyGen := keys.Rsa{}
-		if request.Bits != nil {
-			rsaKeyGen.Generate(int(*request.Bits))
-		} else {
-			rsaKeyGen.Generate(2048)
-		}
-		publicKey, privateKey := rsaKeyGen.ExportBase64()
 		key := &dbmodel.KeyModel{
-			PrivateKey:   privateKey,
-			PublicKey:    publicKey,
 			ShouldRotate: request.ShouldRotate,
 			RotateCron:   request.RotateCron,
 			ExternalId:   &request.Id,
+		}
+		err = key.GenerateKeys(request.Bits)
+		if err != nil {
+			return nil, err
 		}
 		err = query.KeyModel.Save(key)
 		if err != nil {
@@ -174,6 +162,7 @@ func (k KeyService) Sign(_ context.Context, request *models.KeyServiceSignReques
 	}
 	return &models.KeyServiceSignResponse{
 		Signature: signature,
+		Kid:       bq.ID,
 	}, nil
 }
 
@@ -243,31 +232,20 @@ func (k KeyService) JWK(_ context.Context, request *models.KeyServiceJWKRequest)
 	if err != nil {
 		return nil, err
 	}
-	rsaKeyGen := keys.Rsa{}
-	rsaKeyGen.ImportBase64(bq.PublicKey, bq.PrivateKey)
-	jswk := []map[string]interface{}{}
-	jwk, err := rsaKeyGen.ExportJWK()
-	if err != nil {
-		return nil, err
-	}
-	jswk = append(jswk, jwk)
 
-	subBq, err := query.KeyRotatedModel.Select().Where(query.KeyRotatedModel.KeyId.Eq(bq.ID)).Find()
+	jwks := []map[string]interface{}{bq.JWKMap()}
+
+	bqList, err := query.KeyRotatedModel.Select().Where(query.KeyRotatedModel.KeyId.Eq(bq.ID)).Find()
 	if err != nil {
 		return nil, err
 	}
 
-	for _, subBq := range subBq {
-		rsaKeyGen.ImportBase64(subBq.PublicKey, subBq.PrivateKey)
-		subJwk, err := rsaKeyGen.ExportJWK()
-		if err != nil {
-			return nil, err
-		}
-		jswk = append(jswk, subJwk)
+	for _, bq := range bqList {
+		jwks = append(jwks, bq.JWKMap())
 	}
 
 	marshal, err := sonic.Marshal(map[string]interface{}{
-		"keys": jswk,
+		"keys": jwks,
 	})
 	if err != nil {
 		return nil, err

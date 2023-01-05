@@ -68,6 +68,7 @@ message KeyServiceSignRequest {
 
 message KeyServiceSignResponse {
     string signature = 1;
+    string kid = 2;
 }
 
 message KeyServiceVerifyRequest {

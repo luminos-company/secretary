@@ -17,6 +17,10 @@ class KeyServiceSignResponse extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string signature = 1 [json_name = "signature"];</code>
      */
     protected $signature = '';
+    /**
+     * Generated from protobuf field <code>string kid = 2 [json_name = "kid"];</code>
+     */
+    protected $kid = '';
 
     /**
      * Constructor.
@@ -25,6 +29,7 @@ class KeyServiceSignResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $signature
+     *     @type string $kid
      * }
      */
     public function __construct($data = NULL) {
@@ -50,6 +55,28 @@ class KeyServiceSignResponse extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->signature = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string kid = 2 [json_name = "kid"];</code>
+     * @return string
+     */
+    public function getKid()
+    {
+        return $this->kid;
+    }
+
+    /**
+     * Generated from protobuf field <code>string kid = 2 [json_name = "kid"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setKid($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->kid = $var;
 
         return $this;
     }

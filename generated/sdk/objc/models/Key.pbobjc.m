@@ -701,10 +701,12 @@ typedef struct KeyServiceSignRequest__storage_ {
 @implementation KeyServiceSignResponse
 
 @dynamic signature;
+@dynamic kid;
 
 typedef struct KeyServiceSignResponse__storage_ {
   uint32_t _has_storage_[1];
   NSString *signature;
+  NSString *kid;
 } KeyServiceSignResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -719,6 +721,15 @@ typedef struct KeyServiceSignResponse__storage_ {
         .number = KeyServiceSignResponse_FieldNumber_Signature,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(KeyServiceSignResponse__storage_, signature),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "kid",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceSignResponse_FieldNumber_Kid,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(KeyServiceSignResponse__storage_, kid),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },

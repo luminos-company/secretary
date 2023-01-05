@@ -728,16 +728,21 @@ class KeyServiceSignRequest extends $pb.GeneratedMessage {
 class KeyServiceSignResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceSignResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'signature')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'kid')
     ..hasRequiredFields = false
   ;
 
   KeyServiceSignResponse._() : super();
   factory KeyServiceSignResponse({
     $core.String? signature,
+    $core.String? kid,
   }) {
     final _result = create();
     if (signature != null) {
       _result.signature = signature;
+    }
+    if (kid != null) {
+      _result.kid = kid;
     }
     return _result;
   }
@@ -770,6 +775,15 @@ class KeyServiceSignResponse extends $pb.GeneratedMessage {
   $core.bool hasSignature() => $_has(0);
   @$pb.TagNumber(1)
   void clearSignature() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get kid => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set kid($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasKid() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearKid() => clearField(2);
 }
 
 class KeyServiceVerifyRequest extends $pb.GeneratedMessage {

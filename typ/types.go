@@ -33,3 +33,25 @@ func PTime(t *time.Time) time.Time {
 	}
 	return *t
 }
+
+func PInt(i *int) int {
+	if i == nil {
+		return 0
+	}
+	return *i
+}
+
+func PInt64(i *int64) int64 {
+	if i == nil {
+		return 0
+	}
+	return *i
+}
+
+func IntP(i int) *int {
+	return &i
+}
+
+func Int64P(i int64) *int64 {
+	return &i
+}

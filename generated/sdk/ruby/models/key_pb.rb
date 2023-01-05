@@ -58,6 +58,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     end
     add_message "models.KeyServiceSignResponse" do
       optional :signature, :string, 1, json_name: "signature"
+      optional :kid, :string, 2, json_name: "kid"
     end
     add_message "models.KeyServiceVerifyRequest" do
       optional :id, :string, 1, json_name: "id"

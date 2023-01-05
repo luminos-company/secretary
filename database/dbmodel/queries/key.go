@@ -28,15 +28,20 @@ func (*KeyEnhancerImpl) Rotate(k *dbmodel.KeyModel) {
 		KeyId:      k.ID,
 		PrivateKey: k.PrivateKey,
 		PublicKey:  k.PublicKey,
+		Kid:        k.Kid,
+		JWK:        k.JWK,
 		ExpiresAt:  typ.TimeP(tk.NextExpirationDate().Add(time.Hour * 24)),
 	})
 	if err != nil {
 		return
 	}
 	k.PublicKey, k.PrivateKey = rsa.ExportBase64()
+	err = k.GenerateJWK()
+	if err != nil {
+		return
+	}
 	k.ExpiresAt = tk.NextExpirationDate()
-	tk = *k
-	err = query.KeyModel.Save(&tk)
+	err = query.KeyModel.Save(k)
 	if err != nil {
 		return
 	}

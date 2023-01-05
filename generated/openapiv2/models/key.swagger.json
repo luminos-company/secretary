@@ -555,6 +555,9 @@
       "properties": {
         "signature": {
           "type": "string"
+        },
+        "kid": {
+          "type": "string"
         }
       }
     },

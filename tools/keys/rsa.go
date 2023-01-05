@@ -19,10 +19,29 @@ type Rsa struct {
 	PublicKey  *rsa.PublicKey
 }
 
-func (r *Rsa) Generate(bits int) {
-	privkey, _ := rsa.GenerateKey(rand.Reader, bits)
+func (r *Rsa) Generate(bits int) error {
+	privkey, err := rsa.GenerateKey(rand.Reader, bits)
+	if err != nil {
+		return err
+	}
 	r.PrivateKey = privkey
 	r.PublicKey = &privkey.PublicKey
+	return nil
+}
+
+func (r *Rsa) CalculateJWK() (res map[string]interface{}, er error) {
+	key, err := jwk.FromRaw(r.PublicKey)
+	if err != nil {
+		return nil, err
+	}
+	_ = jwk.AssignKeyID(key)
+
+	buf, err := sonic.Marshal(key)
+	if err != nil {
+		return nil, err
+	}
+	err = sonic.Unmarshal(buf, &res)
+	return res, err
 }
 
 func (r *Rsa) ExportPrivateKey() string {
@@ -87,21 +106,6 @@ func (r *Rsa) ImportBase64(public string, private string) {
 
 func (r *Rsa) ExportBase64() (string, string) {
 	return r.ExportPublicBase64(), r.ExportPrivateBase64()
-}
-
-func (r *Rsa) ExportJWK() (res map[string]interface{}, er error) {
-	key, err := jwk.FromRaw(r.PublicKey)
-	if err != nil {
-		return nil, err
-	}
-	jwk.AssignKeyID(key)
-
-	buf, err := sonic.Marshal(key)
-	if err != nil {
-		return nil, err
-	}
-	err = sonic.Unmarshal(buf, &res)
-	return res, err
 }
 
 func (r *Rsa) Encrypt(data []byte) ([]byte, error) {

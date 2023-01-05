@@ -256,11 +256,14 @@ GPB_FINAL @interface KeyServiceSignRequest : GPBMessage
 
 typedef GPB_ENUM(KeyServiceSignResponse_FieldNumber) {
   KeyServiceSignResponse_FieldNumber_Signature = 1,
+  KeyServiceSignResponse_FieldNumber_Kid = 2,
 };
 
 GPB_FINAL @interface KeyServiceSignResponse : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *signature;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *kid;
 
 @end
 

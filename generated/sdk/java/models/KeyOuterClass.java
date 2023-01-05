@@ -6853,6 +6853,18 @@ public final class KeyOuterClass {
      */
     com.google.protobuf.ByteString
         getSignatureBytes();
+
+    /**
+     * <code>string kid = 2 [json_name = "kid"];</code>
+     * @return The kid.
+     */
+    java.lang.String getKid();
+    /**
+     * <code>string kid = 2 [json_name = "kid"];</code>
+     * @return The bytes for kid.
+     */
+    com.google.protobuf.ByteString
+        getKidBytes();
   }
   /**
    * Protobuf type {@code models.KeyServiceSignResponse}
@@ -6868,6 +6880,7 @@ public final class KeyOuterClass {
     }
     private KeyServiceSignResponse() {
       signature_ = "";
+      kid_ = "";
     }
 
     @java.lang.Override
@@ -6928,6 +6941,45 @@ public final class KeyOuterClass {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         signature_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int KID_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object kid_ = "";
+    /**
+     * <code>string kid = 2 [json_name = "kid"];</code>
+     * @return The kid.
+     */
+    @java.lang.Override
+    public java.lang.String getKid() {
+      java.lang.Object ref = kid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        kid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string kid = 2 [json_name = "kid"];</code>
+     * @return The bytes for kid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getKidBytes() {
+      java.lang.Object ref = kid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        kid_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -7059,6 +7111,7 @@ public final class KeyOuterClass {
         super.clear();
         bitField0_ = 0;
         signature_ = "";
+        kid_ = "";
         return this;
       }
 
@@ -7094,6 +7147,9 @@ public final class KeyOuterClass {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.signature_ = signature_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.kid_ = kid_;
         }
       }
 
@@ -7199,6 +7255,78 @@ public final class KeyOuterClass {
         checkByteStringIsUtf8(value);
         signature_ = value;
         bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object kid_ = "";
+      /**
+       * <code>string kid = 2 [json_name = "kid"];</code>
+       * @return The kid.
+       */
+      public java.lang.String getKid() {
+        java.lang.Object ref = kid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          kid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string kid = 2 [json_name = "kid"];</code>
+       * @return The bytes for kid.
+       */
+      public com.google.protobuf.ByteString
+          getKidBytes() {
+        java.lang.Object ref = kid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          kid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string kid = 2 [json_name = "kid"];</code>
+       * @param value The kid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKid(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        kid_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string kid = 2 [json_name = "kid"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKid() {
+        kid_ = getDefaultInstance().getKid();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string kid = 2 [json_name = "kid"];</code>
+       * @param value The bytes for kid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        kid_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -12907,55 +13035,55 @@ public final class KeyOuterClass {
       ".KeyR\004keys\022\034\n\007last_id\030\002 \001(\tH\000R\006lastId\210\001\001" +
       "B\n\n\010_last_id\"A\n\025KeyServiceSignRequest\022\016\n" +
       "\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(\tR\007message\"" +
-      "6\n\026KeyServiceSignResponse\022\034\n\tsignature\030\001" +
-      " \001(\tR\tsignature\"a\n\027KeyServiceVerifyReque" +
-      "st\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(\tR\007mes" +
-      "sage\022\034\n\tsignature\030\003 \001(\tR\tsignature\"0\n\030Ke" +
-      "yServiceVerifyResponse\022\024\n\005valid\030\001 \001(\010R\005v" +
-      "alid\"B\n\026KeyServiceCryptRequest\022\016\n\002id\030\001 \001" +
-      "(\tR\002id\022\030\n\007message\030\002 \001(\tR\007message\"9\n\027KeyS" +
-      "erviceCryptResponse\022\036\n\nciphertext\030\001 \001(\tR" +
-      "\nciphertext\"J\n\030KeyServiceDecryptRequest\022" +
-      "\016\n\002id\030\001 \001(\tR\002id\022\036\n\nciphertext\030\002 \001(\tR\ncip" +
-      "hertext\"5\n\031KeyServiceDecryptResponse\022\030\n\007" +
-      "message\030\001 \001(\tR\007message\")\n\027KeyServiceRota" +
-      "teRequest\022\016\n\002id\030\001 \001(\tR\002id\"9\n\030KeyServiceR" +
-      "otateResponse\022\035\n\003key\030\001 \001(\0132\013.models.KeyR" +
-      "\003key\")\n\027KeyServiceDeleteRequest\022\016\n\002id\030\001 " +
-      "\001(\tR\002id\"\032\n\030KeyServiceDeleteResponse\"&\n\024K" +
-      "eyServiceJWKRequest\022\016\n\002id\030\001 \001(\tR\002id\")\n\025K" +
-      "eyServiceJWKResponse\022\020\n\003jwk\030\001 \001(\tR\003jwk2\377" +
-      "\010\n\nKeyService\022`\n\006Create\022\037.models.KeyServ" +
-      "iceCreateRequest\032 .models.KeyServiceCrea" +
-      "teResponse\"\023\202\323\344\223\002\r:\001*\"\010/v1/keys\022Y\n\003Get\022\034" +
-      ".models.KeyServiceGetRequest\032\035.models.Ke" +
-      "yServiceGetResponse\"\025\202\323\344\223\002\017\022\r/v1/keys/{i" +
-      "d}\022}\n\013GetOrCreate\022$.models.KeyServiceGet" +
-      "OrCreateRequest\032%.models.KeyServiceGetOr" +
-      "CreateResponse\"!\202\323\344\223\002\033:\001*\"\026/v1/keys/get-" +
-      "or-create\022W\n\004List\022\035.models.KeyServiceLis" +
-      "tRequest\032\036.models.KeyServiceListResponse" +
-      "\"\020\202\323\344\223\002\n\022\010/v1/keys\022d\n\004Sign\022\035.models.KeyS" +
-      "erviceSignRequest\032\036.models.KeyServiceSig" +
-      "nResponse\"\035\202\323\344\223\002\027:\001*\"\022/v1/keys/{id}/sign" +
-      "\022l\n\006Verify\022\037.models.KeyServiceVerifyRequ" +
-      "est\032 .models.KeyServiceVerifyResponse\"\037\202" +
-      "\323\344\223\002\031:\001*\"\024/v1/keys/{id}/verify\022h\n\005Crypt\022" +
-      "\036.models.KeyServiceCryptRequest\032\037.models" +
-      ".KeyServiceCryptResponse\"\036\202\323\344\223\002\030:\001*\"\023/v1" +
-      "/keys/{id}/crypt\022p\n\007Decrypt\022 .models.Key" +
-      "ServiceDecryptRequest\032!.models.KeyServic" +
-      "eDecryptResponse\" \202\323\344\223\002\032:\001*\"\025/v1/keys/{i" +
-      "d}/decrypt\022i\n\006Rotate\022\037.models.KeyService" +
-      "RotateRequest\032 .models.KeyServiceRotateR" +
-      "esponse\"\034\202\323\344\223\002\026\"\024/v1/keys/{id}/rotate\022b\n" +
-      "\006Delete\022\037.models.KeyServiceDeleteRequest" +
-      "\032 .models.KeyServiceDeleteResponse\"\025\202\323\344\223" +
-      "\002\017*\r/v1/keys/{id}\022]\n\003JWK\022\034.models.KeySer" +
-      "viceJWKRequest\032\035.models.KeyServiceJWKRes" +
-      "ponse\"\031\202\323\344\223\002\023\022\021/v1/keys/{id}/jwkB9H\002Z5gi" +
-      "thub.com/luminos-company/secretary/gener" +
-      "ated/modelsb\006proto3"
+      "H\n\026KeyServiceSignResponse\022\034\n\tsignature\030\001" +
+      " \001(\tR\tsignature\022\020\n\003kid\030\002 \001(\tR\003kid\"a\n\027Key" +
+      "ServiceVerifyRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007" +
+      "message\030\002 \001(\tR\007message\022\034\n\tsignature\030\003 \001(" +
+      "\tR\tsignature\"0\n\030KeyServiceVerifyResponse" +
+      "\022\024\n\005valid\030\001 \001(\010R\005valid\"B\n\026KeyServiceCryp" +
+      "tRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(" +
+      "\tR\007message\"9\n\027KeyServiceCryptResponse\022\036\n" +
+      "\nciphertext\030\001 \001(\tR\nciphertext\"J\n\030KeyServ" +
+      "iceDecryptRequest\022\016\n\002id\030\001 \001(\tR\002id\022\036\n\ncip" +
+      "hertext\030\002 \001(\tR\nciphertext\"5\n\031KeyServiceD" +
+      "ecryptResponse\022\030\n\007message\030\001 \001(\tR\007message" +
+      "\")\n\027KeyServiceRotateRequest\022\016\n\002id\030\001 \001(\tR" +
+      "\002id\"9\n\030KeyServiceRotateResponse\022\035\n\003key\030\001" +
+      " \001(\0132\013.models.KeyR\003key\")\n\027KeyServiceDele" +
+      "teRequest\022\016\n\002id\030\001 \001(\tR\002id\"\032\n\030KeyServiceD" +
+      "eleteResponse\"&\n\024KeyServiceJWKRequest\022\016\n" +
+      "\002id\030\001 \001(\tR\002id\")\n\025KeyServiceJWKResponse\022\020" +
+      "\n\003jwk\030\001 \001(\tR\003jwk2\377\010\n\nKeyService\022`\n\006Creat" +
+      "e\022\037.models.KeyServiceCreateRequest\032 .mod" +
+      "els.KeyServiceCreateResponse\"\023\202\323\344\223\002\r:\001*\"" +
+      "\010/v1/keys\022Y\n\003Get\022\034.models.KeyServiceGetR" +
+      "equest\032\035.models.KeyServiceGetResponse\"\025\202" +
+      "\323\344\223\002\017\022\r/v1/keys/{id}\022}\n\013GetOrCreate\022$.mo" +
+      "dels.KeyServiceGetOrCreateRequest\032%.mode" +
+      "ls.KeyServiceGetOrCreateResponse\"!\202\323\344\223\002\033" +
+      ":\001*\"\026/v1/keys/get-or-create\022W\n\004List\022\035.mo" +
+      "dels.KeyServiceListRequest\032\036.models.KeyS" +
+      "erviceListResponse\"\020\202\323\344\223\002\n\022\010/v1/keys\022d\n\004" +
+      "Sign\022\035.models.KeyServiceSignRequest\032\036.mo" +
+      "dels.KeyServiceSignResponse\"\035\202\323\344\223\002\027:\001*\"\022" +
+      "/v1/keys/{id}/sign\022l\n\006Verify\022\037.models.Ke" +
+      "yServiceVerifyRequest\032 .models.KeyServic" +
+      "eVerifyResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/keys/{id" +
+      "}/verify\022h\n\005Crypt\022\036.models.KeyServiceCry" +
+      "ptRequest\032\037.models.KeyServiceCryptRespon" +
+      "se\"\036\202\323\344\223\002\030:\001*\"\023/v1/keys/{id}/crypt\022p\n\007De" +
+      "crypt\022 .models.KeyServiceDecryptRequest\032" +
+      "!.models.KeyServiceDecryptResponse\" \202\323\344\223" +
+      "\002\032:\001*\"\025/v1/keys/{id}/decrypt\022i\n\006Rotate\022\037" +
+      ".models.KeyServiceRotateRequest\032 .models" +
+      ".KeyServiceRotateResponse\"\034\202\323\344\223\002\026\"\024/v1/k" +
+      "eys/{id}/rotate\022b\n\006Delete\022\037.models.KeySe" +
+      "rviceDeleteRequest\032 .models.KeyServiceDe" +
+      "leteResponse\"\025\202\323\344\223\002\017*\r/v1/keys/{id}\022]\n\003J" +
+      "WK\022\034.models.KeyServiceJWKRequest\032\035.model" +
+      "s.KeyServiceJWKResponse\"\031\202\323\344\223\002\023\022\021/v1/key" +
+      "s/{id}/jwkB9H\002Z5github.com/luminos-compa" +
+      "ny/secretary/generated/modelsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13029,7 +13157,7 @@ public final class KeyOuterClass {
     internal_static_models_KeyServiceSignResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_models_KeyServiceSignResponse_descriptor,
-        new java.lang.String[] { "Signature", });
+        new java.lang.String[] { "Signature", "Kid", });
     internal_static_models_KeyServiceVerifyRequest_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_models_KeyServiceVerifyRequest_fieldAccessorTable = new
