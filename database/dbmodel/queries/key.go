@@ -4,6 +4,8 @@ import (
 	"github.com/luminos-company/secretary/database/dbmodel"
 	"github.com/luminos-company/secretary/generated/query"
 	"github.com/luminos-company/secretary/tools/keys"
+	"github.com/luminos-company/secretary/typ"
+	"time"
 )
 
 var KeyEnhancer = &KeyEnhancerImpl{}
@@ -26,7 +28,7 @@ func (*KeyEnhancerImpl) Rotate(k *dbmodel.KeyModel) {
 		KeyId:      k.ID,
 		PrivateKey: k.PrivateKey,
 		PublicKey:  k.PublicKey,
-		ExpiresAt:  tk.NextExpirationDateTimesTwo(),
+		ExpiresAt:  typ.TimeP(tk.NextExpirationDate().Add(time.Hour * 24)),
 	})
 	if err != nil {
 		return
