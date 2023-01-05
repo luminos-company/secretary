@@ -10,7 +10,10 @@ var dbFolder = "/var/lib/secretary/data"
 func init() {
 	if !dbExists() {
 		if !folderExists() {
-			_ = os.MkdirAll(dbFolder, 0755)
+			err := os.MkdirAll(dbFolder, 0755)
+			if err != nil {
+				panic(err)
+			}
 		}
 		create()
 	}
@@ -18,7 +21,7 @@ func init() {
 }
 
 func dbExists() bool {
-	_, err := os.Stat(dbFile)
+	_, err := os.Stat(dbFolder + "/" + dbFile)
 	if os.IsNotExist(err) {
 		return false
 	}
