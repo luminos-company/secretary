@@ -1,5 +1,6 @@
 # This is a Makefile for generate the grpc code
 
 generate:
+	rm -rf ./generated
 	buf generate --template buf.gen.yaml
 	buf generate --template=buf.gen.sdk.yaml

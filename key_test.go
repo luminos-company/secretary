@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/luminos-company/secretary/generated/models"
 	"github.com/luminos-company/secretary/main/services"
+	"strings"
 	"testing"
 )
 
@@ -112,6 +113,7 @@ func TestKeyService_Crypto(t *testing.T) {
 	ksv := services.KeyService{}
 	res1, err := ksv.Create(context.TODO(), &models.KeyServiceCreateRequest{
 		ShouldRotate: PTrue(),
+		Bits:         PInt32(256),
 	})
 	if err != nil || res1 == nil {
 		t.Fatal(err)
@@ -119,6 +121,43 @@ func TestKeyService_Crypto(t *testing.T) {
 	res2, err := ksv.Crypt(context.TODO(), &models.KeyServiceCryptRequest{
 		Id:      res1.Key.GetId(),
 		Message: "HELLO IM A MESSAGE",
+	})
+	if err != nil || res2 == nil {
+		t.Fatal(err)
+	}
+	t.Log(res2.Ciphertext)
+}
+
+func TestKeyService_Crypto2(t *testing.T) {
+	ksv := services.KeyService{}
+	res1, err := ksv.Create(context.TODO(), &models.KeyServiceCreateRequest{
+		ShouldRotate: PTrue(),
+		Bits:         PInt32(2048),
+	})
+	if err != nil || res1 == nil {
+		t.Fatal(err)
+	}
+	res2, err := ksv.Crypt(context.TODO(), &models.KeyServiceCryptRequest{
+		Id:      res1.Key.GetId(),
+		Message: strings.Repeat("hello", 2048),
+	})
+	if err != nil || res2 == nil {
+		t.Fatal(err)
+	}
+	t.Log(res2.Ciphertext)
+}
+func TestKeyService_Crypto3(t *testing.T) {
+	ksv := services.KeyService{}
+	res1, err := ksv.Create(context.TODO(), &models.KeyServiceCreateRequest{
+		ShouldRotate: PTrue(),
+		Bits:         PInt32(256),
+	})
+	if err != nil || res1 == nil {
+		t.Fatal(err)
+	}
+	res2, err := ksv.Crypt(context.TODO(), &models.KeyServiceCryptRequest{
+		Id:      res1.Key.GetId(),
+		Message: strings.Repeat("hello", 2048),
 	})
 	if err != nil || res2 == nil {
 		t.Fatal(err)
@@ -137,6 +176,58 @@ func TestKeyService_Decrypt(t *testing.T) {
 	res2, err := ksv.Crypt(context.TODO(), &models.KeyServiceCryptRequest{
 		Id:      res1.Key.GetId(),
 		Message: "HELLO IM A MESSAGE",
+	})
+	if err != nil || res2 == nil {
+		t.Fatal(err)
+	}
+	res3, err := ksv.Decrypt(context.TODO(), &models.KeyServiceDecryptRequest{
+		Id:         res1.Key.GetId(),
+		Ciphertext: res2.Ciphertext,
+	})
+	if err != nil || res3 == nil {
+		t.Fatal(err)
+	}
+	t.Log(res3.Message)
+}
+
+func TestKeyService_Decrypt2(t *testing.T) {
+	ksv := services.KeyService{}
+	res1, err := ksv.Create(context.TODO(), &models.KeyServiceCreateRequest{
+		ShouldRotate: PTrue(),
+		Bits:         PInt32(2048),
+	})
+	if err != nil || res1 == nil {
+		t.Fatal(err)
+	}
+	res2, err := ksv.Crypt(context.TODO(), &models.KeyServiceCryptRequest{
+		Id:      res1.Key.GetId(),
+		Message: strings.Repeat("hello", 2048),
+	})
+	if err != nil || res2 == nil {
+		t.Fatal(err)
+	}
+	res3, err := ksv.Decrypt(context.TODO(), &models.KeyServiceDecryptRequest{
+		Id:         res1.Key.GetId(),
+		Ciphertext: res2.Ciphertext,
+	})
+	if err != nil || res3 == nil {
+		t.Fatal(err)
+	}
+	t.Log(res3.Message)
+}
+
+func TestKeyService_Decrypt3(t *testing.T) {
+	ksv := services.KeyService{}
+	res1, err := ksv.Create(context.TODO(), &models.KeyServiceCreateRequest{
+		ShouldRotate: PTrue(),
+		Bits:         PInt32(256),
+	})
+	if err != nil || res1 == nil {
+		t.Fatal(err)
+	}
+	res2, err := ksv.Crypt(context.TODO(), &models.KeyServiceCryptRequest{
+		Id:      res1.Key.GetId(),
+		Message: strings.Repeat("hello", 2048),
 	})
 	if err != nil || res2 == nil {
 		t.Fatal(err)

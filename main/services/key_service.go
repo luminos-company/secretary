@@ -129,9 +129,6 @@ func (k KeyService) Crypt(_ context.Context, request *models.KeyServiceCryptRequ
 }
 
 func (k KeyService) Decrypt(_ context.Context, request *models.KeyServiceDecryptRequest) (*models.KeyServiceDecryptResponse, error) {
-	if request == nil {
-		return nil, nil
-	}
 	bq, err := query.KeyModel.GetByID(request.Id)
 	if err != nil {
 		return nil, err

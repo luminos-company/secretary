@@ -8,8 +8,10 @@ import (
 	"crypto/x509"
 	"encoding/base64"
 	"encoding/pem"
+	"errors"
 	"github.com/bytedance/sonic"
 	"github.com/lestrrat-go/jwx/v2/jwk"
+	"log"
 )
 
 type Rsa struct {
@@ -97,50 +99,64 @@ func (r *Rsa) ExportJWK() (string, error) {
 }
 
 func (r *Rsa) Encrypt(data []byte) ([]byte, error) {
-	chunkSize := r.PrivateKey.Size() - (2 * crypto.SHA256.Size()) - 2
-	var chunks [][]byte
-	for i := 0; i < len(data); i += chunkSize {
-		end := i + chunkSize
-		if end > len(data) {
-			end = len(data)
-		}
-		chunks = append(chunks, data[i:end])
-
+	chunkSize := r.PublicKey.Size() - 11
+	if len(data) == 0 {
+		return nil, errors.New("data is empty")
 	}
+	log.Println(chunkSize)
+	log.Println(len(data))
+	if len(data) > chunkSize {
+		var chunks [][]byte
+		for i := 0; i < len(data); i += chunkSize {
+			end := i + chunkSize
+			if end > len(data) {
+				end = len(data)
+			}
+			chunks = append(chunks, data[i:end])
 
-	var encrypted []byte
-	for _, chunk := range chunks {
-		encrypt, err := rsa.EncryptPKCS1v15(rand.Reader, r.PublicKey, chunk)
-		if err != nil {
-			return nil, err
 		}
-		encrypted = append(encrypted, encrypt...)
 
+		var encrypted []byte
+		for _, chunk := range chunks {
+			encrypt, err := rsa.EncryptPKCS1v15(rand.Reader, r.PublicKey, chunk)
+			if err != nil {
+				return nil, err
+			}
+			encrypted = append(encrypted, encrypt...)
+
+		}
+		return encrypted, nil
 	}
-	return encrypted, nil
+	return rsa.EncryptPKCS1v15(rand.Reader, r.PublicKey, data)
 }
 
 func (r *Rsa) Decrypt(data []byte) ([]byte, error) {
 	chunkSize := r.PrivateKey.Size()
-	var chunks [][]byte
-	for i := 0; i < len(data); i += chunkSize {
-		end := i + chunkSize
-		if end > len(data) {
-			end = len(data)
-		}
-		chunks = append(chunks, data[i:end])
+	if len(data) == 0 {
+		return nil, errors.New("data is empty")
 	}
-
-	var decrypted []byte
-	for _, chunk := range chunks {
-		decrypt, err := rsa.DecryptPKCS1v15(rand.Reader, r.PrivateKey, chunk)
-		if err != nil {
-			return nil, err
+	if len(data) > chunkSize {
+		var chunks [][]byte
+		for i := 0; i < len(data); i += chunkSize {
+			end := i + chunkSize
+			if end > len(data) {
+				end = len(data)
+			}
+			chunks = append(chunks, data[i:end])
 		}
-		decrypted = append(decrypted, decrypt...)
-	}
 
-	return decrypted, nil
+		var decrypted []byte
+		for _, chunk := range chunks {
+			decrypt, err := rsa.DecryptPKCS1v15(rand.Reader, r.PrivateKey, chunk)
+			if err != nil {
+				return nil, err
+			}
+			decrypted = append(decrypted, decrypt...)
+		}
+
+		return decrypted, nil
+	}
+	return rsa.DecryptPKCS1v15(rand.Reader, r.PrivateKey, data)
 }
 
 func (r *Rsa) Sign(data []byte) ([]byte, error) {
