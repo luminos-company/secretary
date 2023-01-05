@@ -49,3 +49,17 @@ func (k *KeyModel) NextExpirationDate() *time.Time {
 	}
 	return nil
 }
+
+func (k *KeyModel) NextExpirationDateTimesTwo() *time.Time {
+	if k.ShouldRotate != nil && *k.ShouldRotate == true && k.RotateCron != nil && *k.RotateCron != "" {
+		if k.RotateCron == nil {
+			k.RotateCron = typ.StringP("0 0 1 * *") // default to every month
+		}
+		parse, err := cron.NewParser(cron.Minute | cron.Hour | cron.Dom | cron.Month | cron.Dow).Parse(*k.RotateCron)
+		if err != nil {
+			return nil
+		}
+		return typ.TimeP(parse.Next(parse.Next(time.Now())))
+	}
+	return nil
+}

@@ -26,7 +26,7 @@ func (*KeyEnhancerImpl) Rotate(k *dbmodel.KeyModel) {
 		KeyId:      k.ID,
 		PrivateKey: k.PrivateKey,
 		PublicKey:  k.PublicKey,
-		ExpiresAt:  tk.NextExpirationDate(),
+		ExpiresAt:  tk.NextExpirationDateTimesTwo(),
 	})
 	if err != nil {
 		return
