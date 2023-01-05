@@ -162,7 +162,7 @@ func (k KeyService) Sign(_ context.Context, request *models.KeyServiceSignReques
 	}
 	return &models.KeyServiceSignResponse{
 		Signature: signature,
-		Kid:       bq.ID,
+		Kid:       bq.Kid,
 	}, nil
 }
 
