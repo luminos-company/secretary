@@ -13,14 +13,14 @@ ARG CGO_ENABLED=1
 ARG GOOS=linux
 ARG GOARCH=amd64
 
-RUN go build -o /main ./main
+RUN go build -o /main
 
 
 FROM alpine:latest AS deploy
 
 WORKDIR /
 
-COPY --from=builder /main .
+COPY --from=builder /main ./main
 
 EXPOSE 50051
 EXPOSE 8080
