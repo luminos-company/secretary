@@ -14,12 +14,13 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       proto3_optional :external_id, :string, 2, json_name: "externalId"
       optional :private_key, :string, 3, json_name: "privateKey"
       optional :public_key, :string, 4, json_name: "publicKey"
-      proto3_optional :should_rotate, :bool, 5, json_name: "shouldRotate"
-      proto3_optional :rotated_from_id, :string, 6, json_name: "rotatedFromId"
-      proto3_optional :rotate_cron, :string, 7, json_name: "rotateCron"
-      optional :expires_at, :message, 8, "google.protobuf.Timestamp", json_name: "expiresAt"
-      optional :updated_at, :message, 9, "google.protobuf.Timestamp", json_name: "updatedAt"
-      optional :created_at, :message, 10, "google.protobuf.Timestamp", json_name: "createdAt"
+      optional :kid, :string, 5, json_name: "kid"
+      proto3_optional :should_rotate, :bool, 6, json_name: "shouldRotate"
+      proto3_optional :rotated_from_id, :string, 7, json_name: "rotatedFromId"
+      proto3_optional :rotate_cron, :string, 8, json_name: "rotateCron"
+      optional :expires_at, :message, 9, "google.protobuf.Timestamp", json_name: "expiresAt"
+      optional :updated_at, :message, 10, "google.protobuf.Timestamp", json_name: "updatedAt"
+      optional :created_at, :message, 11, "google.protobuf.Timestamp", json_name: "createdAt"
     end
     add_message "models.KeyServiceCreateRequest" do
       proto3_optional :id, :string, 1, json_name: "id"
@@ -99,6 +100,20 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "models.KeyServiceJWKResponse" do
       optional :jwk, :string, 1, json_name: "jwk"
     end
+    add_message "models.KeyServiceJWTSignRequest" do
+      optional :id, :string, 1, json_name: "id"
+      optional :message, :string, 2, json_name: "message"
+    end
+    add_message "models.KeyServiceJWTSignResponse" do
+      optional :token, :string, 1, json_name: "token"
+    end
+    add_message "models.KeyServiceJWTVerifyRequest" do
+      optional :id, :string, 1, json_name: "id"
+      optional :token, :string, 2, json_name: "token"
+    end
+    add_message "models.KeyServiceJWTVerifyResponse" do
+      optional :valid, :bool, 1, json_name: "valid"
+    end
   end
 end
 
@@ -126,4 +141,8 @@ module Models
   KeyServiceDeleteResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceDeleteResponse").msgclass
   KeyServiceJWKRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceJWKRequest").msgclass
   KeyServiceJWKResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceJWKResponse").msgclass
+  KeyServiceJWTSignRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceJWTSignRequest").msgclass
+  KeyServiceJWTSignResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceJWTSignResponse").msgclass
+  KeyServiceJWTVerifyRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceJWTVerifyRequest").msgclass
+  KeyServiceJWTVerifyResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("models.KeyServiceJWTVerifyResponse").msgclass
 end

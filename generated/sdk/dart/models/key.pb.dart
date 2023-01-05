@@ -17,12 +17,13 @@ class Key extends $pb.GeneratedMessage {
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'externalId')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKey')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publicKey')
-    ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldRotate')
-    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotatedFromId')
-    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotateCron')
-    ..aOM<$1.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'kid')
+    ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldRotate')
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotatedFromId')
+    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotateCron')
+    ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -32,6 +33,7 @@ class Key extends $pb.GeneratedMessage {
     $core.String? externalId,
     $core.String? privateKey,
     $core.String? publicKey,
+    $core.String? kid,
     $core.bool? shouldRotate,
     $core.String? rotatedFromId,
     $core.String? rotateCron,
@@ -51,6 +53,9 @@ class Key extends $pb.GeneratedMessage {
     }
     if (publicKey != null) {
       _result.publicKey = publicKey;
+    }
+    if (kid != null) {
+      _result.kid = kid;
     }
     if (shouldRotate != null) {
       _result.shouldRotate = shouldRotate;
@@ -130,64 +135,73 @@ class Key extends $pb.GeneratedMessage {
   void clearPublicKey() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.bool get shouldRotate => $_getBF(4);
+  $core.String get kid => $_getSZ(4);
   @$pb.TagNumber(5)
-  set shouldRotate($core.bool v) { $_setBool(4, v); }
+  set kid($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasShouldRotate() => $_has(4);
+  $core.bool hasKid() => $_has(4);
   @$pb.TagNumber(5)
-  void clearShouldRotate() => clearField(5);
+  void clearKid() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.String get rotatedFromId => $_getSZ(5);
+  $core.bool get shouldRotate => $_getBF(5);
   @$pb.TagNumber(6)
-  set rotatedFromId($core.String v) { $_setString(5, v); }
+  set shouldRotate($core.bool v) { $_setBool(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasRotatedFromId() => $_has(5);
+  $core.bool hasShouldRotate() => $_has(5);
   @$pb.TagNumber(6)
-  void clearRotatedFromId() => clearField(6);
+  void clearShouldRotate() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get rotateCron => $_getSZ(6);
+  $core.String get rotatedFromId => $_getSZ(6);
   @$pb.TagNumber(7)
-  set rotateCron($core.String v) { $_setString(6, v); }
+  set rotatedFromId($core.String v) { $_setString(6, v); }
   @$pb.TagNumber(7)
-  $core.bool hasRotateCron() => $_has(6);
+  $core.bool hasRotatedFromId() => $_has(6);
   @$pb.TagNumber(7)
-  void clearRotateCron() => clearField(7);
+  void clearRotatedFromId() => clearField(7);
 
   @$pb.TagNumber(8)
-  $1.Timestamp get expiresAt => $_getN(7);
+  $core.String get rotateCron => $_getSZ(7);
   @$pb.TagNumber(8)
-  set expiresAt($1.Timestamp v) { setField(8, v); }
+  set rotateCron($core.String v) { $_setString(7, v); }
   @$pb.TagNumber(8)
-  $core.bool hasExpiresAt() => $_has(7);
+  $core.bool hasRotateCron() => $_has(7);
   @$pb.TagNumber(8)
-  void clearExpiresAt() => clearField(8);
-  @$pb.TagNumber(8)
-  $1.Timestamp ensureExpiresAt() => $_ensure(7);
+  void clearRotateCron() => clearField(8);
 
   @$pb.TagNumber(9)
-  $1.Timestamp get updatedAt => $_getN(8);
+  $1.Timestamp get expiresAt => $_getN(8);
   @$pb.TagNumber(9)
-  set updatedAt($1.Timestamp v) { setField(9, v); }
+  set expiresAt($1.Timestamp v) { setField(9, v); }
   @$pb.TagNumber(9)
-  $core.bool hasUpdatedAt() => $_has(8);
+  $core.bool hasExpiresAt() => $_has(8);
   @$pb.TagNumber(9)
-  void clearUpdatedAt() => clearField(9);
+  void clearExpiresAt() => clearField(9);
   @$pb.TagNumber(9)
-  $1.Timestamp ensureUpdatedAt() => $_ensure(8);
+  $1.Timestamp ensureExpiresAt() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $1.Timestamp get createdAt => $_getN(9);
+  $1.Timestamp get updatedAt => $_getN(9);
   @$pb.TagNumber(10)
-  set createdAt($1.Timestamp v) { setField(10, v); }
+  set updatedAt($1.Timestamp v) { setField(10, v); }
   @$pb.TagNumber(10)
-  $core.bool hasCreatedAt() => $_has(9);
+  $core.bool hasUpdatedAt() => $_has(9);
   @$pb.TagNumber(10)
-  void clearCreatedAt() => clearField(10);
+  void clearUpdatedAt() => clearField(10);
   @$pb.TagNumber(10)
-  $1.Timestamp ensureCreatedAt() => $_ensure(9);
+  $1.Timestamp ensureUpdatedAt() => $_ensure(9);
+
+  @$pb.TagNumber(11)
+  $1.Timestamp get createdAt => $_getN(10);
+  @$pb.TagNumber(11)
+  set createdAt($1.Timestamp v) { setField(11, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasCreatedAt() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearCreatedAt() => clearField(11);
+  @$pb.TagNumber(11)
+  $1.Timestamp ensureCreatedAt() => $_ensure(10);
 }
 
 class KeyServiceCreateRequest extends $pb.GeneratedMessage {
@@ -1388,5 +1402,221 @@ class KeyServiceJWKResponse extends $pb.GeneratedMessage {
   $core.bool hasJwk() => $_has(0);
   @$pb.TagNumber(1)
   void clearJwk() => clearField(1);
+}
+
+class KeyServiceJWTSignRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceJWTSignRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'message')
+    ..hasRequiredFields = false
+  ;
+
+  KeyServiceJWTSignRequest._() : super();
+  factory KeyServiceJWTSignRequest({
+    $core.String? id,
+    $core.String? message,
+  }) {
+    final _result = create();
+    if (id != null) {
+      _result.id = id;
+    }
+    if (message != null) {
+      _result.message = message;
+    }
+    return _result;
+  }
+  factory KeyServiceJWTSignRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KeyServiceJWTSignRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  KeyServiceJWTSignRequest clone() => KeyServiceJWTSignRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  KeyServiceJWTSignRequest copyWith(void Function(KeyServiceJWTSignRequest) updates) => super.copyWith((message) => updates(message as KeyServiceJWTSignRequest)) as KeyServiceJWTSignRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static KeyServiceJWTSignRequest create() => KeyServiceJWTSignRequest._();
+  KeyServiceJWTSignRequest createEmptyInstance() => create();
+  static $pb.PbList<KeyServiceJWTSignRequest> createRepeated() => $pb.PbList<KeyServiceJWTSignRequest>();
+  @$core.pragma('dart2js:noInline')
+  static KeyServiceJWTSignRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyServiceJWTSignRequest>(create);
+  static KeyServiceJWTSignRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get message => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set message($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMessage() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMessage() => clearField(2);
+}
+
+class KeyServiceJWTSignResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceJWTSignResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'token')
+    ..hasRequiredFields = false
+  ;
+
+  KeyServiceJWTSignResponse._() : super();
+  factory KeyServiceJWTSignResponse({
+    $core.String? token,
+  }) {
+    final _result = create();
+    if (token != null) {
+      _result.token = token;
+    }
+    return _result;
+  }
+  factory KeyServiceJWTSignResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KeyServiceJWTSignResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  KeyServiceJWTSignResponse clone() => KeyServiceJWTSignResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  KeyServiceJWTSignResponse copyWith(void Function(KeyServiceJWTSignResponse) updates) => super.copyWith((message) => updates(message as KeyServiceJWTSignResponse)) as KeyServiceJWTSignResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static KeyServiceJWTSignResponse create() => KeyServiceJWTSignResponse._();
+  KeyServiceJWTSignResponse createEmptyInstance() => create();
+  static $pb.PbList<KeyServiceJWTSignResponse> createRepeated() => $pb.PbList<KeyServiceJWTSignResponse>();
+  @$core.pragma('dart2js:noInline')
+  static KeyServiceJWTSignResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyServiceJWTSignResponse>(create);
+  static KeyServiceJWTSignResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get token => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set token($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasToken() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearToken() => clearField(1);
+}
+
+class KeyServiceJWTVerifyRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceJWTVerifyRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'token')
+    ..hasRequiredFields = false
+  ;
+
+  KeyServiceJWTVerifyRequest._() : super();
+  factory KeyServiceJWTVerifyRequest({
+    $core.String? id,
+    $core.String? token,
+  }) {
+    final _result = create();
+    if (id != null) {
+      _result.id = id;
+    }
+    if (token != null) {
+      _result.token = token;
+    }
+    return _result;
+  }
+  factory KeyServiceJWTVerifyRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KeyServiceJWTVerifyRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  KeyServiceJWTVerifyRequest clone() => KeyServiceJWTVerifyRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  KeyServiceJWTVerifyRequest copyWith(void Function(KeyServiceJWTVerifyRequest) updates) => super.copyWith((message) => updates(message as KeyServiceJWTVerifyRequest)) as KeyServiceJWTVerifyRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static KeyServiceJWTVerifyRequest create() => KeyServiceJWTVerifyRequest._();
+  KeyServiceJWTVerifyRequest createEmptyInstance() => create();
+  static $pb.PbList<KeyServiceJWTVerifyRequest> createRepeated() => $pb.PbList<KeyServiceJWTVerifyRequest>();
+  @$core.pragma('dart2js:noInline')
+  static KeyServiceJWTVerifyRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyServiceJWTVerifyRequest>(create);
+  static KeyServiceJWTVerifyRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get token => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set token($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasToken() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearToken() => clearField(2);
+}
+
+class KeyServiceJWTVerifyResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyServiceJWTVerifyResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valid')
+    ..hasRequiredFields = false
+  ;
+
+  KeyServiceJWTVerifyResponse._() : super();
+  factory KeyServiceJWTVerifyResponse({
+    $core.bool? valid,
+  }) {
+    final _result = create();
+    if (valid != null) {
+      _result.valid = valid;
+    }
+    return _result;
+  }
+  factory KeyServiceJWTVerifyResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KeyServiceJWTVerifyResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  KeyServiceJWTVerifyResponse clone() => KeyServiceJWTVerifyResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  KeyServiceJWTVerifyResponse copyWith(void Function(KeyServiceJWTVerifyResponse) updates) => super.copyWith((message) => updates(message as KeyServiceJWTVerifyResponse)) as KeyServiceJWTVerifyResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static KeyServiceJWTVerifyResponse create() => KeyServiceJWTVerifyResponse._();
+  KeyServiceJWTVerifyResponse createEmptyInstance() => create();
+  static $pb.PbList<KeyServiceJWTVerifyResponse> createRepeated() => $pb.PbList<KeyServiceJWTVerifyResponse>();
+  @$core.pragma('dart2js:noInline')
+  static KeyServiceJWTVerifyResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyServiceJWTVerifyResponse>(create);
+  static KeyServiceJWTVerifyResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get valid => $_getBF(0);
+  @$pb.TagNumber(1)
+  set valid($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasValid() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearValid() => clearField(1);
 }
 

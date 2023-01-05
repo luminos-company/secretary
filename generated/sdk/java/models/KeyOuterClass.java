@@ -72,92 +72,104 @@ public final class KeyOuterClass {
         getPublicKeyBytes();
 
     /**
-     * <code>optional bool should_rotate = 5 [json_name = "shouldRotate"];</code>
+     * <code>string kid = 5 [json_name = "kid"];</code>
+     * @return The kid.
+     */
+    java.lang.String getKid();
+    /**
+     * <code>string kid = 5 [json_name = "kid"];</code>
+     * @return The bytes for kid.
+     */
+    com.google.protobuf.ByteString
+        getKidBytes();
+
+    /**
+     * <code>optional bool should_rotate = 6 [json_name = "shouldRotate"];</code>
      * @return Whether the shouldRotate field is set.
      */
     boolean hasShouldRotate();
     /**
-     * <code>optional bool should_rotate = 5 [json_name = "shouldRotate"];</code>
+     * <code>optional bool should_rotate = 6 [json_name = "shouldRotate"];</code>
      * @return The shouldRotate.
      */
     boolean getShouldRotate();
 
     /**
-     * <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+     * <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
      * @return Whether the rotatedFromId field is set.
      */
     boolean hasRotatedFromId();
     /**
-     * <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+     * <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
      * @return The rotatedFromId.
      */
     java.lang.String getRotatedFromId();
     /**
-     * <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+     * <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
      * @return The bytes for rotatedFromId.
      */
     com.google.protobuf.ByteString
         getRotatedFromIdBytes();
 
     /**
-     * <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+     * <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
      * @return Whether the rotateCron field is set.
      */
     boolean hasRotateCron();
     /**
-     * <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+     * <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
      * @return The rotateCron.
      */
     java.lang.String getRotateCron();
     /**
-     * <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+     * <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
      * @return The bytes for rotateCron.
      */
     com.google.protobuf.ByteString
         getRotateCronBytes();
 
     /**
-     * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
      * @return Whether the expiresAt field is set.
      */
     boolean hasExpiresAt();
     /**
-     * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
      * @return The expiresAt.
      */
     com.google.protobuf.Timestamp getExpiresAt();
     /**
-     * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
      */
     com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder();
 
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
      * @return Whether the updatedAt field is set.
      */
     boolean hasUpdatedAt();
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
      * @return The updatedAt.
      */
     com.google.protobuf.Timestamp getUpdatedAt();
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
      */
     com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
      * @return Whether the createdAt field is set.
      */
     boolean hasCreatedAt();
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
      * @return The createdAt.
      */
     com.google.protobuf.Timestamp getCreatedAt();
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
      */
     com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
   }
@@ -178,6 +190,7 @@ public final class KeyOuterClass {
       externalId_ = "";
       privateKey_ = "";
       publicKey_ = "";
+      kid_ = "";
       rotatedFromId_ = "";
       rotateCron_ = "";
     }
@@ -372,10 +385,49 @@ public final class KeyOuterClass {
       }
     }
 
-    public static final int SHOULD_ROTATE_FIELD_NUMBER = 5;
+    public static final int KID_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object kid_ = "";
+    /**
+     * <code>string kid = 5 [json_name = "kid"];</code>
+     * @return The kid.
+     */
+    @java.lang.Override
+    public java.lang.String getKid() {
+      java.lang.Object ref = kid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        kid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string kid = 5 [json_name = "kid"];</code>
+     * @return The bytes for kid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getKidBytes() {
+      java.lang.Object ref = kid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        kid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SHOULD_ROTATE_FIELD_NUMBER = 6;
     private boolean shouldRotate_ = false;
     /**
-     * <code>optional bool should_rotate = 5 [json_name = "shouldRotate"];</code>
+     * <code>optional bool should_rotate = 6 [json_name = "shouldRotate"];</code>
      * @return Whether the shouldRotate field is set.
      */
     @java.lang.Override
@@ -383,7 +435,7 @@ public final class KeyOuterClass {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional bool should_rotate = 5 [json_name = "shouldRotate"];</code>
+     * <code>optional bool should_rotate = 6 [json_name = "shouldRotate"];</code>
      * @return The shouldRotate.
      */
     @java.lang.Override
@@ -391,11 +443,11 @@ public final class KeyOuterClass {
       return shouldRotate_;
     }
 
-    public static final int ROTATED_FROM_ID_FIELD_NUMBER = 6;
+    public static final int ROTATED_FROM_ID_FIELD_NUMBER = 7;
     @SuppressWarnings("serial")
     private volatile java.lang.Object rotatedFromId_ = "";
     /**
-     * <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+     * <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
      * @return Whether the rotatedFromId field is set.
      */
     @java.lang.Override
@@ -403,7 +455,7 @@ public final class KeyOuterClass {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+     * <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
      * @return The rotatedFromId.
      */
     @java.lang.Override
@@ -420,7 +472,7 @@ public final class KeyOuterClass {
       }
     }
     /**
-     * <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+     * <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
      * @return The bytes for rotatedFromId.
      */
     @java.lang.Override
@@ -438,11 +490,11 @@ public final class KeyOuterClass {
       }
     }
 
-    public static final int ROTATE_CRON_FIELD_NUMBER = 7;
+    public static final int ROTATE_CRON_FIELD_NUMBER = 8;
     @SuppressWarnings("serial")
     private volatile java.lang.Object rotateCron_ = "";
     /**
-     * <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+     * <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
      * @return Whether the rotateCron field is set.
      */
     @java.lang.Override
@@ -450,7 +502,7 @@ public final class KeyOuterClass {
       return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+     * <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
      * @return The rotateCron.
      */
     @java.lang.Override
@@ -467,7 +519,7 @@ public final class KeyOuterClass {
       }
     }
     /**
-     * <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+     * <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
      * @return The bytes for rotateCron.
      */
     @java.lang.Override
@@ -485,10 +537,10 @@ public final class KeyOuterClass {
       }
     }
 
-    public static final int EXPIRES_AT_FIELD_NUMBER = 8;
+    public static final int EXPIRES_AT_FIELD_NUMBER = 9;
     private com.google.protobuf.Timestamp expiresAt_;
     /**
-     * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
      * @return Whether the expiresAt field is set.
      */
     @java.lang.Override
@@ -496,7 +548,7 @@ public final class KeyOuterClass {
       return expiresAt_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
      * @return The expiresAt.
      */
     @java.lang.Override
@@ -504,17 +556,17 @@ public final class KeyOuterClass {
       return expiresAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expiresAt_;
     }
     /**
-     * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder() {
       return expiresAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expiresAt_;
     }
 
-    public static final int UPDATED_AT_FIELD_NUMBER = 9;
+    public static final int UPDATED_AT_FIELD_NUMBER = 10;
     private com.google.protobuf.Timestamp updatedAt_;
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
      * @return Whether the updatedAt field is set.
      */
     @java.lang.Override
@@ -522,7 +574,7 @@ public final class KeyOuterClass {
       return updatedAt_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
      * @return The updatedAt.
      */
     @java.lang.Override
@@ -530,17 +582,17 @@ public final class KeyOuterClass {
       return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
       return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
     }
 
-    public static final int CREATED_AT_FIELD_NUMBER = 10;
+    public static final int CREATED_AT_FIELD_NUMBER = 11;
     private com.google.protobuf.Timestamp createdAt_;
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
      * @return Whether the createdAt field is set.
      */
     @java.lang.Override
@@ -548,7 +600,7 @@ public final class KeyOuterClass {
       return createdAt_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
      * @return The createdAt.
      */
     @java.lang.Override
@@ -556,7 +608,7 @@ public final class KeyOuterClass {
       return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
@@ -691,6 +743,7 @@ public final class KeyOuterClass {
         externalId_ = "";
         privateKey_ = "";
         publicKey_ = "";
+        kid_ = "";
         shouldRotate_ = false;
         rotatedFromId_ = "";
         rotateCron_ = "";
@@ -757,28 +810,31 @@ public final class KeyOuterClass {
           result.publicKey_ = publicKey_;
         }
         if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.kid_ = kid_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
           result.shouldRotate_ = shouldRotate_;
           to_bitField0_ |= 0x00000002;
         }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
+        if (((from_bitField0_ & 0x00000040) != 0)) {
           result.rotatedFromId_ = rotatedFromId_;
           to_bitField0_ |= 0x00000004;
         }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
+        if (((from_bitField0_ & 0x00000080) != 0)) {
           result.rotateCron_ = rotateCron_;
           to_bitField0_ |= 0x00000008;
         }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
+        if (((from_bitField0_ & 0x00000100) != 0)) {
           result.expiresAt_ = expiresAtBuilder_ == null
               ? expiresAt_
               : expiresAtBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000100) != 0)) {
+        if (((from_bitField0_ & 0x00000200) != 0)) {
           result.updatedAt_ = updatedAtBuilder_ == null
               ? updatedAt_
               : updatedAtBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000200) != 0)) {
+        if (((from_bitField0_ & 0x00000400) != 0)) {
           result.createdAt_ = createdAtBuilder_ == null
               ? createdAt_
               : createdAtBuilder_.build();
@@ -1115,17 +1171,89 @@ public final class KeyOuterClass {
         return this;
       }
 
+      private java.lang.Object kid_ = "";
+      /**
+       * <code>string kid = 5 [json_name = "kid"];</code>
+       * @return The kid.
+       */
+      public java.lang.String getKid() {
+        java.lang.Object ref = kid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          kid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string kid = 5 [json_name = "kid"];</code>
+       * @return The bytes for kid.
+       */
+      public com.google.protobuf.ByteString
+          getKidBytes() {
+        java.lang.Object ref = kid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          kid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string kid = 5 [json_name = "kid"];</code>
+       * @param value The kid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKid(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        kid_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string kid = 5 [json_name = "kid"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKid() {
+        kid_ = getDefaultInstance().getKid();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string kid = 5 [json_name = "kid"];</code>
+       * @param value The bytes for kid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        kid_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+
       private boolean shouldRotate_ ;
       /**
-       * <code>optional bool should_rotate = 5 [json_name = "shouldRotate"];</code>
+       * <code>optional bool should_rotate = 6 [json_name = "shouldRotate"];</code>
        * @return Whether the shouldRotate field is set.
        */
       @java.lang.Override
       public boolean hasShouldRotate() {
-        return ((bitField0_ & 0x00000010) != 0);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
-       * <code>optional bool should_rotate = 5 [json_name = "shouldRotate"];</code>
+       * <code>optional bool should_rotate = 6 [json_name = "shouldRotate"];</code>
        * @return The shouldRotate.
        */
       @java.lang.Override
@@ -1133,23 +1261,23 @@ public final class KeyOuterClass {
         return shouldRotate_;
       }
       /**
-       * <code>optional bool should_rotate = 5 [json_name = "shouldRotate"];</code>
+       * <code>optional bool should_rotate = 6 [json_name = "shouldRotate"];</code>
        * @param value The shouldRotate to set.
        * @return This builder for chaining.
        */
       public Builder setShouldRotate(boolean value) {
         
         shouldRotate_ = value;
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool should_rotate = 5 [json_name = "shouldRotate"];</code>
+       * <code>optional bool should_rotate = 6 [json_name = "shouldRotate"];</code>
        * @return This builder for chaining.
        */
       public Builder clearShouldRotate() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         shouldRotate_ = false;
         onChanged();
         return this;
@@ -1157,14 +1285,14 @@ public final class KeyOuterClass {
 
       private java.lang.Object rotatedFromId_ = "";
       /**
-       * <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+       * <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
        * @return Whether the rotatedFromId field is set.
        */
       public boolean hasRotatedFromId() {
-        return ((bitField0_ & 0x00000020) != 0);
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
-       * <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+       * <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
        * @return The rotatedFromId.
        */
       public java.lang.String getRotatedFromId() {
@@ -1180,7 +1308,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+       * <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
        * @return The bytes for rotatedFromId.
        */
       public com.google.protobuf.ByteString
@@ -1197,7 +1325,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+       * <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
        * @param value The rotatedFromId to set.
        * @return This builder for chaining.
        */
@@ -1205,22 +1333,22 @@ public final class KeyOuterClass {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         rotatedFromId_ = value;
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+       * <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearRotatedFromId() {
         rotatedFromId_ = getDefaultInstance().getRotatedFromId();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+       * <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
        * @param value The bytes for rotatedFromId to set.
        * @return This builder for chaining.
        */
@@ -1229,21 +1357,21 @@ public final class KeyOuterClass {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         rotatedFromId_ = value;
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
 
       private java.lang.Object rotateCron_ = "";
       /**
-       * <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+       * <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
        * @return Whether the rotateCron field is set.
        */
       public boolean hasRotateCron() {
-        return ((bitField0_ & 0x00000040) != 0);
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
-       * <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+       * <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
        * @return The rotateCron.
        */
       public java.lang.String getRotateCron() {
@@ -1259,7 +1387,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+       * <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
        * @return The bytes for rotateCron.
        */
       public com.google.protobuf.ByteString
@@ -1276,7 +1404,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+       * <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
        * @param value The rotateCron to set.
        * @return This builder for chaining.
        */
@@ -1284,22 +1412,22 @@ public final class KeyOuterClass {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         rotateCron_ = value;
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+       * <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
        * @return This builder for chaining.
        */
       public Builder clearRotateCron() {
         rotateCron_ = getDefaultInstance().getRotateCron();
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+       * <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
        * @param value The bytes for rotateCron to set.
        * @return This builder for chaining.
        */
@@ -1308,7 +1436,7 @@ public final class KeyOuterClass {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         rotateCron_ = value;
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -1317,14 +1445,14 @@ public final class KeyOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> expiresAtBuilder_;
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
        * @return Whether the expiresAt field is set.
        */
       public boolean hasExpiresAt() {
-        return ((bitField0_ & 0x00000080) != 0);
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
        * @return The expiresAt.
        */
       public com.google.protobuf.Timestamp getExpiresAt() {
@@ -1335,7 +1463,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
        */
       public Builder setExpiresAt(com.google.protobuf.Timestamp value) {
         if (expiresAtBuilder_ == null) {
@@ -1346,12 +1474,12 @@ public final class KeyOuterClass {
         } else {
           expiresAtBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
        */
       public Builder setExpiresAt(
           com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1360,16 +1488,16 @@ public final class KeyOuterClass {
         } else {
           expiresAtBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
        */
       public Builder mergeExpiresAt(com.google.protobuf.Timestamp value) {
         if (expiresAtBuilder_ == null) {
-          if (((bitField0_ & 0x00000080) != 0) &&
+          if (((bitField0_ & 0x00000100) != 0) &&
             expiresAt_ != null &&
             expiresAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
             getExpiresAtBuilder().mergeFrom(value);
@@ -1379,15 +1507,15 @@ public final class KeyOuterClass {
         } else {
           expiresAtBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
        */
       public Builder clearExpiresAt() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         expiresAt_ = null;
         if (expiresAtBuilder_ != null) {
           expiresAtBuilder_.dispose();
@@ -1397,15 +1525,15 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
        */
       public com.google.protobuf.Timestamp.Builder getExpiresAtBuilder() {
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         onChanged();
         return getExpiresAtFieldBuilder().getBuilder();
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
        */
       public com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder() {
         if (expiresAtBuilder_ != null) {
@@ -1416,7 +1544,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+       * <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -1436,14 +1564,14 @@ public final class KeyOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updatedAtBuilder_;
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
        * @return Whether the updatedAt field is set.
        */
       public boolean hasUpdatedAt() {
-        return ((bitField0_ & 0x00000100) != 0);
+        return ((bitField0_ & 0x00000200) != 0);
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
        * @return The updatedAt.
        */
       public com.google.protobuf.Timestamp getUpdatedAt() {
@@ -1454,7 +1582,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
        */
       public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
         if (updatedAtBuilder_ == null) {
@@ -1465,12 +1593,12 @@ public final class KeyOuterClass {
         } else {
           updatedAtBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
        */
       public Builder setUpdatedAt(
           com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1479,16 +1607,16 @@ public final class KeyOuterClass {
         } else {
           updatedAtBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
        */
       public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
         if (updatedAtBuilder_ == null) {
-          if (((bitField0_ & 0x00000100) != 0) &&
+          if (((bitField0_ & 0x00000200) != 0) &&
             updatedAt_ != null &&
             updatedAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
             getUpdatedAtBuilder().mergeFrom(value);
@@ -1498,15 +1626,15 @@ public final class KeyOuterClass {
         } else {
           updatedAtBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
        */
       public Builder clearUpdatedAt() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000200);
         updatedAt_ = null;
         if (updatedAtBuilder_ != null) {
           updatedAtBuilder_.dispose();
@@ -1516,15 +1644,15 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
        */
       public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         onChanged();
         return getUpdatedAtFieldBuilder().getBuilder();
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
        */
       public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
         if (updatedAtBuilder_ != null) {
@@ -1535,7 +1663,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+       * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -1555,14 +1683,14 @@ public final class KeyOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
       /**
-       * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
        * @return Whether the createdAt field is set.
        */
       public boolean hasCreatedAt() {
-        return ((bitField0_ & 0x00000200) != 0);
+        return ((bitField0_ & 0x00000400) != 0);
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
        * @return The createdAt.
        */
       public com.google.protobuf.Timestamp getCreatedAt() {
@@ -1573,7 +1701,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
        */
       public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
         if (createdAtBuilder_ == null) {
@@ -1584,12 +1712,12 @@ public final class KeyOuterClass {
         } else {
           createdAtBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
        */
       public Builder setCreatedAt(
           com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1598,16 +1726,16 @@ public final class KeyOuterClass {
         } else {
           createdAtBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
        */
       public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
         if (createdAtBuilder_ == null) {
-          if (((bitField0_ & 0x00000200) != 0) &&
+          if (((bitField0_ & 0x00000400) != 0) &&
             createdAt_ != null &&
             createdAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
             getCreatedAtBuilder().mergeFrom(value);
@@ -1617,15 +1745,15 @@ public final class KeyOuterClass {
         } else {
           createdAtBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
        */
       public Builder clearCreatedAt() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         createdAt_ = null;
         if (createdAtBuilder_ != null) {
           createdAtBuilder_.dispose();
@@ -1635,15 +1763,15 @@ public final class KeyOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
        */
       public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         onChanged();
         return getCreatedAtFieldBuilder().getBuilder();
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
        */
       public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
         if (createdAtBuilder_ != null) {
@@ -1654,7 +1782,7 @@ public final class KeyOuterClass {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+       * <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -12874,6 +13002,1899 @@ public final class KeyOuterClass {
 
   }
 
+  public interface KeyServiceJWTSignRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:models.KeyServiceJWTSignRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>string message = 2 [json_name = "message"];</code>
+     * @return The message.
+     */
+    java.lang.String getMessage();
+    /**
+     * <code>string message = 2 [json_name = "message"];</code>
+     * @return The bytes for message.
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+  }
+  /**
+   * Protobuf type {@code models.KeyServiceJWTSignRequest}
+   */
+  public static final class KeyServiceJWTSignRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:models.KeyServiceJWTSignRequest)
+      KeyServiceJWTSignRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use KeyServiceJWTSignRequest.newBuilder() to construct.
+    private KeyServiceJWTSignRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private KeyServiceJWTSignRequest() {
+      id_ = "";
+      message_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new KeyServiceJWTSignRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return models.KeyOuterClass.internal_static_models_KeyServiceJWTSignRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return models.KeyOuterClass.internal_static_models_KeyServiceJWTSignRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              models.KeyOuterClass.KeyServiceJWTSignRequest.class, models.KeyOuterClass.KeyServiceJWTSignRequest.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object message_ = "";
+    /**
+     * <code>string message = 2 [json_name = "message"];</code>
+     * @return The message.
+     */
+    @java.lang.Override
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string message = 2 [json_name = "message"];</code>
+     * @return The bytes for message.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static models.KeyOuterClass.KeyServiceJWTSignRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(models.KeyOuterClass.KeyServiceJWTSignRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code models.KeyServiceJWTSignRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:models.KeyServiceJWTSignRequest)
+        models.KeyOuterClass.KeyServiceJWTSignRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return models.KeyOuterClass.internal_static_models_KeyServiceJWTSignRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return models.KeyOuterClass.internal_static_models_KeyServiceJWTSignRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                models.KeyOuterClass.KeyServiceJWTSignRequest.class, models.KeyOuterClass.KeyServiceJWTSignRequest.Builder.class);
+      }
+
+      // Construct using models.KeyOuterClass.KeyServiceJWTSignRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        id_ = "";
+        message_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return models.KeyOuterClass.internal_static_models_KeyServiceJWTSignRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public models.KeyOuterClass.KeyServiceJWTSignRequest getDefaultInstanceForType() {
+        return models.KeyOuterClass.KeyServiceJWTSignRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public models.KeyOuterClass.KeyServiceJWTSignRequest build() {
+        models.KeyOuterClass.KeyServiceJWTSignRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public models.KeyOuterClass.KeyServiceJWTSignRequest buildPartial() {
+        models.KeyOuterClass.KeyServiceJWTSignRequest result = new models.KeyOuterClass.KeyServiceJWTSignRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(models.KeyOuterClass.KeyServiceJWTSignRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.message_ = message_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object message_ = "";
+      /**
+       * <code>string message = 2 [json_name = "message"];</code>
+       * @return The message.
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string message = 2 [json_name = "message"];</code>
+       * @return The bytes for message.
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string message = 2 [json_name = "message"];</code>
+       * @param value The message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        message_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 2 [json_name = "message"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMessage() {
+        message_ = getDefaultInstance().getMessage();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 2 [json_name = "message"];</code>
+       * @param value The bytes for message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        message_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:models.KeyServiceJWTSignRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:models.KeyServiceJWTSignRequest)
+    private static final models.KeyOuterClass.KeyServiceJWTSignRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new models.KeyOuterClass.KeyServiceJWTSignRequest();
+    }
+
+    public static models.KeyOuterClass.KeyServiceJWTSignRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<KeyServiceJWTSignRequest>
+        PARSER = new com.google.protobuf.AbstractParser<KeyServiceJWTSignRequest>() {
+      @java.lang.Override
+      public KeyServiceJWTSignRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<KeyServiceJWTSignRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<KeyServiceJWTSignRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public models.KeyOuterClass.KeyServiceJWTSignRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface KeyServiceJWTSignResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:models.KeyServiceJWTSignResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string token = 1 [json_name = "token"];</code>
+     * @return The token.
+     */
+    java.lang.String getToken();
+    /**
+     * <code>string token = 1 [json_name = "token"];</code>
+     * @return The bytes for token.
+     */
+    com.google.protobuf.ByteString
+        getTokenBytes();
+  }
+  /**
+   * Protobuf type {@code models.KeyServiceJWTSignResponse}
+   */
+  public static final class KeyServiceJWTSignResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:models.KeyServiceJWTSignResponse)
+      KeyServiceJWTSignResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use KeyServiceJWTSignResponse.newBuilder() to construct.
+    private KeyServiceJWTSignResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private KeyServiceJWTSignResponse() {
+      token_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new KeyServiceJWTSignResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return models.KeyOuterClass.internal_static_models_KeyServiceJWTSignResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return models.KeyOuterClass.internal_static_models_KeyServiceJWTSignResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              models.KeyOuterClass.KeyServiceJWTSignResponse.class, models.KeyOuterClass.KeyServiceJWTSignResponse.Builder.class);
+    }
+
+    public static final int TOKEN_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object token_ = "";
+    /**
+     * <code>string token = 1 [json_name = "token"];</code>
+     * @return The token.
+     */
+    @java.lang.Override
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        token_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string token = 1 [json_name = "token"];</code>
+     * @return The bytes for token.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTokenBytes() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        token_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static models.KeyOuterClass.KeyServiceJWTSignResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTSignResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(models.KeyOuterClass.KeyServiceJWTSignResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code models.KeyServiceJWTSignResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:models.KeyServiceJWTSignResponse)
+        models.KeyOuterClass.KeyServiceJWTSignResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return models.KeyOuterClass.internal_static_models_KeyServiceJWTSignResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return models.KeyOuterClass.internal_static_models_KeyServiceJWTSignResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                models.KeyOuterClass.KeyServiceJWTSignResponse.class, models.KeyOuterClass.KeyServiceJWTSignResponse.Builder.class);
+      }
+
+      // Construct using models.KeyOuterClass.KeyServiceJWTSignResponse.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        token_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return models.KeyOuterClass.internal_static_models_KeyServiceJWTSignResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public models.KeyOuterClass.KeyServiceJWTSignResponse getDefaultInstanceForType() {
+        return models.KeyOuterClass.KeyServiceJWTSignResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public models.KeyOuterClass.KeyServiceJWTSignResponse build() {
+        models.KeyOuterClass.KeyServiceJWTSignResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public models.KeyOuterClass.KeyServiceJWTSignResponse buildPartial() {
+        models.KeyOuterClass.KeyServiceJWTSignResponse result = new models.KeyOuterClass.KeyServiceJWTSignResponse(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(models.KeyOuterClass.KeyServiceJWTSignResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.token_ = token_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      private int bitField0_;
+
+      private java.lang.Object token_ = "";
+      /**
+       * <code>string token = 1 [json_name = "token"];</code>
+       * @return The token.
+       */
+      public java.lang.String getToken() {
+        java.lang.Object ref = token_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          token_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string token = 1 [json_name = "token"];</code>
+       * @return The bytes for token.
+       */
+      public com.google.protobuf.ByteString
+          getTokenBytes() {
+        java.lang.Object ref = token_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          token_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string token = 1 [json_name = "token"];</code>
+       * @param value The token to set.
+       * @return This builder for chaining.
+       */
+      public Builder setToken(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        token_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string token = 1 [json_name = "token"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearToken() {
+        token_ = getDefaultInstance().getToken();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string token = 1 [json_name = "token"];</code>
+       * @param value The bytes for token to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        token_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:models.KeyServiceJWTSignResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:models.KeyServiceJWTSignResponse)
+    private static final models.KeyOuterClass.KeyServiceJWTSignResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new models.KeyOuterClass.KeyServiceJWTSignResponse();
+    }
+
+    public static models.KeyOuterClass.KeyServiceJWTSignResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<KeyServiceJWTSignResponse>
+        PARSER = new com.google.protobuf.AbstractParser<KeyServiceJWTSignResponse>() {
+      @java.lang.Override
+      public KeyServiceJWTSignResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<KeyServiceJWTSignResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<KeyServiceJWTSignResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public models.KeyOuterClass.KeyServiceJWTSignResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface KeyServiceJWTVerifyRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:models.KeyServiceJWTVerifyRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>string token = 2 [json_name = "token"];</code>
+     * @return The token.
+     */
+    java.lang.String getToken();
+    /**
+     * <code>string token = 2 [json_name = "token"];</code>
+     * @return The bytes for token.
+     */
+    com.google.protobuf.ByteString
+        getTokenBytes();
+  }
+  /**
+   * Protobuf type {@code models.KeyServiceJWTVerifyRequest}
+   */
+  public static final class KeyServiceJWTVerifyRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:models.KeyServiceJWTVerifyRequest)
+      KeyServiceJWTVerifyRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use KeyServiceJWTVerifyRequest.newBuilder() to construct.
+    private KeyServiceJWTVerifyRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private KeyServiceJWTVerifyRequest() {
+      id_ = "";
+      token_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new KeyServiceJWTVerifyRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return models.KeyOuterClass.internal_static_models_KeyServiceJWTVerifyRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return models.KeyOuterClass.internal_static_models_KeyServiceJWTVerifyRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              models.KeyOuterClass.KeyServiceJWTVerifyRequest.class, models.KeyOuterClass.KeyServiceJWTVerifyRequest.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TOKEN_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object token_ = "";
+    /**
+     * <code>string token = 2 [json_name = "token"];</code>
+     * @return The token.
+     */
+    @java.lang.Override
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        token_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string token = 2 [json_name = "token"];</code>
+     * @return The bytes for token.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTokenBytes() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        token_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static models.KeyOuterClass.KeyServiceJWTVerifyRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(models.KeyOuterClass.KeyServiceJWTVerifyRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code models.KeyServiceJWTVerifyRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:models.KeyServiceJWTVerifyRequest)
+        models.KeyOuterClass.KeyServiceJWTVerifyRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return models.KeyOuterClass.internal_static_models_KeyServiceJWTVerifyRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return models.KeyOuterClass.internal_static_models_KeyServiceJWTVerifyRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                models.KeyOuterClass.KeyServiceJWTVerifyRequest.class, models.KeyOuterClass.KeyServiceJWTVerifyRequest.Builder.class);
+      }
+
+      // Construct using models.KeyOuterClass.KeyServiceJWTVerifyRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        id_ = "";
+        token_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return models.KeyOuterClass.internal_static_models_KeyServiceJWTVerifyRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public models.KeyOuterClass.KeyServiceJWTVerifyRequest getDefaultInstanceForType() {
+        return models.KeyOuterClass.KeyServiceJWTVerifyRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public models.KeyOuterClass.KeyServiceJWTVerifyRequest build() {
+        models.KeyOuterClass.KeyServiceJWTVerifyRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public models.KeyOuterClass.KeyServiceJWTVerifyRequest buildPartial() {
+        models.KeyOuterClass.KeyServiceJWTVerifyRequest result = new models.KeyOuterClass.KeyServiceJWTVerifyRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(models.KeyOuterClass.KeyServiceJWTVerifyRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.token_ = token_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object token_ = "";
+      /**
+       * <code>string token = 2 [json_name = "token"];</code>
+       * @return The token.
+       */
+      public java.lang.String getToken() {
+        java.lang.Object ref = token_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          token_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string token = 2 [json_name = "token"];</code>
+       * @return The bytes for token.
+       */
+      public com.google.protobuf.ByteString
+          getTokenBytes() {
+        java.lang.Object ref = token_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          token_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string token = 2 [json_name = "token"];</code>
+       * @param value The token to set.
+       * @return This builder for chaining.
+       */
+      public Builder setToken(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        token_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string token = 2 [json_name = "token"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearToken() {
+        token_ = getDefaultInstance().getToken();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string token = 2 [json_name = "token"];</code>
+       * @param value The bytes for token to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        token_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:models.KeyServiceJWTVerifyRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:models.KeyServiceJWTVerifyRequest)
+    private static final models.KeyOuterClass.KeyServiceJWTVerifyRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new models.KeyOuterClass.KeyServiceJWTVerifyRequest();
+    }
+
+    public static models.KeyOuterClass.KeyServiceJWTVerifyRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<KeyServiceJWTVerifyRequest>
+        PARSER = new com.google.protobuf.AbstractParser<KeyServiceJWTVerifyRequest>() {
+      @java.lang.Override
+      public KeyServiceJWTVerifyRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<KeyServiceJWTVerifyRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<KeyServiceJWTVerifyRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public models.KeyOuterClass.KeyServiceJWTVerifyRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface KeyServiceJWTVerifyResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:models.KeyServiceJWTVerifyResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool valid = 1 [json_name = "valid"];</code>
+     * @return The valid.
+     */
+    boolean getValid();
+  }
+  /**
+   * Protobuf type {@code models.KeyServiceJWTVerifyResponse}
+   */
+  public static final class KeyServiceJWTVerifyResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:models.KeyServiceJWTVerifyResponse)
+      KeyServiceJWTVerifyResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use KeyServiceJWTVerifyResponse.newBuilder() to construct.
+    private KeyServiceJWTVerifyResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private KeyServiceJWTVerifyResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new KeyServiceJWTVerifyResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return models.KeyOuterClass.internal_static_models_KeyServiceJWTVerifyResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return models.KeyOuterClass.internal_static_models_KeyServiceJWTVerifyResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              models.KeyOuterClass.KeyServiceJWTVerifyResponse.class, models.KeyOuterClass.KeyServiceJWTVerifyResponse.Builder.class);
+    }
+
+    public static final int VALID_FIELD_NUMBER = 1;
+    private boolean valid_ = false;
+    /**
+     * <code>bool valid = 1 [json_name = "valid"];</code>
+     * @return The valid.
+     */
+    @java.lang.Override
+    public boolean getValid() {
+      return valid_;
+    }
+
+    public static models.KeyOuterClass.KeyServiceJWTVerifyResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static models.KeyOuterClass.KeyServiceJWTVerifyResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(models.KeyOuterClass.KeyServiceJWTVerifyResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code models.KeyServiceJWTVerifyResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:models.KeyServiceJWTVerifyResponse)
+        models.KeyOuterClass.KeyServiceJWTVerifyResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return models.KeyOuterClass.internal_static_models_KeyServiceJWTVerifyResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return models.KeyOuterClass.internal_static_models_KeyServiceJWTVerifyResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                models.KeyOuterClass.KeyServiceJWTVerifyResponse.class, models.KeyOuterClass.KeyServiceJWTVerifyResponse.Builder.class);
+      }
+
+      // Construct using models.KeyOuterClass.KeyServiceJWTVerifyResponse.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        valid_ = false;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return models.KeyOuterClass.internal_static_models_KeyServiceJWTVerifyResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public models.KeyOuterClass.KeyServiceJWTVerifyResponse getDefaultInstanceForType() {
+        return models.KeyOuterClass.KeyServiceJWTVerifyResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public models.KeyOuterClass.KeyServiceJWTVerifyResponse build() {
+        models.KeyOuterClass.KeyServiceJWTVerifyResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public models.KeyOuterClass.KeyServiceJWTVerifyResponse buildPartial() {
+        models.KeyOuterClass.KeyServiceJWTVerifyResponse result = new models.KeyOuterClass.KeyServiceJWTVerifyResponse(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(models.KeyOuterClass.KeyServiceJWTVerifyResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.valid_ = valid_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      private int bitField0_;
+
+      private boolean valid_ ;
+      /**
+       * <code>bool valid = 1 [json_name = "valid"];</code>
+       * @return The valid.
+       */
+      @java.lang.Override
+      public boolean getValid() {
+        return valid_;
+      }
+      /**
+       * <code>bool valid = 1 [json_name = "valid"];</code>
+       * @param value The valid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValid(boolean value) {
+        
+        valid_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool valid = 1 [json_name = "valid"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValid() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        valid_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:models.KeyServiceJWTVerifyResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:models.KeyServiceJWTVerifyResponse)
+    private static final models.KeyOuterClass.KeyServiceJWTVerifyResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new models.KeyOuterClass.KeyServiceJWTVerifyResponse();
+    }
+
+    public static models.KeyOuterClass.KeyServiceJWTVerifyResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<KeyServiceJWTVerifyResponse>
+        PARSER = new com.google.protobuf.AbstractParser<KeyServiceJWTVerifyResponse>() {
+      @java.lang.Override
+      public KeyServiceJWTVerifyResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<KeyServiceJWTVerifyResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<KeyServiceJWTVerifyResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public models.KeyOuterClass.KeyServiceJWTVerifyResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_models_Key_descriptor;
   private static final 
@@ -12989,6 +15010,26 @@ public final class KeyOuterClass {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_models_KeyServiceJWKResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_models_KeyServiceJWTSignRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_models_KeyServiceJWTSignRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_models_KeyServiceJWTSignResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_models_KeyServiceJWTSignResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_models_KeyServiceJWTVerifyRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_models_KeyServiceJWTVerifyRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_models_KeyServiceJWTVerifyResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_models_KeyServiceJWTVerifyResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -13001,89 +15042,102 @@ public final class KeyOuterClass {
       "\n\020models/key.proto\022\006models\032\034google/api/a" +
       "nnotations.proto\032\037google/protobuf/timest" +
       "amp.proto\032 google/protobuf/descriptor.pr" +
-      "oto\"\357\003\n\003Key\022\016\n\002id\030\001 \001(\tR\002id\022$\n\013external_" +
+      "oto\"\201\004\n\003Key\022\016\n\002id\030\001 \001(\tR\002id\022$\n\013external_" +
       "id\030\002 \001(\tH\000R\nexternalId\210\001\001\022\037\n\013private_key" +
       "\030\003 \001(\tR\nprivateKey\022\035\n\npublic_key\030\004 \001(\tR\t" +
-      "publicKey\022(\n\rshould_rotate\030\005 \001(\010H\001R\014shou" +
-      "ldRotate\210\001\001\022+\n\017rotated_from_id\030\006 \001(\tH\002R\r" +
-      "rotatedFromId\210\001\001\022$\n\013rotate_cron\030\007 \001(\tH\003R" +
-      "\nrotateCron\210\001\001\0229\n\nexpires_at\030\010 \001(\0132\032.goo" +
-      "gle.protobuf.TimestampR\texpiresAt\0229\n\nupd" +
-      "ated_at\030\t \001(\0132\032.google.protobuf.Timestam" +
-      "pR\tupdatedAt\0229\n\ncreated_at\030\n \001(\0132\032.googl" +
-      "e.protobuf.TimestampR\tcreatedAtB\016\n\014_exte" +
-      "rnal_idB\020\n\016_should_rotateB\022\n\020_rotated_fr" +
-      "om_idB\016\n\014_rotate_cron\"\311\001\n\027KeyServiceCrea" +
-      "teRequest\022\023\n\002id\030\001 \001(\tH\000R\002id\210\001\001\022(\n\rshould" +
-      "_rotate\030\002 \001(\010H\001R\014shouldRotate\210\001\001\022$\n\013rota" +
-      "te_cron\030\003 \001(\tH\002R\nrotateCron\210\001\001\022\027\n\004bits\030\004" +
-      " \001(\005H\003R\004bits\210\001\001B\005\n\003_idB\020\n\016_should_rotate" +
-      "B\016\n\014_rotate_cronB\007\n\005_bits\"9\n\030KeyServiceC" +
-      "reateResponse\022\035\n\003key\030\001 \001(\0132\013.models.KeyR" +
-      "\003key\"&\n\024KeyServiceGetRequest\022\016\n\002id\030\001 \001(\t" +
-      "R\002id\"6\n\025KeyServiceGetResponse\022\035\n\003key\030\001 \001" +
-      "(\0132\013.models.KeyR\003key\"\302\001\n\034KeyServiceGetOr" +
-      "CreateRequest\022\016\n\002id\030\001 \001(\tR\002id\022(\n\rshould_" +
-      "rotate\030\002 \001(\010H\000R\014shouldRotate\210\001\001\022$\n\013rotat" +
-      "e_cron\030\003 \001(\tH\001R\nrotateCron\210\001\001\022\027\n\004bits\030\004 " +
-      "\001(\005H\002R\004bits\210\001\001B\020\n\016_should_rotateB\016\n\014_rot" +
-      "ate_cronB\007\n\005_bits\">\n\035KeyServiceGetOrCrea" +
-      "teResponse\022\035\n\003key\030\001 \001(\0132\013.models.KeyR\003ke" +
-      "y\"D\n\025KeyServiceListRequest\022\036\n\010first_id\030\001" +
-      " \001(\tH\000R\007firstId\210\001\001B\013\n\t_first_id\"c\n\026KeySe" +
-      "rviceListResponse\022\037\n\004keys\030\001 \003(\0132\013.models" +
-      ".KeyR\004keys\022\034\n\007last_id\030\002 \001(\tH\000R\006lastId\210\001\001" +
-      "B\n\n\010_last_id\"A\n\025KeyServiceSignRequest\022\016\n" +
-      "\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(\tR\007message\"" +
-      "H\n\026KeyServiceSignResponse\022\034\n\tsignature\030\001" +
-      " \001(\tR\tsignature\022\020\n\003kid\030\002 \001(\tR\003kid\"a\n\027Key" +
-      "ServiceVerifyRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007" +
-      "message\030\002 \001(\tR\007message\022\034\n\tsignature\030\003 \001(" +
-      "\tR\tsignature\"0\n\030KeyServiceVerifyResponse" +
-      "\022\024\n\005valid\030\001 \001(\010R\005valid\"B\n\026KeyServiceCryp" +
-      "tRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(" +
-      "\tR\007message\"9\n\027KeyServiceCryptResponse\022\036\n" +
-      "\nciphertext\030\001 \001(\tR\nciphertext\"J\n\030KeyServ" +
-      "iceDecryptRequest\022\016\n\002id\030\001 \001(\tR\002id\022\036\n\ncip" +
-      "hertext\030\002 \001(\tR\nciphertext\"5\n\031KeyServiceD" +
-      "ecryptResponse\022\030\n\007message\030\001 \001(\tR\007message" +
-      "\")\n\027KeyServiceRotateRequest\022\016\n\002id\030\001 \001(\tR" +
-      "\002id\"9\n\030KeyServiceRotateResponse\022\035\n\003key\030\001" +
-      " \001(\0132\013.models.KeyR\003key\")\n\027KeyServiceDele" +
-      "teRequest\022\016\n\002id\030\001 \001(\tR\002id\"\032\n\030KeyServiceD" +
-      "eleteResponse\"&\n\024KeyServiceJWKRequest\022\016\n" +
-      "\002id\030\001 \001(\tR\002id\")\n\025KeyServiceJWKResponse\022\020" +
-      "\n\003jwk\030\001 \001(\tR\003jwk2\377\010\n\nKeyService\022`\n\006Creat" +
-      "e\022\037.models.KeyServiceCreateRequest\032 .mod" +
-      "els.KeyServiceCreateResponse\"\023\202\323\344\223\002\r:\001*\"" +
-      "\010/v1/keys\022Y\n\003Get\022\034.models.KeyServiceGetR" +
-      "equest\032\035.models.KeyServiceGetResponse\"\025\202" +
-      "\323\344\223\002\017\022\r/v1/keys/{id}\022}\n\013GetOrCreate\022$.mo" +
-      "dels.KeyServiceGetOrCreateRequest\032%.mode" +
-      "ls.KeyServiceGetOrCreateResponse\"!\202\323\344\223\002\033" +
-      ":\001*\"\026/v1/keys/get-or-create\022W\n\004List\022\035.mo" +
-      "dels.KeyServiceListRequest\032\036.models.KeyS" +
-      "erviceListResponse\"\020\202\323\344\223\002\n\022\010/v1/keys\022d\n\004" +
-      "Sign\022\035.models.KeyServiceSignRequest\032\036.mo" +
-      "dels.KeyServiceSignResponse\"\035\202\323\344\223\002\027:\001*\"\022" +
-      "/v1/keys/{id}/sign\022l\n\006Verify\022\037.models.Ke" +
-      "yServiceVerifyRequest\032 .models.KeyServic" +
-      "eVerifyResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/keys/{id" +
-      "}/verify\022h\n\005Crypt\022\036.models.KeyServiceCry" +
-      "ptRequest\032\037.models.KeyServiceCryptRespon" +
-      "se\"\036\202\323\344\223\002\030:\001*\"\023/v1/keys/{id}/crypt\022p\n\007De" +
-      "crypt\022 .models.KeyServiceDecryptRequest\032" +
-      "!.models.KeyServiceDecryptResponse\" \202\323\344\223" +
-      "\002\032:\001*\"\025/v1/keys/{id}/decrypt\022i\n\006Rotate\022\037" +
-      ".models.KeyServiceRotateRequest\032 .models" +
-      ".KeyServiceRotateResponse\"\034\202\323\344\223\002\026\"\024/v1/k" +
-      "eys/{id}/rotate\022b\n\006Delete\022\037.models.KeySe" +
-      "rviceDeleteRequest\032 .models.KeyServiceDe" +
-      "leteResponse\"\025\202\323\344\223\002\017*\r/v1/keys/{id}\022]\n\003J" +
-      "WK\022\034.models.KeyServiceJWKRequest\032\035.model" +
-      "s.KeyServiceJWKResponse\"\031\202\323\344\223\002\023\022\021/v1/key" +
-      "s/{id}/jwkB9H\002Z5github.com/luminos-compa" +
-      "ny/secretary/generated/modelsb\006proto3"
+      "publicKey\022\020\n\003kid\030\005 \001(\tR\003kid\022(\n\rshould_ro" +
+      "tate\030\006 \001(\010H\001R\014shouldRotate\210\001\001\022+\n\017rotated" +
+      "_from_id\030\007 \001(\tH\002R\rrotatedFromId\210\001\001\022$\n\013ro" +
+      "tate_cron\030\010 \001(\tH\003R\nrotateCron\210\001\001\0229\n\nexpi" +
+      "res_at\030\t \001(\0132\032.google.protobuf.Timestamp" +
+      "R\texpiresAt\0229\n\nupdated_at\030\n \001(\0132\032.google" +
+      ".protobuf.TimestampR\tupdatedAt\0229\n\ncreate" +
+      "d_at\030\013 \001(\0132\032.google.protobuf.TimestampR\t" +
+      "createdAtB\016\n\014_external_idB\020\n\016_should_rot" +
+      "ateB\022\n\020_rotated_from_idB\016\n\014_rotate_cron\"" +
+      "\311\001\n\027KeyServiceCreateRequest\022\023\n\002id\030\001 \001(\tH" +
+      "\000R\002id\210\001\001\022(\n\rshould_rotate\030\002 \001(\010H\001R\014shoul" +
+      "dRotate\210\001\001\022$\n\013rotate_cron\030\003 \001(\tH\002R\nrotat" +
+      "eCron\210\001\001\022\027\n\004bits\030\004 \001(\005H\003R\004bits\210\001\001B\005\n\003_id" +
+      "B\020\n\016_should_rotateB\016\n\014_rotate_cronB\007\n\005_b" +
+      "its\"9\n\030KeyServiceCreateResponse\022\035\n\003key\030\001" +
+      " \001(\0132\013.models.KeyR\003key\"&\n\024KeyServiceGetR" +
+      "equest\022\016\n\002id\030\001 \001(\tR\002id\"6\n\025KeyServiceGetR" +
+      "esponse\022\035\n\003key\030\001 \001(\0132\013.models.KeyR\003key\"\302" +
+      "\001\n\034KeyServiceGetOrCreateRequest\022\016\n\002id\030\001 " +
+      "\001(\tR\002id\022(\n\rshould_rotate\030\002 \001(\010H\000R\014should" +
+      "Rotate\210\001\001\022$\n\013rotate_cron\030\003 \001(\tH\001R\nrotate" +
+      "Cron\210\001\001\022\027\n\004bits\030\004 \001(\005H\002R\004bits\210\001\001B\020\n\016_sho" +
+      "uld_rotateB\016\n\014_rotate_cronB\007\n\005_bits\">\n\035K" +
+      "eyServiceGetOrCreateResponse\022\035\n\003key\030\001 \001(" +
+      "\0132\013.models.KeyR\003key\"D\n\025KeyServiceListReq" +
+      "uest\022\036\n\010first_id\030\001 \001(\tH\000R\007firstId\210\001\001B\013\n\t" +
+      "_first_id\"c\n\026KeyServiceListResponse\022\037\n\004k" +
+      "eys\030\001 \003(\0132\013.models.KeyR\004keys\022\034\n\007last_id\030" +
+      "\002 \001(\tH\000R\006lastId\210\001\001B\n\n\010_last_id\"A\n\025KeySer" +
+      "viceSignRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007messa" +
+      "ge\030\002 \001(\tR\007message\"H\n\026KeyServiceSignRespo" +
+      "nse\022\034\n\tsignature\030\001 \001(\tR\tsignature\022\020\n\003kid" +
+      "\030\002 \001(\tR\003kid\"a\n\027KeyServiceVerifyRequest\022\016" +
+      "\n\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(\tR\007message" +
+      "\022\034\n\tsignature\030\003 \001(\tR\tsignature\"0\n\030KeySer" +
+      "viceVerifyResponse\022\024\n\005valid\030\001 \001(\010R\005valid" +
+      "\"B\n\026KeyServiceCryptRequest\022\016\n\002id\030\001 \001(\tR\002" +
+      "id\022\030\n\007message\030\002 \001(\tR\007message\"9\n\027KeyServi" +
+      "ceCryptResponse\022\036\n\nciphertext\030\001 \001(\tR\ncip" +
+      "hertext\"J\n\030KeyServiceDecryptRequest\022\016\n\002i" +
+      "d\030\001 \001(\tR\002id\022\036\n\nciphertext\030\002 \001(\tR\nciphert" +
+      "ext\"5\n\031KeyServiceDecryptResponse\022\030\n\007mess" +
+      "age\030\001 \001(\tR\007message\")\n\027KeyServiceRotateRe" +
+      "quest\022\016\n\002id\030\001 \001(\tR\002id\"9\n\030KeyServiceRotat" +
+      "eResponse\022\035\n\003key\030\001 \001(\0132\013.models.KeyR\003key" +
+      "\")\n\027KeyServiceDeleteRequest\022\016\n\002id\030\001 \001(\tR" +
+      "\002id\"\032\n\030KeyServiceDeleteResponse\"&\n\024KeySe" +
+      "rviceJWKRequest\022\016\n\002id\030\001 \001(\tR\002id\")\n\025KeySe" +
+      "rviceJWKResponse\022\020\n\003jwk\030\001 \001(\tR\003jwk\"D\n\030Ke" +
+      "yServiceJWTSignRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030" +
+      "\n\007message\030\002 \001(\tR\007message\"1\n\031KeyServiceJW" +
+      "TSignResponse\022\024\n\005token\030\001 \001(\tR\005token\"B\n\032K" +
+      "eyServiceJWTVerifyRequest\022\016\n\002id\030\001 \001(\tR\002i" +
+      "d\022\024\n\005token\030\002 \001(\tR\005token\"3\n\033KeyServiceJWT" +
+      "VerifyResponse\022\024\n\005valid\030\001 \001(\010R\005valid2\355\n\n" +
+      "\nKeyService\022`\n\006Create\022\037.models.KeyServic" +
+      "eCreateRequest\032 .models.KeyServiceCreate" +
+      "Response\"\023\202\323\344\223\002\r:\001*\"\010/v1/keys\022Y\n\003Get\022\034.m" +
+      "odels.KeyServiceGetRequest\032\035.models.KeyS" +
+      "erviceGetResponse\"\025\202\323\344\223\002\017\022\r/v1/keys/{id}" +
+      "\022}\n\013GetOrCreate\022$.models.KeyServiceGetOr" +
+      "CreateRequest\032%.models.KeyServiceGetOrCr" +
+      "eateResponse\"!\202\323\344\223\002\033:\001*\"\026/v1/keys/get-or" +
+      "-create\022W\n\004List\022\035.models.KeyServiceListR" +
+      "equest\032\036.models.KeyServiceListResponse\"\020" +
+      "\202\323\344\223\002\n\022\010/v1/keys\022d\n\004Sign\022\035.models.KeySer" +
+      "viceSignRequest\032\036.models.KeyServiceSignR" +
+      "esponse\"\035\202\323\344\223\002\027:\001*\"\022/v1/keys/{id}/sign\022l" +
+      "\n\006Verify\022\037.models.KeyServiceVerifyReques" +
+      "t\032 .models.KeyServiceVerifyResponse\"\037\202\323\344" +
+      "\223\002\031:\001*\"\024/v1/keys/{id}/verify\022h\n\005Crypt\022\036." +
+      "models.KeyServiceCryptRequest\032\037.models.K" +
+      "eyServiceCryptResponse\"\036\202\323\344\223\002\030:\001*\"\023/v1/k" +
+      "eys/{id}/crypt\022p\n\007Decrypt\022 .models.KeySe" +
+      "rviceDecryptRequest\032!.models.KeyServiceD" +
+      "ecryptResponse\" \202\323\344\223\002\032:\001*\"\025/v1/keys/{id}" +
+      "/decrypt\022i\n\006Rotate\022\037.models.KeyServiceRo" +
+      "tateRequest\032 .models.KeyServiceRotateRes" +
+      "ponse\"\034\202\323\344\223\002\026\"\024/v1/keys/{id}/rotate\022b\n\006D" +
+      "elete\022\037.models.KeyServiceDeleteRequest\032 " +
+      ".models.KeyServiceDeleteResponse\"\025\202\323\344\223\002\017" +
+      "*\r/v1/keys/{id}\022]\n\003JWK\022\034.models.KeyServi" +
+      "ceJWKRequest\032\035.models.KeyServiceJWKRespo" +
+      "nse\"\031\202\323\344\223\002\023\022\021/v1/keys/{id}/jwk\022q\n\007JWTSig" +
+      "n\022 .models.KeyServiceJWTSignRequest\032!.mo" +
+      "dels.KeyServiceJWTSignResponse\"!\202\323\344\223\002\033:\001" +
+      "*\"\026/v1/keys/{id}/jwt-sign\022y\n\tJWTVerify\022\"" +
+      ".models.KeyServiceJWTVerifyRequest\032#.mod" +
+      "els.KeyServiceJWTVerifyResponse\"#\202\323\344\223\002\035:" +
+      "\001*\"\030/v1/keys/{id}/jwt-verifyB9H\002Z5github" +
+      ".com/luminos-company/secretary/generated" +
+      "/modelsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13097,7 +15151,7 @@ public final class KeyOuterClass {
     internal_static_models_Key_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_models_Key_descriptor,
-        new java.lang.String[] { "Id", "ExternalId", "PrivateKey", "PublicKey", "ShouldRotate", "RotatedFromId", "RotateCron", "ExpiresAt", "UpdatedAt", "CreatedAt", "ExternalId", "ShouldRotate", "RotatedFromId", "RotateCron", });
+        new java.lang.String[] { "Id", "ExternalId", "PrivateKey", "PublicKey", "Kid", "ShouldRotate", "RotatedFromId", "RotateCron", "ExpiresAt", "UpdatedAt", "CreatedAt", "ExternalId", "ShouldRotate", "RotatedFromId", "RotateCron", });
     internal_static_models_KeyServiceCreateRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_models_KeyServiceCreateRequest_fieldAccessorTable = new
@@ -13230,6 +15284,30 @@ public final class KeyOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_models_KeyServiceJWKResponse_descriptor,
         new java.lang.String[] { "Jwk", });
+    internal_static_models_KeyServiceJWTSignRequest_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_models_KeyServiceJWTSignRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_models_KeyServiceJWTSignRequest_descriptor,
+        new java.lang.String[] { "Id", "Message", });
+    internal_static_models_KeyServiceJWTSignResponse_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_models_KeyServiceJWTSignResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_models_KeyServiceJWTSignResponse_descriptor,
+        new java.lang.String[] { "Token", });
+    internal_static_models_KeyServiceJWTVerifyRequest_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_models_KeyServiceJWTVerifyRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_models_KeyServiceJWTVerifyRequest_descriptor,
+        new java.lang.String[] { "Id", "Token", });
+    internal_static_models_KeyServiceJWTVerifyResponse_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_models_KeyServiceJWTVerifyResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_models_KeyServiceJWTVerifyResponse_descriptor,
+        new java.lang.String[] { "Valid", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);

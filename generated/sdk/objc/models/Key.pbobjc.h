@@ -53,12 +53,13 @@ typedef GPB_ENUM(Key_FieldNumber) {
   Key_FieldNumber_ExternalId = 2,
   Key_FieldNumber_PrivateKey = 3,
   Key_FieldNumber_PublicKey = 4,
-  Key_FieldNumber_ShouldRotate = 5,
-  Key_FieldNumber_RotatedFromId = 6,
-  Key_FieldNumber_RotateCron = 7,
-  Key_FieldNumber_ExpiresAt = 8,
-  Key_FieldNumber_UpdatedAt = 9,
-  Key_FieldNumber_CreatedAt = 10,
+  Key_FieldNumber_Kid = 5,
+  Key_FieldNumber_ShouldRotate = 6,
+  Key_FieldNumber_RotatedFromId = 7,
+  Key_FieldNumber_RotateCron = 8,
+  Key_FieldNumber_ExpiresAt = 9,
+  Key_FieldNumber_UpdatedAt = 10,
+  Key_FieldNumber_CreatedAt = 11,
 };
 
 GPB_FINAL @interface Key : GPBMessage
@@ -72,6 +73,8 @@ GPB_FINAL @interface Key : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *privateKey;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *publicKey;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *kid;
 
 @property(nonatomic, readwrite) BOOL shouldRotate;
 
@@ -416,6 +419,60 @@ typedef GPB_ENUM(KeyServiceJWKResponse_FieldNumber) {
 GPB_FINAL @interface KeyServiceJWKResponse : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *jwk;
+
+@end
+
+#pragma mark - KeyServiceJWTSignRequest
+
+typedef GPB_ENUM(KeyServiceJWTSignRequest_FieldNumber) {
+  KeyServiceJWTSignRequest_FieldNumber_Id_p = 1,
+  KeyServiceJWTSignRequest_FieldNumber_Message = 2,
+};
+
+GPB_FINAL @interface KeyServiceJWTSignRequest : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *message;
+
+@end
+
+#pragma mark - KeyServiceJWTSignResponse
+
+typedef GPB_ENUM(KeyServiceJWTSignResponse_FieldNumber) {
+  KeyServiceJWTSignResponse_FieldNumber_Token = 1,
+};
+
+GPB_FINAL @interface KeyServiceJWTSignResponse : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *token;
+
+@end
+
+#pragma mark - KeyServiceJWTVerifyRequest
+
+typedef GPB_ENUM(KeyServiceJWTVerifyRequest_FieldNumber) {
+  KeyServiceJWTVerifyRequest_FieldNumber_Id_p = 1,
+  KeyServiceJWTVerifyRequest_FieldNumber_Token = 2,
+};
+
+GPB_FINAL @interface KeyServiceJWTVerifyRequest : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *token;
+
+@end
+
+#pragma mark - KeyServiceJWTVerifyResponse
+
+typedef GPB_ENUM(KeyServiceJWTVerifyResponse_FieldNumber) {
+  KeyServiceJWTVerifyResponse_FieldNumber_Valid = 1,
+};
+
+GPB_FINAL @interface KeyServiceJWTVerifyResponse : GPBMessage
+
+@property(nonatomic, readwrite) BOOL valid;
 
 @end
 

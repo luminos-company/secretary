@@ -20,6 +20,7 @@ func (*KeyConverterImpl) ToGrpc(k *dbmodel.KeyModel) *models.Key {
 		PrivateKey:   "---- REDACTED FOR SECURITY ----",
 		ShouldRotate: k.ShouldRotate,
 		RotateCron:   k.RotateCron,
+		Kid:          k.Kid,
 		CreatedAt:    timestamppb.New(k.CreatedAt),
 		UpdatedAt:    timestamppb.New(k.UpdatedAt),
 	}
@@ -39,6 +40,7 @@ func (*KeyConverterImpl) ToGorm(key *models.Key) *dbmodel.KeyModel {
 		PublicKey:    key.PublicKey,
 		ShouldRotate: key.ShouldRotate,
 		RotateCron:   key.RotateCron,
+		Kid:          key.Kid,
 	}
 	if key.Id != "" {
 		out.ID = key.Id

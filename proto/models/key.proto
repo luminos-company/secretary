@@ -14,12 +14,13 @@ message Key {
     optional string external_id = 2;
     string private_key = 3;
     string public_key = 4;
-    optional bool should_rotate = 5;
-    optional string rotated_from_id = 6;
-    optional string rotate_cron = 7;
-    google.protobuf.Timestamp expires_at = 8;
-    google.protobuf.Timestamp updated_at = 9;
-    google.protobuf.Timestamp created_at = 10;
+    string kid = 5;
+    optional bool should_rotate = 6;
+    optional string rotated_from_id = 7;
+    optional string rotate_cron = 8;
+    google.protobuf.Timestamp expires_at = 9;
+    google.protobuf.Timestamp updated_at = 10;
+    google.protobuf.Timestamp created_at = 11;
 }
 
 
@@ -121,6 +122,25 @@ message KeyServiceJWKResponse {
     string jwk = 1;
 }
 
+message KeyServiceJWTSignRequest {
+    string id = 1;
+    string message = 2;
+}
+
+message KeyServiceJWTSignResponse {
+    string token = 1;
+}
+
+message KeyServiceJWTVerifyRequest {
+    string id = 1;
+    string token = 2;
+}
+
+message KeyServiceJWTVerifyResponse {
+    bool valid = 1;
+}
+
+
 service KeyService {
     rpc Create(KeyServiceCreateRequest) returns (KeyServiceCreateResponse) {
         option (google.api.http) = {
@@ -181,6 +201,18 @@ service KeyService {
     rpc JWK(KeyServiceJWKRequest) returns (KeyServiceJWKResponse) {
         option (google.api.http) = {
             get: "/v1/keys/{id}/jwk"
+        };
+    }
+    rpc JWTSign(KeyServiceJWTSignRequest) returns (KeyServiceJWTSignResponse) {
+        option (google.api.http) = {
+            post: "/v1/keys/{id}/jwt-sign"
+            body: "*"
+        };
+    }
+    rpc JWTVerify(KeyServiceJWTVerifyRequest) returns (KeyServiceJWTVerifyResponse) {
+        option (google.api.http) = {
+            post: "/v1/keys/{id}/jwt-verify"
+            body: "*"
         };
     }
 }

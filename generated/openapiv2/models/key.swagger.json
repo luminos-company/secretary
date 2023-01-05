@@ -282,6 +282,92 @@
         ]
       }
     },
+    "/v1/keys/{id}/jwt-sign": {
+      "post": {
+        "operationId": "KeyService_JWTSign",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/modelsKeyServiceJWTSignResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
+    "/v1/keys/{id}/jwt-verify": {
+      "post": {
+        "operationId": "KeyService_JWTVerify",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/modelsKeyServiceJWTVerifyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "KeyService"
+        ]
+      }
+    },
     "/v1/keys/{id}/rotate": {
       "post": {
         "operationId": "KeyService_Rotate",
@@ -418,6 +504,9 @@
         "publicKey": {
           "type": "string"
         },
+        "kid": {
+          "type": "string"
+        },
         "shouldRotate": {
           "type": "boolean"
         },
@@ -525,6 +614,22 @@
       "properties": {
         "jwk": {
           "type": "string"
+        }
+      }
+    },
+    "modelsKeyServiceJWTSignResponse": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "modelsKeyServiceJWTVerifyResponse": {
+      "type": "object",
+      "properties": {
+        "valid": {
+          "type": "boolean"
         }
       }
     },

@@ -32,6 +32,8 @@ func newKeyModel(db *gorm.DB, opts ...gen.DOOption) keyModel {
 	_keyModel.ExternalId = field.NewString(tableName, "external_id")
 	_keyModel.PrivateKey = field.NewString(tableName, "private_key")
 	_keyModel.PublicKey = field.NewString(tableName, "public_key")
+	_keyModel.Kid = field.NewString(tableName, "kid")
+	_keyModel.JWK = field.NewField(tableName, "jwk")
 	_keyModel.ShouldRotate = field.NewBool(tableName, "should_rotate")
 	_keyModel.RotateCron = field.NewString(tableName, "rotate_cron")
 	_keyModel.ExpiresAt = field.NewTime(tableName, "expires_at")
@@ -52,6 +54,8 @@ type keyModel struct {
 	ExternalId   field.String
 	PrivateKey   field.String
 	PublicKey    field.String
+	Kid          field.String
+	JWK          field.Field
 	ShouldRotate field.Bool
 	RotateCron   field.String
 	ExpiresAt    field.Time
@@ -78,6 +82,8 @@ func (k *keyModel) updateTableName(table string) *keyModel {
 	k.ExternalId = field.NewString(table, "external_id")
 	k.PrivateKey = field.NewString(table, "private_key")
 	k.PublicKey = field.NewString(table, "public_key")
+	k.Kid = field.NewString(table, "kid")
+	k.JWK = field.NewField(table, "jwk")
 	k.ShouldRotate = field.NewBool(table, "should_rotate")
 	k.RotateCron = field.NewString(table, "rotate_cron")
 	k.ExpiresAt = field.NewTime(table, "expires_at")
@@ -100,11 +106,13 @@ func (k *keyModel) GetFieldByName(fieldName string) (field.OrderExpr, bool) {
 }
 
 func (k *keyModel) fillFieldMap() {
-	k.fieldMap = make(map[string]field.Expr, 10)
+	k.fieldMap = make(map[string]field.Expr, 12)
 	k.fieldMap["id"] = k.ID
 	k.fieldMap["external_id"] = k.ExternalId
 	k.fieldMap["private_key"] = k.PrivateKey
 	k.fieldMap["public_key"] = k.PublicKey
+	k.fieldMap["kid"] = k.Kid
+	k.fieldMap["jwk"] = k.JWK
 	k.fieldMap["should_rotate"] = k.ShouldRotate
 	k.fieldMap["rotate_cron"] = k.RotateCron
 	k.fieldMap["expires_at"] = k.ExpiresAt

@@ -16,12 +16,13 @@ const Key$json = const {
     const {'1': 'external_id', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'externalId', '17': true},
     const {'1': 'private_key', '3': 3, '4': 1, '5': 9, '10': 'privateKey'},
     const {'1': 'public_key', '3': 4, '4': 1, '5': 9, '10': 'publicKey'},
-    const {'1': 'should_rotate', '3': 5, '4': 1, '5': 8, '9': 1, '10': 'shouldRotate', '17': true},
-    const {'1': 'rotated_from_id', '3': 6, '4': 1, '5': 9, '9': 2, '10': 'rotatedFromId', '17': true},
-    const {'1': 'rotate_cron', '3': 7, '4': 1, '5': 9, '9': 3, '10': 'rotateCron', '17': true},
-    const {'1': 'expires_at', '3': 8, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'expiresAt'},
-    const {'1': 'updated_at', '3': 9, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
-    const {'1': 'created_at', '3': 10, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
+    const {'1': 'kid', '3': 5, '4': 1, '5': 9, '10': 'kid'},
+    const {'1': 'should_rotate', '3': 6, '4': 1, '5': 8, '9': 1, '10': 'shouldRotate', '17': true},
+    const {'1': 'rotated_from_id', '3': 7, '4': 1, '5': 9, '9': 2, '10': 'rotatedFromId', '17': true},
+    const {'1': 'rotate_cron', '3': 8, '4': 1, '5': 9, '9': 3, '10': 'rotateCron', '17': true},
+    const {'1': 'expires_at', '3': 9, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'expiresAt'},
+    const {'1': 'updated_at', '3': 10, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
+    const {'1': 'created_at', '3': 11, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
   ],
   '8': const [
     const {'1': '_external_id'},
@@ -32,7 +33,7 @@ const Key$json = const {
 };
 
 /// Descriptor for `Key`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyDescriptor = $convert.base64Decode('CgNLZXkSDgoCaWQYASABKAlSAmlkEiQKC2V4dGVybmFsX2lkGAIgASgJSABSCmV4dGVybmFsSWSIAQESHwoLcHJpdmF0ZV9rZXkYAyABKAlSCnByaXZhdGVLZXkSHQoKcHVibGljX2tleRgEIAEoCVIJcHVibGljS2V5EigKDXNob3VsZF9yb3RhdGUYBSABKAhIAVIMc2hvdWxkUm90YXRliAEBEisKD3JvdGF0ZWRfZnJvbV9pZBgGIAEoCUgCUg1yb3RhdGVkRnJvbUlkiAEBEiQKC3JvdGF0ZV9jcm9uGAcgASgJSANSCnJvdGF0ZUNyb26IAQESOQoKZXhwaXJlc19hdBgIIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWV4cGlyZXNBdBI5Cgp1cGRhdGVkX2F0GAkgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0EjkKCmNyZWF0ZWRfYXQYCiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgljcmVhdGVkQXRCDgoMX2V4dGVybmFsX2lkQhAKDl9zaG91bGRfcm90YXRlQhIKEF9yb3RhdGVkX2Zyb21faWRCDgoMX3JvdGF0ZV9jcm9u');
+final $typed_data.Uint8List keyDescriptor = $convert.base64Decode('CgNLZXkSDgoCaWQYASABKAlSAmlkEiQKC2V4dGVybmFsX2lkGAIgASgJSABSCmV4dGVybmFsSWSIAQESHwoLcHJpdmF0ZV9rZXkYAyABKAlSCnByaXZhdGVLZXkSHQoKcHVibGljX2tleRgEIAEoCVIJcHVibGljS2V5EhAKA2tpZBgFIAEoCVIDa2lkEigKDXNob3VsZF9yb3RhdGUYBiABKAhIAVIMc2hvdWxkUm90YXRliAEBEisKD3JvdGF0ZWRfZnJvbV9pZBgHIAEoCUgCUg1yb3RhdGVkRnJvbUlkiAEBEiQKC3JvdGF0ZV9jcm9uGAggASgJSANSCnJvdGF0ZUNyb26IAQESOQoKZXhwaXJlc19hdBgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWV4cGlyZXNBdBI5Cgp1cGRhdGVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0EjkKCmNyZWF0ZWRfYXQYCyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgljcmVhdGVkQXRCDgoMX2V4dGVybmFsX2lkQhAKDl9zaG91bGRfcm90YXRlQhIKEF9yb3RhdGVkX2Zyb21faWRCDgoMX3JvdGF0ZV9jcm9u');
 @$core.Deprecated('Use keyServiceCreateRequestDescriptor instead')
 const KeyServiceCreateRequest$json = const {
   '1': 'KeyServiceCreateRequest',
@@ -280,3 +281,45 @@ const KeyServiceJWKResponse$json = const {
 
 /// Descriptor for `KeyServiceJWKResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List keyServiceJWKResponseDescriptor = $convert.base64Decode('ChVLZXlTZXJ2aWNlSldLUmVzcG9uc2USEAoDandrGAEgASgJUgNqd2s=');
+@$core.Deprecated('Use keyServiceJWTSignRequestDescriptor instead')
+const KeyServiceJWTSignRequest$json = const {
+  '1': 'KeyServiceJWTSignRequest',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'message', '3': 2, '4': 1, '5': 9, '10': 'message'},
+  ],
+};
+
+/// Descriptor for `KeyServiceJWTSignRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List keyServiceJWTSignRequestDescriptor = $convert.base64Decode('ChhLZXlTZXJ2aWNlSldUU2lnblJlcXVlc3QSDgoCaWQYASABKAlSAmlkEhgKB21lc3NhZ2UYAiABKAlSB21lc3NhZ2U=');
+@$core.Deprecated('Use keyServiceJWTSignResponseDescriptor instead')
+const KeyServiceJWTSignResponse$json = const {
+  '1': 'KeyServiceJWTSignResponse',
+  '2': const [
+    const {'1': 'token', '3': 1, '4': 1, '5': 9, '10': 'token'},
+  ],
+};
+
+/// Descriptor for `KeyServiceJWTSignResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List keyServiceJWTSignResponseDescriptor = $convert.base64Decode('ChlLZXlTZXJ2aWNlSldUU2lnblJlc3BvbnNlEhQKBXRva2VuGAEgASgJUgV0b2tlbg==');
+@$core.Deprecated('Use keyServiceJWTVerifyRequestDescriptor instead')
+const KeyServiceJWTVerifyRequest$json = const {
+  '1': 'KeyServiceJWTVerifyRequest',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'token', '3': 2, '4': 1, '5': 9, '10': 'token'},
+  ],
+};
+
+/// Descriptor for `KeyServiceJWTVerifyRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List keyServiceJWTVerifyRequestDescriptor = $convert.base64Decode('ChpLZXlTZXJ2aWNlSldUVmVyaWZ5UmVxdWVzdBIOCgJpZBgBIAEoCVICaWQSFAoFdG9rZW4YAiABKAlSBXRva2Vu');
+@$core.Deprecated('Use keyServiceJWTVerifyResponseDescriptor instead')
+const KeyServiceJWTVerifyResponse$json = const {
+  '1': 'KeyServiceJWTVerifyResponse',
+  '2': const [
+    const {'1': 'valid', '3': 1, '4': 1, '5': 8, '10': 'valid'},
+  ],
+};
+
+/// Descriptor for `KeyServiceJWTVerifyResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List keyServiceJWTVerifyResponseDescriptor = $convert.base64Decode('ChtLZXlTZXJ2aWNlSldUVmVyaWZ5UmVzcG9uc2USFAoFdmFsaWQYASABKAhSBXZhbGlk');

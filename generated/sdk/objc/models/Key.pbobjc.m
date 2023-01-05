@@ -70,6 +70,7 @@ static GPBFileDescriptor *KeyRoot_FileDescriptor(void) {
 @dynamic hasExternalId, externalId;
 @dynamic privateKey;
 @dynamic publicKey;
+@dynamic kid;
 @dynamic hasShouldRotate, shouldRotate;
 @dynamic hasRotatedFromId, rotatedFromId;
 @dynamic hasRotateCron, rotateCron;
@@ -83,6 +84,7 @@ typedef struct Key__storage_ {
   NSString *externalId;
   NSString *privateKey;
   NSString *publicKey;
+  NSString *kid;
   NSString *rotatedFromId;
   NSString *rotateCron;
   GPBTimestamp *expiresAt;
@@ -133,11 +135,20 @@ typedef struct Key__storage_ {
         .dataType = GPBDataTypeString,
       },
       {
+        .name = "kid",
+        .dataTypeSpecific.clazz = Nil,
+        .number = Key_FieldNumber_Kid,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(Key__storage_, kid),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
         .name = "shouldRotate",
         .dataTypeSpecific.clazz = Nil,
         .number = Key_FieldNumber_ShouldRotate,
-        .hasIndex = 4,
-        .offset = 5,  // Stored in _has_storage_ to save space.
+        .hasIndex = 5,
+        .offset = 6,  // Stored in _has_storage_ to save space.
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBool,
       },
@@ -145,7 +156,7 @@ typedef struct Key__storage_ {
         .name = "rotatedFromId",
         .dataTypeSpecific.clazz = Nil,
         .number = Key_FieldNumber_RotatedFromId,
-        .hasIndex = 6,
+        .hasIndex = 7,
         .offset = (uint32_t)offsetof(Key__storage_, rotatedFromId),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
@@ -154,7 +165,7 @@ typedef struct Key__storage_ {
         .name = "rotateCron",
         .dataTypeSpecific.clazz = Nil,
         .number = Key_FieldNumber_RotateCron,
-        .hasIndex = 7,
+        .hasIndex = 8,
         .offset = (uint32_t)offsetof(Key__storage_, rotateCron),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
@@ -163,7 +174,7 @@ typedef struct Key__storage_ {
         .name = "expiresAt",
         .dataTypeSpecific.clazz = GPBObjCClass(GPBTimestamp),
         .number = Key_FieldNumber_ExpiresAt,
-        .hasIndex = 8,
+        .hasIndex = 9,
         .offset = (uint32_t)offsetof(Key__storage_, expiresAt),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
@@ -172,7 +183,7 @@ typedef struct Key__storage_ {
         .name = "updatedAt",
         .dataTypeSpecific.clazz = GPBObjCClass(GPBTimestamp),
         .number = Key_FieldNumber_UpdatedAt,
-        .hasIndex = 9,
+        .hasIndex = 10,
         .offset = (uint32_t)offsetof(Key__storage_, updatedAt),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
@@ -181,7 +192,7 @@ typedef struct Key__storage_ {
         .name = "createdAt",
         .dataTypeSpecific.clazz = GPBObjCClass(GPBTimestamp),
         .number = Key_FieldNumber_CreatedAt,
-        .hasIndex = 10,
+        .hasIndex = 11,
         .offset = (uint32_t)offsetof(Key__storage_, createdAt),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
@@ -1311,6 +1322,207 @@ typedef struct KeyServiceJWKResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(KeyServiceJWKResponse__storage_)
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - KeyServiceJWTSignRequest
+
+@implementation KeyServiceJWTSignRequest
+
+@dynamic id_p;
+@dynamic message;
+
+typedef struct KeyServiceJWTSignRequest__storage_ {
+  uint32_t _has_storage_[1];
+  NSString *id_p;
+  NSString *message;
+} KeyServiceJWTSignRequest__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "id_p",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceJWTSignRequest_FieldNumber_Id_p,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(KeyServiceJWTSignRequest__storage_, id_p),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "message",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceJWTSignRequest_FieldNumber_Message,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(KeyServiceJWTSignRequest__storage_, message),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[KeyServiceJWTSignRequest class]
+                                     rootClass:[KeyRoot class]
+                                          file:KeyRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(KeyServiceJWTSignRequest__storage_)
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - KeyServiceJWTSignResponse
+
+@implementation KeyServiceJWTSignResponse
+
+@dynamic token;
+
+typedef struct KeyServiceJWTSignResponse__storage_ {
+  uint32_t _has_storage_[1];
+  NSString *token;
+} KeyServiceJWTSignResponse__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "token",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceJWTSignResponse_FieldNumber_Token,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(KeyServiceJWTSignResponse__storage_, token),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[KeyServiceJWTSignResponse class]
+                                     rootClass:[KeyRoot class]
+                                          file:KeyRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(KeyServiceJWTSignResponse__storage_)
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - KeyServiceJWTVerifyRequest
+
+@implementation KeyServiceJWTVerifyRequest
+
+@dynamic id_p;
+@dynamic token;
+
+typedef struct KeyServiceJWTVerifyRequest__storage_ {
+  uint32_t _has_storage_[1];
+  NSString *id_p;
+  NSString *token;
+} KeyServiceJWTVerifyRequest__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "id_p",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceJWTVerifyRequest_FieldNumber_Id_p,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(KeyServiceJWTVerifyRequest__storage_, id_p),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "token",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceJWTVerifyRequest_FieldNumber_Token,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(KeyServiceJWTVerifyRequest__storage_, token),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[KeyServiceJWTVerifyRequest class]
+                                     rootClass:[KeyRoot class]
+                                          file:KeyRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(KeyServiceJWTVerifyRequest__storage_)
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - KeyServiceJWTVerifyResponse
+
+@implementation KeyServiceJWTVerifyResponse
+
+@dynamic valid;
+
+typedef struct KeyServiceJWTVerifyResponse__storage_ {
+  uint32_t _has_storage_[1];
+} KeyServiceJWTVerifyResponse__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "valid",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceJWTVerifyResponse_FieldNumber_Valid,
+        .hasIndex = 0,
+        .offset = 1,  // Stored in _has_storage_ to save space.
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBool,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[KeyServiceJWTVerifyResponse class]
+                                     rootClass:[KeyRoot class]
+                                          file:KeyRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(KeyServiceJWTVerifyResponse__storage_)
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");

@@ -258,3 +258,46 @@ func TestKeyService_JWK(t *testing.T) {
 	}
 	t.Log(res2.Jwk)
 }
+
+func TestKeyService_JWTSign(t *testing.T) {
+	ksv := services.KeyService{}
+	res1, err := ksv.Create(context.TODO(), &models.KeyServiceCreateRequest{
+		ShouldRotate: PTrue(),
+	})
+	if err != nil || res1 == nil {
+		t.Fatal(err)
+	}
+	res2, err := ksv.JWTSign(context.TODO(), &models.KeyServiceJWTSignRequest{
+		Id:      res1.Key.GetId(),
+		Message: "HELLO IM A MESSAGE",
+	})
+	if err != nil || res2 == nil {
+		t.Fatal(err)
+	}
+	t.Log(res2.Token)
+}
+
+func TestKeyService_JWTVerify(t *testing.T) {
+	ksv := services.KeyService{}
+	res1, err := ksv.Create(context.TODO(), &models.KeyServiceCreateRequest{
+		ShouldRotate: PTrue(),
+	})
+	if err != nil || res1 == nil {
+		t.Fatal(err)
+	}
+	res2, err := ksv.JWTSign(context.TODO(), &models.KeyServiceJWTSignRequest{
+		Id:      res1.Key.GetId(),
+		Message: "HELLO IM A MESSAGE",
+	})
+	if err != nil || res2 == nil {
+		t.Fatal(err)
+	}
+	res3, err := ksv.JWTVerify(context.TODO(), &models.KeyServiceJWTVerifyRequest{
+		Id:    res1.Key.GetId(),
+		Token: res2.Token,
+	})
+	if err != nil || res3 == nil {
+		t.Fatal(err)
+	}
+	t.Log(res3.Valid)
+}

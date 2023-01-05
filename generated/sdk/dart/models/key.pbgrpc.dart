@@ -80,6 +80,18 @@ class KeyServiceClient extends $grpc.Client {
           ($0.KeyServiceJWKRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.KeyServiceJWKResponse.fromBuffer(value));
+  static final _$jWTSign = $grpc.ClientMethod<$0.KeyServiceJWTSignRequest,
+          $0.KeyServiceJWTSignResponse>(
+      '/models.KeyService/JWTSign',
+      ($0.KeyServiceJWTSignRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.KeyServiceJWTSignResponse.fromBuffer(value));
+  static final _$jWTVerify = $grpc.ClientMethod<$0.KeyServiceJWTVerifyRequest,
+          $0.KeyServiceJWTVerifyResponse>(
+      '/models.KeyService/JWTVerify',
+      ($0.KeyServiceJWTVerifyRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.KeyServiceJWTVerifyResponse.fromBuffer(value));
 
   KeyServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -150,6 +162,18 @@ class KeyServiceClient extends $grpc.Client {
       $0.KeyServiceJWKRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$jWK, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.KeyServiceJWTSignResponse> jWTSign(
+      $0.KeyServiceJWTSignRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$jWTSign, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.KeyServiceJWTVerifyResponse> jWTVerify(
+      $0.KeyServiceJWTVerifyRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$jWTVerify, request, options: options);
   }
 }
 
@@ -256,6 +280,24 @@ abstract class KeyServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.KeyServiceJWKRequest.fromBuffer(value),
             ($0.KeyServiceJWKResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.KeyServiceJWTSignRequest,
+            $0.KeyServiceJWTSignResponse>(
+        'JWTSign',
+        jWTSign_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.KeyServiceJWTSignRequest.fromBuffer(value),
+        ($0.KeyServiceJWTSignResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.KeyServiceJWTVerifyRequest,
+            $0.KeyServiceJWTVerifyResponse>(
+        'JWTVerify',
+        jWTVerify_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.KeyServiceJWTVerifyRequest.fromBuffer(value),
+        ($0.KeyServiceJWTVerifyResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.KeyServiceCreateResponse> create_Pre($grpc.ServiceCall call,
@@ -315,6 +357,18 @@ abstract class KeyServiceBase extends $grpc.Service {
     return jWK(call, await request);
   }
 
+  $async.Future<$0.KeyServiceJWTSignResponse> jWTSign_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.KeyServiceJWTSignRequest> request) async {
+    return jWTSign(call, await request);
+  }
+
+  $async.Future<$0.KeyServiceJWTVerifyResponse> jWTVerify_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.KeyServiceJWTVerifyRequest> request) async {
+    return jWTVerify(call, await request);
+  }
+
   $async.Future<$0.KeyServiceCreateResponse> create(
       $grpc.ServiceCall call, $0.KeyServiceCreateRequest request);
   $async.Future<$0.KeyServiceGetResponse> get(
@@ -337,4 +391,8 @@ abstract class KeyServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.KeyServiceDeleteRequest request);
   $async.Future<$0.KeyServiceJWKResponse> jWK(
       $grpc.ServiceCall call, $0.KeyServiceJWKRequest request);
+  $async.Future<$0.KeyServiceJWTSignResponse> jWTSign(
+      $grpc.ServiceCall call, $0.KeyServiceJWTSignRequest request);
+  $async.Future<$0.KeyServiceJWTVerifyResponse> jWTVerify(
+      $grpc.ServiceCall call, $0.KeyServiceJWTVerifyRequest request);
 }

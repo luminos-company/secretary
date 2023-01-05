@@ -33,6 +33,8 @@ type KeyServiceClient interface {
 	Rotate(ctx context.Context, in *KeyServiceRotateRequest, opts ...grpc.CallOption) (*KeyServiceRotateResponse, error)
 	Delete(ctx context.Context, in *KeyServiceDeleteRequest, opts ...grpc.CallOption) (*KeyServiceDeleteResponse, error)
 	JWK(ctx context.Context, in *KeyServiceJWKRequest, opts ...grpc.CallOption) (*KeyServiceJWKResponse, error)
+	JWTSign(ctx context.Context, in *KeyServiceJWTSignRequest, opts ...grpc.CallOption) (*KeyServiceJWTSignResponse, error)
+	JWTVerify(ctx context.Context, in *KeyServiceJWTVerifyRequest, opts ...grpc.CallOption) (*KeyServiceJWTVerifyResponse, error)
 }
 
 type keyServiceClient struct {
@@ -142,6 +144,24 @@ func (c *keyServiceClient) JWK(ctx context.Context, in *KeyServiceJWKRequest, op
 	return out, nil
 }
 
+func (c *keyServiceClient) JWTSign(ctx context.Context, in *KeyServiceJWTSignRequest, opts ...grpc.CallOption) (*KeyServiceJWTSignResponse, error) {
+	out := new(KeyServiceJWTSignResponse)
+	err := c.cc.Invoke(ctx, "/models.KeyService/JWTSign", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyServiceClient) JWTVerify(ctx context.Context, in *KeyServiceJWTVerifyRequest, opts ...grpc.CallOption) (*KeyServiceJWTVerifyResponse, error) {
+	out := new(KeyServiceJWTVerifyResponse)
+	err := c.cc.Invoke(ctx, "/models.KeyService/JWTVerify", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // KeyServiceServer is the server API for KeyService service.
 // All implementations must embed UnimplementedKeyServiceServer
 // for forward compatibility
@@ -157,6 +177,8 @@ type KeyServiceServer interface {
 	Rotate(context.Context, *KeyServiceRotateRequest) (*KeyServiceRotateResponse, error)
 	Delete(context.Context, *KeyServiceDeleteRequest) (*KeyServiceDeleteResponse, error)
 	JWK(context.Context, *KeyServiceJWKRequest) (*KeyServiceJWKResponse, error)
+	JWTSign(context.Context, *KeyServiceJWTSignRequest) (*KeyServiceJWTSignResponse, error)
+	JWTVerify(context.Context, *KeyServiceJWTVerifyRequest) (*KeyServiceJWTVerifyResponse, error)
 	mustEmbedUnimplementedKeyServiceServer()
 }
 
@@ -196,6 +218,12 @@ func (UnimplementedKeyServiceServer) Delete(context.Context, *KeyServiceDeleteRe
 }
 func (UnimplementedKeyServiceServer) JWK(context.Context, *KeyServiceJWKRequest) (*KeyServiceJWKResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method JWK not implemented")
+}
+func (UnimplementedKeyServiceServer) JWTSign(context.Context, *KeyServiceJWTSignRequest) (*KeyServiceJWTSignResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method JWTSign not implemented")
+}
+func (UnimplementedKeyServiceServer) JWTVerify(context.Context, *KeyServiceJWTVerifyRequest) (*KeyServiceJWTVerifyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method JWTVerify not implemented")
 }
 func (UnimplementedKeyServiceServer) mustEmbedUnimplementedKeyServiceServer() {}
 
@@ -408,6 +436,42 @@ func _KeyService_JWK_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _KeyService_JWTSign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyServiceJWTSignRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyServiceServer).JWTSign(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/models.KeyService/JWTSign",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyServiceServer).JWTSign(ctx, req.(*KeyServiceJWTSignRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyService_JWTVerify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyServiceJWTVerifyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyServiceServer).JWTVerify(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/models.KeyService/JWTVerify",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyServiceServer).JWTVerify(ctx, req.(*KeyServiceJWTVerifyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // KeyService_ServiceDesc is the grpc.ServiceDesc for KeyService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -458,6 +522,14 @@ var KeyService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "JWK",
 			Handler:    _KeyService_JWK_Handler,
+		},
+		{
+			MethodName: "JWTSign",
+			Handler:    _KeyService_JWTSign_Handler,
+		},
+		{
+			MethodName: "JWTVerify",
+			Handler:    _KeyService_JWTVerify_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

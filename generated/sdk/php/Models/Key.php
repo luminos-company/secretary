@@ -30,27 +30,31 @@ class Key extends \Google\Protobuf\Internal\Message
      */
     protected $public_key = '';
     /**
-     * Generated from protobuf field <code>optional bool should_rotate = 5 [json_name = "shouldRotate"];</code>
+     * Generated from protobuf field <code>string kid = 5 [json_name = "kid"];</code>
+     */
+    protected $kid = '';
+    /**
+     * Generated from protobuf field <code>optional bool should_rotate = 6 [json_name = "shouldRotate"];</code>
      */
     protected $should_rotate = null;
     /**
-     * Generated from protobuf field <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+     * Generated from protobuf field <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
      */
     protected $rotated_from_id = null;
     /**
-     * Generated from protobuf field <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+     * Generated from protobuf field <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
      */
     protected $rotate_cron = null;
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+     * Generated from protobuf field <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
      */
     protected $expires_at = null;
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
      */
     protected $updated_at = null;
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
      */
     protected $created_at = null;
 
@@ -64,6 +68,7 @@ class Key extends \Google\Protobuf\Internal\Message
      *     @type string $external_id
      *     @type string $private_key
      *     @type string $public_key
+     *     @type string $kid
      *     @type bool $should_rotate
      *     @type string $rotated_from_id
      *     @type string $rotate_cron
@@ -176,7 +181,29 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool should_rotate = 5 [json_name = "shouldRotate"];</code>
+     * Generated from protobuf field <code>string kid = 5 [json_name = "kid"];</code>
+     * @return string
+     */
+    public function getKid()
+    {
+        return $this->kid;
+    }
+
+    /**
+     * Generated from protobuf field <code>string kid = 5 [json_name = "kid"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setKid($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->kid = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional bool should_rotate = 6 [json_name = "shouldRotate"];</code>
      * @return bool
      */
     public function getShouldRotate()
@@ -195,7 +222,7 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool should_rotate = 5 [json_name = "shouldRotate"];</code>
+     * Generated from protobuf field <code>optional bool should_rotate = 6 [json_name = "shouldRotate"];</code>
      * @param bool $var
      * @return $this
      */
@@ -208,7 +235,7 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+     * Generated from protobuf field <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
      * @return string
      */
     public function getRotatedFromId()
@@ -227,7 +254,7 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string rotated_from_id = 6 [json_name = "rotatedFromId"];</code>
+     * Generated from protobuf field <code>optional string rotated_from_id = 7 [json_name = "rotatedFromId"];</code>
      * @param string $var
      * @return $this
      */
@@ -240,7 +267,7 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+     * Generated from protobuf field <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
      * @return string
      */
     public function getRotateCron()
@@ -259,7 +286,7 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string rotate_cron = 7 [json_name = "rotateCron"];</code>
+     * Generated from protobuf field <code>optional string rotate_cron = 8 [json_name = "rotateCron"];</code>
      * @param string $var
      * @return $this
      */
@@ -272,7 +299,7 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+     * Generated from protobuf field <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
      * @return \Google\Protobuf\Timestamp|null
      */
     public function getExpiresAt()
@@ -291,7 +318,7 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp expires_at = 8 [json_name = "expiresAt"];</code>
+     * Generated from protobuf field <code>.google.protobuf.Timestamp expires_at = 9 [json_name = "expiresAt"];</code>
      * @param \Google\Protobuf\Timestamp $var
      * @return $this
      */
@@ -304,7 +331,7 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
      * @return \Google\Protobuf\Timestamp|null
      */
     public function getUpdatedAt()
@@ -323,7 +350,7 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
+     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt"];</code>
      * @param \Google\Protobuf\Timestamp $var
      * @return $this
      */
@@ -336,7 +363,7 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
      * @return \Google\Protobuf\Timestamp|null
      */
     public function getCreatedAt()
@@ -355,7 +382,7 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 11 [json_name = "createdAt"];</code>
      * @param \Google\Protobuf\Timestamp $var
      * @return $this
      */
