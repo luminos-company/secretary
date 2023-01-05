@@ -13,7 +13,7 @@ ARG CGO_ENABLED=1
 ARG GOOS=linux
 ARG GOARCH=amd64
 
-RUN go build -o /main
+RUN go build -o /main ./main
 
 
 FROM alpine:latest AS deploy
