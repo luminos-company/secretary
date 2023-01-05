@@ -8,6 +8,7 @@ import (
 	"gorm.io/driver/sqlite"
 	"gorm.io/gen"
 	"gorm.io/gorm"
+	"log"
 	"os"
 	"sync"
 )
@@ -28,8 +29,9 @@ func create() {
 	db = Get()
 	err := db.AutoMigrate(dbmodel.KeyModel{}, dbmodel.KeyRotatedModel{})
 	if err != nil {
+		log.Println(err)
 		_ = os.RemoveAll(dbFolder + "/" + dbFile)
-		panic(err)
+		log.Fatalln(err)
 	}
 }
 
@@ -45,7 +47,6 @@ func Generate() {
 }
 
 func safeGet() *gorm.DB {
-	var dbt *gorm.DB
 	if typ.GetEnv("PG_ENABLE", "false") == "true" {
 		pgUser := typ.GetEnv("PG_USER", "postgres")
 		pgPassword := typ.GetEnv("PG_PASSWORD", "postgres")
@@ -55,9 +56,17 @@ func safeGet() *gorm.DB {
 		pgSSLMode := typ.GetEnv("PG_SSL_MODE", "disable")
 		pgTimeZone := typ.GetEnv("PG_TIME_ZONE", "UTC")
 		pgURL := "host=" + pgHost + " port=" + pgPort + " user=" + pgUser + " dbname=" + pgDatabase + " password=" + pgPassword + " sslmode=" + pgSSLMode + " TimeZone=" + pgTimeZone
-		dbt, _ = gorm.Open(postgres.Open(pgURL), &gorm.Config{})
+		dbta, err := gorm.Open(postgres.Open(pgURL), &gorm.Config{})
+		if err != nil {
+			log.Fatalln(err)
+		}
+		return dbta
+
 	} else {
-		dbt, _ = gorm.Open(sqlite.Open(dbFolder+"/"+dbFile), &gorm.Config{})
+		dbta, err := gorm.Open(sqlite.Open(dbFolder+"/"+dbFile), &gorm.Config{})
+		if err != nil {
+			log.Fatalln(err)
+		}
+		return dbta
 	}
-	return dbt
 }

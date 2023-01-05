@@ -1,6 +1,7 @@
 package database
 
 import (
+	"log"
 	"os"
 )
 
@@ -12,7 +13,7 @@ func init() {
 		if !folderExists() {
 			err := os.MkdirAll(dbFolder, 0755)
 			if err != nil {
-				panic(err)
+				log.Fatalln(err)
 			}
 		}
 		create()
