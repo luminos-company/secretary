@@ -104,6 +104,7 @@ typedef GPB_ENUM(KeyServiceCreateRequest_FieldNumber) {
   KeyServiceCreateRequest_FieldNumber_Id_p = 1,
   KeyServiceCreateRequest_FieldNumber_ShouldRotate = 2,
   KeyServiceCreateRequest_FieldNumber_RotateCron = 3,
+  KeyServiceCreateRequest_FieldNumber_Bits = 4,
 };
 
 GPB_FINAL @interface KeyServiceCreateRequest : GPBMessage
@@ -119,6 +120,9 @@ GPB_FINAL @interface KeyServiceCreateRequest : GPBMessage
 /** Test to see if @c rotateCron has been set. */
 @property(nonatomic, readwrite) BOOL hasRotateCron;
 
+@property(nonatomic, readwrite) int32_t bits;
+
+@property(nonatomic, readwrite) BOOL hasBits;
 @end
 
 #pragma mark - KeyServiceCreateResponse
@@ -167,6 +171,7 @@ typedef GPB_ENUM(KeyServiceGetOrCreateRequest_FieldNumber) {
   KeyServiceGetOrCreateRequest_FieldNumber_Id_p = 1,
   KeyServiceGetOrCreateRequest_FieldNumber_ShouldRotate = 2,
   KeyServiceGetOrCreateRequest_FieldNumber_RotateCron = 3,
+  KeyServiceGetOrCreateRequest_FieldNumber_Bits = 4,
 };
 
 GPB_FINAL @interface KeyServiceGetOrCreateRequest : GPBMessage
@@ -180,6 +185,9 @@ GPB_FINAL @interface KeyServiceGetOrCreateRequest : GPBMessage
 /** Test to see if @c rotateCron has been set. */
 @property(nonatomic, readwrite) BOOL hasRotateCron;
 
+@property(nonatomic, readwrite) int32_t bits;
+
+@property(nonatomic, readwrite) BOOL hasBits;
 @end
 
 #pragma mark - KeyServiceGetOrCreateResponse

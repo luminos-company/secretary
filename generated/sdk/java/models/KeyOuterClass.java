@@ -1781,6 +1781,17 @@ public final class KeyOuterClass {
      */
     com.google.protobuf.ByteString
         getRotateCronBytes();
+
+    /**
+     * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     * @return Whether the bits field is set.
+     */
+    boolean hasBits();
+    /**
+     * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     * @return The bits.
+     */
+    int getBits();
   }
   /**
    * Protobuf type {@code models.KeyServiceCreateRequest}
@@ -1938,6 +1949,25 @@ public final class KeyOuterClass {
       }
     }
 
+    public static final int BITS_FIELD_NUMBER = 4;
+    private int bits_ = 0;
+    /**
+     * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     * @return Whether the bits field is set.
+     */
+    @java.lang.Override
+    public boolean hasBits() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     * @return The bits.
+     */
+    @java.lang.Override
+    public int getBits() {
+      return bits_;
+    }
+
     public static models.KeyOuterClass.KeyServiceCreateRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2065,6 +2095,7 @@ public final class KeyOuterClass {
         id_ = "";
         shouldRotate_ = false;
         rotateCron_ = "";
+        bits_ = 0;
         return this;
       }
 
@@ -2110,6 +2141,10 @@ public final class KeyOuterClass {
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.rotateCron_ = rotateCron_;
           to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.bits_ = bits_;
+          to_bitField0_ |= 0x00000008;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -2342,6 +2377,46 @@ public final class KeyOuterClass {
         checkByteStringIsUtf8(value);
         rotateCron_ = value;
         bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      private int bits_ ;
+      /**
+       * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+       * @return Whether the bits field is set.
+       */
+      @java.lang.Override
+      public boolean hasBits() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+       * @return The bits.
+       */
+      @java.lang.Override
+      public int getBits() {
+        return bits_;
+      }
+      /**
+       * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+       * @param value The bits to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBits(int value) {
+        
+        bits_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBits() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        bits_ = 0;
         onChanged();
         return this;
       }
@@ -3820,6 +3895,17 @@ public final class KeyOuterClass {
      */
     com.google.protobuf.ByteString
         getRotateCronBytes();
+
+    /**
+     * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     * @return Whether the bits field is set.
+     */
+    boolean hasBits();
+    /**
+     * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     * @return The bits.
+     */
+    int getBits();
   }
   /**
    * Protobuf type {@code models.KeyServiceGetOrCreateRequest}
@@ -3969,6 +4055,25 @@ public final class KeyOuterClass {
       }
     }
 
+    public static final int BITS_FIELD_NUMBER = 4;
+    private int bits_ = 0;
+    /**
+     * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     * @return Whether the bits field is set.
+     */
+    @java.lang.Override
+    public boolean hasBits() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     * @return The bits.
+     */
+    @java.lang.Override
+    public int getBits() {
+      return bits_;
+    }
+
     public static models.KeyOuterClass.KeyServiceGetOrCreateRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4096,6 +4201,7 @@ public final class KeyOuterClass {
         id_ = "";
         shouldRotate_ = false;
         rotateCron_ = "";
+        bits_ = 0;
         return this;
       }
 
@@ -4140,6 +4246,10 @@ public final class KeyOuterClass {
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.rotateCron_ = rotateCron_;
           to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.bits_ = bits_;
+          to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -4365,6 +4475,46 @@ public final class KeyOuterClass {
         checkByteStringIsUtf8(value);
         rotateCron_ = value;
         bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      private int bits_ ;
+      /**
+       * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+       * @return Whether the bits field is set.
+       */
+      @java.lang.Override
+      public boolean hasBits() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+       * @return The bits.
+       */
+      @java.lang.Override
+      public int getBits() {
+        return bits_;
+      }
+      /**
+       * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+       * @param value The bits to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBits(int value) {
+        
+        bits_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 bits = 4 [json_name = "bits"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBits() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        bits_ = 0;
         onChanged();
         return this;
       }
@@ -12735,75 +12885,77 @@ public final class KeyOuterClass {
       "pR\tupdatedAt\0229\n\ncreated_at\030\n \001(\0132\032.googl" +
       "e.protobuf.TimestampR\tcreatedAtB\016\n\014_exte" +
       "rnal_idB\020\n\016_should_rotateB\022\n\020_rotated_fr" +
-      "om_idB\016\n\014_rotate_cron\"\247\001\n\027KeyServiceCrea" +
+      "om_idB\016\n\014_rotate_cron\"\311\001\n\027KeyServiceCrea" +
       "teRequest\022\023\n\002id\030\001 \001(\tH\000R\002id\210\001\001\022(\n\rshould" +
       "_rotate\030\002 \001(\010H\001R\014shouldRotate\210\001\001\022$\n\013rota" +
-      "te_cron\030\003 \001(\tH\002R\nrotateCron\210\001\001B\005\n\003_idB\020\n" +
-      "\016_should_rotateB\016\n\014_rotate_cron\"9\n\030KeySe" +
-      "rviceCreateResponse\022\035\n\003key\030\001 \001(\0132\013.model" +
-      "s.KeyR\003key\"&\n\024KeyServiceGetRequest\022\016\n\002id" +
-      "\030\001 \001(\tR\002id\"6\n\025KeyServiceGetResponse\022\035\n\003k" +
-      "ey\030\001 \001(\0132\013.models.KeyR\003key\"\240\001\n\034KeyServic" +
-      "eGetOrCreateRequest\022\016\n\002id\030\001 \001(\tR\002id\022(\n\rs" +
-      "hould_rotate\030\002 \001(\010H\000R\014shouldRotate\210\001\001\022$\n" +
-      "\013rotate_cron\030\003 \001(\tH\001R\nrotateCron\210\001\001B\020\n\016_" +
-      "should_rotateB\016\n\014_rotate_cron\">\n\035KeyServ" +
-      "iceGetOrCreateResponse\022\035\n\003key\030\001 \001(\0132\013.mo" +
-      "dels.KeyR\003key\"D\n\025KeyServiceListRequest\022\036" +
-      "\n\010first_id\030\001 \001(\tH\000R\007firstId\210\001\001B\013\n\t_first" +
-      "_id\"c\n\026KeyServiceListResponse\022\037\n\004keys\030\001 " +
-      "\003(\0132\013.models.KeyR\004keys\022\034\n\007last_id\030\002 \001(\tH" +
-      "\000R\006lastId\210\001\001B\n\n\010_last_id\"A\n\025KeyServiceSi" +
-      "gnRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001" +
-      "(\tR\007message\"6\n\026KeyServiceSignResponse\022\034\n" +
-      "\tsignature\030\001 \001(\tR\tsignature\"a\n\027KeyServic" +
-      "eVerifyRequest\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007messag" +
-      "e\030\002 \001(\tR\007message\022\034\n\tsignature\030\003 \001(\tR\tsig" +
-      "nature\"0\n\030KeyServiceVerifyResponse\022\024\n\005va" +
-      "lid\030\001 \001(\010R\005valid\"B\n\026KeyServiceCryptReque" +
+      "te_cron\030\003 \001(\tH\002R\nrotateCron\210\001\001\022\027\n\004bits\030\004" +
+      " \001(\005H\003R\004bits\210\001\001B\005\n\003_idB\020\n\016_should_rotate" +
+      "B\016\n\014_rotate_cronB\007\n\005_bits\"9\n\030KeyServiceC" +
+      "reateResponse\022\035\n\003key\030\001 \001(\0132\013.models.KeyR" +
+      "\003key\"&\n\024KeyServiceGetRequest\022\016\n\002id\030\001 \001(\t" +
+      "R\002id\"6\n\025KeyServiceGetResponse\022\035\n\003key\030\001 \001" +
+      "(\0132\013.models.KeyR\003key\"\302\001\n\034KeyServiceGetOr" +
+      "CreateRequest\022\016\n\002id\030\001 \001(\tR\002id\022(\n\rshould_" +
+      "rotate\030\002 \001(\010H\000R\014shouldRotate\210\001\001\022$\n\013rotat" +
+      "e_cron\030\003 \001(\tH\001R\nrotateCron\210\001\001\022\027\n\004bits\030\004 " +
+      "\001(\005H\002R\004bits\210\001\001B\020\n\016_should_rotateB\016\n\014_rot" +
+      "ate_cronB\007\n\005_bits\">\n\035KeyServiceGetOrCrea" +
+      "teResponse\022\035\n\003key\030\001 \001(\0132\013.models.KeyR\003ke" +
+      "y\"D\n\025KeyServiceListRequest\022\036\n\010first_id\030\001" +
+      " \001(\tH\000R\007firstId\210\001\001B\013\n\t_first_id\"c\n\026KeySe" +
+      "rviceListResponse\022\037\n\004keys\030\001 \003(\0132\013.models" +
+      ".KeyR\004keys\022\034\n\007last_id\030\002 \001(\tH\000R\006lastId\210\001\001" +
+      "B\n\n\010_last_id\"A\n\025KeyServiceSignRequest\022\016\n" +
+      "\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(\tR\007message\"" +
+      "6\n\026KeyServiceSignResponse\022\034\n\tsignature\030\001" +
+      " \001(\tR\tsignature\"a\n\027KeyServiceVerifyReque" +
       "st\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007message\030\002 \001(\tR\007mes" +
-      "sage\"9\n\027KeyServiceCryptResponse\022\036\n\nciphe" +
-      "rtext\030\001 \001(\tR\nciphertext\"J\n\030KeyServiceDec" +
-      "ryptRequest\022\016\n\002id\030\001 \001(\tR\002id\022\036\n\nciphertex" +
-      "t\030\002 \001(\tR\nciphertext\"5\n\031KeyServiceDecrypt" +
-      "Response\022\030\n\007message\030\001 \001(\tR\007message\")\n\027Ke" +
-      "yServiceRotateRequest\022\016\n\002id\030\001 \001(\tR\002id\"9\n" +
-      "\030KeyServiceRotateResponse\022\035\n\003key\030\001 \001(\0132\013" +
-      ".models.KeyR\003key\")\n\027KeyServiceDeleteRequ" +
-      "est\022\016\n\002id\030\001 \001(\tR\002id\"\032\n\030KeyServiceDeleteR" +
-      "esponse\"&\n\024KeyServiceJWKRequest\022\016\n\002id\030\001 " +
-      "\001(\tR\002id\")\n\025KeyServiceJWKResponse\022\020\n\003jwk\030" +
-      "\001 \001(\tR\003jwk2\377\010\n\nKeyService\022`\n\006Create\022\037.mo" +
-      "dels.KeyServiceCreateRequest\032 .models.Ke" +
-      "yServiceCreateResponse\"\023\202\323\344\223\002\r:\001*\"\010/v1/k" +
-      "eys\022Y\n\003Get\022\034.models.KeyServiceGetRequest" +
-      "\032\035.models.KeyServiceGetResponse\"\025\202\323\344\223\002\017\022" +
-      "\r/v1/keys/{id}\022}\n\013GetOrCreate\022$.models.K" +
-      "eyServiceGetOrCreateRequest\032%.models.Key" +
-      "ServiceGetOrCreateResponse\"!\202\323\344\223\002\033:\001*\"\026/" +
-      "v1/keys/get-or-create\022W\n\004List\022\035.models.K" +
-      "eyServiceListRequest\032\036.models.KeyService" +
-      "ListResponse\"\020\202\323\344\223\002\n\022\010/v1/keys\022d\n\004Sign\022\035" +
-      ".models.KeyServiceSignRequest\032\036.models.K" +
-      "eyServiceSignResponse\"\035\202\323\344\223\002\027:\001*\"\022/v1/ke" +
-      "ys/{id}/sign\022l\n\006Verify\022\037.models.KeyServi" +
-      "ceVerifyRequest\032 .models.KeyServiceVerif" +
-      "yResponse\"\037\202\323\344\223\002\031:\001*\"\024/v1/keys/{id}/veri" +
-      "fy\022h\n\005Crypt\022\036.models.KeyServiceCryptRequ" +
-      "est\032\037.models.KeyServiceCryptResponse\"\036\202\323" +
-      "\344\223\002\030:\001*\"\023/v1/keys/{id}/crypt\022p\n\007Decrypt\022" +
-      " .models.KeyServiceDecryptRequest\032!.mode" +
-      "ls.KeyServiceDecryptResponse\" \202\323\344\223\002\032:\001*\"" +
-      "\025/v1/keys/{id}/decrypt\022i\n\006Rotate\022\037.model" +
-      "s.KeyServiceRotateRequest\032 .models.KeySe" +
-      "rviceRotateResponse\"\034\202\323\344\223\002\026\"\024/v1/keys/{i" +
-      "d}/rotate\022b\n\006Delete\022\037.models.KeyServiceD" +
-      "eleteRequest\032 .models.KeyServiceDeleteRe" +
-      "sponse\"\025\202\323\344\223\002\017*\r/v1/keys/{id}\022]\n\003JWK\022\034.m" +
-      "odels.KeyServiceJWKRequest\032\035.models.KeyS" +
-      "erviceJWKResponse\"\031\202\323\344\223\002\023\022\021/v1/keys/{id}" +
-      "/jwkB9H\002Z5github.com/luminos-company/sec" +
-      "retary/generated/modelsb\006proto3"
+      "sage\022\034\n\tsignature\030\003 \001(\tR\tsignature\"0\n\030Ke" +
+      "yServiceVerifyResponse\022\024\n\005valid\030\001 \001(\010R\005v" +
+      "alid\"B\n\026KeyServiceCryptRequest\022\016\n\002id\030\001 \001" +
+      "(\tR\002id\022\030\n\007message\030\002 \001(\tR\007message\"9\n\027KeyS" +
+      "erviceCryptResponse\022\036\n\nciphertext\030\001 \001(\tR" +
+      "\nciphertext\"J\n\030KeyServiceDecryptRequest\022" +
+      "\016\n\002id\030\001 \001(\tR\002id\022\036\n\nciphertext\030\002 \001(\tR\ncip" +
+      "hertext\"5\n\031KeyServiceDecryptResponse\022\030\n\007" +
+      "message\030\001 \001(\tR\007message\")\n\027KeyServiceRota" +
+      "teRequest\022\016\n\002id\030\001 \001(\tR\002id\"9\n\030KeyServiceR" +
+      "otateResponse\022\035\n\003key\030\001 \001(\0132\013.models.KeyR" +
+      "\003key\")\n\027KeyServiceDeleteRequest\022\016\n\002id\030\001 " +
+      "\001(\tR\002id\"\032\n\030KeyServiceDeleteResponse\"&\n\024K" +
+      "eyServiceJWKRequest\022\016\n\002id\030\001 \001(\tR\002id\")\n\025K" +
+      "eyServiceJWKResponse\022\020\n\003jwk\030\001 \001(\tR\003jwk2\377" +
+      "\010\n\nKeyService\022`\n\006Create\022\037.models.KeyServ" +
+      "iceCreateRequest\032 .models.KeyServiceCrea" +
+      "teResponse\"\023\202\323\344\223\002\r:\001*\"\010/v1/keys\022Y\n\003Get\022\034" +
+      ".models.KeyServiceGetRequest\032\035.models.Ke" +
+      "yServiceGetResponse\"\025\202\323\344\223\002\017\022\r/v1/keys/{i" +
+      "d}\022}\n\013GetOrCreate\022$.models.KeyServiceGet" +
+      "OrCreateRequest\032%.models.KeyServiceGetOr" +
+      "CreateResponse\"!\202\323\344\223\002\033:\001*\"\026/v1/keys/get-" +
+      "or-create\022W\n\004List\022\035.models.KeyServiceLis" +
+      "tRequest\032\036.models.KeyServiceListResponse" +
+      "\"\020\202\323\344\223\002\n\022\010/v1/keys\022d\n\004Sign\022\035.models.KeyS" +
+      "erviceSignRequest\032\036.models.KeyServiceSig" +
+      "nResponse\"\035\202\323\344\223\002\027:\001*\"\022/v1/keys/{id}/sign" +
+      "\022l\n\006Verify\022\037.models.KeyServiceVerifyRequ" +
+      "est\032 .models.KeyServiceVerifyResponse\"\037\202" +
+      "\323\344\223\002\031:\001*\"\024/v1/keys/{id}/verify\022h\n\005Crypt\022" +
+      "\036.models.KeyServiceCryptRequest\032\037.models" +
+      ".KeyServiceCryptResponse\"\036\202\323\344\223\002\030:\001*\"\023/v1" +
+      "/keys/{id}/crypt\022p\n\007Decrypt\022 .models.Key" +
+      "ServiceDecryptRequest\032!.models.KeyServic" +
+      "eDecryptResponse\" \202\323\344\223\002\032:\001*\"\025/v1/keys/{i" +
+      "d}/decrypt\022i\n\006Rotate\022\037.models.KeyService" +
+      "RotateRequest\032 .models.KeyServiceRotateR" +
+      "esponse\"\034\202\323\344\223\002\026\"\024/v1/keys/{id}/rotate\022b\n" +
+      "\006Delete\022\037.models.KeyServiceDeleteRequest" +
+      "\032 .models.KeyServiceDeleteResponse\"\025\202\323\344\223" +
+      "\002\017*\r/v1/keys/{id}\022]\n\003JWK\022\034.models.KeySer" +
+      "viceJWKRequest\032\035.models.KeyServiceJWKRes" +
+      "ponse\"\031\202\323\344\223\002\023\022\021/v1/keys/{id}/jwkB9H\002Z5gi" +
+      "thub.com/luminos-company/secretary/gener" +
+      "ated/modelsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12823,7 +12975,7 @@ public final class KeyOuterClass {
     internal_static_models_KeyServiceCreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_models_KeyServiceCreateRequest_descriptor,
-        new java.lang.String[] { "Id", "ShouldRotate", "RotateCron", "Id", "ShouldRotate", "RotateCron", });
+        new java.lang.String[] { "Id", "ShouldRotate", "RotateCron", "Bits", "Id", "ShouldRotate", "RotateCron", "Bits", });
     internal_static_models_KeyServiceCreateResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_models_KeyServiceCreateResponse_fieldAccessorTable = new
@@ -12847,7 +12999,7 @@ public final class KeyOuterClass {
     internal_static_models_KeyServiceGetOrCreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_models_KeyServiceGetOrCreateRequest_descriptor,
-        new java.lang.String[] { "Id", "ShouldRotate", "RotateCron", "ShouldRotate", "RotateCron", });
+        new java.lang.String[] { "Id", "ShouldRotate", "RotateCron", "Bits", "ShouldRotate", "RotateCron", "Bits", });
     internal_static_models_KeyServiceGetOrCreateResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_models_KeyServiceGetOrCreateResponse_fieldAccessorTable = new

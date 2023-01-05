@@ -212,9 +212,11 @@ typedef struct Key__storage_ {
 @dynamic hasId_p, id_p;
 @dynamic hasShouldRotate, shouldRotate;
 @dynamic hasRotateCron, rotateCron;
+@dynamic hasBits, bits;
 
 typedef struct KeyServiceCreateRequest__storage_ {
   uint32_t _has_storage_[1];
+  int32_t bits;
   NSString *id_p;
   NSString *rotateCron;
 } KeyServiceCreateRequest__storage_;
@@ -251,6 +253,15 @@ typedef struct KeyServiceCreateRequest__storage_ {
         .offset = (uint32_t)offsetof(KeyServiceCreateRequest__storage_, rotateCron),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "bits",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceCreateRequest_FieldNumber_Bits,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(KeyServiceCreateRequest__storage_, bits),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt32,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -413,9 +424,11 @@ typedef struct KeyServiceGetResponse__storage_ {
 @dynamic id_p;
 @dynamic hasShouldRotate, shouldRotate;
 @dynamic hasRotateCron, rotateCron;
+@dynamic hasBits, bits;
 
 typedef struct KeyServiceGetOrCreateRequest__storage_ {
   uint32_t _has_storage_[1];
+  int32_t bits;
   NSString *id_p;
   NSString *rotateCron;
 } KeyServiceGetOrCreateRequest__storage_;
@@ -452,6 +465,15 @@ typedef struct KeyServiceGetOrCreateRequest__storage_ {
         .offset = (uint32_t)offsetof(KeyServiceGetOrCreateRequest__storage_, rotateCron),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "bits",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceGetOrCreateRequest_FieldNumber_Bits,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(KeyServiceGetOrCreateRequest__storage_, bits),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt32,
       },
     };
     GPBDescriptor *localDescriptor =

@@ -4,6 +4,7 @@ import (
 	"crypto"
 	"crypto/rand"
 	"crypto/rsa"
+	"crypto/sha256"
 	"crypto/x509"
 	"encoding/base64"
 	"encoding/pem"
@@ -16,8 +17,8 @@ type Rsa struct {
 	PublicKey  *rsa.PublicKey
 }
 
-func (r *Rsa) Generate() {
-	privkey, _ := rsa.GenerateKey(rand.Reader, 4096)
+func (r *Rsa) Generate(bits int) {
+	privkey, _ := rsa.GenerateKey(rand.Reader, bits)
 	r.PrivateKey = privkey
 	r.PublicKey = &privkey.PublicKey
 }
@@ -143,56 +144,23 @@ func (r *Rsa) Decrypt(data []byte) ([]byte, error) {
 }
 
 func (r *Rsa) Sign(data []byte) ([]byte, error) {
-	chunkSize := r.PrivateKey.Size() - (2 * crypto.SHA256.Size()) - 2
-	var chunks [][]byte
-	for i := 0; i < len(data); i += chunkSize {
-		end := i + chunkSize
-		if end > len(data) {
-			end = len(data)
-		}
-		chunks = append(chunks, data[i:end])
-	}
-
-	var signature []byte
-	for _, chunk := range chunks {
-		sign, err := rsa.SignPKCS1v15(rand.Reader, r.PrivateKey, crypto.SHA256, chunk)
-		if err != nil {
-			return nil, err
-		}
-		signature = append(signature, sign...)
-	}
-
-	return signature, nil
+	hashed := sha256.Sum256(data)
+	return rsa.SignPKCS1v15(rand.Reader, r.PrivateKey, crypto.SHA256, hashed[:])
 }
 
 func (r *Rsa) Verify(data []byte, signature []byte) bool {
-	chunkSize := r.PrivateKey.Size()
-	var chunks [][]byte
-	for i := 0; i < len(data); i += chunkSize {
-		end := i + chunkSize
-		if end > len(data) {
-			end = len(data)
-		}
-		chunks = append(chunks, data[i:end])
-	}
-
-	for _, chunk := range chunks {
-		err := rsa.VerifyPKCS1v15(r.PublicKey, crypto.SHA256, chunk, signature)
-		if err != nil {
-			return false
-		}
-	}
-
-	return true
+	hashed := sha256.Sum256(data)
+	err := rsa.VerifyPKCS1v15(r.PublicKey, crypto.SHA256, hashed[:], signature)
+	return err == nil
 }
 
 func (r *Rsa) EncryptString(data string) (string, error) {
 	encrypt, err := r.Encrypt([]byte(data))
-	return base64.StdEncoding.EncodeToString(encrypt), err
+	return base64.RawURLEncoding.EncodeToString(encrypt), err
 }
 
 func (r *Rsa) DecryptString(data string) (string, error) {
-	decrypt, err := base64.StdEncoding.DecodeString(data)
+	decrypt, err := base64.RawURLEncoding.DecodeString(data)
 	if err != nil {
 		return "", err
 	}
@@ -202,11 +170,11 @@ func (r *Rsa) DecryptString(data string) (string, error) {
 
 func (r *Rsa) SignString(data string) (string, error) {
 	sign, err := r.Sign([]byte(data))
-	return base64.StdEncoding.EncodeToString(sign), err
+	return base64.RawURLEncoding.EncodeToString(sign), err
 }
 
 func (r *Rsa) VerifyString(data string, signature string) bool {
-	sign, err := base64.StdEncoding.DecodeString(signature)
+	sign, err := base64.RawURLEncoding.DecodeString(signature)
 	if err != nil {
 		return false
 	}

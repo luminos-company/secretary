@@ -17,10 +17,15 @@ func PFalse() *bool {
 	return &b
 }
 
+func PInt32(i int32) *int32 {
+	return &i
+}
+
 func TestKeyService_Create(t *testing.T) {
 	ksv := services.KeyService{}
 	res, err := ksv.Create(context.TODO(), &models.KeyServiceCreateRequest{
 		ShouldRotate: PFalse(),
+		Bits:         PInt32(2048),
 	})
 	if err != nil || res == nil {
 		t.Fatal(err)
@@ -31,6 +36,7 @@ func TestKeyService_Get(t *testing.T) {
 	ksv := services.KeyService{}
 	res1, err := ksv.Create(context.TODO(), &models.KeyServiceCreateRequest{
 		ShouldRotate: PTrue(),
+		Bits:         PInt32(256),
 	})
 	if err != nil || res1 == nil {
 		t.Fatal(err)
@@ -110,7 +116,7 @@ func TestKeyService_Crypto(t *testing.T) {
 	if err != nil || res1 == nil {
 		t.Fatal(err)
 	}
-	res2, err := ksv.Crypto(context.TODO(), &models.KeyServiceCryptoRequest{
+	res2, err := ksv.Crypt(context.TODO(), &models.KeyServiceCryptRequest{
 		Id:      res1.Key.GetId(),
 		Message: "HELLO IM A MESSAGE",
 	})
@@ -128,7 +134,7 @@ func TestKeyService_Decrypt(t *testing.T) {
 	if err != nil || res1 == nil {
 		t.Fatal(err)
 	}
-	res2, err := ksv.Crypto(context.TODO(), &models.KeyServiceCryptoRequest{
+	res2, err := ksv.Crypt(context.TODO(), &models.KeyServiceCryptRequest{
 		Id:      res1.Key.GetId(),
 		Message: "HELLO IM A MESSAGE",
 	})

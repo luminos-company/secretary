@@ -25,6 +25,10 @@ class KeyServiceGetOrCreateRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional string rotate_cron = 3 [json_name = "rotateCron"];</code>
      */
     protected $rotate_cron = null;
+    /**
+     * Generated from protobuf field <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     */
+    protected $bits = null;
 
     /**
      * Constructor.
@@ -35,6 +39,7 @@ class KeyServiceGetOrCreateRequest extends \Google\Protobuf\Internal\Message
      *     @type string $id
      *     @type bool $should_rotate
      *     @type string $rotate_cron
+     *     @type int $bits
      * }
      */
     public function __construct($data = NULL) {
@@ -124,6 +129,38 @@ class KeyServiceGetOrCreateRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->rotate_cron = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     * @return int
+     */
+    public function getBits()
+    {
+        return isset($this->bits) ? $this->bits : 0;
+    }
+
+    public function hasBits()
+    {
+        return isset($this->bits);
+    }
+
+    public function clearBits()
+    {
+        unset($this->bits);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setBits($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->bits = $var;
 
         return $this;
     }

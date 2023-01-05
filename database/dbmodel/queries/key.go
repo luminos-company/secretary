@@ -14,7 +14,8 @@ type KeyEnhancerImpl struct {
 func (*KeyEnhancerImpl) Rotate(k *dbmodel.KeyModel) {
 	tk := *k
 	rsa := keys.Rsa{}
-	rsa.Generate()
+	rsa.ImportBase64(tk.PublicKey, tk.PrivateKey)
+	rsa.Generate(rsa.PrivateKey.N.BitLen())
 	if tk.ShouldRotate != nil && *tk.ShouldRotate == false {
 		_, err := query.KeyRotatedModel.Where(query.KeyRotatedModel.KeyId.Eq(k.ID)).Unscoped().Delete()
 		if err != nil {

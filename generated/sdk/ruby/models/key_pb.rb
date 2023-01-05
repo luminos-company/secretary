@@ -25,6 +25,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       proto3_optional :id, :string, 1, json_name: "id"
       proto3_optional :should_rotate, :bool, 2, json_name: "shouldRotate"
       proto3_optional :rotate_cron, :string, 3, json_name: "rotateCron"
+      proto3_optional :bits, :int32, 4, json_name: "bits"
     end
     add_message "models.KeyServiceCreateResponse" do
       optional :key, :message, 1, "models.Key", json_name: "key"
@@ -39,6 +40,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :id, :string, 1, json_name: "id"
       proto3_optional :should_rotate, :bool, 2, json_name: "shouldRotate"
       proto3_optional :rotate_cron, :string, 3, json_name: "rotateCron"
+      proto3_optional :bits, :int32, 4, json_name: "bits"
     end
     add_message "models.KeyServiceGetOrCreateResponse" do
       optional :key, :message, 1, "models.Key", json_name: "key"

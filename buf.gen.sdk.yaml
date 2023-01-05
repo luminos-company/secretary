@@ -2,7 +2,11 @@ version: v1
 plugins:
   - name: dart
     out: ./generated/sdk/dart
+    opt:
+      - grpc
   - name: go
+    out: ./generated/sdk/go
+  - name: go-grpc
     out: ./generated/sdk/go
   - name: java
     out: ./generated/sdk/java

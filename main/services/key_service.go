@@ -2,6 +2,7 @@ package services
 
 import (
 	"context"
+	"github.com/luminos-company/secretary/database"
 	"github.com/luminos-company/secretary/database/dbmodel"
 	"github.com/luminos-company/secretary/database/dbmodel/converter"
 	"github.com/luminos-company/secretary/database/dbmodel/queries"
@@ -15,9 +16,17 @@ type KeyService struct {
 	models.KeyServiceServer
 }
 
+func init() {
+	query.SetDefault(database.Get())
+}
+
 func (k KeyService) Create(_ context.Context, request *models.KeyServiceCreateRequest) (*models.KeyServiceCreateResponse, error) {
 	rsaKeyGen := keys.Rsa{}
-	rsaKeyGen.Generate()
+	if request.Bits != nil {
+		rsaKeyGen.Generate(int(*request.Bits))
+	} else {
+		rsaKeyGen.Generate(2048)
+	}
 	publicKey, privateKey := rsaKeyGen.ExportBase64()
 	key := &dbmodel.KeyModel{
 		PrivateKey:   privateKey,
@@ -54,7 +63,11 @@ func (k KeyService) GetOrCreate(_ context.Context, request *models.KeyServiceGet
 	bq, err := query.KeyModel.GetByID(request.Id)
 	if err != nil {
 		rsaKeyGen := keys.Rsa{}
-		rsaKeyGen.Generate()
+		if request.Bits != nil {
+			rsaKeyGen.Generate(int(*request.Bits))
+		} else {
+			rsaKeyGen.Generate(2048)
+		}
 		publicKey, privateKey := rsaKeyGen.ExportBase64()
 		key := &dbmodel.KeyModel{
 			PrivateKey:   privateKey,
@@ -238,6 +251,7 @@ func (k KeyService) JWK(_ context.Context, request *models.KeyServiceJWKRequest)
 	if err != nil {
 		return nil, err
 	}
+
 	return &models.KeyServiceJWKResponse{
 		Jwk: jwk,
 	}, nil

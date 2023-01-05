@@ -5,12 +5,11 @@
 // @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../google/protobuf/timestamp.pb.dart' as $0;
+import '../google/protobuf/timestamp.pb.dart' as $1;
 
 class Key extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Key', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'models'), createEmptyInstance: create)
@@ -21,9 +20,9 @@ class Key extends $pb.GeneratedMessage {
     ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldRotate')
     ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotatedFromId')
     ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotateCron')
-    ..aOM<$0.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $0.Timestamp.create)
+    ..aOM<$1.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -36,9 +35,9 @@ class Key extends $pb.GeneratedMessage {
     $core.bool? shouldRotate,
     $core.String? rotatedFromId,
     $core.String? rotateCron,
-    $0.Timestamp? expiresAt,
-    $0.Timestamp? updatedAt,
-    $0.Timestamp? createdAt,
+    $1.Timestamp? expiresAt,
+    $1.Timestamp? updatedAt,
+    $1.Timestamp? createdAt,
   }) {
     final _result = create();
     if (id != null) {
@@ -158,37 +157,37 @@ class Key extends $pb.GeneratedMessage {
   void clearRotateCron() => clearField(7);
 
   @$pb.TagNumber(8)
-  $0.Timestamp get expiresAt => $_getN(7);
+  $1.Timestamp get expiresAt => $_getN(7);
   @$pb.TagNumber(8)
-  set expiresAt($0.Timestamp v) { setField(8, v); }
+  set expiresAt($1.Timestamp v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasExpiresAt() => $_has(7);
   @$pb.TagNumber(8)
   void clearExpiresAt() => clearField(8);
   @$pb.TagNumber(8)
-  $0.Timestamp ensureExpiresAt() => $_ensure(7);
+  $1.Timestamp ensureExpiresAt() => $_ensure(7);
 
   @$pb.TagNumber(9)
-  $0.Timestamp get updatedAt => $_getN(8);
+  $1.Timestamp get updatedAt => $_getN(8);
   @$pb.TagNumber(9)
-  set updatedAt($0.Timestamp v) { setField(9, v); }
+  set updatedAt($1.Timestamp v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasUpdatedAt() => $_has(8);
   @$pb.TagNumber(9)
   void clearUpdatedAt() => clearField(9);
   @$pb.TagNumber(9)
-  $0.Timestamp ensureUpdatedAt() => $_ensure(8);
+  $1.Timestamp ensureUpdatedAt() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $0.Timestamp get createdAt => $_getN(9);
+  $1.Timestamp get createdAt => $_getN(9);
   @$pb.TagNumber(10)
-  set createdAt($0.Timestamp v) { setField(10, v); }
+  set createdAt($1.Timestamp v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasCreatedAt() => $_has(9);
   @$pb.TagNumber(10)
   void clearCreatedAt() => clearField(10);
   @$pb.TagNumber(10)
-  $0.Timestamp ensureCreatedAt() => $_ensure(9);
+  $1.Timestamp ensureCreatedAt() => $_ensure(9);
 }
 
 class KeyServiceCreateRequest extends $pb.GeneratedMessage {
@@ -196,6 +195,7 @@ class KeyServiceCreateRequest extends $pb.GeneratedMessage {
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
     ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldRotate')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotateCron')
+    ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'bits', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -204,6 +204,7 @@ class KeyServiceCreateRequest extends $pb.GeneratedMessage {
     $core.String? id,
     $core.bool? shouldRotate,
     $core.String? rotateCron,
+    $core.int? bits,
   }) {
     final _result = create();
     if (id != null) {
@@ -214,6 +215,9 @@ class KeyServiceCreateRequest extends $pb.GeneratedMessage {
     }
     if (rotateCron != null) {
       _result.rotateCron = rotateCron;
+    }
+    if (bits != null) {
+      _result.bits = bits;
     }
     return _result;
   }
@@ -264,6 +268,15 @@ class KeyServiceCreateRequest extends $pb.GeneratedMessage {
   $core.bool hasRotateCron() => $_has(2);
   @$pb.TagNumber(3)
   void clearRotateCron() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get bits => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set bits($core.int v) { $_setSignedInt32(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasBits() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBits() => clearField(4);
 }
 
 class KeyServiceCreateResponse extends $pb.GeneratedMessage {
@@ -416,6 +429,7 @@ class KeyServiceGetOrCreateRequest extends $pb.GeneratedMessage {
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
     ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldRotate')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotateCron')
+    ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'bits', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -424,6 +438,7 @@ class KeyServiceGetOrCreateRequest extends $pb.GeneratedMessage {
     $core.String? id,
     $core.bool? shouldRotate,
     $core.String? rotateCron,
+    $core.int? bits,
   }) {
     final _result = create();
     if (id != null) {
@@ -434,6 +449,9 @@ class KeyServiceGetOrCreateRequest extends $pb.GeneratedMessage {
     }
     if (rotateCron != null) {
       _result.rotateCron = rotateCron;
+    }
+    if (bits != null) {
+      _result.bits = bits;
     }
     return _result;
   }
@@ -484,6 +502,15 @@ class KeyServiceGetOrCreateRequest extends $pb.GeneratedMessage {
   $core.bool hasRotateCron() => $_has(2);
   @$pb.TagNumber(3)
   void clearRotateCron() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get bits => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set bits($core.int v) { $_setSignedInt32(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasBits() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBits() => clearField(4);
 }
 
 class KeyServiceGetOrCreateResponse extends $pb.GeneratedMessage {
@@ -1347,55 +1374,5 @@ class KeyServiceJWKResponse extends $pb.GeneratedMessage {
   $core.bool hasJwk() => $_has(0);
   @$pb.TagNumber(1)
   void clearJwk() => clearField(1);
-}
-
-class KeyServiceApi {
-  $pb.RpcClient _client;
-  KeyServiceApi(this._client);
-
-  $async.Future<KeyServiceCreateResponse> create_($pb.ClientContext? ctx, KeyServiceCreateRequest request) {
-    var emptyResponse = KeyServiceCreateResponse();
-    return _client.invoke<KeyServiceCreateResponse>(ctx, 'KeyService', 'Create', request, emptyResponse);
-  }
-  $async.Future<KeyServiceGetResponse> get($pb.ClientContext? ctx, KeyServiceGetRequest request) {
-    var emptyResponse = KeyServiceGetResponse();
-    return _client.invoke<KeyServiceGetResponse>(ctx, 'KeyService', 'Get', request, emptyResponse);
-  }
-  $async.Future<KeyServiceGetOrCreateResponse> getOrCreate($pb.ClientContext? ctx, KeyServiceGetOrCreateRequest request) {
-    var emptyResponse = KeyServiceGetOrCreateResponse();
-    return _client.invoke<KeyServiceGetOrCreateResponse>(ctx, 'KeyService', 'GetOrCreate', request, emptyResponse);
-  }
-  $async.Future<KeyServiceListResponse> list($pb.ClientContext? ctx, KeyServiceListRequest request) {
-    var emptyResponse = KeyServiceListResponse();
-    return _client.invoke<KeyServiceListResponse>(ctx, 'KeyService', 'List', request, emptyResponse);
-  }
-  $async.Future<KeyServiceSignResponse> sign($pb.ClientContext? ctx, KeyServiceSignRequest request) {
-    var emptyResponse = KeyServiceSignResponse();
-    return _client.invoke<KeyServiceSignResponse>(ctx, 'KeyService', 'Sign', request, emptyResponse);
-  }
-  $async.Future<KeyServiceVerifyResponse> verify($pb.ClientContext? ctx, KeyServiceVerifyRequest request) {
-    var emptyResponse = KeyServiceVerifyResponse();
-    return _client.invoke<KeyServiceVerifyResponse>(ctx, 'KeyService', 'Verify', request, emptyResponse);
-  }
-  $async.Future<KeyServiceCryptResponse> crypt($pb.ClientContext? ctx, KeyServiceCryptRequest request) {
-    var emptyResponse = KeyServiceCryptResponse();
-    return _client.invoke<KeyServiceCryptResponse>(ctx, 'KeyService', 'Crypt', request, emptyResponse);
-  }
-  $async.Future<KeyServiceDecryptResponse> decrypt($pb.ClientContext? ctx, KeyServiceDecryptRequest request) {
-    var emptyResponse = KeyServiceDecryptResponse();
-    return _client.invoke<KeyServiceDecryptResponse>(ctx, 'KeyService', 'Decrypt', request, emptyResponse);
-  }
-  $async.Future<KeyServiceRotateResponse> rotate($pb.ClientContext? ctx, KeyServiceRotateRequest request) {
-    var emptyResponse = KeyServiceRotateResponse();
-    return _client.invoke<KeyServiceRotateResponse>(ctx, 'KeyService', 'Rotate', request, emptyResponse);
-  }
-  $async.Future<KeyServiceDeleteResponse> delete($pb.ClientContext? ctx, KeyServiceDeleteRequest request) {
-    var emptyResponse = KeyServiceDeleteResponse();
-    return _client.invoke<KeyServiceDeleteResponse>(ctx, 'KeyService', 'Delete', request, emptyResponse);
-  }
-  $async.Future<KeyServiceJWKResponse> jWK($pb.ClientContext? ctx, KeyServiceJWKRequest request) {
-    var emptyResponse = KeyServiceJWKResponse();
-    return _client.invoke<KeyServiceJWKResponse>(ctx, 'KeyService', 'JWK', request, emptyResponse);
-  }
 }
 

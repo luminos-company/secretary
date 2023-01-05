@@ -27,6 +27,7 @@ message KeyServiceCreateRequest {
     optional string id = 1;
     optional bool should_rotate = 2;
     optional string rotate_cron = 3;
+    optional int32 bits = 4;
 }
 
 message KeyServiceCreateResponse {
@@ -44,6 +45,7 @@ message KeyServiceGetOrCreateRequest {
     string id = 1;
     optional bool should_rotate = 2;
     optional string rotate_cron = 3;
+    optional int32 bits = 4;
 }
 
 message KeyServiceGetOrCreateResponse {
