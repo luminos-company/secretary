@@ -105,9 +105,10 @@ GPB_FINAL @interface Key : GPBMessage
 
 typedef GPB_ENUM(KeyServiceCreateRequest_FieldNumber) {
   KeyServiceCreateRequest_FieldNumber_Id_p = 1,
-  KeyServiceCreateRequest_FieldNumber_ShouldRotate = 2,
-  KeyServiceCreateRequest_FieldNumber_RotateCron = 3,
-  KeyServiceCreateRequest_FieldNumber_Bits = 4,
+  KeyServiceCreateRequest_FieldNumber_ShowPrivateKey = 2,
+  KeyServiceCreateRequest_FieldNumber_ShouldRotate = 3,
+  KeyServiceCreateRequest_FieldNumber_RotateCron = 4,
+  KeyServiceCreateRequest_FieldNumber_Bits = 5,
 };
 
 GPB_FINAL @interface KeyServiceCreateRequest : GPBMessage
@@ -116,6 +117,9 @@ GPB_FINAL @interface KeyServiceCreateRequest : GPBMessage
 /** Test to see if @c id_p has been set. */
 @property(nonatomic, readwrite) BOOL hasId_p;
 
+@property(nonatomic, readwrite) BOOL showPrivateKey;
+
+@property(nonatomic, readwrite) BOOL hasShowPrivateKey;
 @property(nonatomic, readwrite) BOOL shouldRotate;
 
 @property(nonatomic, readwrite) BOOL hasShouldRotate;
@@ -146,12 +150,16 @@ GPB_FINAL @interface KeyServiceCreateResponse : GPBMessage
 
 typedef GPB_ENUM(KeyServiceGetRequest_FieldNumber) {
   KeyServiceGetRequest_FieldNumber_Id_p = 1,
+  KeyServiceGetRequest_FieldNumber_ShowPrivateKey = 2,
 };
 
 GPB_FINAL @interface KeyServiceGetRequest : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
 
+@property(nonatomic, readwrite) BOOL showPrivateKey;
+
+@property(nonatomic, readwrite) BOOL hasShowPrivateKey;
 @end
 
 #pragma mark - KeyServiceGetResponse
@@ -172,15 +180,19 @@ GPB_FINAL @interface KeyServiceGetResponse : GPBMessage
 
 typedef GPB_ENUM(KeyServiceGetOrCreateRequest_FieldNumber) {
   KeyServiceGetOrCreateRequest_FieldNumber_Id_p = 1,
-  KeyServiceGetOrCreateRequest_FieldNumber_ShouldRotate = 2,
-  KeyServiceGetOrCreateRequest_FieldNumber_RotateCron = 3,
-  KeyServiceGetOrCreateRequest_FieldNumber_Bits = 4,
+  KeyServiceGetOrCreateRequest_FieldNumber_ShowPrivateKey = 2,
+  KeyServiceGetOrCreateRequest_FieldNumber_ShouldRotate = 3,
+  KeyServiceGetOrCreateRequest_FieldNumber_RotateCron = 4,
+  KeyServiceGetOrCreateRequest_FieldNumber_Bits = 5,
 };
 
 GPB_FINAL @interface KeyServiceGetOrCreateRequest : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
 
+@property(nonatomic, readwrite) BOOL showPrivateKey;
+
+@property(nonatomic, readwrite) BOOL hasShowPrivateKey;
 @property(nonatomic, readwrite) BOOL shouldRotate;
 
 @property(nonatomic, readwrite) BOOL hasShouldRotate;
@@ -211,6 +223,7 @@ GPB_FINAL @interface KeyServiceGetOrCreateResponse : GPBMessage
 
 typedef GPB_ENUM(KeyServiceListRequest_FieldNumber) {
   KeyServiceListRequest_FieldNumber_FirstId = 1,
+  KeyServiceListRequest_FieldNumber_ShowPrivateKey = 2,
 };
 
 GPB_FINAL @interface KeyServiceListRequest : GPBMessage
@@ -219,6 +232,9 @@ GPB_FINAL @interface KeyServiceListRequest : GPBMessage
 /** Test to see if @c firstId has been set. */
 @property(nonatomic, readwrite) BOOL hasFirstId;
 
+@property(nonatomic, readwrite) BOOL showPrivateKey;
+
+@property(nonatomic, readwrite) BOOL hasShowPrivateKey;
 @end
 
 #pragma mark - KeyServiceListResponse
@@ -358,12 +374,16 @@ GPB_FINAL @interface KeyServiceDecryptResponse : GPBMessage
 
 typedef GPB_ENUM(KeyServiceRotateRequest_FieldNumber) {
   KeyServiceRotateRequest_FieldNumber_Id_p = 1,
+  KeyServiceRotateRequest_FieldNumber_ShowPrivateKey = 2,
 };
 
 GPB_FINAL @interface KeyServiceRotateRequest : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
 
+@property(nonatomic, readwrite) BOOL showPrivateKey;
+
+@property(nonatomic, readwrite) BOOL hasShowPrivateKey;
 @end
 
 #pragma mark - KeyServiceRotateResponse

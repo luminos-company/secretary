@@ -221,6 +221,7 @@ typedef struct Key__storage_ {
 @implementation KeyServiceCreateRequest
 
 @dynamic hasId_p, id_p;
+@dynamic hasShowPrivateKey, showPrivateKey;
 @dynamic hasShouldRotate, shouldRotate;
 @dynamic hasRotateCron, rotateCron;
 @dynamic hasBits, bits;
@@ -248,11 +249,20 @@ typedef struct KeyServiceCreateRequest__storage_ {
         .dataType = GPBDataTypeString,
       },
       {
+        .name = "showPrivateKey",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceCreateRequest_FieldNumber_ShowPrivateKey,
+        .hasIndex = 1,
+        .offset = 2,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
+      },
+      {
         .name = "shouldRotate",
         .dataTypeSpecific.clazz = Nil,
         .number = KeyServiceCreateRequest_FieldNumber_ShouldRotate,
-        .hasIndex = 1,
-        .offset = 2,  // Stored in _has_storage_ to save space.
+        .hasIndex = 3,
+        .offset = 4,  // Stored in _has_storage_ to save space.
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBool,
       },
@@ -260,7 +270,7 @@ typedef struct KeyServiceCreateRequest__storage_ {
         .name = "rotateCron",
         .dataTypeSpecific.clazz = Nil,
         .number = KeyServiceCreateRequest_FieldNumber_RotateCron,
-        .hasIndex = 3,
+        .hasIndex = 5,
         .offset = (uint32_t)offsetof(KeyServiceCreateRequest__storage_, rotateCron),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
@@ -269,7 +279,7 @@ typedef struct KeyServiceCreateRequest__storage_ {
         .name = "bits",
         .dataTypeSpecific.clazz = Nil,
         .number = KeyServiceCreateRequest_FieldNumber_Bits,
-        .hasIndex = 4,
+        .hasIndex = 6,
         .offset = (uint32_t)offsetof(KeyServiceCreateRequest__storage_, bits),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt32,
@@ -343,6 +353,7 @@ typedef struct KeyServiceCreateResponse__storage_ {
 @implementation KeyServiceGetRequest
 
 @dynamic id_p;
+@dynamic hasShowPrivateKey, showPrivateKey;
 
 typedef struct KeyServiceGetRequest__storage_ {
   uint32_t _has_storage_[1];
@@ -363,6 +374,15 @@ typedef struct KeyServiceGetRequest__storage_ {
         .offset = (uint32_t)offsetof(KeyServiceGetRequest__storage_, id_p),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "showPrivateKey",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceGetRequest_FieldNumber_ShowPrivateKey,
+        .hasIndex = 1,
+        .offset = 2,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -433,6 +453,7 @@ typedef struct KeyServiceGetResponse__storage_ {
 @implementation KeyServiceGetOrCreateRequest
 
 @dynamic id_p;
+@dynamic hasShowPrivateKey, showPrivateKey;
 @dynamic hasShouldRotate, shouldRotate;
 @dynamic hasRotateCron, rotateCron;
 @dynamic hasBits, bits;
@@ -460,11 +481,20 @@ typedef struct KeyServiceGetOrCreateRequest__storage_ {
         .dataType = GPBDataTypeString,
       },
       {
+        .name = "showPrivateKey",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceGetOrCreateRequest_FieldNumber_ShowPrivateKey,
+        .hasIndex = 1,
+        .offset = 2,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
+      },
+      {
         .name = "shouldRotate",
         .dataTypeSpecific.clazz = Nil,
         .number = KeyServiceGetOrCreateRequest_FieldNumber_ShouldRotate,
-        .hasIndex = 1,
-        .offset = 2,  // Stored in _has_storage_ to save space.
+        .hasIndex = 3,
+        .offset = 4,  // Stored in _has_storage_ to save space.
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBool,
       },
@@ -472,7 +502,7 @@ typedef struct KeyServiceGetOrCreateRequest__storage_ {
         .name = "rotateCron",
         .dataTypeSpecific.clazz = Nil,
         .number = KeyServiceGetOrCreateRequest_FieldNumber_RotateCron,
-        .hasIndex = 3,
+        .hasIndex = 5,
         .offset = (uint32_t)offsetof(KeyServiceGetOrCreateRequest__storage_, rotateCron),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
@@ -481,7 +511,7 @@ typedef struct KeyServiceGetOrCreateRequest__storage_ {
         .name = "bits",
         .dataTypeSpecific.clazz = Nil,
         .number = KeyServiceGetOrCreateRequest_FieldNumber_Bits,
-        .hasIndex = 4,
+        .hasIndex = 6,
         .offset = (uint32_t)offsetof(KeyServiceGetOrCreateRequest__storage_, bits),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt32,
@@ -555,6 +585,7 @@ typedef struct KeyServiceGetOrCreateResponse__storage_ {
 @implementation KeyServiceListRequest
 
 @dynamic hasFirstId, firstId;
+@dynamic hasShowPrivateKey, showPrivateKey;
 
 typedef struct KeyServiceListRequest__storage_ {
   uint32_t _has_storage_[1];
@@ -575,6 +606,15 @@ typedef struct KeyServiceListRequest__storage_ {
         .offset = (uint32_t)offsetof(KeyServiceListRequest__storage_, firstId),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "showPrivateKey",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceListRequest_FieldNumber_ShowPrivateKey,
+        .hasIndex = 1,
+        .offset = 2,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -1081,6 +1121,7 @@ typedef struct KeyServiceDecryptResponse__storage_ {
 @implementation KeyServiceRotateRequest
 
 @dynamic id_p;
+@dynamic hasShowPrivateKey, showPrivateKey;
 
 typedef struct KeyServiceRotateRequest__storage_ {
   uint32_t _has_storage_[1];
@@ -1101,6 +1142,15 @@ typedef struct KeyServiceRotateRequest__storage_ {
         .offset = (uint32_t)offsetof(KeyServiceRotateRequest__storage_, id_p),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "showPrivateKey",
+        .dataTypeSpecific.clazz = Nil,
+        .number = KeyServiceRotateRequest_FieldNumber_ShowPrivateKey,
+        .hasIndex = 1,
+        .offset = 2,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
       },
     };
     GPBDescriptor *localDescriptor =

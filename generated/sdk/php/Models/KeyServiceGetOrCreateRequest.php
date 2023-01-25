@@ -18,15 +18,19 @@ class KeyServiceGetOrCreateRequest extends \Google\Protobuf\Internal\Message
      */
     protected $id = '';
     /**
-     * Generated from protobuf field <code>optional bool should_rotate = 2 [json_name = "shouldRotate"];</code>
+     * Generated from protobuf field <code>optional bool show_private_key = 2 [json_name = "showPrivateKey"];</code>
+     */
+    protected $show_private_key = null;
+    /**
+     * Generated from protobuf field <code>optional bool should_rotate = 3 [json_name = "shouldRotate"];</code>
      */
     protected $should_rotate = null;
     /**
-     * Generated from protobuf field <code>optional string rotate_cron = 3 [json_name = "rotateCron"];</code>
+     * Generated from protobuf field <code>optional string rotate_cron = 4 [json_name = "rotateCron"];</code>
      */
     protected $rotate_cron = null;
     /**
-     * Generated from protobuf field <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     * Generated from protobuf field <code>optional int32 bits = 5 [json_name = "bits"];</code>
      */
     protected $bits = null;
 
@@ -37,6 +41,7 @@ class KeyServiceGetOrCreateRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $id
+     *     @type bool $show_private_key
      *     @type bool $should_rotate
      *     @type string $rotate_cron
      *     @type int $bits
@@ -70,7 +75,39 @@ class KeyServiceGetOrCreateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool should_rotate = 2 [json_name = "shouldRotate"];</code>
+     * Generated from protobuf field <code>optional bool show_private_key = 2 [json_name = "showPrivateKey"];</code>
+     * @return bool
+     */
+    public function getShowPrivateKey()
+    {
+        return isset($this->show_private_key) ? $this->show_private_key : false;
+    }
+
+    public function hasShowPrivateKey()
+    {
+        return isset($this->show_private_key);
+    }
+
+    public function clearShowPrivateKey()
+    {
+        unset($this->show_private_key);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional bool show_private_key = 2 [json_name = "showPrivateKey"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setShowPrivateKey($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->show_private_key = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional bool should_rotate = 3 [json_name = "shouldRotate"];</code>
      * @return bool
      */
     public function getShouldRotate()
@@ -89,7 +126,7 @@ class KeyServiceGetOrCreateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool should_rotate = 2 [json_name = "shouldRotate"];</code>
+     * Generated from protobuf field <code>optional bool should_rotate = 3 [json_name = "shouldRotate"];</code>
      * @param bool $var
      * @return $this
      */
@@ -102,7 +139,7 @@ class KeyServiceGetOrCreateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string rotate_cron = 3 [json_name = "rotateCron"];</code>
+     * Generated from protobuf field <code>optional string rotate_cron = 4 [json_name = "rotateCron"];</code>
      * @return string
      */
     public function getRotateCron()
@@ -121,7 +158,7 @@ class KeyServiceGetOrCreateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string rotate_cron = 3 [json_name = "rotateCron"];</code>
+     * Generated from protobuf field <code>optional string rotate_cron = 4 [json_name = "rotateCron"];</code>
      * @param string $var
      * @return $this
      */
@@ -134,7 +171,7 @@ class KeyServiceGetOrCreateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     * Generated from protobuf field <code>optional int32 bits = 5 [json_name = "bits"];</code>
      * @return int
      */
     public function getBits()
@@ -153,7 +190,7 @@ class KeyServiceGetOrCreateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 bits = 4 [json_name = "bits"];</code>
+     * Generated from protobuf field <code>optional int32 bits = 5 [json_name = "bits"];</code>
      * @param int $var
      * @return $this
      */

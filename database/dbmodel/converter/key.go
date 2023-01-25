@@ -12,7 +12,7 @@ type KeyConverterImpl struct {
 
 var KeyConverter = &KeyConverterImpl{}
 
-func (*KeyConverterImpl) ToGrpc(k *dbmodel.KeyModel) *models.Key {
+func (*KeyConverterImpl) ToGrpc(k *dbmodel.KeyModel, showPrivate bool) *models.Key {
 	out := &models.Key{
 		Id:           k.ID,
 		ExternalId:   k.ExternalId,
@@ -27,7 +27,7 @@ func (*KeyConverterImpl) ToGrpc(k *dbmodel.KeyModel) *models.Key {
 	if k.ExpiresAt != nil {
 		out.ExpiresAt = timestamppb.New(*k.ExpiresAt)
 	}
-	if typ.GetEnv("SECRETARY_INSECURE", "false") == "true" {
+	if typ.GetEnv("SECRETARY_INSECURE", "false") == "true" && showPrivate {
 		out.PrivateKey = k.PrivateKey
 	}
 	return out
@@ -65,10 +65,10 @@ func (*KeyConverterImpl) ToGormList(keys []*models.Key) []*dbmodel.KeyModel {
 	return out
 }
 
-func (*KeyConverterImpl) ToGrpcList(keys []*dbmodel.KeyModel) []*models.Key {
+func (*KeyConverterImpl) ToGrpcList(keys []*dbmodel.KeyModel, showPrivate bool) []*models.Key {
 	out := make([]*models.Key, len(keys))
 	for i, key := range keys {
-		out[i] = (&KeyConverterImpl{}).ToGrpc(key)
+		out[i] = (&KeyConverterImpl{}).ToGrpc(key, showPrivate)
 	}
 	return out
 }

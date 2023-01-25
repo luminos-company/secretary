@@ -39,7 +39,7 @@ func (k KeyService) Create(_ context.Context, request *models.KeyServiceCreateRe
 		return nil, err
 	}
 	return &models.KeyServiceCreateResponse{
-		Key: converter.KeyConverter.ToGrpc(key),
+		Key: converter.KeyConverter.ToGrpc(key, request.GetShowPrivateKey()),
 	}, nil
 }
 
@@ -49,7 +49,7 @@ func (k KeyService) Get(_ context.Context, request *models.KeyServiceGetRequest)
 		return nil, err
 	}
 	return &models.KeyServiceGetResponse{
-		Key: converter.KeyConverter.ToGrpc(key),
+		Key: converter.KeyConverter.ToGrpc(key, request.GetShowPrivateKey()),
 	}, nil
 }
 
@@ -73,11 +73,11 @@ func (k KeyService) GetOrCreate(_ context.Context, request *models.KeyServiceGet
 			return nil, err
 		}
 		return &models.KeyServiceGetOrCreateResponse{
-			Key: converter.KeyConverter.ToGrpc(key),
+			Key: converter.KeyConverter.ToGrpc(key, request.GetShowPrivateKey()),
 		}, nil
 	}
 	return &models.KeyServiceGetOrCreateResponse{
-		Key: converter.KeyConverter.ToGrpc(bq),
+		Key: converter.KeyConverter.ToGrpc(bq, request.GetShowPrivateKey()),
 	}, nil
 }
 
@@ -96,7 +96,7 @@ func (k KeyService) List(_ context.Context, request *models.KeyServiceListReques
 		lastId = typ.StringP(find[len(find)-1].ID)
 	}
 	return &models.KeyServiceListResponse{
-		Keys:   converter.KeyConverter.ToGrpcList(find),
+		Keys:   converter.KeyConverter.ToGrpcList(find, request.GetShowPrivateKey()),
 		LastId: lastId,
 	}, nil
 }
@@ -208,7 +208,7 @@ func (k KeyService) Rotate(_ context.Context, request *models.KeyServiceRotateRe
 	}
 	queries.KeyEnhancer.Rotate(bq)
 	return &models.KeyServiceRotateResponse{
-		Key: converter.KeyConverter.ToGrpc(bq),
+		Key: converter.KeyConverter.ToGrpc(bq, request.GetShowPrivateKey()),
 	}, nil
 }
 

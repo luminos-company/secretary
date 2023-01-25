@@ -24,30 +24,34 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     end
     add_message "models.KeyServiceCreateRequest" do
       proto3_optional :id, :string, 1, json_name: "id"
-      proto3_optional :should_rotate, :bool, 2, json_name: "shouldRotate"
-      proto3_optional :rotate_cron, :string, 3, json_name: "rotateCron"
-      proto3_optional :bits, :int32, 4, json_name: "bits"
+      proto3_optional :show_private_key, :bool, 2, json_name: "showPrivateKey"
+      proto3_optional :should_rotate, :bool, 3, json_name: "shouldRotate"
+      proto3_optional :rotate_cron, :string, 4, json_name: "rotateCron"
+      proto3_optional :bits, :int32, 5, json_name: "bits"
     end
     add_message "models.KeyServiceCreateResponse" do
       optional :key, :message, 1, "models.Key", json_name: "key"
     end
     add_message "models.KeyServiceGetRequest" do
       optional :id, :string, 1, json_name: "id"
+      proto3_optional :show_private_key, :bool, 2, json_name: "showPrivateKey"
     end
     add_message "models.KeyServiceGetResponse" do
       optional :key, :message, 1, "models.Key", json_name: "key"
     end
     add_message "models.KeyServiceGetOrCreateRequest" do
       optional :id, :string, 1, json_name: "id"
-      proto3_optional :should_rotate, :bool, 2, json_name: "shouldRotate"
-      proto3_optional :rotate_cron, :string, 3, json_name: "rotateCron"
-      proto3_optional :bits, :int32, 4, json_name: "bits"
+      proto3_optional :show_private_key, :bool, 2, json_name: "showPrivateKey"
+      proto3_optional :should_rotate, :bool, 3, json_name: "shouldRotate"
+      proto3_optional :rotate_cron, :string, 4, json_name: "rotateCron"
+      proto3_optional :bits, :int32, 5, json_name: "bits"
     end
     add_message "models.KeyServiceGetOrCreateResponse" do
       optional :key, :message, 1, "models.Key", json_name: "key"
     end
     add_message "models.KeyServiceListRequest" do
       proto3_optional :first_id, :string, 1, json_name: "firstId"
+      proto3_optional :show_private_key, :bool, 2, json_name: "showPrivateKey"
     end
     add_message "models.KeyServiceListResponse" do
       repeated :keys, :message, 1, "models.Key", json_name: "keys"
@@ -85,6 +89,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     end
     add_message "models.KeyServiceRotateRequest" do
       optional :id, :string, 1, json_name: "id"
+      proto3_optional :show_private_key, :bool, 2, json_name: "showPrivateKey"
     end
     add_message "models.KeyServiceRotateResponse" do
       optional :key, :message, 1, "models.Key", json_name: "key"

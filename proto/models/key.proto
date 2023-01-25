@@ -26,9 +26,10 @@ message Key {
 
 message KeyServiceCreateRequest {
     optional string id = 1;
-    optional bool should_rotate = 2;
-    optional string rotate_cron = 3;
-    optional int32 bits = 4;
+    optional bool show_private_key = 2;
+    optional bool should_rotate = 3;
+    optional string rotate_cron = 4;
+    optional int32 bits = 5;
 }
 
 message KeyServiceCreateResponse {
@@ -37,6 +38,7 @@ message KeyServiceCreateResponse {
 
 message KeyServiceGetRequest {
     string id = 1;
+    optional bool show_private_key = 2;
 }
 message KeyServiceGetResponse {
     Key key = 1;
@@ -44,9 +46,10 @@ message KeyServiceGetResponse {
 
 message KeyServiceGetOrCreateRequest {
     string id = 1;
-    optional bool should_rotate = 2;
-    optional string rotate_cron = 3;
-    optional int32 bits = 4;
+    optional bool show_private_key = 2;
+    optional bool should_rotate = 3;
+    optional string rotate_cron = 4;
+    optional int32 bits = 5;
 }
 
 message KeyServiceGetOrCreateResponse {
@@ -55,6 +58,7 @@ message KeyServiceGetOrCreateResponse {
 
 message KeyServiceListRequest {
    optional string first_id = 1;
+    optional bool show_private_key = 2;
 }
 
 message KeyServiceListResponse {
@@ -102,6 +106,7 @@ message KeyServiceDecryptResponse {
 
 message KeyServiceRotateRequest {
     string id = 1;
+    optional bool show_private_key = 2;
 }
 
 message KeyServiceRotateResponse {

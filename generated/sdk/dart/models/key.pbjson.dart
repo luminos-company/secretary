@@ -39,12 +39,14 @@ const KeyServiceCreateRequest$json = const {
   '1': 'KeyServiceCreateRequest',
   '2': const [
     const {'1': 'id', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'id', '17': true},
-    const {'1': 'should_rotate', '3': 2, '4': 1, '5': 8, '9': 1, '10': 'shouldRotate', '17': true},
-    const {'1': 'rotate_cron', '3': 3, '4': 1, '5': 9, '9': 2, '10': 'rotateCron', '17': true},
-    const {'1': 'bits', '3': 4, '4': 1, '5': 5, '9': 3, '10': 'bits', '17': true},
+    const {'1': 'show_private_key', '3': 2, '4': 1, '5': 8, '9': 1, '10': 'showPrivateKey', '17': true},
+    const {'1': 'should_rotate', '3': 3, '4': 1, '5': 8, '9': 2, '10': 'shouldRotate', '17': true},
+    const {'1': 'rotate_cron', '3': 4, '4': 1, '5': 9, '9': 3, '10': 'rotateCron', '17': true},
+    const {'1': 'bits', '3': 5, '4': 1, '5': 5, '9': 4, '10': 'bits', '17': true},
   ],
   '8': const [
     const {'1': '_id'},
+    const {'1': '_show_private_key'},
     const {'1': '_should_rotate'},
     const {'1': '_rotate_cron'},
     const {'1': '_bits'},
@@ -52,7 +54,7 @@ const KeyServiceCreateRequest$json = const {
 };
 
 /// Descriptor for `KeyServiceCreateRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyServiceCreateRequestDescriptor = $convert.base64Decode('ChdLZXlTZXJ2aWNlQ3JlYXRlUmVxdWVzdBITCgJpZBgBIAEoCUgAUgJpZIgBARIoCg1zaG91bGRfcm90YXRlGAIgASgISAFSDHNob3VsZFJvdGF0ZYgBARIkCgtyb3RhdGVfY3JvbhgDIAEoCUgCUgpyb3RhdGVDcm9uiAEBEhcKBGJpdHMYBCABKAVIA1IEYml0c4gBAUIFCgNfaWRCEAoOX3Nob3VsZF9yb3RhdGVCDgoMX3JvdGF0ZV9jcm9uQgcKBV9iaXRz');
+final $typed_data.Uint8List keyServiceCreateRequestDescriptor = $convert.base64Decode('ChdLZXlTZXJ2aWNlQ3JlYXRlUmVxdWVzdBITCgJpZBgBIAEoCUgAUgJpZIgBARItChBzaG93X3ByaXZhdGVfa2V5GAIgASgISAFSDnNob3dQcml2YXRlS2V5iAEBEigKDXNob3VsZF9yb3RhdGUYAyABKAhIAlIMc2hvdWxkUm90YXRliAEBEiQKC3JvdGF0ZV9jcm9uGAQgASgJSANSCnJvdGF0ZUNyb26IAQESFwoEYml0cxgFIAEoBUgEUgRiaXRziAEBQgUKA19pZEITChFfc2hvd19wcml2YXRlX2tleUIQCg5fc2hvdWxkX3JvdGF0ZUIOCgxfcm90YXRlX2Nyb25CBwoFX2JpdHM=');
 @$core.Deprecated('Use keyServiceCreateResponseDescriptor instead')
 const KeyServiceCreateResponse$json = const {
   '1': 'KeyServiceCreateResponse',
@@ -68,11 +70,15 @@ const KeyServiceGetRequest$json = const {
   '1': 'KeyServiceGetRequest',
   '2': const [
     const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'show_private_key', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'showPrivateKey', '17': true},
+  ],
+  '8': const [
+    const {'1': '_show_private_key'},
   ],
 };
 
 /// Descriptor for `KeyServiceGetRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyServiceGetRequestDescriptor = $convert.base64Decode('ChRLZXlTZXJ2aWNlR2V0UmVxdWVzdBIOCgJpZBgBIAEoCVICaWQ=');
+final $typed_data.Uint8List keyServiceGetRequestDescriptor = $convert.base64Decode('ChRLZXlTZXJ2aWNlR2V0UmVxdWVzdBIOCgJpZBgBIAEoCVICaWQSLQoQc2hvd19wcml2YXRlX2tleRgCIAEoCEgAUg5zaG93UHJpdmF0ZUtleYgBAUITChFfc2hvd19wcml2YXRlX2tleQ==');
 @$core.Deprecated('Use keyServiceGetResponseDescriptor instead')
 const KeyServiceGetResponse$json = const {
   '1': 'KeyServiceGetResponse',
@@ -88,11 +94,13 @@ const KeyServiceGetOrCreateRequest$json = const {
   '1': 'KeyServiceGetOrCreateRequest',
   '2': const [
     const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
-    const {'1': 'should_rotate', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'shouldRotate', '17': true},
-    const {'1': 'rotate_cron', '3': 3, '4': 1, '5': 9, '9': 1, '10': 'rotateCron', '17': true},
-    const {'1': 'bits', '3': 4, '4': 1, '5': 5, '9': 2, '10': 'bits', '17': true},
+    const {'1': 'show_private_key', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'showPrivateKey', '17': true},
+    const {'1': 'should_rotate', '3': 3, '4': 1, '5': 8, '9': 1, '10': 'shouldRotate', '17': true},
+    const {'1': 'rotate_cron', '3': 4, '4': 1, '5': 9, '9': 2, '10': 'rotateCron', '17': true},
+    const {'1': 'bits', '3': 5, '4': 1, '5': 5, '9': 3, '10': 'bits', '17': true},
   ],
   '8': const [
+    const {'1': '_show_private_key'},
     const {'1': '_should_rotate'},
     const {'1': '_rotate_cron'},
     const {'1': '_bits'},
@@ -100,7 +108,7 @@ const KeyServiceGetOrCreateRequest$json = const {
 };
 
 /// Descriptor for `KeyServiceGetOrCreateRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyServiceGetOrCreateRequestDescriptor = $convert.base64Decode('ChxLZXlTZXJ2aWNlR2V0T3JDcmVhdGVSZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZBIoCg1zaG91bGRfcm90YXRlGAIgASgISABSDHNob3VsZFJvdGF0ZYgBARIkCgtyb3RhdGVfY3JvbhgDIAEoCUgBUgpyb3RhdGVDcm9uiAEBEhcKBGJpdHMYBCABKAVIAlIEYml0c4gBAUIQCg5fc2hvdWxkX3JvdGF0ZUIOCgxfcm90YXRlX2Nyb25CBwoFX2JpdHM=');
+final $typed_data.Uint8List keyServiceGetOrCreateRequestDescriptor = $convert.base64Decode('ChxLZXlTZXJ2aWNlR2V0T3JDcmVhdGVSZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZBItChBzaG93X3ByaXZhdGVfa2V5GAIgASgISABSDnNob3dQcml2YXRlS2V5iAEBEigKDXNob3VsZF9yb3RhdGUYAyABKAhIAVIMc2hvdWxkUm90YXRliAEBEiQKC3JvdGF0ZV9jcm9uGAQgASgJSAJSCnJvdGF0ZUNyb26IAQESFwoEYml0cxgFIAEoBUgDUgRiaXRziAEBQhMKEV9zaG93X3ByaXZhdGVfa2V5QhAKDl9zaG91bGRfcm90YXRlQg4KDF9yb3RhdGVfY3JvbkIHCgVfYml0cw==');
 @$core.Deprecated('Use keyServiceGetOrCreateResponseDescriptor instead')
 const KeyServiceGetOrCreateResponse$json = const {
   '1': 'KeyServiceGetOrCreateResponse',
@@ -116,14 +124,16 @@ const KeyServiceListRequest$json = const {
   '1': 'KeyServiceListRequest',
   '2': const [
     const {'1': 'first_id', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'firstId', '17': true},
+    const {'1': 'show_private_key', '3': 2, '4': 1, '5': 8, '9': 1, '10': 'showPrivateKey', '17': true},
   ],
   '8': const [
     const {'1': '_first_id'},
+    const {'1': '_show_private_key'},
   ],
 };
 
 /// Descriptor for `KeyServiceListRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyServiceListRequestDescriptor = $convert.base64Decode('ChVLZXlTZXJ2aWNlTGlzdFJlcXVlc3QSHgoIZmlyc3RfaWQYASABKAlIAFIHZmlyc3RJZIgBAUILCglfZmlyc3RfaWQ=');
+final $typed_data.Uint8List keyServiceListRequestDescriptor = $convert.base64Decode('ChVLZXlTZXJ2aWNlTGlzdFJlcXVlc3QSHgoIZmlyc3RfaWQYASABKAlIAFIHZmlyc3RJZIgBARItChBzaG93X3ByaXZhdGVfa2V5GAIgASgISAFSDnNob3dQcml2YXRlS2V5iAEBQgsKCV9maXJzdF9pZEITChFfc2hvd19wcml2YXRlX2tleQ==');
 @$core.Deprecated('Use keyServiceListResponseDescriptor instead')
 const KeyServiceListResponse$json = const {
   '1': 'KeyServiceListResponse',
@@ -229,11 +239,15 @@ const KeyServiceRotateRequest$json = const {
   '1': 'KeyServiceRotateRequest',
   '2': const [
     const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'show_private_key', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'showPrivateKey', '17': true},
+  ],
+  '8': const [
+    const {'1': '_show_private_key'},
   ],
 };
 
 /// Descriptor for `KeyServiceRotateRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyServiceRotateRequestDescriptor = $convert.base64Decode('ChdLZXlTZXJ2aWNlUm90YXRlUmVxdWVzdBIOCgJpZBgBIAEoCVICaWQ=');
+final $typed_data.Uint8List keyServiceRotateRequestDescriptor = $convert.base64Decode('ChdLZXlTZXJ2aWNlUm90YXRlUmVxdWVzdBIOCgJpZBgBIAEoCVICaWQSLQoQc2hvd19wcml2YXRlX2tleRgCIAEoCEgAUg5zaG93UHJpdmF0ZUtleYgBAUITChFfc2hvd19wcml2YXRlX2tleQ==');
 @$core.Deprecated('Use keyServiceRotateResponseDescriptor instead')
 const KeyServiceRotateResponse$json = const {
   '1': 'KeyServiceRotateResponse',

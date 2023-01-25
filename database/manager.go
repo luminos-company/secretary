@@ -37,6 +37,7 @@ func create() {
 
 func Generate() {
 	db = Get()
+
 	g := gen.NewGenerator(gen.Config{
 		OutPath: "generated/query",
 		Mode:    gen.WithoutContext | gen.WithDefaultQuery | gen.WithQueryInterface, // generate mode

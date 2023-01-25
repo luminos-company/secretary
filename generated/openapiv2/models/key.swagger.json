@@ -39,6 +39,12 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "showPrivateKey",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "tags": [
@@ -131,6 +137,12 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "showPrivateKey",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "tags": [
@@ -391,6 +403,12 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "showPrivateKey",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "tags": [
@@ -536,6 +554,9 @@
         "id": {
           "type": "string"
         },
+        "showPrivateKey": {
+          "type": "boolean"
+        },
         "shouldRotate": {
           "type": "boolean"
         },
@@ -580,6 +601,9 @@
       "properties": {
         "id": {
           "type": "string"
+        },
+        "showPrivateKey": {
+          "type": "boolean"
         },
         "shouldRotate": {
           "type": "boolean"

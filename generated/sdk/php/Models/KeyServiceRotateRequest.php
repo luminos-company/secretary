@@ -17,6 +17,10 @@ class KeyServiceRotateRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string id = 1 [json_name = "id"];</code>
      */
     protected $id = '';
+    /**
+     * Generated from protobuf field <code>optional bool show_private_key = 2 [json_name = "showPrivateKey"];</code>
+     */
+    protected $show_private_key = null;
 
     /**
      * Constructor.
@@ -25,6 +29,7 @@ class KeyServiceRotateRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $id
+     *     @type bool $show_private_key
      * }
      */
     public function __construct($data = NULL) {
@@ -50,6 +55,38 @@ class KeyServiceRotateRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional bool show_private_key = 2 [json_name = "showPrivateKey"];</code>
+     * @return bool
+     */
+    public function getShowPrivateKey()
+    {
+        return isset($this->show_private_key) ? $this->show_private_key : false;
+    }
+
+    public function hasShowPrivateKey()
+    {
+        return isset($this->show_private_key);
+    }
+
+    public function clearShowPrivateKey()
+    {
+        unset($this->show_private_key);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional bool show_private_key = 2 [json_name = "showPrivateKey"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setShowPrivateKey($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->show_private_key = $var;
 
         return $this;
     }
